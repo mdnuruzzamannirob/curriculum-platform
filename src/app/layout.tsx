@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Google_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 import { ProgressProvider } from "@/context/ProgressContext";
 import SearchBar from "@/components/SearchBar";
 import "./globals.css";
 
-const geistSans = Google_Sans({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-app-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={`${geistSans.className} antialiased`}
+        className={`${inter.variable} antialiased`}
       >
         <ProgressProvider>
           <header className="sticky top-0 z-40 border-b border-[#1e1e1e] bg-[#0a0a0a]/90 backdrop-blur-sm">

@@ -22,7 +22,7 @@ export default function ModuleSidebar({
   const { progress } = useProgress();
 
   return (
-    <nav className="space-y-1">
+    <nav className="flex gap-1 overflow-x-auto md:flex-col md:overflow-x-visible">
       {modules.map((mod) => {
         const active = mod.id === activeId;
         const mp = calcModuleProgress(progress, courseId, levelId, mod);
@@ -33,19 +33,21 @@ export default function ModuleSidebar({
             key={mod.id}
             type="button"
             onClick={() => onSelect(mod.id)}
-            className={`flex w-full flex-col items-center gap-1 rounded-lg px-3 py-3 text-center transition-colors ${
-              active ? "bg-[#1a1a1a] border-l-2" : "hover:bg-[#141414]"
+            className={`flex shrink-0 flex-row items-center gap-2 rounded-lg px-3 py-2 transition-colors md:w-full md:flex-col md:gap-1 md:py-3 md:text-center ${
+              active
+                ? "bg-[#1a1a1a] border-b-2 md:border-b-0 md:border-l-2"
+                : "hover:bg-[#141414]"
             }`}
             style={active ? { borderColor: modColor } : undefined}
           >
             <span
-              className="text-lg font-bold font-mono"
+              className="text-base font-bold font-mono md:text-lg"
               style={{ color: modColor }}
             >
               {mod.icon ?? mod.id.charAt(0).toUpperCase()}
             </span>
             <span
-              className="text-xs font-semibold"
+              className="text-xs font-semibold whitespace-nowrap"
               style={{ color: active ? modColor : "#999" }}
             >
               {mod.title}

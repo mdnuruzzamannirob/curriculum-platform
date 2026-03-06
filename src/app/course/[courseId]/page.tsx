@@ -1,13 +1,17 @@
 "use client";
 
-import { use, useState, useMemo, Suspense } from "react";
+import { use, useState, useMemo, useEffect, Suspense } from "react";
 import { notFound } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { getCourseById } from "@/data/courses";
 import { useProgress } from "@/context/ProgressContext";
-import { calcCourseProgress, calcModuleProgress } from "@/utils/progress";
+import {
+  calcCourseProgress,
+  calcModuleProgress,
+  calcLevelProgress,
+} from "@/utils/progress";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import LevelCards from "@/components/LevelCards";
+import ProgressBar from "@/components/ProgressBar";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import TopicAccordion from "@/components/TopicAccordion";
 
@@ -23,8 +27,17 @@ function CourseContent({ courseId }: { courseId: string }) {
   const [activeModuleId, setActiveModuleId] = useState<string | null>(
     initialModule,
   );
+  const [showProgress, setShowProgress] = useState(true);
 
-  const { progress } = useProgress();
+  // Sync state when search params change (e.g. via SearchBar navigation)
+  useEffect(() => {
+    const level = searchParams.get("level");
+    const mod = searchParams.get("module");
+    if (level) setActiveLevelId(level);
+    if (mod) setActiveModuleId(mod);
+  }, [searchParams]);
+
+  const { progress, isLoaded } = useProgress();
   const courseStats = calcCourseProgress(progress, course);
 
   const activeLevel =
@@ -40,8 +53,10 @@ function CourseContent({ courseId }: { courseId: string }) {
 
   // Aggregate per-module totals across all levels
   const moduleAgg = useMemo(() => {
-    const agg: Record<string, { title: string; color: string; total: number }> =
-      {};
+    const agg: Record<
+      string,
+      { title: string; color: string; completed: number; total: number }
+    > = {};
     for (const level of course.levels) {
       for (const mod of level.modules) {
         const mp = calcModuleProgress(progress, course.id, level.id, mod);
@@ -49,8 +64,10 @@ function CourseContent({ courseId }: { courseId: string }) {
           agg[mod.id] = {
             title: mod.title,
             color: mod.color ?? "#888",
+            completed: 0,
             total: 0,
           };
+        agg[mod.id].completed += mp.completed;
         agg[mod.id].total += mp.total;
       }
     }
@@ -59,6 +76,10 @@ function CourseContent({ courseId }: { courseId: string }) {
 
   const totalSubtopics = Object.values(moduleAgg).reduce(
     (s, m) => s + m.total,
+    0,
+  );
+  const totalCompleted = Object.values(moduleAgg).reduce(
+    (s, m) => s + m.completed,
     0,
   );
 
@@ -70,6 +91,7 @@ function CourseContent({ courseId }: { courseId: string }) {
   const activeModuleStats = activeModule
     ? calcModuleProgress(progress, course.id, activeLevel.id, activeModule)
     : null;
+  const activeLevelStats = calcLevelProgress(progress, course.id, activeLevel);
 
   return (
     <div>
@@ -79,18 +101,32 @@ function CourseContent({ courseId }: { courseId: string }) {
 
       {/* ── Course header ────────────────────────────────── */}
       <div className="mt-4 mb-6">
-        <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#555]">
-          Mastery System
-        </p>
-        <div className="mt-1 flex items-baseline gap-3">
-          <h1 className="text-3xl font-black text-[#e5e5e5]">{course.title}</h1>
-          <span
-            className="text-xl font-bold font-mono"
-            style={{ color: course.color }}
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#555]">
+              Mastery System
+            </p>
+            <div className="mt-1 flex items-baseline gap-3">
+              <h1 className="text-2xl font-black text-[#e5e5e5] sm:text-3xl">
+                {course.title}
+              </h1>
+              <span
+                className="text-xl font-bold font-mono"
+                style={{ color: course.color }}
+              >
+                {course.icon}
+              </span>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowProgress(!showProgress)}
+            className="rounded-lg border border-[#1e1e1e] bg-[#111] px-3 py-1.5 text-xs font-medium text-[#999] transition-colors hover:border-[#333] hover:text-[#e5e5e5] shrink-0 mt-2"
           >
-            {course.icon}
-          </span>
+            {showProgress ? "Hide Stats" : "Show Stats"}
+          </button>
         </div>
+
         <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
           {Object.entries(moduleAgg).map(([id, agg]) => (
             <span
@@ -98,24 +134,108 @@ function CourseContent({ courseId }: { courseId: string }) {
               className="font-semibold"
               style={{ color: agg.color }}
             >
-              {agg.total} {agg.title} topics
+              {agg.completed}/{agg.total} {agg.title}
             </span>
           ))}
-          <span className="text-[#555]">=</span>
-          <span className="text-[#888]">{totalSubtopics} total</span>
+          <span className="text-[#333]">·</span>
+          <span className="text-[#666]">{totalSubtopics} total</span>
         </div>
+
+        {/* Course progress bar - toggleable */}
+        {showProgress && isLoaded && (
+          <div className="mt-3 max-w-md">
+            <ProgressBar
+              percentage={courseStats.percentage}
+              size="md"
+              color={course.color}
+            />
+            <p className="mt-1 text-xs text-[#555]">
+              {totalCompleted}/{totalSubtopics} subtopics completed
+            </p>
+          </div>
+        )}
       </div>
 
-      {/* ── Level cards ──────────────────────────────────── */}
-      <LevelCards
-        levels={course.levels}
-        activeId={activeLevel.id}
-        courseId={course.id}
-        onSelect={handleLevelChange}
-      />
+      {/* ── Level cards grid ─────────────────────────────── */}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+        {course.levels.map((level, idx) => {
+          const active = level.id === activeLevel.id;
+          const color = level.color ?? "#666";
+          const lp = calcLevelProgress(progress, course.id, level);
+
+          return (
+            <button
+              key={level.id}
+              type="button"
+              onClick={() => handleLevelChange(level.id)}
+              className={`rounded-lg border p-3 text-left transition-all ${
+                active ? "ring-1" : "border-[#1e1e1e] hover:border-[#333]"
+              }`}
+              style={
+                active
+                  ? { borderColor: color, boxShadow: `0 0 0 1px ${color}40` }
+                  : undefined
+              }
+            >
+              <p
+                className="text-[10px] font-bold tracking-wider"
+                style={{ color }}
+              >
+                L{idx}
+              </p>
+              <p
+                className={`text-xs font-semibold mt-0.5 ${active ? "text-[#e5e5e5]" : "text-[#999]"}`}
+              >
+                {level.title}
+              </p>
+              {showProgress && (
+                <div className="mt-2 space-y-0.5">
+                  {level.modules.map((mod) => {
+                    const mp = calcModuleProgress(
+                      progress,
+                      course.id,
+                      level.id,
+                      mod,
+                    );
+                    return (
+                      <div
+                        key={mod.id}
+                        className="flex items-center gap-1.5 text-[10px]"
+                      >
+                        <span
+                          className="font-semibold"
+                          style={{ color: mod.color ?? "#888" }}
+                        >
+                          {mod.id.toUpperCase()}
+                        </span>
+                        <span className="font-mono text-[#666]">
+                          {mp.completed}/{mp.total}
+                        </span>
+                      </div>
+                    );
+                  })}
+                  {lp.percentage > 0 && (
+                    <div className="mt-1">
+                      <div className="h-1 rounded-full bg-[#1e1e1e]">
+                        <div
+                          className="h-1 rounded-full transition-all"
+                          style={{
+                            width: `${lp.percentage}%`,
+                            backgroundColor: color,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </button>
+          );
+        })}
+      </div>
 
       {/* ── Level tabs bar ───────────────────────────────── */}
-      <div className="mt-6 flex gap-1 overflow-x-auto border-b border-[#222]">
+      <div className="mt-6 -mx-4 px-4 sm:-mx-0 sm:px-0 flex gap-1 overflow-x-auto border-b border-[#1e1e1e]">
         {course.levels.map((level, idx) => {
           const active = level.id === activeLevel.id;
           const color = level.color ?? "#888";
@@ -124,8 +244,8 @@ function CourseContent({ courseId }: { courseId: string }) {
               key={level.id}
               type="button"
               onClick={() => handleLevelChange(level.id)}
-              className={`flex shrink-0 flex-col items-center px-5 py-2 transition-colors ${
-                active ? "border-b-2" : "hover:bg-[#141414]"
+              className={`flex shrink-0 items-center gap-1.5 px-4 py-2.5 transition-colors ${
+                active ? "border-b-2" : "hover:bg-[#111]"
               }`}
               style={active ? { borderColor: color } : undefined}
             >
@@ -140,20 +260,15 @@ function CourseContent({ courseId }: { courseId: string }) {
               >
                 {level.title}
               </span>
-              {level.description && (
-                <span className="text-[10px] text-[#444]">
-                  {level.description}
-                </span>
-              )}
             </button>
           );
         })}
       </div>
 
       {/* ── Content: sidebar + topics ────────────────────── */}
-      <div className="mt-6 flex gap-6">
-        {/* Module sidebar */}
-        <div className="w-20 shrink-0">
+      <div className="mt-6 flex flex-col gap-4 md:flex-row md:gap-6">
+        {/* Module sidebar - horizontal on mobile, vertical on desktop */}
+        <div className="w-full md:w-20 shrink-0">
           <ModuleSidebar
             modules={activeLevel.modules}
             activeId={resolvedModuleId}
@@ -168,12 +283,12 @@ function CourseContent({ courseId }: { courseId: string }) {
           {activeModule && (
             <>
               {/* Section header */}
-              <div className="mb-4 flex items-center justify-between">
+              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-2">
                   <span
                     className="rounded-md px-2 py-0.5 text-xs font-bold"
                     style={{
-                      backgroundColor: activeLevel.color + "22",
+                      backgroundColor: (activeLevel.color ?? "#888") + "18",
                       color: activeLevel.color,
                     }}
                   >
@@ -183,10 +298,22 @@ function CourseContent({ courseId }: { courseId: string }) {
                     {activeModule.title} Topics
                   </h2>
                 </div>
-                <span className="text-xs text-[#555]">
-                  {activeModule.topics.length} sections ·{" "}
-                  {activeModuleStats?.total ?? 0} items
-                </span>
+                <div className="flex items-center gap-3">
+                  {showProgress && activeModuleStats && (
+                    <div className="w-24">
+                      <ProgressBar
+                        percentage={activeModuleStats.percentage}
+                        size="sm"
+                        color={activeModule.color}
+                      />
+                    </div>
+                  )}
+                  <span className="text-xs text-[#555]">
+                    {activeModuleStats?.completed ?? 0}/
+                    {activeModuleStats?.total ?? 0} done ·{" "}
+                    {activeModule.topics.length} sections
+                  </span>
+                </div>
               </div>
 
               <TopicAccordion
