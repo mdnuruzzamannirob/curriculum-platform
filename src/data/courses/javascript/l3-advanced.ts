@@ -16,7 +16,7 @@ export const l3Level: Level = {
       topics: [
         {
           id: "design-patterns",
-          title: "Design Patterns",
+          title: "Design Patterns — Singleton, Observer, Factory & More",
           description: "Common JavaScript design patterns.",
           subtopics: [
             { id: "singleton", title: "Singleton Pattern" },
@@ -40,7 +40,7 @@ export const l3Level: Level = {
         },
         {
           id: "memory-management",
-          title: "Memory Management",
+          title: "Memory Management — GC, Leaks & Profiling",
           description: "Memory in JavaScript.",
           subtopics: [
             { id: "stack-heap", title: "Stack vs Heap Memory" },
@@ -245,7 +245,7 @@ export const l3Level: Level = {
       topics: [
         {
           id: "trees",
-          title: "Trees",
+          title: "Trees — Binary Tree, BST & Traversals",
           description: "Tree data structures.",
           subtopics: [
             {
@@ -290,7 +290,7 @@ export const l3Level: Level = {
         },
         {
           id: "graphs",
-          title: "Graphs",
+          title: "Graphs — BFS, DFS & Representations",
           description: "Graph data structures and algorithms.",
           subtopics: [
             { id: "graph-representation", title: "Adjacency List & Matrix" },

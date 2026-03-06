@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Topic, SubtopicStatus } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
 import { calcTopicProgress, getSubtopicStatus } from "@/utils/progress";
@@ -23,6 +23,38 @@ const NEXT_STATUS: Record<SubtopicStatus, SubtopicStatus> = {
   completed: "not-started",
 };
 
+function CopyIcon() {
+  return (
+    <svg
+      className="h-3.5 w-3.5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+      />
+    </svg>
+  );
+}
+
+function CopiedIcon() {
+  return (
+    <svg
+      className="h-3.5 w-3.5 text-emerald-400"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
+
 export default function TopicAccordion({
   topics,
   courseId,
@@ -35,9 +67,23 @@ export default function TopicAccordion({
   const [openIds, setOpenIds] = useState<Set<string>>(
     () => new Set(openTopicId ? [openTopicId] : []),
   );
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const { progress, updateSubtopicStatus } = useProgress();
-  const highlightRef = useRef<HTMLButtonElement | null>(null);
+  const highlightRef = useRef<HTMLDivElement | null>(null);
   const resolvedAccent = moduleColor ?? "#888";
+
+  const copyText = useCallback(async (text: string, id: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      setTimeout(
+        () => setCopiedId((prev) => (prev === id ? null : prev)),
+        1500,
+      );
+    } catch {
+      // Clipboard API not available
+    }
+  }, []);
 
   // Scroll to highlighted item once the accordion section is visible.
   useEffect(() => {
@@ -86,43 +132,57 @@ export default function TopicAccordion({
             className="rounded-xl border border-border-default bg-surface overflow-hidden"
           >
             {/* Topic header */}
-            <button
-              type="button"
-              onClick={() => toggle(topic.id)}
-              className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-surface-hover"
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-bold accent-bg-soft-strong accent-text">
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-sm font-semibold text-text-primary">
-                  {topic.title}
-                </h3>
-              </div>
-              <div className="flex items-center gap-3 shrink-0 ml-2">
-                <span className="text-xs text-text-subtle">
-                  {tp.completed > 0 && (
-                    <span className="text-emerald-400 mr-1">
-                      {tp.completed}✓
-                    </span>
-                  )}
-                  {tp.total} items
-                </span>
-                <svg
-                  className={`h-4 w-4 text-text-faint ${isOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
-            </button>
+            <div className="flex items-center group/topic hover:bg-surface-hover">
+              <button
+                type="button"
+                onClick={() => toggle(topic.id)}
+                className="flex flex-1 items-center justify-between px-5 py-4 text-left min-w-0"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-bold accent-bg-soft-strong accent-text">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-sm font-semibold text-text-primary truncate">
+                    {topic.title}
+                  </h3>
+                </div>
+                <div className="flex items-center gap-3 shrink-0 ml-2">
+                  <span className="text-xs text-text-subtle">
+                    {tp.completed > 0 && (
+                      <span className="text-emerald-400 mr-1">
+                        {tp.completed}✓
+                      </span>
+                    )}
+                    {tp.total} items
+                  </span>
+                  <svg
+                    className={`h-4 w-4 text-text-faint ${isOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <button
+                type="button"
+                onClick={() => copyText(topic.title, `topic-${topic.id}`)}
+                className="mr-3 shrink-0 rounded p-1.5 opacity-0 group-hover/topic:opacity-100 text-text-faint hover:text-text-primary hover:bg-surface-emphasis"
+                title="Copy topic title"
+              >
+                {copiedId === `topic-${topic.id}` ? (
+                  <CopiedIcon />
+                ) : (
+                  <CopyIcon />
+                )}
+              </button>
+            </div>
 
             {/* Subtopics list */}
             {isOpen && (
@@ -140,74 +200,93 @@ export default function TopicAccordion({
                     const isHighlighted = sub.id === highlightSubtopicId;
 
                     return (
-                      <li key={sub.id}>
-                        <button
+                      <li key={sub.id} className="group/sub">
+                        <div
                           ref={isHighlighted ? highlightRef : null}
-                          type="button"
-                          onClick={() =>
-                            updateSubtopicStatus(
-                              courseId,
-                              levelId,
-                              moduleId,
-                              topic.id,
-                              sub.id,
-                              NEXT_STATUS[status],
-                            )
-                          }
-                          className={`group flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left ${
+                          className={`flex items-center gap-1 rounded-lg px-3 py-2 ${
                             isHighlighted
                               ? "accent-bg-soft accent-outline"
                               : "hover:bg-surface-emphasis"
                           }`}
                         >
-                          {/* Checkbox visual */}
-                          <span
-                            className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
-                              status === "completed"
-                                ? "border-emerald-500 bg-emerald-500/20"
-                                : status === "in-progress"
-                                  ? "border-amber-400 bg-amber-400/10"
-                                  : "border-border-strong group-hover:border-text-subtle"
-                            }`}
+                          <button
+                            type="button"
+                            onClick={() =>
+                              updateSubtopicStatus(
+                                courseId,
+                                levelId,
+                                moduleId,
+                                topic.id,
+                                sub.id,
+                                NEXT_STATUS[status],
+                              )
+                            }
+                            className="flex flex-1 items-center gap-3 text-left min-w-0"
                           >
-                            {status === "completed" && (
-                              <svg
-                                className="h-3 w-3 text-emerald-400"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={3}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M5 13l4 4L19 7"
-                                />
-                              </svg>
-                            )}
-                            {status === "in-progress" && (
-                              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                            )}
-                          </span>
-
-                          <span
-                            className={`text-sm ${
-                              status === "completed"
-                                ? "text-text-subtle line-through"
-                                : status === "in-progress"
-                                  ? "text-amber-300"
-                                  : "text-text-secondary"
-                            }`}
-                          >
-                            {sub.title}
-                          </span>
-
-                          {isHighlighted && (
-                            <span className="ml-auto text-[10px] font-bold uppercase tracking-wider accent-text">
-                              ← here
+                            {/* Checkbox visual */}
+                            <span
+                              className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
+                                status === "completed"
+                                  ? "border-emerald-500 bg-emerald-500/20"
+                                  : status === "in-progress"
+                                    ? "border-amber-400 bg-amber-400/10"
+                                    : "border-border-strong group-hover/sub:border-text-subtle"
+                              }`}
+                            >
+                              {status === "completed" && (
+                                <svg
+                                  className="h-3 w-3 text-emerald-400"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={3}
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                              )}
+                              {status === "in-progress" && (
+                                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                              )}
                             </span>
-                          )}
-                        </button>
+
+                            <span
+                              className={`text-sm truncate ${
+                                status === "completed"
+                                  ? "text-text-subtle line-through"
+                                  : status === "in-progress"
+                                    ? "text-amber-300"
+                                    : "text-text-secondary"
+                              }`}
+                            >
+                              {sub.title}
+                            </span>
+
+                            {isHighlighted && (
+                              <span className="ml-auto shrink-0 text-[10px] font-bold uppercase tracking-wider accent-text">
+                                ← here
+                              </span>
+                            )}
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() =>
+                              copyText(sub.title, `sub-${topic.id}-${sub.id}`)
+                            }
+                            className="shrink-0 rounded p-1 opacity-0 group-hover/sub:opacity-100 text-text-faint hover:text-text-primary"
+                            title="Copy"
+                          >
+                            {copiedId === `sub-${topic.id}-${sub.id}` ? (
+                              <CopiedIcon />
+                            ) : (
+                              <CopyIcon />
+                            )}
+                          </button>
+                        </div>
                       </li>
                     );
                   })}

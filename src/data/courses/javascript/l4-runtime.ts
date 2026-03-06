@@ -177,7 +177,7 @@ export const l4Level: Level = {
       topics: [
         {
           id: "dynamic-programming",
-          title: "Dynamic Programming",
+          title: "Dynamic Programming — Memoization & Tabulation",
           description: "DP techniques and patterns.",
           subtopics: [
             { id: "memoization", title: "Top-Down DP (Memoization)" },
@@ -226,7 +226,7 @@ export const l4Level: Level = {
         },
         {
           id: "backtracking",
-          title: "Backtracking",
+          title: "Backtracking — Decision Trees & Pruning",
           description: "Backtracking algorithms.",
           subtopics: [
             {

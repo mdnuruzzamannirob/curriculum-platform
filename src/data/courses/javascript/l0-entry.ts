@@ -33,7 +33,7 @@ export const l0Level: Level = {
         },
         {
           id: "data-types",
-          title: "Data Types",
+          title: "Data Types — Primitive & Reference",
           description: "Primitive and reference types.",
           subtopics: [
             { id: "string", title: "String" },
@@ -49,7 +49,7 @@ export const l0Level: Level = {
         },
         {
           id: "operators",
-          title: "Operators",
+          title: "Operators — Arithmetic, Logical & Comparison",
           description: "JavaScript operators.",
           subtopics: [
             { id: "arithmetic", title: "Arithmetic (+, -, *, /, %, **)" },
@@ -68,7 +68,7 @@ export const l0Level: Level = {
         },
         {
           id: "control-flow",
-          title: "Control Flow",
+          title: "Control Flow — Conditionals & Loops",
           description: "Conditional statements and loops.",
           subtopics: [
             { id: "if-else", title: "if / else / else if" },
@@ -83,7 +83,7 @@ export const l0Level: Level = {
         },
         {
           id: "type-coercion",
-          title: "Type Coercion",
+          title: "Type Coercion — Implicit & Explicit Conversion",
           description: "Implicit and explicit type conversions.",
           subtopics: [
             { id: "implicit-coercion", title: "Implicit Coercion" },
@@ -115,7 +115,7 @@ export const l0Level: Level = {
         },
         {
           id: "functions-basics",
-          title: "Functions Basics",
+          title: "Functions — Declaration, Expression & Arrow",
           description: "Writing and calling functions.",
           subtopics: [
             { id: "function-declarations", title: "Function Declarations" },
@@ -128,7 +128,7 @@ export const l0Level: Level = {
         },
         {
           id: "strings-arrays-basics",
-          title: "Strings & Arrays Basics",
+          title: "Strings & Arrays — Essential Operations",
           description: "Essential string and array operations.",
           subtopics: [
             { id: "string-length", title: "String length & indexing" },
@@ -148,7 +148,7 @@ export const l0Level: Level = {
         },
         {
           id: "objects-basics",
-          title: "Objects Basics",
+          title: "Objects — Literals, Properties & Methods",
           description: "Introduction to JavaScript objects.",
           subtopics: [
             { id: "object-literals", title: "Object Literals ({})" },
@@ -182,7 +182,7 @@ export const l0Level: Level = {
       topics: [
         {
           id: "arrays-basics",
-          title: "Arrays Deep Dive",
+          title: "Arrays — Complete Operations & Manipulation",
           description: "Working with arrays in depth.",
           subtopics: [
             { id: "creating-arrays", title: "Creating & Initializing Arrays" },
@@ -205,7 +205,7 @@ export const l0Level: Level = {
         },
         {
           id: "string-dsa",
-          title: "String Manipulation",
+          title: "String Manipulation — Reverse, Palindrome & More",
           description: "String algorithms and problems.",
           subtopics: [
             { id: "reverse-string", title: "Reverse a String" },
@@ -253,7 +253,7 @@ export const l0Level: Level = {
         },
         {
           id: "intro-complexity",
-          title: "Big O Notation Basics",
+          title: "Big O Notation — Time & Space Complexity",
           description: "Understanding Big O basics.",
           subtopics: [
             { id: "what-is-bigo", title: "What is Big O Notation?" },

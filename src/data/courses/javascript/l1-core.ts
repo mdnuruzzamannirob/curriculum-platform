@@ -16,7 +16,7 @@ export const l1Level: Level = {
       topics: [
         {
           id: "functions",
-          title: "Functions In Depth",
+          title: "Functions — In Depth (HOF, Callbacks, IIFE)",
           description: "All about functions.",
           subtopics: [
             {
@@ -46,7 +46,7 @@ export const l1Level: Level = {
         },
         {
           id: "objects",
-          title: "Objects In Depth",
+          title: "Objects — In Depth (Destructuring, Spread, Freeze)",
           description: "Working with objects.",
           subtopics: [
             { id: "object-literals", title: "Object Literals & Shorthand" },
@@ -74,7 +74,7 @@ export const l1Level: Level = {
         },
         {
           id: "array-methods",
-          title: "Functional Array Methods",
+          title: "Array Methods — map, filter, reduce & More",
           description: "Functional array methods.",
           subtopics: [
             { id: "map", title: "map() — transform" },
@@ -92,7 +92,7 @@ export const l1Level: Level = {
         },
         {
           id: "scope-closures",
-          title: "Scope & Closures",
+          title: "Scope & Closures — Lexical, Block & Chain",
           description: "Understanding scope chains and closures.",
           subtopics: [
             { id: "global-scope", title: "Global Scope (window, global)" },
@@ -124,7 +124,7 @@ export const l1Level: Level = {
         },
         {
           id: "error-handling",
-          title: "Error Handling",
+          title: "Error Handling — try/catch & Custom Errors",
           description: "Handling errors gracefully.",
           subtopics: [
             { id: "try-catch", title: "try / catch / finally" },
@@ -139,7 +139,7 @@ export const l1Level: Level = {
         },
         {
           id: "dom-basics",
-          title: "DOM Manipulation",
+          title: "DOM Manipulation — Elements & Events",
           description: "Document Object Model fundamentals.",
           subtopics: [
             {
@@ -198,7 +198,7 @@ export const l1Level: Level = {
         },
         {
           id: "json-methods",
-          title: "JSON Methods",
+          title: "JSON — parse, stringify & Deep Clone",
           description: "Parsing and serializing JSON data.",
           subtopics: [
             { id: "json-parse", title: "JSON.parse() — string to object" },
@@ -342,7 +342,7 @@ export const l1Level: Level = {
         },
         {
           id: "recursion",
-          title: "Recursion",
+          title: "Recursion — Fundamentals & Call Stack",
           description: "Recursive problem solving.",
           subtopics: [
             { id: "recursion-basics", title: "Recursion Basics" },

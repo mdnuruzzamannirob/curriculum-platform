@@ -16,7 +16,7 @@ export const l5Level: Level = {
       topics: [
         {
           id: "language-internals",
-          title: "JS Engine Internals",
+          title: "JS Engine Internals — V8, JIT & GC Pipeline",
           description: "How JavaScript engines work.",
           subtopics: [
             {
@@ -119,7 +119,7 @@ export const l5Level: Level = {
         },
         {
           id: "build-systems",
-          title: "Build Systems & Bundlers",
+          title: "Build Systems — Webpack, Vite, Rollup & More",
           description: "Understanding modern build tools.",
           subtopics: [
             {

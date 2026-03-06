@@ -16,7 +16,7 @@ export const l2Level: Level = {
       topics: [
         {
           id: "async-javascript",
-          title: "Async JavaScript",
+          title: "Async JavaScript — Callbacks, Promises & async/await",
           description: "Asynchronous programming.",
           subtopics: [
             { id: "callbacks", title: "Callbacks (sync vs async)" },
@@ -81,7 +81,7 @@ export const l2Level: Level = {
         },
         {
           id: "prototypes-classes",
-          title: "Prototypes & Classes",
+          title: "Prototypes & Classes — OOP in JavaScript",
           description: "OOP in JavaScript.",
           subtopics: [
             { id: "prototype-chain", title: "Prototype Chain — how it works" },
@@ -126,7 +126,7 @@ export const l2Level: Level = {
         },
         {
           id: "regex",
-          title: "Regular Expressions",
+          title: "Regular Expressions — Pattern Matching & Flags",
           description: "Pattern matching with regex.",
           subtopics: [
             { id: "regex-syntax", title: "Regex Syntax (/pattern/flags)" },
@@ -151,7 +151,7 @@ export const l2Level: Level = {
         },
         {
           id: "web-apis",
-          title: "Web APIs",
+          title: "Web APIs — Fetch, Storage, Timers & Observers",
           description: "Browser-provided APIs.",
           subtopics: [
             { id: "fetch-api", title: "Fetch API (GET, POST, headers, body)" },
@@ -266,7 +266,7 @@ export const l2Level: Level = {
       topics: [
         {
           id: "linked-lists",
-          title: "Linked Lists",
+          title: "Linked Lists — Singly, Doubly & Operations",
           description: "Linked list implementations.",
           subtopics: [
             { id: "singly-linked", title: "Singly Linked List — Node class" },
@@ -291,7 +291,7 @@ export const l2Level: Level = {
         },
         {
           id: "stacks-queues",
-          title: "Stacks & Queues",
+          title: "Stacks & Queues — LIFO, FIFO & Monotonic",
           description: "LIFO and FIFO structures.",
           subtopics: [
             { id: "stack-impl", title: "Stack Implementation (array & LL)" },
@@ -351,7 +351,7 @@ export const l2Level: Level = {
         },
         {
           id: "binary-search-advanced",
-          title: "Binary Search Patterns",
+          title: "Binary Search — Advanced Patterns & Variants",
           description: "Advanced binary search techniques.",
           subtopics: [
             { id: "bs-lower-upper-bound", title: "Lower Bound & Upper Bound" },
