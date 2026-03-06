@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { Compass, Layers3, LibraryBig } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Compass,
+  Home,
+  Layers3,
+  LayoutDashboard,
+  LibraryBig,
+} from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
+import { buttonVariants } from "@/components/ui/button";
 import { ProgressProvider } from "@/context/ProgressContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { courses } from "@/data/courses";
+import { cn } from "@/lib/utils";
 import { countModules, countSubtopics, countTopics } from "@/utils/course";
 import SearchBar from "@/components/SearchBar";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -60,8 +70,34 @@ export default function RootLayout({
               <header className="sticky top-0 z-40 border-b border-border-default bg-page/88 backdrop-blur-md">
                 <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
                   <BrandLogo compact className="shrink-0" />
+                  <nav className="hidden items-center gap-1 rounded-full border border-border-default bg-surface/70 p-1 md:flex">
+                    <Link
+                      href="/"
+                      className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm text-text-muted hover:bg-surface-hover hover:text-text-primary"
+                    >
+                      <Home className="h-3.5 w-3.5" />
+                      Home
+                    </Link>
+                    <Link
+                      href="/dashboard"
+                      className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm text-text-muted hover:bg-surface-hover hover:text-text-primary"
+                    >
+                      <LayoutDashboard className="h-3.5 w-3.5" />
+                      Dashboard
+                    </Link>
+                  </nav>
                   <div className="flex flex-1 items-center justify-end gap-2">
                     <SearchBar />
+                    <Link
+                      href="/dashboard"
+                      className={cn(
+                        buttonVariants({ variant: "subtle", size: "sm" }),
+                        "hidden rounded-full sm:inline-flex",
+                      )}
+                    >
+                      Open Dashboard
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
                     <ThemeToggle />
                   </div>
                 </div>
@@ -77,6 +113,20 @@ export default function RootLayout({
                       Structured learning paths for people who want a cleaner
                       way to progress from fundamentals to mastery.
                     </p>
+                    <div className="flex flex-wrap gap-2 text-sm">
+                      <Link
+                        href="/"
+                        className="rounded-full border border-border-default px-3 py-1.5 text-text-muted hover:border-border-strong hover:text-text-primary"
+                      >
+                        Home
+                      </Link>
+                      <Link
+                        href="/dashboard"
+                        className="rounded-full border border-border-default px-3 py-1.5 text-text-muted hover:border-border-strong hover:text-text-primary"
+                      >
+                        Dashboard
+                      </Link>
+                    </div>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
                     <div className="app-panel rounded-2xl p-4">
