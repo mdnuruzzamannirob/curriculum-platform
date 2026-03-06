@@ -137,6 +137,66 @@ export const l5Level: Level = {
             { id: "rspack", title: "Rspack & Rsbuild" },
           ],
         },
+        {
+          id: "compiler-theory",
+          title: "Compiler & Parsing Theory",
+          description: "Understanding how JS engines parse and compile.",
+          subtopics: [
+            { id: "tokenizer", title: "Tokenizer / Lexer — Token Stream" },
+            { id: "parser-ast-gen", title: "Parser — AST Generation" },
+            { id: "interpreter-pattern", title: "Tree-Walking Interpreter" },
+            { id: "bytecode-gen", title: "Bytecode Generation" },
+            {
+              id: "optimization-passes",
+              title: "Optimization Passes (dead code, inlining)",
+            },
+            { id: "source-to-source", title: "Source-to-Source Transpilation" },
+          ],
+        },
+        {
+          id: "browser-architecture",
+          title: "Browser Architecture & Internals",
+          description: "How browsers work under the hood.",
+          subtopics: [
+            {
+              id: "multi-process",
+              title: "Multi-Process Architecture (Chrome)",
+            },
+            { id: "renderer-process", title: "Renderer Process & Threads" },
+            { id: "compositor-thread", title: "Compositor Thread & GPU" },
+            {
+              id: "network-process",
+              title: "Network Process & Resource Loading",
+            },
+            { id: "blink-v8-integration", title: "Blink & V8 Integration" },
+            { id: "worker-threads-arch", title: "Worker Threads Architecture" },
+          ],
+        },
+        {
+          id: "language-design",
+          title: "Language Design & Specification",
+          description: "Reading and understanding the ECMAScript spec.",
+          subtopics: [
+            { id: "spec-reading", title: "How to Read the ECMAScript Spec" },
+            {
+              id: "abstract-operations",
+              title: "Abstract Operations (ToNumber, ToString)",
+            },
+            {
+              id: "completion-records",
+              title: "Completion Records & Abrupt Completions",
+            },
+            {
+              id: "environment-records",
+              title: "Environment Records & Realms",
+            },
+            {
+              id: "exotic-objects",
+              title: "Exotic Objects (Array, Proxy, etc.)",
+            },
+            { id: "host-vs-native", title: "Host Objects vs Native Objects" },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -276,6 +336,38 @@ export const l5Level: Level = {
             },
           ],
         },
+        {
+          id: "computational-geometry",
+          title: "Computational Geometry",
+          description: "Geometric algorithms and problems.",
+          subtopics: [
+            { id: "convex-hull", title: "Convex Hull (Graham Scan, Andrew's)" },
+            { id: "line-intersection", title: "Line Segment Intersection" },
+            { id: "closest-pair-geo", title: "Closest Pair of Points (D&C)" },
+            { id: "polygon-area", title: "Polygon Area (Shoelace formula)" },
+            { id: "point-in-polygon", title: "Point in Polygon (Ray Casting)" },
+            { id: "sweep-line", title: "Sweep Line Technique" },
+          ],
+        },
+        {
+          id: "advanced-hashing",
+          title: "Advanced Hashing Techniques",
+          description: "Probabilistic and distributed hashing.",
+          subtopics: [
+            { id: "bloom-filter", title: "Bloom Filters — Probabilistic Sets" },
+            {
+              id: "consistent-hashing",
+              title: "Consistent Hashing (distributed)",
+            },
+            { id: "cuckoo-hashing", title: "Cuckoo Hashing" },
+            { id: "perfect-hashing", title: "Perfect Hashing" },
+            { id: "count-min-sketch", title: "Count-Min Sketch" },
+            {
+              id: "hyperloglog",
+              title: "HyperLogLog — Cardinality Estimation",
+            },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -390,6 +482,90 @@ export const l5Level: Level = {
             {
               id: "game-theory",
               title: "Game Theory (Sprague-Grundy theorem)",
+            },
+          ],
+        },
+        {
+          id: "system-architecture-qa",
+          title: "System Architecture Deep-Dive Q&A",
+          description: "Large-scale architecture interview questions.",
+          subtopics: [
+            { id: "event-driven-arch-qa", title: "Event-Driven Architecture" },
+            {
+              id: "micro-frontend-qa",
+              title: "Micro-Frontend Architecture — trade-offs",
+            },
+            {
+              id: "ssr-ssg-isr-qa",
+              title: "SSR vs SSG vs ISR — when to choose?",
+            },
+            {
+              id: "edge-computing-qa",
+              title: "Edge Computing & Edge Functions",
+            },
+            {
+              id: "real-time-arch-qa",
+              title: "Real-time Architecture (WebSocket, SSE, WebRTC)",
+            },
+            {
+              id: "observability-qa",
+              title: "Observability — metrics, traces, logs",
+            },
+          ],
+        },
+        {
+          id: "open-source-qa",
+          title: "Open Source & Ecosystem Q&A",
+          description: "Open source contribution and ecosystem.",
+          subtopics: [
+            {
+              id: "oss-contribution-qa",
+              title: "How to contribute to Open Source",
+            },
+            {
+              id: "semantic-versioning-qa",
+              title: "Semantic Versioning (SemVer) explained",
+            },
+            {
+              id: "monorepo-tools-qa",
+              title: "Monorepo Tools (Turborepo, Nx, Lerna)",
+            },
+            {
+              id: "package-publishing-qa",
+              title: "Publishing npm Packages — best practices",
+            },
+            {
+              id: "license-selection-qa",
+              title: "License Selection (MIT, Apache, GPL)",
+            },
+            { id: "changelog-qa", title: "Changelog & Release Management" },
+          ],
+        },
+        {
+          id: "compiler-internals-qa",
+          title: "Compiler & Engine Internals Q&A",
+          description: "Deep engine & compiler interview questions.",
+          subtopics: [
+            {
+              id: "v8-pipeline-qa",
+              title: "V8 Compilation Pipeline (Ignition → TurboFan)",
+            },
+            {
+              id: "hidden-classes-qa",
+              title: "Hidden Classes & Inline Caches explained",
+            },
+            {
+              id: "gc-strategies-qa",
+              title: "GC Strategies (Scavenge, Mark-Sweep, Incremental)",
+            },
+            { id: "wasm-vs-js-qa", title: "When to use WebAssembly over JS?" },
+            {
+              id: "ast-transform-qa",
+              title: "AST Transformations — practical uses",
+            },
+            {
+              id: "spec-compliance-qa",
+              title: "How do engines handle spec compliance?",
             },
           ],
         },

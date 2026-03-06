@@ -293,6 +293,61 @@ export const l1Level: Level = {
             { id: "string-raw", title: "String.raw (template literal tag)" },
           ],
         },
+        {
+          id: "event-loop-intro",
+          title: "Event Loop & Asynchronous Preview",
+          description:
+            "Understanding JS async model before diving into Promises.",
+          subtopics: [
+            { id: "sync-vs-async", title: "Synchronous vs Asynchronous Code" },
+            { id: "call-stack-intro", title: "Call Stack Visualization" },
+            { id: "web-apis-role", title: "Web APIs Role (setTimeout, fetch)" },
+            { id: "callback-queue", title: "Callback Queue (Task Queue)" },
+            { id: "event-loop-visual", title: "Event Loop Step-by-Step" },
+            { id: "blocking-code", title: "Blocking vs Non-Blocking Code" },
+          ],
+        },
+        {
+          id: "iteration-protocols",
+          title: "Iterables & for...of Protocol",
+          description: "Understanding iteration protocols.",
+          subtopics: [
+            {
+              id: "iterable-protocol",
+              title: "Iterable Protocol (Symbol.iterator)",
+            },
+            {
+              id: "iterator-protocol",
+              title: "Iterator Protocol ({ next() })",
+            },
+            { id: "custom-iterable", title: "Creating Custom Iterables" },
+            { id: "string-iterable", title: "Strings as Iterables" },
+            {
+              id: "array-destructuring-iter",
+              title: "Array Destructuring & Iterables",
+            },
+            { id: "spread-iterables", title: "Spread Operator on Iterables" },
+          ],
+        },
+        {
+          id: "storage-basics",
+          title: "Web Storage — localStorage & sessionStorage",
+          description: "Browser storage mechanisms.",
+          subtopics: [
+            {
+              id: "localstorage-get-set",
+              title: "localStorage.getItem / setItem",
+            },
+            { id: "sessionstorage", title: "sessionStorage vs localStorage" },
+            {
+              id: "storage-json",
+              title: "Storing Objects (JSON.stringify / parse)",
+            },
+            { id: "storage-limits", title: "Storage Limits & Quota" },
+            { id: "storage-events", title: "Storage Events (cross-tab sync)" },
+            { id: "clear-remove", title: "clear() & removeItem()" },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -433,6 +488,34 @@ export const l1Level: Level = {
             { id: "count-set-bits", title: "Count Set Bits (Brian Kernighan)" },
           ],
         },
+        {
+          id: "frequency-counter",
+          title: "Frequency Counter Pattern",
+          description: "Using hash maps for counting patterns.",
+          subtopics: [
+            { id: "freq-count-map", title: "Frequency Counter with Map" },
+            { id: "anagram-freq", title: "Valid Anagram (frequency approach)" },
+            { id: "same-frequency", title: "Are Two Arrays Same Frequency?" },
+            { id: "majority-element", title: "Majority Element (Boyer-Moore)" },
+            { id: "top-k-frequent-basic", title: "Top K Frequent Elements" },
+            { id: "intersection-arrays", title: "Intersection of Two Arrays" },
+          ],
+        },
+        {
+          id: "hashing-basics",
+          title: "Hashing Concepts — Hash Functions & Collisions",
+          description: "Understanding hashing fundamentals.",
+          subtopics: [
+            { id: "what-is-hashing", title: "What is Hashing?" },
+            { id: "hash-function-basics", title: "Hash Function Properties" },
+            {
+              id: "collision-intro",
+              title: "Collision Handling (chaining intro)",
+            },
+            { id: "map-vs-object-perf", title: "Map vs Object Performance" },
+            { id: "set-use-cases", title: "Set for Unique Values" },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -537,6 +620,77 @@ export const l1Level: Level = {
               title: "Remove Duplicates from Array",
             },
             { id: "flatten-simple", title: "Flatten a Simple Nested Array" },
+          ],
+        },
+        {
+          id: "array-methods-qa",
+          title: "Array Methods Interview Q&A",
+          description: "Interview questions about array methods.",
+          subtopics: [
+            {
+              id: "map-vs-foreach-qa",
+              title: "map() vs forEach() — when to use which?",
+            },
+            {
+              id: "reduce-explain-qa",
+              title: "Explain reduce() with examples",
+            },
+            { id: "filter-find-qa", title: "filter() vs find() — difference?" },
+            {
+              id: "sort-gotchas-qa",
+              title: "Array.sort() gotchas (numeric sort)",
+            },
+            {
+              id: "immutable-methods-qa",
+              title: "Which array methods are immutable?",
+            },
+            { id: "chaining-methods-qa", title: "Method chaining patterns" },
+          ],
+        },
+        {
+          id: "error-handling-qa",
+          title: "Error Handling Q&A",
+          description: "Interview questions about errors.",
+          subtopics: [
+            { id: "try-catch-qa", title: "How does try/catch/finally work?" },
+            { id: "error-types-qa", title: "List JavaScript error types" },
+            { id: "custom-error-qa", title: "How to create custom errors?" },
+            {
+              id: "throw-vs-reject-qa",
+              title: "throw vs Promise.reject — difference?",
+            },
+            {
+              id: "global-error-qa",
+              title: "window.onerror vs addEventListener('error')",
+            },
+          ],
+        },
+        {
+          id: "objects-this-qa",
+          title: "Objects & 'this' Q&A",
+          description: "Interview questions about objects and this.",
+          subtopics: [
+            { id: "object-copy-qa", title: "Shallow vs Deep Copy explained" },
+            {
+              id: "destructuring-qa",
+              title: "Object Destructuring in interviews",
+            },
+            {
+              id: "freeze-vs-seal-qa",
+              title: "freeze() vs seal() vs preventExtensions()",
+            },
+            {
+              id: "this-context-qa",
+              title: "'this' in different contexts (5 rules)",
+            },
+            {
+              id: "property-shorthand-qa",
+              title: "Property Shorthand & Computed Keys",
+            },
+            {
+              id: "object-comparison-qa",
+              title: "Why {} === {} is false (reference comparison)",
+            },
           ],
         },
       ],

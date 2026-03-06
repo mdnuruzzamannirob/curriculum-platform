@@ -165,6 +165,59 @@ export const l4Level: Level = {
             { id: "performance-testing", title: "Performance & load testing" },
           ],
         },
+        {
+          id: "browser-rendering",
+          title: "Browser Rendering Pipeline",
+          description: "Understanding how browsers render pages.",
+          subtopics: [
+            { id: "critical-render-path", title: "Critical Rendering Path" },
+            { id: "dom-cssom", title: "DOM + CSSOM Construction" },
+            { id: "render-tree", title: "Render Tree & Layout" },
+            { id: "paint-composite", title: "Paint & Composite Phases" },
+            { id: "raf-deep", title: "requestAnimationFrame — Timing" },
+            { id: "will-change", title: "will-change & GPU Layers" },
+            {
+              id: "layout-thrashing",
+              title: "Layout Thrashing & Forced Reflows",
+            },
+          ],
+        },
+        {
+          id: "module-bundlers",
+          title: "Module Bundlers & Build Tools Deep Dive",
+          description: "Understanding modern build tools.",
+          subtopics: [
+            {
+              id: "webpack-concepts",
+              title: "Webpack — Loaders, Plugins, Chunks",
+            },
+            { id: "vite-dev-server", title: "Vite — Dev Server & ESM" },
+            { id: "tree-shaking-deep", title: "Tree Shaking — How It Works" },
+            { id: "code-splitting-deep", title: "Code Splitting Strategies" },
+            { id: "source-maps-config", title: "Source Maps Configuration" },
+            { id: "bundle-analyzer", title: "Bundle Analyzer & Optimization" },
+          ],
+        },
+        {
+          id: "typescript-integration",
+          title: "TypeScript Essential Integration",
+          description: "TypeScript for JavaScript developers.",
+          subtopics: [
+            { id: "ts-basics", title: "Type Annotations & Inference" },
+            { id: "ts-interfaces-types", title: "Interfaces vs Type Aliases" },
+            {
+              id: "ts-generics",
+              title: "Generics — Functions, Classes, Constraints",
+            },
+            {
+              id: "ts-utility-types",
+              title: "Utility Types (Partial, Required, Pick, Omit)",
+            },
+            { id: "ts-narrowing", title: "Type Narrowing & Type Guards" },
+            { id: "ts-enums", title: "Enums — const enum vs String enum" },
+            { id: "ts-declaration-files", title: "Declaration Files (.d.ts)" },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -316,6 +369,48 @@ export const l4Level: Level = {
             },
           ],
         },
+        {
+          id: "segment-tree-intro",
+          title: "Segment Tree — Introduction & Range Queries",
+          description: "Efficient range query data structure.",
+          subtopics: [
+            { id: "segment-tree-build", title: "Build Segment Tree" },
+            { id: "range-query-st", title: "Range Sum / Min Query" },
+            { id: "point-update-st", title: "Point Update Operation" },
+            { id: "lazy-propagation-intro", title: "Lazy Propagation (intro)" },
+            { id: "range-update-st", title: "Range Update Query" },
+          ],
+        },
+        {
+          id: "string-matching",
+          title: "String Matching Algorithms",
+          description: "Efficient pattern matching in strings.",
+          subtopics: [
+            {
+              id: "naive-string-match",
+              title: "Naive String Matching — O(nm)",
+            },
+            { id: "kmp-intro", title: "KMP Algorithm — Prefix Function" },
+            { id: "rabin-karp-intro", title: "Rabin-Karp — Rolling Hash" },
+            { id: "z-function", title: "Z-Function — Pattern Matching" },
+            { id: "string-hashing", title: "String Hashing Techniques" },
+          ],
+        },
+        {
+          id: "trie-advanced",
+          title: "Trie — Advanced Applications",
+          description: "Advanced trie usage.",
+          subtopics: [
+            { id: "trie-count-prefix", title: "Count Words with Prefix" },
+            { id: "trie-xor-max", title: "Maximum XOR with Trie" },
+            { id: "trie-longest-word", title: "Longest Word in Dictionary" },
+            { id: "trie-word-break", title: "Word Break with Trie" },
+            {
+              id: "trie-stream-matching",
+              title: "Stream of Characters Matching",
+            },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -419,6 +514,87 @@ export const l4Level: Level = {
             {
               id: "shortest-path-variants",
               title: "Shortest Path Variants",
+            },
+          ],
+        },
+        {
+          id: "testing-qa",
+          title: "Testing Strategies Q&A",
+          description: "Testing interview questions.",
+          subtopics: [
+            {
+              id: "unit-vs-integration-qa",
+              title: "Unit vs Integration vs E2E — when each?",
+            },
+            {
+              id: "mocking-vs-stubbing-qa",
+              title: "Mocking vs Stubbing vs Spying",
+            },
+            { id: "tdd-benefits-qa", title: "TDD benefits & drawbacks" },
+            {
+              id: "test-coverage-qa",
+              title: "100% code coverage — good or bad?",
+            },
+            {
+              id: "snapshot-testing-qa",
+              title: "When to use snapshot testing?",
+            },
+            { id: "testing-async-qa", title: "How to test async code?" },
+          ],
+        },
+        {
+          id: "web-workers-qa",
+          title: "Web Workers & Concurrency Q&A",
+          description: "Concurrency interview questions.",
+          subtopics: [
+            {
+              id: "web-worker-types-qa",
+              title: "Web Worker vs Service Worker vs Shared Worker",
+            },
+            {
+              id: "worker-communication-qa",
+              title: "How to communicate with workers?",
+            },
+            {
+              id: "shared-memory-qa",
+              title: "SharedArrayBuffer & Atomics explained",
+            },
+            {
+              id: "offscreen-canvas-qa",
+              title: "OffscreenCanvas — rendering in workers",
+            },
+            {
+              id: "thread-safety-qa",
+              title: "Is JS thread-safe? Race conditions?",
+            },
+            {
+              id: "worker-limitations-qa",
+              title: "Web Worker limitations (no DOM)",
+            },
+          ],
+        },
+        {
+          id: "performance-coding-qa",
+          title: "Performance Optimization Coding Q&A",
+          description: "Performance-related coding challenges.",
+          subtopics: [
+            { id: "virtual-scroll-qa", title: "Implement Virtual Scrolling" },
+            { id: "lazy-load-qa", title: "Implement Image Lazy Loading" },
+            {
+              id: "debounce-deep-qa",
+              title: "Implement debounce with leading/trailing",
+            },
+            {
+              id: "request-idle-qa",
+              title: "requestIdleCallback — when to use?",
+            },
+            {
+              id: "web-vitals-optimize-qa",
+              title: "How to optimize LCP, FID, CLS?",
+            },
+            {
+              id: "memory-leak-patterns-qa",
+              title: "Common memory leak patterns & fixes",
             },
           ],
         },

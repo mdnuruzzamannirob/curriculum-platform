@@ -2,7 +2,7 @@
 
 import { use, useState, Suspense } from "react";
 import { notFound } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { getCourseById } from "@/data/courses";
 import { useProgress } from "@/context/ProgressContext";
 import {
@@ -19,6 +19,8 @@ function CourseContent({ courseId }: { courseId: string }) {
   const course = getCourseById(courseId);
   if (!course) notFound();
 
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const searchLevelId = searchParams.get("level");
   const searchModuleId = searchParams.get("module");
@@ -85,6 +87,8 @@ function CourseContent({ courseId }: { courseId: string }) {
   function handleLevelChange(id: string) {
     setSelectedLevelId(id);
     setSelectedModuleId(null);
+    // Clear search params so local state takes priority
+    if (searchParams.toString()) router.replace(pathname);
   }
 
   const activeModuleStats = activeModule
@@ -285,7 +289,10 @@ function CourseContent({ courseId }: { courseId: string }) {
             activeId={resolvedModuleId}
             courseId={course.id}
             levelId={activeLevel.id}
-            onSelect={(id) => setSelectedModuleId(id)}
+            onSelect={(id) => {
+              setSelectedModuleId(id);
+              if (searchParams.toString()) router.replace(pathname);
+            }}
           />
         </div>
 

@@ -233,6 +233,70 @@ export const l3Level: Level = {
             },
           ],
         },
+        {
+          id: "concurrency-patterns",
+          title: "Concurrency & Async Patterns",
+          description: "Managing complex async flows.",
+          subtopics: [
+            { id: "async-queue", title: "Async Queue (concurrency limit)" },
+            { id: "async-pool", title: "Async Pool — Process N at a Time" },
+            { id: "async-mutex", title: "Async Mutex / Lock Pattern" },
+            {
+              id: "retry-exponential",
+              title: "Retry with Exponential Backoff",
+            },
+            { id: "circuit-breaker", title: "Circuit Breaker Pattern" },
+            { id: "async-generators", title: "Async Generators for Streaming" },
+            { id: "cancellable-promise", title: "Cancellable Promise Pattern" },
+          ],
+        },
+        {
+          id: "meta-programming",
+          title: "Meta-programming — Beyond Proxy",
+          description: "Reflecting and modifying program behavior.",
+          subtopics: [
+            {
+              id: "reflect-ownkeys",
+              title: "Reflect.ownKeys & Enumeration Order",
+            },
+            {
+              id: "reflect-construct",
+              title: "Reflect.construct & Reflect.apply",
+            },
+            {
+              id: "membrane-pattern",
+              title: "Membrane Pattern (secure wrappers)",
+            },
+            {
+              id: "dynamic-dispatch",
+              title: "Dynamic Dispatch (method lookup)",
+            },
+            { id: "template-tag-meta", title: "Tagged Templates as DSLs" },
+            {
+              id: "eval-function",
+              title: "eval() & Function() — Dangers & Uses",
+            },
+          ],
+        },
+        {
+          id: "engine-optimization-hints",
+          title: "JS Engine Optimization Hints",
+          description: "Writing engine-friendly code.",
+          subtopics: [
+            {
+              id: "hidden-classes-intro",
+              title: "Hidden Classes & Inline Caches",
+            },
+            {
+              id: "monomorphic-code",
+              title: "Monomorphic vs Polymorphic Code",
+            },
+            { id: "deopt-triggers", title: "Common De-optimization Triggers" },
+            { id: "hot-functions", title: "Hot Functions & JIT Compilation" },
+            { id: "array-packing", title: "Array Packing & Holey Arrays" },
+            { id: "string-interning", title: "String Interning & Comparison" },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -379,6 +443,57 @@ export const l3Level: Level = {
             { id: "bit-dp-intro", title: "Bitmask DP Introduction" },
           ],
         },
+        {
+          id: "union-find",
+          title: "Union-Find (Disjoint Set Union)",
+          description: "Efficient connected component tracking.",
+          subtopics: [
+            { id: "dsu-basic", title: "DSU — Basic Implementation" },
+            { id: "union-by-rank", title: "Union by Rank Optimization" },
+            { id: "path-compression", title: "Path Compression Optimization" },
+            {
+              id: "connected-components-dsu",
+              title: "Connected Components with DSU",
+            },
+            { id: "cycle-detection-dsu", title: "Cycle Detection with DSU" },
+            { id: "kruskal-dsu", title: "Kruskal's MST with DSU" },
+          ],
+        },
+        {
+          id: "shortest-paths",
+          title: "Shortest Path Algorithms",
+          description: "Finding optimal paths in graphs.",
+          subtopics: [
+            { id: "bfs-shortest", title: "BFS Shortest Path (unweighted)" },
+            { id: "dijkstra-intro", title: "Dijkstra's Algorithm (intro)" },
+            {
+              id: "bellman-ford-intro",
+              title: "Bellman-Ford (negative weights)",
+            },
+            {
+              id: "shortest-path-dag",
+              title: "Shortest Path in DAG (topo sort)",
+            },
+            { id: "multi-source-bfs", title: "Multi-Source BFS" },
+          ],
+        },
+        {
+          id: "dp-introduction",
+          title: "Dynamic Programming — Introduction",
+          description: "DP fundamentals before advanced DP in L4.",
+          subtopics: [
+            {
+              id: "dp-vs-recursion",
+              title: "DP vs Recursion — Overlapping Subproblems",
+            },
+            { id: "memoization-intro", title: "Top-Down Memoization" },
+            { id: "tabulation-intro", title: "Bottom-Up Tabulation" },
+            { id: "fibonacci-dp-intro", title: "Fibonacci — Recursion vs DP" },
+            { id: "climbing-stairs-intro", title: "Climbing Stairs Problem" },
+            { id: "min-cost-path", title: "Minimum Cost Path in Grid" },
+            { id: "coin-change-intro", title: "Coin Change — Introduction" },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -489,6 +604,69 @@ export const l3Level: Level = {
             },
             { id: "design-lru-cache", title: "Design LRU Cache" },
             { id: "design-lfu-cache", title: "Design LFU Cache" },
+          ],
+        },
+        {
+          id: "functional-programming-qa",
+          title: "Functional Programming Q&A",
+          description: "FP concepts interview questions.",
+          subtopics: [
+            {
+              id: "pure-fn-qa",
+              title: "What is a pure function? Why does it matter?",
+            },
+            {
+              id: "immutability-qa",
+              title: "Immutability — why avoid mutations?",
+            },
+            { id: "currying-qa", title: "Explain currying with examples" },
+            {
+              id: "compose-pipe-qa",
+              title: "compose() vs pipe() — difference?",
+            },
+            {
+              id: "functor-monad-qa",
+              title: "What is a Functor / Monad (simplified)?",
+            },
+            { id: "side-effects-qa", title: "Managing side effects in FP" },
+          ],
+        },
+        {
+          id: "proxy-reflect-qa",
+          title: "Proxy, Reflect & Symbols Q&A",
+          description: "Meta-programming interview questions.",
+          subtopics: [
+            { id: "proxy-use-cases-qa", title: "Proxy real-world use cases" },
+            { id: "proxy-validation-qa", title: "Input validation with Proxy" },
+            {
+              id: "reflect-vs-object-qa",
+              title: "Reflect API vs Object methods",
+            },
+            {
+              id: "symbol-iterator-qa",
+              title: "Explain Symbol.iterator protocol",
+            },
+            {
+              id: "well-known-symbols-qa",
+              title: "List well-known Symbols & uses",
+            },
+            {
+              id: "reactive-proxy-qa",
+              title: "How do reactive frameworks use Proxy?",
+            },
+          ],
+        },
+        {
+          id: "design-patterns-coding-qa",
+          title: "Design Patterns Coding Q&A",
+          description: "Implement design patterns in interviews.",
+          subtopics: [
+            { id: "singleton-impl-qa", title: "Implement Singleton Pattern" },
+            { id: "observer-impl-qa", title: "Implement Observer Pattern" },
+            { id: "factory-impl-qa", title: "Implement Factory Pattern" },
+            { id: "strategy-impl-qa", title: "Implement Strategy Pattern" },
+            { id: "decorator-impl-qa", title: "Implement Decorator Pattern" },
+            { id: "pub-sub-impl-qa", title: "Implement Pub/Sub System" },
           ],
         },
       ],

@@ -170,6 +170,55 @@ export const l0Level: Level = {
             },
           ],
         },
+        {
+          id: "comments-syntax",
+          title: "Comments, Semicolons & Code Structure",
+          description: "Writing clean, readable code.",
+          subtopics: [
+            { id: "single-line-comment", title: "Single-Line Comments (//)" },
+            { id: "multi-line-comment", title: "Multi-Line Comments (/* */)" },
+            { id: "jsdoc-intro", title: "JSDoc Comments (/** */)" },
+            {
+              id: "semicolons",
+              title: "Semicolons & ASI (Automatic Semicolon Insertion)",
+            },
+            { id: "code-blocks", title: "Code Blocks & Indentation" },
+            { id: "use-strict-intro", title: "'use strict' Introduction" },
+          ],
+        },
+        {
+          id: "dom-preview",
+          title: "Browser Interaction — alert, prompt & confirm",
+          description: "Interacting with the browser.",
+          subtopics: [
+            { id: "alert", title: "alert() — Display Messages" },
+            { id: "prompt", title: "prompt() — Get User Input" },
+            { id: "confirm", title: "confirm() — Yes/No Dialog" },
+            { id: "document-write", title: "document.write() (legacy)" },
+            { id: "innerhtml-intro", title: "innerHTML (basic DOM output)" },
+            { id: "script-tag", title: "script Tag Placement & defer/async" },
+          ],
+        },
+        {
+          id: "number-methods",
+          title: "Number Methods & Conversions",
+          description: "Working with numbers in depth.",
+          subtopics: [
+            { id: "parseint-parsefloat", title: "parseInt() & parseFloat()" },
+            { id: "number-constructor", title: "Number() Constructor" },
+            { id: "tofixed", title: "toFixed() — Decimal Places" },
+            {
+              id: "tostring-radix",
+              title: "toString(radix) — Base Conversion",
+            },
+            { id: "isnan-isfinite", title: "isNaN() & isFinite()" },
+            { id: "math-basics", title: "Math.floor, Math.ceil, Math.round" },
+            {
+              id: "max-safe-integer",
+              title: "MAX_SAFE_INTEGER & Number Limits",
+            },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -265,6 +314,36 @@ export const l0Level: Level = {
             { id: "best-worst-average", title: "Best / Worst / Average Case" },
           ],
         },
+        {
+          id: "basic-searching",
+          title: "Linear Search & Basic Lookup",
+          description: "Finding elements in arrays.",
+          subtopics: [
+            { id: "linear-search", title: "Linear Search Algorithm" },
+            { id: "find-min-max", title: "Find Min & Max in Array" },
+            { id: "count-occurrences", title: "Count Occurrences of a Value" },
+            { id: "search-2d-basic", title: "Search in 2D Array (basic)" },
+            {
+              id: "find-duplicates-basic",
+              title: "Find Duplicates (brute force)",
+            },
+          ],
+        },
+        {
+          id: "frequency-count-basic",
+          title: "Frequency Counting — Object as Map",
+          description: "Using objects for counting.",
+          subtopics: [
+            { id: "char-frequency", title: "Character Frequency Counter" },
+            { id: "word-frequency", title: "Word Frequency Counter" },
+            { id: "most-frequent", title: "Find Most Frequent Element" },
+            {
+              id: "are-equal-freq",
+              title: "Check if Two Arrays Have Same Frequency",
+            },
+            { id: "counting-sort-idea", title: "Counting Sort Idea (basic)" },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -328,6 +407,72 @@ export const l0Level: Level = {
             { id: "truthy-falsy-qa", title: "List all falsy values in JS" },
             { id: "optional-chain-qa", title: "What does ?. do?" },
             { id: "nullish-qa", title: "?? vs || explained" },
+          ],
+        },
+        {
+          id: "functions-basics-qa",
+          title: "Functions Basics Q&A",
+          description: "Basic function interview questions.",
+          subtopics: [
+            {
+              id: "function-vs-expression",
+              title: "Function Declaration vs Expression — difference?",
+            },
+            {
+              id: "arrow-vs-regular-basic",
+              title: "Arrow vs Regular Function (basic)",
+            },
+            { id: "what-is-return", title: "What does return do?" },
+            { id: "default-params-qa", title: "Default Parameters explained" },
+            {
+              id: "arguments-object-qa",
+              title: "What is the arguments object?",
+            },
+            { id: "callback-intro-qa", title: "What is a callback function?" },
+          ],
+        },
+        {
+          id: "strings-arrays-qa",
+          title: "Strings & Arrays Basics Q&A",
+          description: "Common entry-level string and array questions.",
+          subtopics: [
+            {
+              id: "string-immutable-qa",
+              title: "Are strings immutable in JS?",
+            },
+            {
+              id: "array-vs-object-qa",
+              title: "Array vs Object — when to use?",
+            },
+            {
+              id: "push-vs-concat-qa",
+              title: "push() vs concat() — difference?",
+            },
+            {
+              id: "slice-vs-splice-qa",
+              title: "slice() vs splice() — difference?",
+            },
+            { id: "template-literal-qa", title: "What are template literals?" },
+            { id: "spread-intro-qa", title: "What does ... (spread) do?" },
+          ],
+        },
+        {
+          id: "problem-solving-qa",
+          title: "Problem Solving Approach Q&A",
+          description: "How to approach coding problems.",
+          subtopics: [
+            {
+              id: "understand-problem",
+              title: "How to understand a problem statement",
+            },
+            { id: "brute-force-qa", title: "What is a brute force approach?" },
+            { id: "dry-run-qa", title: "What is dry running / tracing?" },
+            { id: "edge-cases-qa", title: "How to think about edge cases" },
+            { id: "pseudocode-qa", title: "Writing pseudocode before coding" },
+            {
+              id: "complexity-comparison-qa",
+              title: "Compare time complexities of solutions",
+            },
           ],
         },
       ],

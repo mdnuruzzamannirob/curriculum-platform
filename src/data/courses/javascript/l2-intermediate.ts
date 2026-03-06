@@ -254,6 +254,75 @@ export const l2Level: Level = {
             },
           ],
         },
+        {
+          id: "event-advanced",
+          title: "Advanced Event Handling — CustomEvent & Composition",
+          description: "Beyond basic event listeners.",
+          subtopics: [
+            {
+              id: "custom-event",
+              title: "CustomEvent — Creating & Dispatching",
+            },
+            {
+              id: "event-target-class",
+              title: "EventTarget as a Class (Pub/Sub)",
+            },
+            {
+              id: "passive-events",
+              title: "Passive Event Listeners (scroll perf)",
+            },
+            { id: "event-composition", title: "Composed Events & Shadow DOM" },
+            {
+              id: "pointer-events",
+              title: "Pointer Events (mouse + touch unified)",
+            },
+            { id: "keyboard-events", title: "Keyboard Events & Key Codes" },
+            { id: "drag-drop-events", title: "Native Drag & Drop API" },
+          ],
+        },
+        {
+          id: "collections-advanced",
+          title: "WeakMap, WeakSet & WeakRef — Weak References",
+          description: "Memory-friendly collections.",
+          subtopics: [
+            { id: "weakmap-basics", title: "WeakMap — API & Use Cases" },
+            { id: "weakset-basics", title: "WeakSet — API & Use Cases" },
+            { id: "weakref-api", title: "WeakRef — Weak Object References" },
+            {
+              id: "finalization-registry",
+              title: "FinalizationRegistry — Cleanup Callbacks",
+            },
+            {
+              id: "private-data-weakmap",
+              title: "Private Data with WeakMap Pattern",
+            },
+            {
+              id: "dom-metadata-weakmap",
+              title: "DOM Metadata Storage with WeakMap",
+            },
+          ],
+        },
+        {
+          id: "structured-data",
+          title: "Structured Clone & Data Serialization",
+          description: "Deep copying and data transfer.",
+          subtopics: [
+            { id: "structured-clone", title: "structuredClone() — Deep Copy" },
+            { id: "transferable-objects", title: "Transferable Objects" },
+            {
+              id: "json-limitations",
+              title: "JSON.stringify Limitations (functions, Date, etc.)",
+            },
+            {
+              id: "postmessage-clone",
+              title: "postMessage & Structured Clone",
+            },
+            {
+              id: "circular-references",
+              title: "Handling Circular References",
+            },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -399,6 +468,56 @@ export const l2Level: Level = {
             },
           ],
         },
+        {
+          id: "divide-conquer",
+          title: "Divide & Conquer Strategy",
+          description: "Breaking problems into subproblems.",
+          subtopics: [
+            { id: "dc-intro", title: "Divide & Conquer Paradigm" },
+            {
+              id: "merge-sort-analysis",
+              title: "Merge Sort — Analysis & Invariants",
+            },
+            {
+              id: "quick-select",
+              title: "Quickselect — Kth Smallest (O(n) avg)",
+            },
+            {
+              id: "count-inversions",
+              title: "Count Inversions (merge sort variant)",
+            },
+            { id: "closest-pair", title: "Closest Pair of Points" },
+            {
+              id: "dc-matrix-multiply",
+              title: "Matrix Multiply — Strassen Idea",
+            },
+          ],
+        },
+        {
+          id: "interval-problems",
+          title: "Interval & Range Problems",
+          description: "Working with intervals and ranges.",
+          subtopics: [
+            { id: "merge-intervals", title: "Merge Overlapping Intervals" },
+            {
+              id: "insert-interval",
+              title: "Insert Interval into Sorted List",
+            },
+            { id: "meeting-rooms", title: "Meeting Rooms (can attend all?)" },
+            {
+              id: "meeting-rooms-ii",
+              title: "Meeting Rooms II (min rooms needed)",
+            },
+            {
+              id: "non-overlapping",
+              title: "Non-Overlapping Intervals (min removals)",
+            },
+            {
+              id: "interval-intersection",
+              title: "Interval List Intersection",
+            },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -528,6 +647,97 @@ export const l2Level: Level = {
             {
               id: "barrel-file-qa",
               title: "Barrel files — pros and cons",
+            },
+          ],
+        },
+        {
+          id: "regex-qa",
+          title: "Regular Expressions Q&A",
+          description: "Regex interview questions.",
+          subtopics: [
+            {
+              id: "regex-basics-qa",
+              title: "What is a regex? How does it work?",
+            },
+            {
+              id: "regex-email-qa",
+              title: "Write a regex for email validation",
+            },
+            {
+              id: "regex-lookahead-qa",
+              title: "Explain lookahead & lookbehind",
+            },
+            {
+              id: "regex-groups-qa",
+              title: "Capturing vs Non-Capturing Groups",
+            },
+            {
+              id: "regex-performance-qa",
+              title: "Regex performance pitfalls (catastrophic backtracking)",
+            },
+            {
+              id: "regex-replace-qa",
+              title: "String.replace with regex — patterns",
+            },
+          ],
+        },
+        {
+          id: "web-apis-qa",
+          title: "Web APIs & Browser Q&A",
+          description: "Browser API interview questions.",
+          subtopics: [
+            { id: "fetch-vs-xhr-qa", title: "fetch() vs XMLHttpRequest" },
+            { id: "cors-basic-qa", title: "What is CORS? Simple vs Preflight" },
+            {
+              id: "localstorage-vs-session-qa",
+              title: "localStorage vs sessionStorage vs cookies",
+            },
+            {
+              id: "indexeddb-qa",
+              title: "When to use IndexedDB over localStorage?",
+            },
+            {
+              id: "observer-apis-qa",
+              title: "IntersectionObserver vs MutationObserver",
+            },
+            {
+              id: "abort-controller-qa",
+              title: "How does AbortController cancel requests?",
+            },
+          ],
+        },
+        {
+          id: "data-structures-qa",
+          title: "Data Structures Interview Q&A",
+          description: "Linked list, stack, queue interview questions.",
+          subtopics: [
+            {
+              id: "ll-vs-array-qa",
+              title: "Linked List vs Array — trade-offs",
+            },
+            {
+              id: "stack-usage-qa",
+              title: "Stack real-world use cases (undo, call stack)",
+            },
+            {
+              id: "queue-usage-qa",
+              title: "Queue patterns (BFS, task scheduling)",
+            },
+            {
+              id: "hashmap-internals-qa",
+              title: "How does a HashMap work internally?",
+            },
+            {
+              id: "collision-handling-qa",
+              title: "Hash Collision strategies explained",
+            },
+            {
+              id: "sliding-window-qa",
+              title: "Explain Sliding Window technique",
+            },
+            {
+              id: "binary-search-qa",
+              title: "When to apply Binary Search? (sorted + monotonic)",
             },
           ],
         },

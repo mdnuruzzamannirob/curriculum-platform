@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { courses } from "@/data/courses";
 import { buildSearchIndex, searchItems } from "@/utils/search";
 import { SearchItem } from "@/types";
@@ -16,6 +16,7 @@ const TYPE_BADGE: Record<SearchItem["type"], string> = {
 
 export default function SearchBar() {
   const router = useRouter();
+  const pathname = usePathname();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,8 @@ export default function SearchBar() {
   function clearSearch() {
     setQuery("");
     setOpen(false);
+    // Remove search-related params from URL
+    router.replace(pathname);
     inputRef.current?.focus();
   }
 
