@@ -2,16 +2,30 @@
 
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import {
+  Binary,
+  BookOpen,
+  Braces,
+  GraduationCap,
+  Layers3,
+  Search,
+  X,
+} from "lucide-react";
 import { courses } from "@/data/courses";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { buildSearchIndex, searchItems } from "@/utils/search";
 import { SearchItem } from "@/types";
 
-const TYPE_BADGE: Record<SearchItem["type"], string> = {
-  course: "bg-purple-500/20 text-purple-400",
-  level: "bg-blue-500/20 text-blue-400",
-  module: "bg-teal-500/20 text-teal-400",
-  topic: "bg-amber-500/20 text-amber-500",
-  subtopic: "bg-gray-500/15 text-gray-400",
+const TYPE_META: Record<
+  SearchItem["type"],
+  { icon: React.ComponentType<{ className?: string }>; label: string }
+> = {
+  course: { icon: GraduationCap, label: "Course" },
+  level: { icon: Layers3, label: "Level" },
+  module: { icon: Binary, label: "Module" },
+  topic: { icon: BookOpen, label: "Topic" },
+  subtopic: { icon: Braces, label: "Subtopic" },
 };
 
 export default function SearchBar() {
@@ -55,21 +69,9 @@ export default function SearchBar() {
   return (
     <div ref={wrapperRef} className="relative w-full max-w-md">
       <div className="relative">
-        <svg
-          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-faint"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
+        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-faint" />
 
-        <input
+        <Input
           ref={inputRef}
           type="text"
           placeholder="Search all topics..."
@@ -79,7 +81,7 @@ export default function SearchBar() {
             setOpen(true);
           }}
           onFocus={() => query && setOpen(true)}
-          className="w-full rounded-lg border border-border-strong bg-surface-emphasis pl-9 pr-8 py-2 text-sm text-text-primary placeholder:text-text-subtle outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/60"
+          className="w-full pl-9 pr-8"
         />
 
         {query && (
@@ -89,19 +91,7 @@ export default function SearchBar() {
             className="absolute right-2 top-1/2 -translate-y-1/2 flex h-5 w-5 items-center justify-center rounded-full text-text-faint hover:text-text-primary hover:bg-surface-hover"
             aria-label="Clear search"
           >
-            <svg
-              className="h-3.5 w-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <X className="h-3.5 w-3.5" />
           </button>
         )}
       </div>
@@ -115,11 +105,20 @@ export default function SearchBar() {
                 onClick={() => navigate(item.href)}
                 className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-surface-hover"
               >
-                <span
-                  className={`mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${TYPE_BADGE[item.type]}`}
-                >
-                  {item.type}
-                </span>
+                {(() => {
+                  const meta = TYPE_META[item.type];
+                  const Icon = meta.icon;
+
+                  return (
+                    <Badge
+                      variant="muted"
+                      className="mt-0.5 shrink-0 gap-1 rounded-md px-2 py-1 normal-case tracking-normal"
+                    >
+                      <Icon className="h-3 w-3" />
+                      {meta.label}
+                    </Badge>
+                  );
+                })()}
                 <div className="min-w-0">
                   <p className="truncate text-sm font-medium text-text-primary">
                     {item.title}

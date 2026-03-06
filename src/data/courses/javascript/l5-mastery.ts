@@ -10,7 +10,7 @@ export const l5Level: Level = {
     {
       id: "js",
       title: "JS",
-      icon: "{ }",
+      icon: "braces",
       color: "#4ade80",
       description: "Engine internals, standards & ecosystem.",
       topics: [
@@ -203,7 +203,7 @@ export const l5Level: Level = {
     {
       id: "dsa",
       title: "DSA",
-      icon: "~",
+      icon: "workflow",
       color: "#22d3ee",
       description: "Advanced algorithm design & theory.",
       topics: [
@@ -374,7 +374,7 @@ export const l5Level: Level = {
     {
       id: "iq",
       title: "Interview Q",
-      icon: "?",
+      icon: "circleHelp",
       color: "#f472b6",
       description: "Principal-level interview prep.",
       topics: [

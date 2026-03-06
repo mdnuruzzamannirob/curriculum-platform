@@ -10,7 +10,7 @@ export const l3Level: Level = {
     {
       id: "js",
       title: "JS",
-      icon: "{ }",
+      icon: "braces",
       color: "#4ade80",
       description: "Patterns, metaprogramming & memory.",
       topics: [
@@ -303,7 +303,7 @@ export const l3Level: Level = {
     {
       id: "dsa",
       title: "DSA",
-      icon: "~",
+      icon: "workflow",
       color: "#22d3ee",
       description: "Trees, graphs & heaps.",
       topics: [
@@ -500,7 +500,7 @@ export const l3Level: Level = {
     {
       id: "iq",
       title: "Interview Q",
-      icon: "?",
+      icon: "circleHelp",
       color: "#f472b6",
       description: "Senior-level interview prep.",
       topics: [

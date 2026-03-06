@@ -1,16 +1,20 @@
 "use client";
 
 import { use, useState, Suspense } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { notFound } from "next/navigation";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { getCourseById } from "@/data/courses";
 import { useProgress } from "@/context/ProgressContext";
+import { AppIcon } from "@/lib/icons";
 import {
   calcCourseProgress,
   calcModuleProgress,
   calcLevelProgress,
 } from "@/utils/progress";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import ProgressBar from "@/components/ProgressBar";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import TopicAccordion from "@/components/TopicAccordion";
@@ -102,7 +106,7 @@ function CourseContent({ courseId }: { courseId: string }) {
       />
 
       {/* ── Course header ────────────────────────────────── */}
-      <div className="mt-4 mb-6">
+      <div className="my-6">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-text-faint">
@@ -114,110 +118,151 @@ function CourseContent({ courseId }: { courseId: string }) {
               </h1>
               <span
                 data-accent={course.color}
-                className="text-xl font-bold font-mono accent-text"
+                className="flex size-10 items-center justify-center rounded-2xl border border-border-default accent-bg-soft-strong accent-text"
               >
-                {course.icon}
+                <AppIcon
+                  name={course.icon}
+                  className="h-5 w-5"
+                  strokeWidth={2.2}
+                />
               </span>
             </div>
           </div>
-          <button
-            type="button"
+          <Button
             onClick={() => setShowProgress(!showProgress)}
-            className="mt-2 shrink-0 rounded-lg border border-border-default bg-surface px-3 py-1.5 text-xs font-medium text-text-muted hover:border-border-strong hover:text-text-primary"
+            variant="subtle"
+            size="sm"
+            className="mt-2 shrink-0"
           >
+            {showProgress ? (
+              <EyeOff className="h-3.5 w-3.5" />
+            ) : (
+              <Eye className="h-3.5 w-3.5" />
+            )}
             {showProgress ? "Hide Stats" : "Show Stats"}
-          </button>
+          </Button>
         </div>
 
         {/* Module totals row */}
-        <div className="my-2 flex flex-wrap items-center gap-x-4 gap-y-1">
-          {Object.entries(moduleAgg).map(([id, agg]) => (
-            <span key={id} className="flex items-center gap-1.5">
-              <span
-                data-accent={agg.color}
-                className="text-xs font-bold accent-text"
-              >
-                {agg.title}
-              </span>
-              <span className="text-xs font-mono text-text-muted">
-                {agg.completed}/{agg.total}
-              </span>
-            </span>
-          ))}
+        <div className="mt-2 mb-6 flex flex-wrap items-center gap-x-4 gap-y-1">
+          {isLoaded
+            ? Object.entries(moduleAgg).map(([id, agg]) => (
+                <span key={id} className="flex items-center gap-1.5">
+                  <span
+                    data-accent={agg.color}
+                    className="text-xs font-bold accent-text"
+                  >
+                    {agg.title}
+                  </span>
+                  <span className="text-xs font-mono text-text-muted">
+                    {agg.completed}/{agg.total}
+                  </span>
+                </span>
+              ))
+            : Array.from({ length: 4 }).map((_, idx) => (
+                <Skeleton key={idx} className="h-6 w-24 rounded-full" />
+              ))}
           <span className="text-[10px] text-text-faint">
             {totalSubtopics} subtopics total
           </span>
         </div>
 
-        {/* Level stats cards + overall progress (toggleable) */}
-        {showProgress && isLoaded && (
+        {/* Level stats cards + overall progress (taggable) */}
+        {showProgress && (
           <div className="mt-4 space-y-3">
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-              {course.levels.map((level, idx) => {
-                const active = level.id === activeLevel.id;
-                const color = level.color ?? "#888";
-                const lp = calcLevelProgress(progress, course.id, level);
-                return (
-                  <div
-                    key={level.id}
-                    data-accent={color}
-                    className={`rounded-xl border p-2.5 ${
-                      active
-                        ? "accent-border-soft accent-bg-soft"
-                        : "border-border-default bg-surface"
-                    }`}
-                  >
-                    <p className="mb-1.5 text-[10px] font-black tracking-wide leading-snug accent-text">
-                      L{idx}&nbsp;{level.title}
-                    </p>
-                    {level.modules.map((mod) => {
-                      const mp = calcModuleProgress(
-                        progress,
-                        course.id,
-                        level.id,
-                        mod,
-                      );
-                      return (
-                        <div
-                          key={mod.id}
-                          className="flex items-center gap-1 text-[10px] leading-relaxed"
-                        >
-                          <span
-                            data-accent={mod.color ?? "#888"}
-                            className="font-bold uppercase accent-text"
-                          >
-                            {mod.id.toUpperCase()}:
-                          </span>
-                          <span className="font-mono text-text-muted">
-                            {mp.completed}/{mp.total}
-                          </span>
-                        </div>
-                      );
-                    })}
-                    {lp.percentage > 0 && (
-                      <div className="mt-2">
-                        <ProgressBar
-                          percentage={lp.percentage}
-                          size="sm"
-                          color={color}
-                          showLabel={false}
-                        />
+            {isLoaded ? (
+              <>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+                  {course.levels.map((level, idx) => {
+                    const active = level.id === activeLevel.id;
+                    const color = level.color ?? "#888";
+                    const lp = calcLevelProgress(progress, course.id, level);
+                    return (
+                      <div
+                        key={level.id}
+                        data-accent={color}
+                        className={`rounded-xl border p-2.5 ${
+                          active
+                            ? "accent-border-soft accent-bg-soft"
+                            : "border-border-default bg-surface"
+                        }`}
+                      >
+                        <p className="mb-1.5 text-[10px] font-black tracking-wide leading-snug accent-text">
+                          L{idx}&nbsp;{level.title}
+                        </p>
+                        {level.modules.map((mod) => {
+                          const mp = calcModuleProgress(
+                            progress,
+                            course.id,
+                            level.id,
+                            mod,
+                          );
+                          return (
+                            <div
+                              key={mod.id}
+                              className="flex items-center gap-1 text-[10px] leading-relaxed"
+                            >
+                              <span
+                                data-accent={mod.color ?? "#888"}
+                                className="font-bold uppercase accent-text"
+                              >
+                                {mod.id.toUpperCase()}:
+                              </span>
+                              <span className="font-mono text-text-muted">
+                                {mp.completed}/{mp.total}
+                              </span>
+                            </div>
+                          );
+                        })}
+                        {lp.percentage > 0 && (
+                          <div className="mt-2">
+                            <ProgressBar
+                              percentage={lp.percentage}
+                              size="sm"
+                              color={color}
+                              showLabel={false}
+                            />
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            <div className="w-full">
-              <ProgressBar
-                percentage={courseStats.percentage}
-                size="sm"
-                color={course.color}
-              />
-              <p className="mt-1 text-xs text-text-faint">
-                {totalCompleted}/{totalSubtopics} subtopics completed
-              </p>
-            </div>
+                    );
+                  })}
+                </div>
+                <div className="w-full">
+                  <ProgressBar
+                    percentage={courseStats.percentage}
+                    size="sm"
+                    color={course.color}
+                  />
+                  <p className="mt-1 text-xs text-text-faint">
+                    {totalCompleted}/{totalSubtopics} subtopics completed
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+                  {course.levels.map((level) => (
+                    <div
+                      key={level.id}
+                      className="rounded-xl border border-border-default bg-surface p-2.5"
+                    >
+                      <Skeleton className="mb-2 h-3 w-20" />
+                      <div className="space-y-1.5">
+                        <Skeleton className="h-2.5 w-16" />
+                        <Skeleton className="h-2.5 w-18" />
+                        <Skeleton className="h-2.5 w-14" />
+                      </div>
+                      <Skeleton className="mt-3 h-2.5 w-full" />
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-2">
+                  <Skeleton className="h-3 w-full" />
+                  <Skeleton className="h-3 w-44" />
+                </div>
+              </>
+            )}
           </div>
         )}
       </div>
@@ -237,7 +282,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                 onClick={() => handleLevelChange(level.id)}
                 className={`flex shrink-0 flex-col items-start gap-0.5 border-b-2 px-5 py-3 ${
                   active
-                    ? "accent-border"
+                    ? "accent-border accent-bg-soft"
                     : "border-transparent hover:bg-surface-hover hover:border-border-muted"
                 }`}
               >
@@ -309,6 +354,18 @@ function CourseContent({ courseId }: { courseId: string }) {
                   >
                     L{activeLevelIdx}
                   </span>
+                  {activeModule && (
+                    <span
+                      data-accent={activeModule.color ?? "#888"}
+                      className="flex size-7 items-center justify-center rounded-lg border border-border-default accent-bg-soft accent-text"
+                    >
+                      <AppIcon
+                        name={activeModule.icon ?? "layers"}
+                        className="h-3.5 w-3.5"
+                        strokeWidth={2.2}
+                      />
+                    </span>
+                  )}
                   <h2 className="text-base font-bold text-text-primary">
                     {activeModule.title} Topics
                   </h2>

@@ -3,7 +3,16 @@
 import Link from "next/link";
 import { Course } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
+import { AppIcon } from "@/lib/icons";
 import { calcCourseProgress, calcModuleProgress } from "@/utils/progress";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Skeleton } from "./ui/skeleton";
 import ProgressBar from "./ProgressBar";
 
 interface CourseCardProps {
@@ -36,44 +45,61 @@ export default function CourseCard({ course }: CourseCardProps) {
   }
 
   return (
-    <Link
-      href={`/course/${course.id}`}
-      className="group block rounded-xl border border-border-default bg-surface p-6 hover:border-border-strong"
-    >
-      <div className="mb-4 flex items-center gap-3">
-        <span
-          data-accent={course.color}
-          className="text-2xl font-bold font-mono accent-text"
-        >
-          {course.icon}
-        </span>
-        <div>
-          <h3 className="text-lg font-bold text-text-primary group-hover:opacity-90">
-            {course.title}
-          </h3>
-          <p className="text-sm text-text-subtle">{course.description}</p>
-        </div>
-      </div>
-
-      {isLoaded && (
-        <>
-          <ProgressBar percentage={courseStats.percentage} size="md" />
-          <p className="mt-2 text-xs text-text-faint">
-            {courseStats.completed}/{courseStats.total} subtopics completed
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-            {Object.entries(moduleAgg).map(([id, agg]) => (
-              <span
-                key={id}
-                data-accent={agg.color}
-                className="text-xs font-mono accent-text"
-              >
-                {agg.completed}/{agg.total} {agg.title}
-              </span>
-            ))}
+    <Link href={`/course/${course.id}`} className="group block">
+      <Card className="h-full transition-colors group-hover:border-border-strong group-hover:bg-surface-hover">
+        <CardHeader className="pb-4">
+          <div className="flex items-start gap-3">
+            <span
+              data-accent={course.color}
+              className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-border-default accent-bg-soft-strong accent-text"
+            >
+              <AppIcon
+                name={course.icon}
+                className="h-6 w-6"
+                strokeWidth={2.2}
+              />
+            </span>
+            <div className="space-y-1">
+              <CardTitle className="text-lg font-black group-hover:opacity-90">
+                {course.title}
+              </CardTitle>
+              <CardDescription>{course.description}</CardDescription>
+            </div>
           </div>
-        </>
-      )}
+        </CardHeader>
+
+        <CardContent className="space-y-3">
+          {isLoaded ? (
+            <>
+              <ProgressBar percentage={courseStats.percentage} size="md" />
+              <p className="text-xs text-text-faint">
+                {courseStats.completed}/{courseStats.total} subtopics completed
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(moduleAgg).map(([id, agg]) => (
+                  <span
+                    key={id}
+                    data-accent={agg.color}
+                    className="rounded-full border border-border-default px-2.5 py-1 text-xs font-medium accent-bg-soft accent-text"
+                  >
+                    {agg.completed}/{agg.total} {agg.title}
+                  </span>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="space-y-3">
+              <Skeleton className="h-3 w-full" />
+              <Skeleton className="h-3 w-40" />
+              <div className="flex flex-wrap gap-2">
+                <Skeleton className="h-8 w-28 rounded-full" />
+                <Skeleton className="h-8 w-24 rounded-full" />
+                <Skeleton className="h-8 w-32 rounded-full" />
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </Link>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Check, CheckCheck, ChevronDown, Copy, Dot } from "lucide-react";
 import { Topic, SubtopicStatus } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
 import { calcTopicProgress, getSubtopicStatus } from "@/utils/progress";
@@ -22,38 +23,6 @@ const NEXT_STATUS: Record<SubtopicStatus, SubtopicStatus> = {
   "in-progress": "completed",
   completed: "not-started",
 };
-
-function CopyIcon() {
-  return (
-    <svg
-      className="h-3.5 w-3.5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-      />
-    </svg>
-  );
-}
-
-function CopiedIcon() {
-  return (
-    <svg
-      className="h-3.5 w-3.5 text-emerald-400"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
-  );
-}
 
 export default function TopicAccordion({
   topics,
@@ -155,19 +124,10 @@ export default function TopicAccordion({
                     )}
                     {tp.total} items
                   </span>
-                  <svg
+                  <ChevronDown
                     className={`h-4 w-4 text-text-faint ${isOpen ? "rotate-180" : ""}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                    strokeWidth={2.2}
+                  />
                 </div>
               </button>
               <button
@@ -177,9 +137,9 @@ export default function TopicAccordion({
                 title="Copy topic title"
               >
                 {copiedId === `topic-${topic.id}` ? (
-                  <CopiedIcon />
+                  <CheckCheck className="h-3.5 w-3.5 text-emerald-400" />
                 ) : (
-                  <CopyIcon />
+                  <Copy className="h-3.5 w-3.5" />
                 )}
               </button>
             </div>
@@ -234,22 +194,16 @@ export default function TopicAccordion({
                               }`}
                             >
                               {status === "completed" && (
-                                <svg
+                                <Check
                                   className="h-3 w-3 text-emerald-400"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
                                   strokeWidth={3}
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M5 13l4 4L19 7"
-                                  />
-                                </svg>
+                                />
                               )}
                               {status === "in-progress" && (
-                                <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                                <Dot
+                                  className="h-4 w-4 text-amber-400"
+                                  strokeWidth={3}
+                                />
                               )}
                             </span>
 
@@ -281,9 +235,9 @@ export default function TopicAccordion({
                             title="Copy"
                           >
                             {copiedId === `sub-${topic.id}-${sub.id}` ? (
-                              <CopiedIcon />
+                              <CheckCheck className="h-3.5 w-3.5 text-emerald-400" />
                             ) : (
-                              <CopyIcon />
+                              <Copy className="h-3.5 w-3.5" />
                             )}
                           </button>
                         </div>

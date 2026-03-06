@@ -2,6 +2,7 @@
 
 import { Module } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
+import { AppIcon } from "@/lib/icons";
 import { calcModuleProgress } from "@/utils/progress";
 import ProgressBar from "./ProgressBar";
 
@@ -43,25 +44,23 @@ export default function ModuleSidebar({
                     : "border-border-default bg-surface hover:bg-surface-hover hover:border-border-muted"
                 }`}
               >
-                {/* Icon + Title */}
                 <div className="flex items-center gap-1.5">
+                  <span className="flex min-w-6 justify-center accent-text">
+                    <AppIcon
+                      name={mod.icon ?? "layers"}
+                      className="h-4 w-4"
+                      strokeWidth={2.2}
+                    />
+                  </span>
                   <p
-                    className="rounded justify-center min-w-6 text-center font-mono font-black leading-none accent-text"
-                    style={{ color: modColor }}
-                  >
-                    {mod.icon ?? mod.id.charAt(0).toUpperCase()}
-                  </p>
-                  <p
-                    className={`text-sm font-bold uppercase tracking-wide leading-tight truncate ${
+                    className={`truncate text-sm font-bold uppercase tracking-wide leading-tight ${
                       active ? "accent-text" : "text-text-muted"
                     }`}
-                    style={active ? { color: modColor } : undefined}
                   >
                     {mod.title}
                   </p>
                 </div>
 
-                {/* Progress bar + count */}
                 <div className="flex w-full items-center gap-1">
                   <div className="w-full">
                     <ProgressBar
@@ -100,9 +99,13 @@ export default function ModuleSidebar({
               }`}
             >
               <div className="flex items-center gap-1.5">
-                <p className="rounded justify-center min-w-6 text-center font-mono font-black leading-none accent-text">
-                  {mod.icon ?? mod.id.charAt(0).toUpperCase()}
-                </p>
+                <span className="flex min-w-6 justify-center accent-text">
+                  <AppIcon
+                    name={mod.icon ?? "layers"}
+                    className="h-4 w-4"
+                    strokeWidth={2.2}
+                  />
+                </span>
                 <p
                   className={`text-sm font-bold uppercase tracking-wide leading-tight ${active ? "accent-text" : "text-text-muted"}`}
                 >

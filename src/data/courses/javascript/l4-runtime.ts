@@ -10,7 +10,7 @@ export const l4Level: Level = {
     {
       id: "js",
       title: "JS",
-      icon: "{ }",
+      icon: "braces",
       color: "#4ade80",
       description: "Performance, security & concurrency.",
       topics: [
@@ -224,7 +224,7 @@ export const l4Level: Level = {
     {
       id: "dsa",
       title: "DSA",
-      icon: "~",
+      icon: "workflow",
       color: "#22d3ee",
       description: "Dynamic programming & advanced algorithms.",
       topics: [
@@ -417,7 +417,7 @@ export const l4Level: Level = {
     {
       id: "iq",
       title: "Interview Q",
-      icon: "?",
+      icon: "circleHelp",
       color: "#f472b6",
       description: "Staff-level interview prep.",
       topics: [

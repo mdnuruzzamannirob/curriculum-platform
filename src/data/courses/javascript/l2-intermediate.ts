@@ -10,7 +10,7 @@ export const l2Level: Level = {
     {
       id: "js",
       title: "JS",
-      icon: "{ }",
+      icon: "braces",
       color: "#4ade80",
       description: "Advanced JavaScript features.",
       topics: [
@@ -329,7 +329,7 @@ export const l2Level: Level = {
     {
       id: "dsa",
       title: "DSA",
-      icon: "~",
+      icon: "workflow",
       color: "#22d3ee",
       description: "Core data structures.",
       topics: [
@@ -524,7 +524,7 @@ export const l2Level: Level = {
     {
       id: "iq",
       title: "Interview Q",
-      icon: "?",
+      icon: "circleHelp",
       color: "#f472b6",
       description: "Mid-level interview prep.",
       topics: [

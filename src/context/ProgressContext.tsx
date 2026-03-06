@@ -3,13 +3,27 @@
 import {
   createContext,
   useContext,
-  useState,
-  useEffect,
   useCallback,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { ProgressState, SubtopicStatus } from "@/types";
 import { loadProgress, saveProgress } from "@/utils/progress";
+
+const PROGRESS_CHANGE_EVENT = "learning-platform-progress-change";
+const EMPTY_PROGRESS: ProgressState = {};
+const SERVER_SNAPSHOT: ProgressSnapshot = {
+  progress: EMPTY_PROGRESS,
+  isLoaded: false,
+};
+
+let cachedProgressRaw: string | null | undefined;
+let cachedClientSnapshot: ProgressSnapshot = SERVER_SNAPSHOT;
+
+interface ProgressSnapshot {
+  progress: ProgressState;
+  isLoaded: boolean;
+}
 
 interface ProgressContextValue {
   progress: ProgressState;
@@ -25,19 +39,57 @@ interface ProgressContextValue {
 }
 
 const ProgressContext = createContext<ProgressContextValue>({
-  progress: {},
+  progress: EMPTY_PROGRESS,
   isLoaded: false,
   updateSubtopicStatus: () => {},
 });
 
-export function ProgressProvider({ children }: { children: ReactNode }) {
-  const [progress, setProgress] = useState<ProgressState>({});
-  const [isLoaded, setIsLoaded] = useState(false);
+function getProgressSnapshot(): ProgressSnapshot {
+  if (typeof window === "undefined") {
+    return SERVER_SNAPSHOT;
+  }
 
-  useEffect(() => {
-    setProgress(loadProgress());
-    setIsLoaded(true);
-  }, []);
+  const raw = window.localStorage.getItem("learning-platform-progress");
+
+  if (raw === cachedProgressRaw) {
+    return cachedClientSnapshot;
+  }
+
+  cachedProgressRaw = raw;
+  cachedClientSnapshot = {
+    progress: loadProgress(),
+    isLoaded: true,
+  };
+
+  return cachedClientSnapshot;
+}
+
+function getProgressServerSnapshot(): ProgressSnapshot {
+  return SERVER_SNAPSHOT;
+}
+
+function subscribe(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+
+  const handleChange = () => {
+    callback();
+  };
+
+  window.addEventListener("storage", handleChange);
+  window.addEventListener(PROGRESS_CHANGE_EVENT, handleChange);
+
+  return () => {
+    window.removeEventListener("storage", handleChange);
+    window.removeEventListener(PROGRESS_CHANGE_EVENT, handleChange);
+  };
+}
+
+export function ProgressProvider({ children }: { children: ReactNode }) {
+  const snapshot = useSyncExternalStore(
+    subscribe,
+    getProgressSnapshot,
+    getProgressServerSnapshot,
+  );
 
   const updateSubtopicStatus = useCallback(
     (
@@ -48,20 +100,28 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       subtopicId: string,
       status: SubtopicStatus,
     ) => {
-      setProgress((prev) => {
-        const next = structuredClone(prev);
-        ((((next[courseId] ??= {})[levelId] ??= {})[moduleId] ??= {})[
-          topicId
-        ] ??= {})[subtopicId] = status;
-        saveProgress(next);
-        return next;
-      });
+      const next = structuredClone(loadProgress());
+      ((((next[courseId] ??= {})[levelId] ??= {})[moduleId] ??= {})[topicId] ??=
+        {})[subtopicId] = status;
+      saveProgress(next);
+      cachedProgressRaw = JSON.stringify(next);
+      cachedClientSnapshot = {
+        progress: next,
+        isLoaded: true,
+      };
+      window.dispatchEvent(new Event(PROGRESS_CHANGE_EVENT));
     },
     [],
   );
 
   return (
-    <ProgressContext value={{ progress, isLoaded, updateSubtopicStatus }}>
+    <ProgressContext
+      value={{
+        progress: snapshot.progress,
+        isLoaded: snapshot.isLoaded,
+        updateSubtopicStatus,
+      }}
+    >
       {children}
     </ProgressContext>
   );
@@ -70,4 +130,3 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 export function useProgress() {
   return useContext(ProgressContext);
 }
-

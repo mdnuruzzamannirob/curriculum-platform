@@ -1,22 +1,19 @@
-import { Course, Level, Module, Topic, Subtopic } from "@/types";
+import { Course } from "@/types";
 
-export function findLevel(course: Course, levelId: string): Level | undefined {
-  return course.levels.find((l) => l.id === levelId);
+export function countModules(course: Course): number {
+  return course.levels.reduce((sum, level) => sum + level.modules.length, 0);
 }
 
-export function findModule(level: Level, moduleId: string): Module | undefined {
-  return level.modules.find((m) => m.id === moduleId);
-}
-
-export function findTopic(mod: Module, topicId: string): Topic | undefined {
-  return mod.topics.find((t) => t.id === topicId);
-}
-
-export function findSubtopic(
-  topic: Topic,
-  subtopicId: string,
-): Subtopic | undefined {
-  return topic.subtopics.find((s) => s.id === subtopicId);
+export function countTopics(course: Course): number {
+  return course.levels.reduce(
+    (sum, level) =>
+      sum +
+      level.modules.reduce(
+        (moduleSum, mod) => moduleSum + mod.topics.length,
+        0,
+      ),
+    0,
+  );
 }
 
 /** Count every subtopic across the entire course. */
@@ -27,4 +24,3 @@ export function countSubtopics(course: Course): number {
       for (const topic of mod.topics) count += topic.subtopics.length;
   return count;
 }
-

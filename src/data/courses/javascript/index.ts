@@ -10,8 +10,7 @@ export const javascriptCourse: Course = {
   id: "javascript",
   title: "JavaScript",
   description: "Master JavaScript from fundamentals to advanced internals.",
-  icon: "{ }",
+  icon: "braces",
   color: "#f7df1e",
   levels: [l0Level, l1Level, l2Level, l3Level, l4Level, l5Level],
 };
-

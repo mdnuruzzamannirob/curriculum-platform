@@ -22,6 +22,7 @@
 }
 
 :root {
+  --radius: 1rem;
   --color-bg-page: #08080f;
   --color-bg-surface: #101221;
   --color-bg-surface-hover: #14172a;
@@ -227,4 +228,37 @@ html.theme-switching .progress-track::-moz-progress-bar {
 body {
   @apply bg-page text-text-primary;
   font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at top, rgba(var(--accent-rgb) / 0.14), transparent 28%),
+    radial-gradient(circle at right bottom, rgba(56 189 248 / 0.08), transparent 26%);
+}
+
+.surface-mesh {
+  background-image:
+    linear-gradient(rgba(255 255 255 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255 255 255 / 0.03) 1px, transparent 1px);
+  background-position: center;
+  background-size: 24px 24px;
+}
+
+.page-shell {
+  position: relative;
+}
+
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at left top, rgba(var(--accent-rgb) / 0.08), transparent 24%),
+    radial-gradient(circle at 85% 20%, rgba(14 165 233 / 0.06), transparent 18%);
+  opacity: 0.9;
+}
+
+.app-panel {
+  border: 1px solid var(--color-border-base);
+  background: color-mix(in srgb, var(--color-bg-surface) 88%, transparent);
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.18);
 }

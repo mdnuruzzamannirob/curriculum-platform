@@ -1,5 +1,19 @@
 export type SubtopicStatus = "not-started" | "in-progress" | "completed";
 
+export type AppIconName =
+  | "binary"
+  | "bookOpen"
+  | "braces"
+  | "circleHelp"
+  | "compass"
+  | "graduationCap"
+  | "layers"
+  | "library"
+  | "route"
+  | "search"
+  | "sparkles"
+  | "workflow";
+
 export interface Subtopic {
   id: string;
   title: string;
@@ -17,7 +31,7 @@ export interface Module {
   id: string;
   title: string;
   description?: string;
-  icon?: string;
+  icon?: AppIconName;
   color?: string;
   topics: Topic[];
 }
@@ -34,7 +48,7 @@ export interface Course {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon: AppIconName;
   color: string;
   levels: Level[];
 }
@@ -58,4 +72,3 @@ export interface SearchItem {
   breadcrumb: string;
   href: string;
 }
-
