@@ -5,6 +5,21 @@
 @theme inline {
   --font-sans: var(--font-app-sans);
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  /* Color tokens — map Tailwind utilities to theme CSS vars */
+  --color-bg: var(--c-bg);
+  --color-s0: var(--c-s0);
+  --color-s1: var(--c-s1);
+  --color-s2: var(--c-s2);
+  --color-bd: var(--c-bd);
+  --color-bd2: var(--c-bd2);
+  --color-bd3: var(--c-bd3);
+  --color-t0: var(--c-t0);
+  --color-t0b: var(--c-t0b);
+  --color-t1: var(--c-t1);
+  --color-t2: var(--c-t2);
+  --color-t3: var(--c-t3);
+  --color-t4: var(--c-t4);
 }
 
 /* ── Theme: dark (default) ────────────────────────────── */
@@ -44,6 +59,7 @@ html.light {
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--c-bd3) transparent;
+  /* raw CSS — no Tailwind utility for scrollbar-color */
 }
 
 /* Hide scrollbar utility */
@@ -59,10 +75,10 @@ html.light {
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: var(--c-t0);
+  /* raw CSS — @apply not valid in ::selection */
 }
 
 body {
-  background: var(--c-bg);
-  color: var(--c-t0);
+  @apply bg-bg text-t0;
   font-family: var(--font-sans), system-ui, sans-serif;
 }

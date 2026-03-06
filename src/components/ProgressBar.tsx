@@ -16,7 +16,7 @@ export default function ProgressBar({
 
   return (
     <div className="flex items-center gap-2">
-      <div className={`flex-1 rounded-full bg-[var(--c-bd)] ${height}`}>
+      <div className={`flex-1 rounded-full bg-bd ${height}`}>
         <div
           className={`${height} rounded-full transition-all duration-300`}
           style={{
@@ -27,12 +27,12 @@ export default function ProgressBar({
                 ? "#10b981"
                 : clamped > 0
                   ? "#3b82f6"
-                  : "var(--c-bd2)",
+                  : undefined,
           }}
         />
       </div>
       {showLabel && (
-        <span className="min-w-[3ch] text-right text-xs font-medium text-[var(--c-t2)]">
+        <span className="min-w-[3ch] text-right text-xs font-medium text-t2">
           {clamped}%
         </span>
       )}

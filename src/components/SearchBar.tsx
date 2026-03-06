@@ -54,17 +54,17 @@ export default function SearchBar() {
           setOpen(true);
         }}
         onFocus={() => query && setOpen(true)}
-        className="w-full rounded-lg border border-[var(--c-bd3)] bg-[var(--c-s0)] px-4 py-2 text-sm text-[var(--c-t0)] placeholder:text-[var(--c-t3)] outline-none focus:border-[var(--c-t1)] transition"
+        className="w-full rounded-lg border border-bd3 bg-s0 px-4 py-2 text-sm text-t0 placeholder:text-t3 outline-none focus:border-t1 transition"
       />
 
       {open && results.length > 0 && (
-        <ul className="absolute z-50 mt-1 max-h-80 w-full overflow-auto rounded-xl border border-[var(--c-bd)] bg-[var(--c-s0)] shadow-2xl">
+        <ul className="absolute z-50 mt-1 max-h-80 w-full overflow-auto rounded-xl border border-bd bg-s0 shadow-2xl">
           {results.map((item, i) => (
             <li key={i}>
               <button
                 type="button"
                 onClick={() => navigate(item.href)}
-                className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-[var(--c-s1)] transition-colors"
+                className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-s1 transition-colors"
               >
                 <span
                   className={`mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${TYPE_BADGE[item.type]}`}
@@ -72,12 +72,10 @@ export default function SearchBar() {
                   {item.type}
                 </span>
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-[var(--c-t0)]">
+                  <p className="truncate text-sm font-medium text-t0">
                     {item.title}
                   </p>
-                  <p className="truncate text-xs text-[var(--c-t3)]">
-                    {item.breadcrumb}
-                  </p>
+                  <p className="truncate text-xs text-t3">{item.breadcrumb}</p>
                 </div>
               </button>
             </li>
@@ -86,7 +84,7 @@ export default function SearchBar() {
       )}
 
       {open && query && results.length === 0 && (
-        <div className="absolute z-50 mt-1 w-full rounded-xl border border-[var(--c-bd)] bg-[var(--c-s0)] p-4 text-center text-sm text-[var(--c-t3)] shadow-2xl">
+        <div className="absolute z-50 mt-1 w-full rounded-xl border border-bd bg-s0 p-4 text-center text-sm text-t3 shadow-2xl">
           No results found
         </div>
       )}

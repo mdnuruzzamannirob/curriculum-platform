@@ -36,7 +36,7 @@ export default function ModuleSidebar({
                 key={mod.id}
                 type="button"
                 onClick={() => onSelect(mod.id)}
-                className="flex shrink-0 flex-col items-center gap-1.5 rounded-xl px-4 py-3 text-center transition-all border"
+                className={`flex shrink-0 flex-col items-center gap-1.5 rounded-xl px-4 py-3 text-center transition-all border ${active ? "" : "border-bd bg-s0"}`}
                 style={
                   active
                     ? {
@@ -45,10 +45,7 @@ export default function ModuleSidebar({
                         borderLeftWidth: "3px",
                         borderLeftColor: modColor,
                       }
-                    : {
-                        borderColor: "var(--c-bd)",
-                        backgroundColor: "var(--c-s0)",
-                      }
+                    : undefined
                 }
               >
                 <span
@@ -58,12 +55,12 @@ export default function ModuleSidebar({
                   {mod.icon ?? mod.id.charAt(0).toUpperCase()}
                 </span>
                 <span
-                  className="text-[10px] font-bold tracking-wide leading-tight whitespace-nowrap"
-                  style={{ color: active ? modColor : "var(--c-t1)" }}
+                  className={`text-[10px] font-bold tracking-wide leading-tight whitespace-nowrap ${active ? "" : "text-t1"}`}
+                  style={active ? { color: modColor } : undefined}
                 >
                   {mod.title}
                 </span>
-                <span className="text-[9px] font-mono text-[var(--c-t2)]">
+                <span className="text-[9px] font-mono text-t2">
                   {mp.completed}/{mp.total}
                 </span>
               </button>
@@ -84,9 +81,7 @@ export default function ModuleSidebar({
               type="button"
               onClick={() => onSelect(mod.id)}
               className={`flex flex-col items-center gap-2 rounded-xl px-3 py-4 text-center transition-all w-full border ${
-                active
-                  ? ""
-                  : "border-[var(--c-bd)] bg-[var(--c-s0)] hover:border-[var(--c-bd2)] hover:bg-[var(--c-s1)]"
+                active ? "" : "border-bd bg-s0 hover:border-bd2 hover:bg-s1"
               }`}
               style={
                 active
@@ -106,8 +101,8 @@ export default function ModuleSidebar({
                 {mod.icon ?? mod.id.charAt(0).toUpperCase()}
               </span>
               <span
-                className="text-[11px] font-bold uppercase tracking-widest leading-tight"
-                style={{ color: active ? modColor : "var(--c-t1)" }}
+                className={`text-[11px] font-bold uppercase tracking-widest leading-tight ${active ? "" : "text-t1"}`}
+                style={active ? { color: modColor } : undefined}
               >
                 {mod.title}
               </span>
@@ -119,7 +114,7 @@ export default function ModuleSidebar({
                   showLabel={false}
                 />
               </div>
-              <span className="text-[10px] font-mono tabular-nums text-[var(--c-t2)]">
+              <span className="text-[10px] font-mono tabular-nums text-t2">
                 {mp.completed}/{mp.total}
               </span>
             </button>

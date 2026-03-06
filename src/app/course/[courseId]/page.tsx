@@ -105,11 +105,11 @@ function CourseContent({ courseId }: { courseId: string }) {
       <div className="mt-4 mb-6">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[var(--c-t3)]">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-t3">
               Mastery System
             </p>
             <div className="mt-1 flex items-baseline gap-3">
-              <h1 className="text-2xl font-black text-[var(--c-t0)] sm:text-3xl">
+              <h1 className="text-2xl font-black text-t0 sm:text-3xl">
                 {course.title}
               </h1>
               <span
@@ -123,7 +123,7 @@ function CourseContent({ courseId }: { courseId: string }) {
           <button
             type="button"
             onClick={() => setShowProgress(!showProgress)}
-            className="rounded-lg border border-[var(--c-bd)] bg-[var(--c-s0)] px-3 py-1.5 text-xs font-medium text-[var(--c-t1)] transition-colors hover:border-[var(--c-bd3)] hover:text-[var(--c-t0)] shrink-0 mt-2"
+            className="rounded-lg border border-bd bg-s0 px-3 py-1.5 text-xs font-medium text-t1 transition-colors hover:border-bd3 hover:text-t0 shrink-0 mt-2"
           >
             {showProgress ? "Hide Stats" : "Show Stats"}
           </button>
@@ -136,12 +136,12 @@ function CourseContent({ courseId }: { courseId: string }) {
               <span className="text-xs font-bold" style={{ color: agg.color }}>
                 {agg.title}
               </span>
-              <span className="text-xs font-mono text-[var(--c-t1)]">
+              <span className="text-xs font-mono text-t1">
                 {agg.completed}/{agg.total}
               </span>
             </span>
           ))}
-          <span className="text-[10px] text-[var(--c-t3)]">
+          <span className="text-[10px] text-t3">
             {totalSubtopics} subtopics total
           </span>
         </div>
@@ -157,11 +157,15 @@ function CourseContent({ courseId }: { courseId: string }) {
                 return (
                   <div
                     key={level.id}
-                    className="rounded-xl border p-2.5 transition-all"
-                    style={{
-                      borderColor: active ? color + "55" : "var(--c-bd)",
-                      backgroundColor: active ? color + "0a" : "var(--c-s0)",
-                    }}
+                    className={`rounded-xl border p-2.5 transition-all ${active ? "" : "border-bd bg-s0"}`}
+                    style={
+                      active
+                        ? {
+                            borderColor: color + "55",
+                            backgroundColor: color + "0a",
+                          }
+                        : undefined
+                    }
                   >
                     <p
                       className="text-[10px] font-black tracking-wide leading-snug mb-1.5"
@@ -187,14 +191,14 @@ function CourseContent({ courseId }: { courseId: string }) {
                           >
                             {mod.id.toUpperCase()}:
                           </span>
-                          <span className="font-mono text-[var(--c-t1)]">
+                          <span className="font-mono text-t1">
                             {mp.completed}/{mp.total}
                           </span>
                         </div>
                       );
                     })}
                     {lp.percentage > 0 && (
-                      <div className="mt-2 h-px w-full rounded-full bg-[var(--c-bd)]">
+                      <div className="mt-2 h-px w-full rounded-full bg-bd">
                         <div
                           className="h-px rounded-full transition-all"
                           style={{
@@ -214,7 +218,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                 size="sm"
                 color={course.color}
               />
-              <p className="mt-1 text-xs text-[var(--c-t3)]">
+              <p className="mt-1 text-xs text-t3">
                 {totalCompleted}/{totalSubtopics} subtopics completed
               </p>
             </div>
@@ -223,7 +227,7 @@ function CourseContent({ courseId }: { courseId: string }) {
       </div>
 
       {/* ── Level tabs (native scroll) ───────────────────── */}
-      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-[var(--c-bd)] -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-bd -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
         <div className="flex min-w-max">
           {course.levels.map((level, idx) => {
             const active = level.id === activeLevel.id;
@@ -237,16 +241,16 @@ function CourseContent({ courseId }: { courseId: string }) {
                 className={`flex shrink-0 flex-col items-start gap-0.5 px-5 py-3 transition-all border-b-2 ${
                   active
                     ? ""
-                    : "border-transparent hover:bg-[var(--c-s1)] hover:border-[var(--c-bd2)]"
+                    : "border-transparent hover:bg-s1 hover:border-bd2"
                 }`}
                 style={active ? { borderColor: color } : undefined}
               >
                 <div className="flex items-center gap-2">
                   <span
-                    className="text-[10px] font-black font-mono px-1.5 py-0.5 rounded-md leading-none transition-all"
+                    className={`text-[10px] font-black font-mono px-1.5 py-0.5 rounded-md leading-none transition-all ${active ? "text-bg" : ""}`}
                     style={
                       active
-                        ? { color: "var(--c-bg)", backgroundColor: color }
+                        ? { backgroundColor: color }
                         : { color: color, backgroundColor: color + "20" }
                     }
                   >
@@ -254,14 +258,14 @@ function CourseContent({ courseId }: { courseId: string }) {
                   </span>
                   <span
                     className={`text-xs font-bold whitespace-nowrap ${
-                      active ? "text-[var(--c-t0)]" : "text-[var(--c-t2)]"
+                      active ? "text-t0" : "text-t2"
                     }`}
                   >
                     {level.title}
                   </span>
                 </div>
                 {level.description && (
-                  <p className="text-[10px] text-[var(--c-t3)] pl-0.5 max-w-[140px] truncate">
+                  <p className="text-[10px] text-t3 pl-0.5 max-w-[140px] truncate">
                     {level.description}
                   </p>
                 )}
@@ -310,7 +314,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                   >
                     L{activeLevelIdx}
                   </span>
-                  <h2 className="text-base font-bold text-[var(--c-t0)]">
+                  <h2 className="text-base font-bold text-t0">
                     {activeModule.title} Topics
                   </h2>
                 </div>
@@ -324,7 +328,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                       />
                     </div>
                   )}
-                  <span className="text-xs text-[var(--c-t3)]">
+                  <span className="text-xs text-t3">
                     {activeModuleStats?.completed ?? 0}/
                     {activeModuleStats?.total ?? 0} done ·{" "}
                     {activeModule.topics.length} sections
@@ -358,9 +362,7 @@ export default function CoursePage({
   return (
     <Suspense
       fallback={
-        <div className="py-12 text-center text-[var(--c-t3)]">
-          Loading course…
-        </div>
+        <div className="py-12 text-center text-t3">Loading course…</div>
       }
     >
       <CourseContent courseId={courseId} />

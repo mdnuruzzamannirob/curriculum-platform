@@ -68,7 +68,7 @@ export default function TopicAccordion({
 
   if (topics.length === 0) {
     return (
-      <p className="py-8 text-center text-sm text-[var(--c-t3)]">
+      <p className="py-8 text-center text-sm text-t3">
         No topics in this module yet.
       </p>
     );
@@ -89,13 +89,13 @@ export default function TopicAccordion({
         return (
           <div
             key={topic.id}
-            className="rounded-xl border border-[var(--c-bd)] bg-[var(--c-s0)] overflow-hidden"
+            className="rounded-xl border border-bd bg-s0 overflow-hidden"
           >
             {/* Topic header */}
             <button
               type="button"
               onClick={() => toggle(topic.id)}
-              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-[var(--c-s1)]"
+              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-s1"
             >
               <div className="flex items-center gap-3">
                 <span
@@ -107,12 +107,10 @@ export default function TopicAccordion({
                 >
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-sm font-semibold text-[var(--c-t0)]">
-                  {topic.title}
-                </h3>
+                <h3 className="text-sm font-semibold text-t0">{topic.title}</h3>
               </div>
               <div className="flex items-center gap-3 shrink-0 ml-2">
-                <span className="text-xs text-[var(--c-t2)]">
+                <span className="text-xs text-t2">
                   {tp.completed > 0 && (
                     <span className="text-emerald-400 mr-1">
                       {tp.completed}✓
@@ -121,7 +119,7 @@ export default function TopicAccordion({
                   {tp.total} items
                 </span>
                 <svg
-                  className={`h-4 w-4 text-[var(--c-t3)] transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-t3 transition-transform ${isOpen ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -138,7 +136,7 @@ export default function TopicAccordion({
 
             {/* Subtopics list */}
             {isOpen && (
-              <div className="border-t border-[var(--c-bd)] px-4 pb-3 pt-2">
+              <div className="border-t border-bd px-4 pb-3 pt-2">
                 <ul className="space-y-0.5">
                   {topic.subtopics.map((sub) => {
                     const status = getSubtopicStatus(
@@ -167,7 +165,7 @@ export default function TopicAccordion({
                             )
                           }
                           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-all group ${
-                            isHighlighted ? "" : "hover:bg-[var(--c-s2)]"
+                            isHighlighted ? "" : "hover:bg-s2"
                           }`}
                           style={
                             isHighlighted
@@ -186,7 +184,7 @@ export default function TopicAccordion({
                                 ? "border-emerald-500 bg-emerald-500/20"
                                 : status === "in-progress"
                                   ? "border-amber-400 bg-amber-400/10"
-                                  : "border-[var(--c-bd3)] group-hover:border-[var(--c-t2)]"
+                                  : "border-bd3 group-hover:border-t2"
                             }`}
                           >
                             {status === "completed" && (
@@ -212,10 +210,10 @@ export default function TopicAccordion({
                           <span
                             className={`text-sm ${
                               status === "completed"
-                                ? "text-[var(--c-t2)] line-through"
+                                ? "text-t2 line-through"
                                 : status === "in-progress"
                                   ? "text-amber-300"
-                                  : "text-[var(--c-t0b)]"
+                                  : "text-t0b"
                             }`}
                           >
                             {sub.title}

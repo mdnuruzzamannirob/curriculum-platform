@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Google_Sans } from "next/font/google";
 import Link from "next/link";
 import { ProgressProvider } from "@/context/ProgressContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -7,7 +7,7 @@ import SearchBar from "@/components/SearchBar";
 import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
 
-const inter = Inter({
+const inter = Google_Sans({
   variable: "--font-app-sans",
   subsets: ["latin"],
   display: "swap",
@@ -35,15 +35,15 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} antialiased`}
+        className={`${inter.className} antialiased`}
       >
         <ThemeProvider>
           <ProgressProvider>
-            <header className="sticky top-0 z-40 border-b border-[var(--c-bd)] bg-[var(--c-bg)]/90 backdrop-blur-sm">
+            <header className="sticky top-0 z-40 border-b border-bd bg-bg/90 backdrop-blur-sm">
               <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
                 <Link
                   href="/"
-                  className="flex items-center gap-2 text-lg font-bold text-[var(--c-t0)] hover:opacity-80 transition-opacity shrink-0"
+                  className="flex items-center gap-2 text-lg font-bold text-t0 hover:opacity-80 transition-opacity shrink-0"
                 >
                   <span className="text-xl">🎓</span>
                   <span className="hidden sm:inline">Learning Platform</span>
