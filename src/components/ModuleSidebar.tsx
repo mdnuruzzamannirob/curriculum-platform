@@ -62,8 +62,8 @@ export default function ModuleSidebar({
         </div>
       </div>
 
-      {/* Desktop: vertical stack with left-border active indicator */}
-      <nav className="hidden md:flex md:flex-col md:gap-1">
+      {/* Desktop: vertical module tabs */}
+      <nav className="hidden md:flex border-l border-border-default  md:flex-col">
         {modules.map((mod) => {
           const active = mod.id === activeId;
           const mp = calcModuleProgress(progress, courseId, levelId, mod);
@@ -74,33 +74,38 @@ export default function ModuleSidebar({
               data-accent={modColor}
               type="button"
               onClick={() => onSelect(mod.id)}
-              className={`flex w-full flex-col items-center gap-2 rounded-xl border px-3 py-4 text-center ${
+              className={`w-full items-start space-y-2 gap-2 border-l-2 px-3 py-3 text-left ${
                 active
-                  ? "accent-bg-soft accent-border-soft border-l-[3px] accent-border-left"
-                  : "border-border-default bg-surface hover:border-border-muted hover:bg-surface-hover"
+                  ? "accent-bg-soft accent-border"
+                  : "border-transparent hover:bg-surface-hover hover:border-border-muted"
               }`}
             >
-              <span className="text-3xl font-black font-mono leading-none accent-text">
-                {mod.icon ?? mod.id.charAt(0).toUpperCase()}
-              </span>
-              <span
-                className={`text-[11px] font-bold uppercase tracking-widest leading-tight ${
-                  active ? "accent-text" : "text-text-muted"
-                }`}
-              >
-                {mod.title}
-              </span>
-              <div className="w-full">
-                <ProgressBar
-                  percentage={mp.percentage}
-                  size="sm"
-                  color={modColor}
-                  showLabel={false}
-                />
+              <div className="flex items-center gap-1.5">
+                <p className="rounded justify-center min-w-6 text-center font-mono font-black leading-none accent-text">
+                  {mod.icon ?? mod.id.charAt(0).toUpperCase()}
+                </p>
+                <p
+                  className={`text-sm font-bold uppercase tracking-wide leading-tight ${
+                    active ? "accent-text" : "text-text-muted"
+                  }`}
+                >
+                  {mod.title}
+                </p>
               </div>
-              <span className="text-[10px] font-mono tabular-nums text-text-subtle">
-                {mp.completed}/{mp.total}
-              </span>
+
+              <div className="flex w-full items-center gap-1">
+                <div className="w-full">
+                  <ProgressBar
+                    percentage={mp.percentage}
+                    size="sm"
+                    color={modColor}
+                    showLabel={false}
+                  />
+                </div>
+                <span className="text-[10px] font-mono tabular-nums text-text-faint">
+                  {mp.completed}/{mp.total}
+                </span>
+              </div>
             </button>
           );
         })}

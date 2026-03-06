@@ -43,8 +43,8 @@
 html.light {
   --color-bg-page: #f8fafc;
   --color-bg-surface: #ffffff;
-  --color-bg-surface-hover: #f8fafc;
-  --color-bg-surface-emphasis: #f1f5f9;
+  --color-bg-surface-hover: #f1f5f9;
+  --color-bg-surface-emphasis: #eaf0f7;
   --color-border-base: #e5e7eb;
   --color-border-soft: #d1d5db;
   --color-border-high: #c4cad6;
@@ -173,6 +173,16 @@ html.theme-switching .border-border-strong {
   transition-timing-function: ease-out;
 }
 
+html.theme-switching .accent-bg-soft,
+html.theme-switching .accent-bg-soft-strong,
+html.theme-switching .accent-border,
+html.theme-switching .accent-border-soft,
+html.theme-switching .accent-text {
+  transition-property: background-color, border-color, color;
+  transition-duration: 180ms;
+  transition-timing-function: ease-out;
+}
+
 .progress-track {
   appearance: none;
   -webkit-appearance: none;
@@ -186,7 +196,6 @@ html.theme-switching .border-border-strong {
 
 .progress-track::-webkit-progress-value {
   background-color: var(--progress-fill, #3b82f6);
-  transition: width 300ms ease;
 }
 
 .progress-track::-moz-progress-bar {
@@ -207,6 +216,12 @@ html.theme-switching .border-border-strong {
 
 .progress-fill-accent {
   --progress-fill: var(--accent);
+}
+
+html.theme-switching .progress-track,
+html.theme-switching .progress-track::-webkit-progress-value,
+html.theme-switching .progress-track::-moz-progress-bar {
+  transition: none !important;
 }
 
 body {

@@ -241,7 +241,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                   <span
                     className={`rounded-md px-1.5 py-0.5 font-mono text-[10px] font-black leading-none ${
                       active
-                        ? "accent-bg-soft-strong text-page"
+                        ? "accent-bg-soft-strong accent-text"
                         : "accent-bg-soft accent-text"
                     }`}
                   >
@@ -249,7 +249,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                   </span>
                   <span
                     className={`text-xs font-bold whitespace-nowrap ${
-                      active ? "text-text-primary" : "text-text-subtle"
+                      active ? "accent-text" : "text-text-subtle"
                     }`}
                   >
                     {level.title}
@@ -261,7 +261,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                   </p>
                 )}
                 {showProgress && lp.percentage > 0 && (
-                  <div className="mt-0.5 w-full min-w-30">
+                  <div className="mt-0.5 w-full min-w-32">
                     <ProgressBar
                       percentage={lp.percentage}
                       size="sm"
@@ -279,7 +279,7 @@ function CourseContent({ courseId }: { courseId: string }) {
       {/* ── Content: sidebar + topics ────────────────────── */}
       <div className="mt-6 flex flex-col gap-4 md:flex-row md:gap-6">
         {/* Module sidebar - horizontal on mobile, vertical on desktop */}
-        <div className="w-full md:w-36 shrink-0">
+        <div className="w-full shrink-0 md:w-44">
           <ModuleSidebar
             modules={activeLevel.modules}
             activeId={resolvedModuleId}
@@ -308,7 +308,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                 </div>
                 <div className="flex items-center gap-3">
                   {showProgress && activeModuleStats && (
-                    <div className="w-24">
+                    <div className="w-full sm:w-24">
                       <ProgressBar
                         percentage={activeModuleStats.percentage}
                         size="sm"
@@ -316,7 +316,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                       />
                     </div>
                   )}
-                  <span className="text-xs text-text-faint">
+                  <span className="text-xs whitespace-nowrap text-text-faint">
                     {activeModuleStats?.completed ?? 0}/
                     {activeModuleStats?.total ?? 0} done ·{" "}
                     {activeModule.topics.length} sections
