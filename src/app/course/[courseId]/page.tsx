@@ -14,6 +14,9 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ProgressBar from "@/components/ProgressBar";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import TopicAccordion from "@/components/TopicAccordion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper/modules";
+import "swiper/css";
 
 function CourseContent({ courseId }: { courseId: string }) {
   const course = getCourseById(courseId);
@@ -22,6 +25,8 @@ function CourseContent({ courseId }: { courseId: string }) {
   const searchParams = useSearchParams();
   const initialLevel = searchParams.get("level") ?? course.levels[0]?.id ?? "";
   const initialModule = searchParams.get("module");
+  const openTopicId = searchParams.get("topic") ?? undefined;
+  const highlightSubtopicId = searchParams.get("subtopic") ?? undefined;
 
   const [activeLevelId, setActiveLevelId] = useState(initialLevel);
   const [activeModuleId, setActiveModuleId] = useState<string | null>(
@@ -103,11 +108,11 @@ function CourseContent({ courseId }: { courseId: string }) {
       <div className="mt-4 mb-6">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#555]">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[var(--c-t3)]">
               Mastery System
             </p>
             <div className="mt-1 flex items-baseline gap-3">
-              <h1 className="text-2xl font-black text-[#e5e5e5] sm:text-3xl">
+              <h1 className="text-2xl font-black text-[var(--c-t0)] sm:text-3xl">
                 {course.title}
               </h1>
               <span
@@ -121,7 +126,7 @@ function CourseContent({ courseId }: { courseId: string }) {
           <button
             type="button"
             onClick={() => setShowProgress(!showProgress)}
-            className="rounded-lg border border-[#1e1e1e] bg-[#111] px-3 py-1.5 text-xs font-medium text-[#999] transition-colors hover:border-[#333] hover:text-[#e5e5e5] shrink-0 mt-2"
+            className="rounded-lg border border-[var(--c-bd)] bg-[var(--c-s0)] px-3 py-1.5 text-xs font-medium text-[var(--c-t1)] transition-colors hover:border-[var(--c-bd3)] hover:text-[var(--c-t0)] shrink-0 mt-2"
           >
             {showProgress ? "Hide Stats" : "Show Stats"}
           </button>
@@ -137,8 +142,8 @@ function CourseContent({ courseId }: { courseId: string }) {
               {agg.completed}/{agg.total} {agg.title}
             </span>
           ))}
-          <span className="text-[#333]">·</span>
-          <span className="text-[#666]">{totalSubtopics} total</span>
+          <span className="text-[var(--c-bd3)]">·</span>
+          <span className="text-[var(--c-t2)]">{totalSubtopics} total</span>
         </div>
 
         {/* Course progress bar - toggleable */}
@@ -149,76 +154,59 @@ function CourseContent({ courseId }: { courseId: string }) {
               size="md"
               color={course.color}
             />
-            <p className="mt-1 text-xs text-[#555]">
+            <p className="mt-1 text-xs text-[var(--c-t3)]">
               {totalCompleted}/{totalSubtopics} subtopics completed
             </p>
           </div>
         )}
       </div>
 
-      {/* ── Level cards grid ─────────────────────────────── */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-        {course.levels.map((level, idx) => {
-          const active = level.id === activeLevel.id;
-          const color = level.color ?? "#666";
-          const lp = calcLevelProgress(progress, course.id, level);
-
-          return (
-            <button
-              key={level.id}
-              type="button"
-              onClick={() => handleLevelChange(level.id)}
-              className={`rounded-lg border p-3 text-left transition-all ${
-                active ? "ring-1" : "border-[#1e1e1e] hover:border-[#333]"
-              }`}
-              style={
-                active
-                  ? { borderColor: color, boxShadow: `0 0 0 1px ${color}40` }
-                  : undefined
-              }
-            >
-              <p
-                className="text-[10px] font-bold tracking-wider"
-                style={{ color }}
-              >
-                L{idx}
-              </p>
-              <p
-                className={`text-xs font-semibold mt-0.5 ${active ? "text-[#e5e5e5]" : "text-[#999]"}`}
-              >
-                {level.title}
-              </p>
-              {showProgress && (
-                <div className="mt-2 space-y-0.5">
-                  {level.modules.map((mod) => {
-                    const mp = calcModuleProgress(
-                      progress,
-                      course.id,
-                      level.id,
-                      mod,
-                    );
-                    return (
-                      <div
-                        key={mod.id}
-                        className="flex items-center gap-1.5 text-[10px]"
-                      >
-                        <span
-                          className="font-semibold"
-                          style={{ color: mod.color ?? "#888" }}
-                        >
-                          {mod.id.toUpperCase()}
-                        </span>
-                        <span className="font-mono text-[#666]">
-                          {mp.completed}/{mp.total}
-                        </span>
-                      </div>
-                    );
-                  })}
-                  {lp.percentage > 0 && (
-                    <div className="mt-1">
-                      <div className="h-1 rounded-full bg-[#1e1e1e]">
+      {/* ── Level bar (Swiper) ───────────────────────────── */}
+      <div className="border-b border-[var(--c-bd)]">
+        <Swiper
+          modules={[FreeMode]}
+          freeMode
+          slidesPerView="auto"
+          spaceBetween={0}
+          className="!overflow-visible"
+        >
+          {course.levels.map((level, idx) => {
+            const active = level.id === activeLevel.id;
+            const color = level.color ?? "#888";
+            const lp = calcLevelProgress(progress, course.id, level);
+            return (
+              <SwiperSlide key={level.id} className="!w-auto">
+                <button
+                  type="button"
+                  onClick={() => handleLevelChange(level.id)}
+                  className={`flex shrink-0 flex-col items-start px-4 py-3 transition-colors border-b-2 ${
+                    active ? "" : "border-transparent hover:bg-[var(--c-s1)]"
+                  }`}
+                  style={active ? { borderColor: color } : undefined}
+                >
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className="text-[10px] font-black tracking-wider font-mono"
+                      style={{ color: active ? color : "var(--c-t3)" }}
+                    >
+                      L{idx}
+                    </span>
+                    <span
+                      className={`text-xs font-bold ${active ? "text-[var(--c-t0)]" : "text-[var(--c-t2)]"}`}
+                    >
+                      {level.title}
+                    </span>
+                  </div>
+                  {level.description && (
+                    <span className="mt-0.5 text-[10px] text-[var(--c-t3)] whitespace-nowrap">
+                      {level.description}
+                    </span>
+                  )}
+                  {showProgress && lp.percentage > 0 && (
+                    <div className="mt-1.5 w-full min-w-[80px]">
+                      <div className="h-0.5 rounded-full bg-[var(--c-bd2)]">
                         <div
-                          className="h-1 rounded-full transition-all"
+                          className="h-0.5 rounded-full transition-all"
                           style={{
                             width: `${lp.percentage}%`,
                             backgroundColor: color,
@@ -227,48 +215,17 @@ function CourseContent({ courseId }: { courseId: string }) {
                       </div>
                     </div>
                   )}
-                </div>
-              )}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* ── Level tabs bar ───────────────────────────────── */}
-      <div className="mt-6 -mx-4 px-4 sm:-mx-0 sm:px-0 flex gap-1 overflow-x-auto border-b border-[#1e1e1e]">
-        {course.levels.map((level, idx) => {
-          const active = level.id === activeLevel.id;
-          const color = level.color ?? "#888";
-          return (
-            <button
-              key={level.id}
-              type="button"
-              onClick={() => handleLevelChange(level.id)}
-              className={`flex shrink-0 items-center gap-1.5 px-4 py-2.5 transition-colors ${
-                active ? "border-b-2" : "hover:bg-[#111]"
-              }`}
-              style={active ? { borderColor: color } : undefined}
-            >
-              <span
-                className={`text-[10px] font-bold ${active ? "" : "text-[#555]"}`}
-                style={active ? { color } : undefined}
-              >
-                L{idx}
-              </span>
-              <span
-                className={`text-xs font-semibold ${active ? "text-[#e5e5e5]" : "text-[#666]"}`}
-              >
-                {level.title}
-              </span>
-            </button>
-          );
-        })}
+                </button>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
 
       {/* ── Content: sidebar + topics ────────────────────── */}
       <div className="mt-6 flex flex-col gap-4 md:flex-row md:gap-6">
         {/* Module sidebar - horizontal on mobile, vertical on desktop */}
-        <div className="w-full md:w-20 shrink-0">
+        <div className="w-full md:w-36 shrink-0">
           <ModuleSidebar
             modules={activeLevel.modules}
             activeId={resolvedModuleId}
@@ -294,7 +251,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                   >
                     L{activeLevelIdx}
                   </span>
-                  <h2 className="text-base font-bold text-[#e5e5e5]">
+                  <h2 className="text-base font-bold text-[var(--c-t0)]">
                     {activeModule.title} Topics
                   </h2>
                 </div>
@@ -308,7 +265,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                       />
                     </div>
                   )}
-                  <span className="text-xs text-[#555]">
+                  <span className="text-xs text-[var(--c-t3)]">
                     {activeModuleStats?.completed ?? 0}/
                     {activeModuleStats?.total ?? 0} done ·{" "}
                     {activeModule.topics.length} sections
@@ -322,6 +279,8 @@ function CourseContent({ courseId }: { courseId: string }) {
                 levelId={activeLevel.id}
                 moduleId={activeModule.id}
                 moduleColor={activeModule.color}
+                openTopicId={openTopicId}
+                highlightSubtopicId={highlightSubtopicId}
               />
             </>
           )}
@@ -340,7 +299,9 @@ export default function CoursePage({
   return (
     <Suspense
       fallback={
-        <div className="py-12 text-center text-[#555]">Loading course…</div>
+        <div className="py-12 text-center text-[var(--c-t3)]">
+          Loading course…
+        </div>
       }
     >
       <CourseContent courseId={courseId} />

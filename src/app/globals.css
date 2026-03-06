@@ -1,32 +1,58 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-app-sans);
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-  --color-bg: #0a0a0a;
-  --color-surface: #111111;
-  --color-surface-hover: #161616;
-  --color-border: #1e1e1e;
-  --color-border-hover: #333333;
-  --color-text: #e5e5e5;
-  --color-text-secondary: #999999;
-  --color-text-muted: #666666;
-  --color-text-dim: #555555;
-  --color-text-faint: #444444;
+}
+
+/* ── Theme: dark (default) ────────────────────────────── */
+:root {
+  --c-bg: #0a0a0a;
+  --c-s0: #111111;
+  --c-s1: #161616;
+  --c-s2: #1a1a1a;
+  --c-bd: #1e1e1e;
+  --c-bd2: #2a2a2a;
+  --c-bd3: #333333;
+  --c-t0: #e5e5e5;
+  --c-t0b: #cccccc;
+  --c-t1: #999999;
+  --c-t2: #666666;
+  --c-t3: #555555;
+  --c-t4: #444444;
+}
+
+/* ── Theme: light ─────────────────────────────────────── */
+html.light {
+  --c-bg: #f8f9fa;
+  --c-s0: #ffffff;
+  --c-s1: #f3f4f6;
+  --c-s2: #e9eaec;
+  --c-bd: #e5e7eb;
+  --c-bd2: #d1d5db;
+  --c-bd3: #9ca3af;
+  --c-t0: #111827;
+  --c-t0b: #374151;
+  --c-t1: #6b7280;
+  --c-t2: #9ca3af;
+  --c-t3: #d1d5db;
+  --c-t4: #e5e7eb;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  scrollbar-color: var(--c-bd3) transparent;
 }
 
 ::selection {
   background: rgba(59, 130, 246, 0.3);
-  color: #fff;
+  color: var(--c-t0);
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--c-bg);
+  color: var(--c-t0);
   font-family: var(--font-sans), system-ui, sans-serif;
 }

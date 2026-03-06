@@ -29,7 +29,8 @@ export function buildSearchIndex(courses: Course[]): SearchItem[] {
         });
 
         for (const topic of mod.topics) {
-          const topicHref = `/course/${course.id}/${level.id}/${mod.id}/${topic.id}`;
+          // Topic → open within course page (level+module+topic)
+          const topicHref = `/course/${course.id}?level=${level.id}&module=${mod.id}&topic=${topic.id}`;
           items.push({
             type: "topic",
             title: topic.title,
@@ -38,11 +39,12 @@ export function buildSearchIndex(courses: Course[]): SearchItem[] {
           });
 
           for (const sub of topic.subtopics) {
+            // Subtopic → open course page at right level/module/topic and highlight subtopic
             items.push({
               type: "subtopic",
               title: sub.title,
               breadcrumb: `${course.title} › ${level.title} › ${mod.title} › ${topic.title} › ${sub.title}`,
-              href: topicHref,
+              href: `/course/${course.id}?level=${level.id}&module=${mod.id}&topic=${topic.id}&subtopic=${sub.id}`,
             });
           }
         }

@@ -38,7 +38,7 @@ export default function CourseCard({ course }: CourseCardProps) {
   return (
     <Link
       href={`/course/${course.id}`}
-      className="group block rounded-xl border border-[#2a2a2a] bg-[#111] p-6 transition hover:border-[#444]"
+      className="group block rounded-xl border border-[var(--c-bd)] bg-[var(--c-s0)] p-6 transition hover:border-[var(--c-bd3)]"
     >
       <div className="mb-4 flex items-center gap-3">
         <span
@@ -48,17 +48,17 @@ export default function CourseCard({ course }: CourseCardProps) {
           {course.icon}
         </span>
         <div>
-          <h3 className="text-lg font-bold text-[#e5e5e5] group-hover:text-white transition-colors">
+          <h3 className="text-lg font-bold text-[var(--c-t0)] group-hover:opacity-80 transition-opacity">
             {course.title}
           </h3>
-          <p className="text-sm text-[#666]">{course.description}</p>
+          <p className="text-sm text-[var(--c-t2)]">{course.description}</p>
         </div>
       </div>
 
       {isLoaded && (
         <>
           <ProgressBar percentage={courseStats.percentage} size="md" />
-          <p className="mt-2 text-xs text-[#555]">
+          <p className="mt-2 text-xs text-[var(--c-t3)]">
             {courseStats.completed}/{courseStats.total} subtopics completed
           </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">

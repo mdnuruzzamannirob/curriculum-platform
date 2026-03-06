@@ -11,7 +11,7 @@ interface BreadcrumbsProps {
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
-    <nav className="flex items-center gap-1.5 text-sm text-[#555]">
+    <nav className="flex items-center gap-1.5 text-sm text-[var(--c-t3)]">
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
         return (
@@ -20,12 +20,12 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             {item.href && !isLast ? (
               <Link
                 href={item.href}
-                className="hover:text-[#ccc] transition-colors"
+                className="hover:text-[var(--c-t0b)] transition-colors"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className={isLast ? "font-medium text-[#ccc]" : ""}>
+              <span className={isLast ? "font-medium text-[var(--c-t0b)]" : ""}>
                 {item.label}
               </span>
             )}

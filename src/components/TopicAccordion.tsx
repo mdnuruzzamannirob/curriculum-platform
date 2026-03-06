@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Topic, SubtopicStatus } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
 import { calcTopicProgress, getSubtopicStatus } from "@/utils/progress";
@@ -11,6 +11,10 @@ interface TopicAccordionProps {
   levelId: string;
   moduleId: string;
   moduleColor?: string;
+  /** Auto-open this topic (from search navigation) */
+  openTopicId?: string;
+  /** Highlight this subtopic (from search navigation) */
+  highlightSubtopicId?: string;
 }
 
 const NEXT_STATUS: Record<SubtopicStatus, SubtopicStatus> = {
@@ -25,9 +29,33 @@ export default function TopicAccordion({
   levelId,
   moduleId,
   moduleColor,
+  openTopicId,
+  highlightSubtopicId,
 }: TopicAccordionProps) {
   const [openIds, setOpenIds] = useState<Set<string>>(() => new Set());
   const { progress, updateSubtopicStatus } = useProgress();
+  const highlightRef = useRef<HTMLButtonElement | null>(null);
+
+  // Auto-open topic and scroll to highlighted subtopic on navigation
+  useEffect(() => {
+    if (openTopicId) {
+      setOpenIds((prev) => {
+        const next = new Set(prev);
+        next.add(openTopicId);
+        return next;
+      });
+      if (highlightSubtopicId) {
+        // Small delay to let accordion open before scrolling
+        const timer = setTimeout(() => {
+          highlightRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [openTopicId, highlightSubtopicId]);
 
   function toggle(id: string) {
     setOpenIds((prev) => {
@@ -40,7 +68,7 @@ export default function TopicAccordion({
 
   if (topics.length === 0) {
     return (
-      <p className="py-8 text-center text-sm text-[#555]">
+      <p className="py-8 text-center text-sm text-[var(--c-t3)]">
         No topics in this module yet.
       </p>
     );
@@ -61,33 +89,39 @@ export default function TopicAccordion({
         return (
           <div
             key={topic.id}
-            className="rounded-lg border border-[#2a2a2a] bg-[#111]"
+            className="rounded-xl border border-[var(--c-bd)] bg-[var(--c-s0)] overflow-hidden"
           >
             {/* Topic header */}
             <button
               type="button"
               onClick={() => toggle(topic.id)}
-              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-[#161616]"
+              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-[var(--c-s1)]"
             >
               <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#1e1e1e] text-xs font-bold text-[#888]">
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-bold"
+                  style={{
+                    backgroundColor: (moduleColor ?? "#888") + "20",
+                    color: moduleColor ?? "#888",
+                  }}
+                >
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-sm font-semibold text-[#e5e5e5]">
+                <h3 className="text-sm font-semibold text-[var(--c-t0)]">
                   {topic.title}
                 </h3>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-xs text-[#666]">
+              <div className="flex items-center gap-3 shrink-0 ml-2">
+                <span className="text-xs text-[var(--c-t2)]">
                   {tp.completed > 0 && (
                     <span className="text-emerald-400 mr-1">
-                      {tp.completed} done
+                      {tp.completed}✓
                     </span>
                   )}
                   {tp.total} items
                 </span>
                 <svg
-                  className={`h-4 w-4 text-[#555] transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-[var(--c-t3)] transition-transform ${isOpen ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -104,7 +138,7 @@ export default function TopicAccordion({
 
             {/* Subtopics list */}
             {isOpen && (
-              <div className="border-t border-[#1e1e1e] px-5 py-2">
+              <div className="border-t border-[var(--c-bd)] px-4 pb-3 pt-2">
                 <ul className="space-y-0.5">
                   {topic.subtopics.map((sub) => {
                     const status = getSubtopicStatus(
@@ -115,10 +149,12 @@ export default function TopicAccordion({
                       topic.id,
                       sub.id,
                     );
+                    const isHighlighted = sub.id === highlightSubtopicId;
 
                     return (
                       <li key={sub.id}>
                         <button
+                          ref={isHighlighted ? highlightRef : null}
                           type="button"
                           onClick={() =>
                             updateSubtopicStatus(
@@ -130,7 +166,18 @@ export default function TopicAccordion({
                               NEXT_STATUS[status],
                             )
                           }
-                          className="flex w-full items-center gap-3 rounded px-2 py-2 text-left transition-colors hover:bg-[#1a1a1a] group"
+                          className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-all group ${
+                            isHighlighted ? "" : "hover:bg-[var(--c-s2)]"
+                          }`}
+                          style={
+                            isHighlighted
+                              ? {
+                                  backgroundColor:
+                                    (moduleColor ?? "#3b82f6") + "15",
+                                  outline: `1px solid ${moduleColor ?? "#3b82f6"}`,
+                                }
+                              : undefined
+                          }
                         >
                           {/* Checkbox visual */}
                           <span
@@ -139,7 +186,7 @@ export default function TopicAccordion({
                                 ? "border-emerald-500 bg-emerald-500/20"
                                 : status === "in-progress"
                                   ? "border-amber-400 bg-amber-400/10"
-                                  : "border-[#444] group-hover:border-[#666]"
+                                  : "border-[var(--c-bd3)] group-hover:border-[var(--c-t2)]"
                             }`}
                           >
                             {status === "completed" && (
@@ -161,17 +208,27 @@ export default function TopicAccordion({
                               <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
                             )}
                           </span>
+
                           <span
-                            className={`text-sm font-mono ${
+                            className={`text-sm ${
                               status === "completed"
-                                ? "text-[#666] line-through"
+                                ? "text-[var(--c-t2)] line-through"
                                 : status === "in-progress"
-                                  ? "text-amber-200"
-                                  : "text-[#ccc]"
+                                  ? "text-amber-300"
+                                  : "text-[var(--c-t0b)]"
                             }`}
                           >
                             {sub.title}
                           </span>
+
+                          {isHighlighted && (
+                            <span
+                              className="ml-auto text-[10px] font-bold uppercase tracking-wider"
+                              style={{ color: moduleColor ?? "#3b82f6" }}
+                            >
+                              ← here
+                            </span>
+                          )}
                         </button>
                       </li>
                     );

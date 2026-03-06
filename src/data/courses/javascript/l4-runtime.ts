@@ -1,0 +1,348 @@
+import { Level } from "@/types";
+
+export const l4Level: Level = {
+  id: "staff",
+  title: "Runtime & Engine",
+  description: "Staff Engineer",
+  color: "#38bdf8",
+  modules: [
+    // ── JS ───────────────────────────────────────────────
+    {
+      id: "js",
+      title: "JS",
+      icon: "{ }",
+      color: "#4ade80",
+      description: "Performance, security & concurrency.",
+      topics: [
+        {
+          id: "performance",
+          title: "Performance Optimization",
+          description: "Making JavaScript fast.",
+          subtopics: [
+            {
+              id: "profiling",
+              title: "Performance Profiling (CPU profile, flame chart)",
+            },
+            {
+              id: "chrome-devtools-perf",
+              title: "Chrome DevTools Performance Tab deep dive",
+            },
+            {
+              id: "lazy-loading",
+              title: "Lazy Loading (images, modules, routes)",
+            },
+            { id: "code-splitting", title: "Code Splitting strategies" },
+            {
+              id: "bundle-analysis",
+              title: "Bundle Analysis (webpack-bundle-analyzer)",
+            },
+            {
+              id: "render-optimization",
+              title: "Render Optimization (batching, layers)",
+            },
+            { id: "virtual-scrolling", title: "Virtual Scrolling / Windowing" },
+            {
+              id: "long-tasks",
+              title: "Long Tasks & Task Scheduling (scheduler API)",
+            },
+            { id: "preload-prefetch", title: "Preload, Prefetch & Preconnect" },
+          ],
+        },
+        {
+          id: "web-workers",
+          title: "Web Workers & Concurrency",
+          description: "Multi-threaded JavaScript.",
+          subtopics: [
+            {
+              id: "web-worker-basics",
+              title: "Web Worker Basics — offloading CPU work",
+            },
+            {
+              id: "shared-workers",
+              title: "Shared Workers — shared across tabs",
+            },
+            {
+              id: "service-workers",
+              title: "Service Workers — offline & caching",
+            },
+            {
+              id: "worker-communication",
+              title: "postMessage & MessageChannel",
+            },
+            {
+              id: "shared-array-buffer",
+              title: "SharedArrayBuffer — shared memory",
+            },
+            { id: "atomics", title: "Atomics API — coordinated access" },
+            {
+              id: "worklets",
+              title: "Paintlet, AudioWorklet, AnimationWorklet",
+            },
+            { id: "comlink", title: "Comlink — simpler worker bridge" },
+          ],
+        },
+        {
+          id: "security",
+          title: "Frontend Security",
+          description: "Frontend security practices.",
+          subtopics: [
+            {
+              id: "xss-prevention",
+              title: "XSS Prevention (escaping, sanitization)",
+            },
+            { id: "xss-types", title: "Stored / Reflected / DOM XSS types" },
+            { id: "csp", title: "Content Security Policy (CSP headers)" },
+            { id: "cors", title: "CORS — preflight, headers, credentials" },
+            {
+              id: "csrf-protection",
+              title: "CSRF Prevention (SameSite, tokens)",
+            },
+            {
+              id: "input-sanitization",
+              title: "Input Sanitization (DOMPurify)",
+            },
+            {
+              id: "subresource-integrity",
+              title: "Subresource Integrity (SRI)",
+            },
+            {
+              id: "secure-cookies",
+              title: "Secure Cookies (HttpOnly, SameSite, Secure)",
+            },
+            { id: "csp-nonce", title: "CSP Nonce for inline scripts" },
+          ],
+        },
+        {
+          id: "advanced-web-apis",
+          title: "Advanced Web APIs",
+          description: "Modern browser APIs.",
+          subtopics: [
+            {
+              id: "websockets",
+              title: "WebSockets — full-duplex communication",
+            },
+            { id: "server-sent-events", title: "Server-Sent Events (SSE)" },
+            { id: "webrtc-basics", title: "WebRTC Basics (peer-to-peer)" },
+            {
+              id: "streams-api",
+              title: "Streams API (ReadableStream, WritableStream)",
+            },
+            { id: "file-api", title: "File, FileReader & Blob API" },
+            { id: "clipboard-api", title: "Clipboard API" },
+            {
+              id: "broadcast-channel",
+              title: "BroadcastChannel — cross-tab messaging",
+            },
+            {
+              id: "performance-api",
+              title: "Performance API (PerformanceObserver)",
+            },
+            { id: "navigation-api", title: "Navigation API (modern history)" },
+          ],
+        },
+        {
+          id: "testing",
+          title: "Testing Strategies",
+          description: "Testing JavaScript code.",
+          subtopics: [
+            { id: "unit-testing", title: "Unit Testing Principles (FIRST)" },
+            {
+              id: "jest-basics",
+              title: "Jest / Vitest — setup, matchers, async",
+            },
+            { id: "mocking", title: "Mocking & Stubbing (vi.mock, jest.mock)" },
+            {
+              id: "integration-testing",
+              title: "Integration Testing patterns",
+            },
+            { id: "e2e-testing", title: "E2E Testing (Playwright & Cypress)" },
+            { id: "tdd-bdd", title: "TDD vs BDD methodologies" },
+            {
+              id: "test-coverage",
+              title: "Code Coverage analysis (Istanbul/c8)",
+            },
+            { id: "snapshot-testing", title: "Snapshot Testing" },
+            { id: "performance-testing", title: "Performance & load testing" },
+          ],
+        },
+      ],
+    },
+    // ── DSA ──────────────────────────────────────────────
+    {
+      id: "dsa",
+      title: "DSA",
+      icon: "~",
+      color: "#22d3ee",
+      description: "Dynamic programming & advanced algorithms.",
+      topics: [
+        {
+          id: "dynamic-programming",
+          title: "Dynamic Programming",
+          description: "DP techniques and patterns.",
+          subtopics: [
+            { id: "memoization", title: "Top-Down DP (Memoization)" },
+            { id: "tabulation", title: "Bottom-Up DP (Tabulation)" },
+            { id: "fibonacci-dp", title: "Fibonacci — DP approach" },
+            { id: "climbing-stairs", title: "Climbing Stairs (1D DP)" },
+            { id: "coin-change", title: "Coin Change — minimum coins" },
+            {
+              id: "longest-common-subseq",
+              title: "Longest Common Subsequence (LCS)",
+            },
+            { id: "knapsack", title: "0/1 Knapsack Problem" },
+            { id: "edit-distance", title: "Edit Distance (Levenshtein)" },
+            {
+              id: "longest-increasing-subseq",
+              title: "Longest Increasing Subsequence (LIS)",
+            },
+            {
+              id: "matrix-dp",
+              title: "2D Matrix DP (Unique Paths, Grid problems)",
+            },
+          ],
+        },
+        {
+          id: "greedy-algorithms",
+          title: "Greedy Algorithms",
+          description: "Greedy approach to problem solving.",
+          subtopics: [
+            { id: "greedy-intro", title: "Greedy vs DP — when to use which" },
+            { id: "activity-selection", title: "Activity Selection Problem" },
+            {
+              id: "fractional-knapsack",
+              title: "Fractional Knapsack (greedy)",
+            },
+            {
+              id: "huffman-coding",
+              title: "Huffman Coding (optimal prefix codes)",
+            },
+            {
+              id: "interval-scheduling",
+              title: "Interval Scheduling & merging",
+            },
+            { id: "jump-game", title: "Jump Game I & II" },
+            { id: "gas-station", title: "Gas Station Problem" },
+          ],
+        },
+        {
+          id: "backtracking",
+          title: "Backtracking",
+          description: "Backtracking algorithms.",
+          subtopics: [
+            {
+              id: "backtracking-intro",
+              title: "Backtracking — decision tree concept",
+            },
+            {
+              id: "permutations",
+              title: "Permutations (with & without duplicates)",
+            },
+            { id: "combinations", title: "Combinations & Combination Sum" },
+            { id: "subsets", title: "Subsets / Power Set" },
+            { id: "n-queens", title: "N-Queens Problem" },
+            { id: "sudoku-solver", title: "Sudoku Solver" },
+            { id: "word-search-bt", title: "Word Search on grid" },
+            { id: "palindrome-partition", title: "Palindrome Partitioning" },
+          ],
+        },
+        {
+          id: "advanced-graph",
+          title: "Advanced Graph Algorithms",
+          description: "Advanced graph techniques.",
+          subtopics: [
+            { id: "dijkstra", title: "Dijkstra's Shortest Path (min-heap)" },
+            { id: "bellman-ford", title: "Bellman-Ford (negative weights)" },
+            { id: "floyd-warshall", title: "Floyd-Warshall (all pairs)" },
+            {
+              id: "union-find",
+              title: "Union-Find / Disjoint Set Union (DSU)",
+            },
+            { id: "kruskal-mst", title: "Kruskal's MST (DSU + sort)" },
+            { id: "prim-mst", title: "Prim's MST (greedy + min-heap)" },
+            {
+              id: "articulation-bridges",
+              title: "Articulation Points & Bridges",
+            },
+          ],
+        },
+      ],
+    },
+    // ── Interview Q ──────────────────────────────────────
+    {
+      id: "iq",
+      title: "Interview Q",
+      icon: "?",
+      color: "#f472b6",
+      description: "Staff-level interview prep.",
+      topics: [
+        {
+          id: "system-design-qa",
+          title: "Frontend System Design Q&A",
+          description: "Frontend system design questions.",
+          subtopics: [
+            {
+              id: "design-autocomplete",
+              title: "Design: Autocomplete Component",
+            },
+            {
+              id: "design-infinite-scroll",
+              title: "Design: Infinite Scroll feed",
+            },
+            { id: "design-chat-app", title: "Design: Real-time Chat App" },
+            {
+              id: "design-image-gallery",
+              title: "Design: Image Gallery with virtualization",
+            },
+            {
+              id: "design-file-uploader",
+              title: "Design: Multi-file Uploader with progress",
+            },
+            { id: "state-management-qa", title: "State Management at Scale" },
+            {
+              id: "design-search",
+              title: "Design: Search with debounce & cache",
+            },
+          ],
+        },
+        {
+          id: "tech-leadership-qa",
+          title: "Technical Leadership Q&A",
+          description: "Leading engineering teams.",
+          subtopics: [
+            { id: "code-review", title: "Code Review Best Practices" },
+            {
+              id: "documentation",
+              title: "Documentation Standards (JSDoc, ADRs)",
+            },
+            { id: "mentoring", title: "Mentoring Junior Engineers" },
+            { id: "tech-debt-qa", title: "Managing Technical Debt" },
+            {
+              id: "incident-response",
+              title: "Incident Response (RCA, runbooks)",
+            },
+            { id: "estimation-qa", title: "Technical Estimation strategies" },
+          ],
+        },
+        {
+          id: "security-qa",
+          title: "Security Interview Questions",
+          description: "Security-focused interview topics.",
+          subtopics: [
+            { id: "explain-xss", title: "Explain XSS — types & prevention" },
+            { id: "explain-csrf", title: "Explain CSRF attacks & mitigation" },
+            {
+              id: "explain-cors-qa",
+              title: "CORS in detail (simple vs preflight)",
+            },
+            { id: "jwt-security", title: "JWT Security Best Practices" },
+            { id: "oauth-flow", title: "OAuth 2.0 + PKCE Flow" },
+            {
+              id: "auth-strategies",
+              title: "Session vs JWT vs Cookie-based auth",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};

@@ -63,7 +63,7 @@ export default function TopicPage({
 
       {/* Topic header */}
       <div className="mt-4 mb-8">
-        <h1 className="text-2xl font-bold text-[#e5e5e5]">{topic.title}</h1>
+        <h1 className="text-2xl font-bold text-[var(--c-t0)]">{topic.title}</h1>
         <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
           <span
             className="rounded-full px-2.5 py-0.5 font-medium"
@@ -88,12 +88,12 @@ export default function TopicPage({
           </span>
         </div>
         {topic.description && (
-          <p className="mt-3 text-sm text-[#888]">{topic.description}</p>
+          <p className="mt-3 text-sm text-[var(--c-t1)]">{topic.description}</p>
         )}
         {isLoaded && (
           <div className="mt-4 max-w-sm">
             <ProgressBar percentage={tp.percentage} size="md" />
-            <p className="mt-1 text-xs text-[#555]">
+            <p className="mt-1 text-xs text-[var(--c-t3)]">
               {tp.completed}/{tp.total} subtopics completed
             </p>
           </div>
@@ -102,7 +102,9 @@ export default function TopicPage({
 
       {/* Subtopics */}
       <div>
-        <h2 className="mb-3 text-sm font-semibold text-[#999]">Subtopics</h2>
+        <h2 className="mb-3 text-sm font-semibold text-[var(--c-t1)]">
+          Subtopics
+        </h2>
         <ul className="space-y-1">
           {topic.subtopics.map((sub) => {
             const status = getSubtopicStatus(
@@ -127,7 +129,7 @@ export default function TopicPage({
                       NEXT_STATUS[status],
                     )
                   }
-                  className="flex w-full items-center gap-3 rounded-lg border border-[#1e1e1e] bg-[#111] px-4 py-3 text-left transition-colors hover:border-[#333] group"
+                  className="flex w-full items-center gap-3 rounded-lg border border-[var(--c-bd)] bg-[var(--c-s0)] px-4 py-3 text-left transition-colors hover:border-[var(--c-bd3)] group"
                 >
                   <span
                     className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
@@ -135,7 +137,7 @@ export default function TopicPage({
                         ? "border-emerald-500 bg-emerald-500/20"
                         : status === "in-progress"
                           ? "border-amber-400 bg-amber-400/10"
-                          : "border-[#444] group-hover:border-[#666]"
+                          : "border-[var(--c-t4)] group-hover:border-[var(--c-t2)]"
                     }`}
                   >
                     {status === "completed" && (
@@ -160,10 +162,10 @@ export default function TopicPage({
                   <span
                     className={`text-sm font-mono ${
                       status === "completed"
-                        ? "text-[#666] line-through"
+                        ? "text-[var(--c-t2)] line-through"
                         : status === "in-progress"
-                          ? "text-amber-200"
-                          : "text-[#ccc]"
+                          ? "text-amber-400"
+                          : "text-[var(--c-t0b)]"
                     }`}
                   >
                     {sub.title}

@@ -7,10 +7,10 @@ export default function DashboardPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#e5e5e5]">
+        <h1 className="text-2xl font-bold text-[var(--c-t0)]">
           Your Learning Dashboard
         </h1>
-        <p className="mt-1 text-sm text-[#666]">
+        <p className="mt-1 text-sm text-[var(--c-t2)]">
           Pick a course and start learning at your own pace.
         </p>
       </div>
