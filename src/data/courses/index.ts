@@ -8,3 +8,4 @@ export const courses: Course[] = [javascriptCourse];
 export function getCourseById(id: string): Course | undefined {
   return courses.find((c) => c.id === id);
 }
+

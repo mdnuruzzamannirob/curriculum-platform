@@ -34,33 +34,26 @@ export default function ModuleSidebar({
             return (
               <button
                 key={mod.id}
+                data-accent={modColor}
                 type="button"
                 onClick={() => onSelect(mod.id)}
-                className={`flex shrink-0 flex-col items-center gap-1.5 rounded-xl px-4 py-3 text-center transition-all border ${active ? "" : "border-bd bg-s0"}`}
-                style={
+                className={`flex shrink-0 flex-col items-center gap-1.5 rounded-xl border px-4 py-3 text-center transition-all ${
                   active
-                    ? {
-                        backgroundColor: modColor + "14",
-                        borderColor: modColor + "50",
-                        borderLeftWidth: "3px",
-                        borderLeftColor: modColor,
-                      }
-                    : undefined
-                }
+                    ? "accent-bg-soft accent-border-soft border-l-[3px] accent-border-left"
+                    : "border-border-default bg-surface"
+                }`}
               >
-                <span
-                  className="text-2xl font-black font-mono leading-none"
-                  style={{ color: modColor }}
-                >
+                <span className="text-2xl font-black font-mono leading-none accent-text">
                   {mod.icon ?? mod.id.charAt(0).toUpperCase()}
                 </span>
                 <span
-                  className={`text-[10px] font-bold tracking-wide leading-tight whitespace-nowrap ${active ? "" : "text-t1"}`}
-                  style={active ? { color: modColor } : undefined}
+                  className={`text-[10px] font-bold tracking-wide leading-tight whitespace-nowrap ${
+                    active ? "accent-text" : "text-text-muted"
+                  }`}
                 >
                   {mod.title}
                 </span>
-                <span className="text-[9px] font-mono text-t2">
+                <span className="text-[9px] font-mono text-text-subtle">
                   {mp.completed}/{mp.total}
                 </span>
               </button>
@@ -78,31 +71,22 @@ export default function ModuleSidebar({
           return (
             <button
               key={mod.id}
+              data-accent={modColor}
               type="button"
               onClick={() => onSelect(mod.id)}
               className={`flex flex-col items-center gap-2 rounded-xl px-3 py-4 text-center transition-all w-full border ${
-                active ? "" : "border-bd bg-s0 hover:border-bd2 hover:bg-s1"
-              }`}
-              style={
                 active
-                  ? {
-                      backgroundColor: modColor + "12",
-                      borderColor: modColor + "30",
-                      borderLeftWidth: "3px",
-                      borderLeftColor: modColor,
-                    }
-                  : undefined
-              }
+                  ? "accent-bg-soft accent-border-soft border-l-[3px] accent-border-left"
+                  : "border-border-default bg-surface hover:border-border-muted hover:bg-surface-hover"
+              }`}
             >
-              <span
-                className="text-3xl font-black font-mono leading-none"
-                style={{ color: modColor }}
-              >
+              <span className="text-3xl font-black font-mono leading-none accent-text">
                 {mod.icon ?? mod.id.charAt(0).toUpperCase()}
               </span>
               <span
-                className={`text-[11px] font-bold uppercase tracking-widest leading-tight ${active ? "" : "text-t1"}`}
-                style={active ? { color: modColor } : undefined}
+                className={`text-[11px] font-bold uppercase tracking-widest leading-tight ${
+                  active ? "accent-text" : "text-text-muted"
+                }`}
               >
                 {mod.title}
               </span>
@@ -114,7 +98,7 @@ export default function ModuleSidebar({
                   showLabel={false}
                 />
               </div>
-              <span className="text-[10px] font-mono tabular-nums text-t2">
+              <span className="text-[10px] font-mono tabular-nums text-text-subtle">
                 {mp.completed}/{mp.total}
               </span>
             </button>

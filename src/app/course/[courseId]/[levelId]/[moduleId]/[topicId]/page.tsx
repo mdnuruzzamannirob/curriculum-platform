@@ -63,37 +63,34 @@ export default function TopicPage({
 
       {/* Topic header */}
       <div className="mt-4 mb-8">
-        <h1 className="text-2xl font-bold text-t0">{topic.title}</h1>
+        <h1 className="text-2xl font-bold text-text-primary">{topic.title}</h1>
         <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
           <span
-            className="rounded-full px-2.5 py-0.5 font-medium"
-            style={{
-              backgroundColor: (level.color ?? "#3b82f6") + "22",
-              color: level.color ?? "#3b82f6",
-            }}
+            data-accent={level.color ?? "#3b82f6"}
+            className="rounded-full px-2.5 py-0.5 font-medium accent-bg-soft-strong accent-text"
           >
             {level.title}
           </span>
           <span
-            className="rounded-full px-2.5 py-0.5 font-medium"
-            style={{
-              backgroundColor: (mod.color ?? "#14b8a6") + "22",
-              color: mod.color ?? "#14b8a6",
-            }}
+            data-accent={mod.color ?? "#22d3ee"}
+            className="rounded-full px-2.5 py-0.5 font-medium accent-bg-soft-strong accent-text"
           >
             {mod.title}
           </span>
-          <span className="rounded-full bg-purple-500/15 px-2.5 py-0.5 font-medium text-purple-300">
+          <span
+            data-accent={course.color}
+            className="rounded-full px-2.5 py-0.5 font-medium accent-bg-soft-strong accent-text"
+          >
             {course.title}
           </span>
         </div>
         {topic.description && (
-          <p className="mt-3 text-sm text-t1">{topic.description}</p>
+          <p className="mt-3 text-sm text-text-muted">{topic.description}</p>
         )}
         {isLoaded && (
           <div className="mt-4 max-w-sm">
             <ProgressBar percentage={tp.percentage} size="md" />
-            <p className="mt-1 text-xs text-t3">
+            <p className="mt-1 text-xs text-text-faint">
               {tp.completed}/{tp.total} subtopics completed
             </p>
           </div>
@@ -102,7 +99,9 @@ export default function TopicPage({
 
       {/* Subtopics */}
       <div>
-        <h2 className="mb-3 text-sm font-semibold text-t1">Subtopics</h2>
+        <h2 className="mb-3 text-sm font-semibold text-text-muted">
+          Subtopics
+        </h2>
         <ul className="space-y-1">
           {topic.subtopics.map((sub) => {
             const status = getSubtopicStatus(
@@ -127,7 +126,7 @@ export default function TopicPage({
                       NEXT_STATUS[status],
                     )
                   }
-                  className="flex w-full items-center gap-3 rounded-lg border border-bd bg-s0 px-4 py-3 text-left transition-colors hover:border-bd3 group"
+                  className="flex w-full items-center gap-3 rounded-lg border border-border-default bg-surface px-4 py-3 text-left transition-colors hover:border-border-strong group"
                 >
                   <span
                     className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
@@ -135,7 +134,7 @@ export default function TopicPage({
                         ? "border-emerald-500 bg-emerald-500/20"
                         : status === "in-progress"
                           ? "border-amber-400 bg-amber-400/10"
-                          : "border-t4 group-hover:border-t2"
+                          : "border-border-strong group-hover:border-text-subtle"
                     }`}
                   >
                     {status === "completed" && (
@@ -160,10 +159,10 @@ export default function TopicPage({
                   <span
                     className={`text-sm font-mono ${
                       status === "completed"
-                        ? "text-t2 line-through"
+                        ? "text-text-subtle line-through"
                         : status === "in-progress"
                           ? "text-amber-400"
-                          : "text-t0b"
+                          : "text-text-secondary"
                     }`}
                   >
                     {sub.title}

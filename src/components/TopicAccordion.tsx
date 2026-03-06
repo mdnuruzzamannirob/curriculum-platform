@@ -32,30 +32,24 @@ export default function TopicAccordion({
   openTopicId,
   highlightSubtopicId,
 }: TopicAccordionProps) {
-  const [openIds, setOpenIds] = useState<Set<string>>(() => new Set());
+  const [openIds, setOpenIds] = useState<Set<string>>(
+    () => new Set(openTopicId ? [openTopicId] : []),
+  );
   const { progress, updateSubtopicStatus } = useProgress();
   const highlightRef = useRef<HTMLButtonElement | null>(null);
+  const resolvedAccent = moduleColor ?? "#888";
 
-  // Auto-open topic and scroll to highlighted subtopic on navigation
+  // Scroll to highlighted item once the accordion section is visible.
   useEffect(() => {
-    if (openTopicId) {
-      setOpenIds((prev) => {
-        const next = new Set(prev);
-        next.add(openTopicId);
-        return next;
+    if (!highlightSubtopicId) return;
+    const timer = setTimeout(() => {
+      highlightRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
-      if (highlightSubtopicId) {
-        // Small delay to let accordion open before scrolling
-        const timer = setTimeout(() => {
-          highlightRef.current?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }, 150);
-        return () => clearTimeout(timer);
-      }
-    }
-  }, [openTopicId, highlightSubtopicId]);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [highlightSubtopicId, openTopicId]);
 
   function toggle(id: string) {
     setOpenIds((prev) => {
@@ -68,14 +62,14 @@ export default function TopicAccordion({
 
   if (topics.length === 0) {
     return (
-      <p className="py-8 text-center text-sm text-t3">
+      <p className="py-8 text-center text-sm text-text-faint">
         No topics in this module yet.
       </p>
     );
   }
 
   return (
-    <div className="space-y-2">
+    <div data-accent={resolvedAccent} className="space-y-2">
       {topics.map((topic, idx) => {
         const isOpen = openIds.has(topic.id);
         const tp = calcTopicProgress(
@@ -89,28 +83,24 @@ export default function TopicAccordion({
         return (
           <div
             key={topic.id}
-            className="rounded-xl border border-bd bg-s0 overflow-hidden"
+            className="rounded-xl border border-border-default bg-surface overflow-hidden"
           >
             {/* Topic header */}
             <button
               type="button"
               onClick={() => toggle(topic.id)}
-              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-s1"
+              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-surface-hover"
             >
               <div className="flex items-center gap-3">
-                <span
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-bold"
-                  style={{
-                    backgroundColor: (moduleColor ?? "#888") + "20",
-                    color: moduleColor ?? "#888",
-                  }}
-                >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-bold accent-bg-soft-strong accent-text">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-sm font-semibold text-t0">{topic.title}</h3>
+                <h3 className="text-sm font-semibold text-text-primary">
+                  {topic.title}
+                </h3>
               </div>
               <div className="flex items-center gap-3 shrink-0 ml-2">
-                <span className="text-xs text-t2">
+                <span className="text-xs text-text-subtle">
                   {tp.completed > 0 && (
                     <span className="text-emerald-400 mr-1">
                       {tp.completed}✓
@@ -119,7 +109,7 @@ export default function TopicAccordion({
                   {tp.total} items
                 </span>
                 <svg
-                  className={`h-4 w-4 text-t3 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-text-faint transition-transform ${isOpen ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -136,7 +126,7 @@ export default function TopicAccordion({
 
             {/* Subtopics list */}
             {isOpen && (
-              <div className="border-t border-bd px-4 pb-3 pt-2">
+              <div className="border-t border-border-default px-4 pb-3 pt-2">
                 <ul className="space-y-0.5">
                   {topic.subtopics.map((sub) => {
                     const status = getSubtopicStatus(
@@ -165,17 +155,10 @@ export default function TopicAccordion({
                             )
                           }
                           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-all group ${
-                            isHighlighted ? "" : "hover:bg-s2"
-                          }`}
-                          style={
                             isHighlighted
-                              ? {
-                                  backgroundColor:
-                                    (moduleColor ?? "#3b82f6") + "15",
-                                  outline: `1px solid ${moduleColor ?? "#3b82f6"}`,
-                                }
-                              : undefined
-                          }
+                              ? "accent-bg-soft accent-outline"
+                              : "hover:bg-surface-emphasis"
+                          }`}
                         >
                           {/* Checkbox visual */}
                           <span
@@ -184,7 +167,7 @@ export default function TopicAccordion({
                                 ? "border-emerald-500 bg-emerald-500/20"
                                 : status === "in-progress"
                                   ? "border-amber-400 bg-amber-400/10"
-                                  : "border-bd3 group-hover:border-t2"
+                                  : "border-border-strong group-hover:border-text-subtle"
                             }`}
                           >
                             {status === "completed" && (
@@ -210,20 +193,17 @@ export default function TopicAccordion({
                           <span
                             className={`text-sm ${
                               status === "completed"
-                                ? "text-t2 line-through"
+                                ? "text-text-subtle line-through"
                                 : status === "in-progress"
                                   ? "text-amber-300"
-                                  : "text-t0b"
+                                  : "text-text-secondary"
                             }`}
                           >
                             {sub.title}
                           </span>
 
                           {isHighlighted && (
-                            <span
-                              className="ml-auto text-[10px] font-bold uppercase tracking-wider"
-                              style={{ color: moduleColor ?? "#3b82f6" }}
-                            >
+                            <span className="ml-auto text-[10px] font-bold uppercase tracking-wider accent-text">
                               ← here
                             </span>
                           )}

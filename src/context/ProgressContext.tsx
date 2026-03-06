@@ -70,3 +70,4 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 export function useProgress() {
   return useContext(ProgressContext);
 }
+

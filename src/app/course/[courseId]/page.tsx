@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useMemo, useEffect, Suspense } from "react";
+import { use, useState, Suspense } from "react";
 import { notFound } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { getCourseById } from "@/data/courses";
@@ -20,24 +20,21 @@ function CourseContent({ courseId }: { courseId: string }) {
   if (!course) notFound();
 
   const searchParams = useSearchParams();
-  const initialLevel = searchParams.get("level") ?? course.levels[0]?.id ?? "";
-  const initialModule = searchParams.get("module");
+  const searchLevelId = searchParams.get("level");
+  const searchModuleId = searchParams.get("module");
   const openTopicId = searchParams.get("topic") ?? undefined;
   const highlightSubtopicId = searchParams.get("subtopic") ?? undefined;
 
-  const [activeLevelId, setActiveLevelId] = useState(initialLevel);
-  const [activeModuleId, setActiveModuleId] = useState<string | null>(
-    initialModule,
+  const [selectedLevelId, setSelectedLevelId] = useState(
+    searchLevelId ?? course.levels[0]?.id ?? "",
+  );
+  const [selectedModuleId, setSelectedModuleId] = useState<string | null>(
+    searchModuleId,
   );
   const [showProgress, setShowProgress] = useState(true);
 
-  // Sync state when search params change (e.g. via SearchBar navigation)
-  useEffect(() => {
-    const level = searchParams.get("level");
-    const mod = searchParams.get("module");
-    if (level) setActiveLevelId(level);
-    if (mod) setActiveModuleId(mod);
-  }, [searchParams]);
+  const activeLevelId = searchLevelId ?? selectedLevelId;
+  const activeModuleId = searchModuleId ?? selectedModuleId;
 
   const { progress, isLoaded } = useProgress();
   const courseStats = calcCourseProgress(progress, course);
@@ -54,7 +51,7 @@ function CourseContent({ courseId }: { courseId: string }) {
   );
 
   // Aggregate per-module totals across all levels
-  const moduleAgg = useMemo(() => {
+  const moduleAgg = (() => {
     const agg: Record<
       string,
       { title: string; color: string; completed: number; total: number }
@@ -74,7 +71,7 @@ function CourseContent({ courseId }: { courseId: string }) {
       }
     }
     return agg;
-  }, [course, progress]);
+  })();
 
   const totalSubtopics = Object.values(moduleAgg).reduce(
     (s, m) => s + m.total,
@@ -86,14 +83,13 @@ function CourseContent({ courseId }: { courseId: string }) {
   );
 
   function handleLevelChange(id: string) {
-    setActiveLevelId(id);
-    setActiveModuleId(null);
+    setSelectedLevelId(id);
+    setSelectedModuleId(null);
   }
 
   const activeModuleStats = activeModule
     ? calcModuleProgress(progress, course.id, activeLevel.id, activeModule)
     : null;
-  const activeLevelStats = calcLevelProgress(progress, course.id, activeLevel);
 
   return (
     <div>
@@ -105,16 +101,16 @@ function CourseContent({ courseId }: { courseId: string }) {
       <div className="mt-4 mb-6">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-t3">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-text-faint">
               Mastery System
             </p>
             <div className="mt-1 flex items-baseline gap-3">
-              <h1 className="text-2xl font-black text-t0 sm:text-3xl">
+              <h1 className="text-2xl font-black text-text-primary sm:text-3xl">
                 {course.title}
               </h1>
               <span
-                className="text-xl font-bold font-mono"
-                style={{ color: course.color }}
+                data-accent={course.color}
+                className="text-xl font-bold font-mono accent-text"
               >
                 {course.icon}
               </span>
@@ -123,7 +119,7 @@ function CourseContent({ courseId }: { courseId: string }) {
           <button
             type="button"
             onClick={() => setShowProgress(!showProgress)}
-            className="rounded-lg border border-bd bg-s0 px-3 py-1.5 text-xs font-medium text-t1 transition-colors hover:border-bd3 hover:text-t0 shrink-0 mt-2"
+            className="rounded-lg border border-border-default bg-surface px-3 py-1.5 text-xs font-medium text-text-muted transition-colors hover:border-border-strong hover:text-text-primary shrink-0 mt-2"
           >
             {showProgress ? "Hide Stats" : "Show Stats"}
           </button>
@@ -133,15 +129,18 @@ function CourseContent({ courseId }: { courseId: string }) {
         <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
           {Object.entries(moduleAgg).map(([id, agg]) => (
             <span key={id} className="flex items-center gap-1.5">
-              <span className="text-xs font-bold" style={{ color: agg.color }}>
+              <span
+                data-accent={agg.color}
+                className="text-xs font-bold accent-text"
+              >
                 {agg.title}
               </span>
-              <span className="text-xs font-mono text-t1">
+              <span className="text-xs font-mono text-text-muted">
                 {agg.completed}/{agg.total}
               </span>
             </span>
           ))}
-          <span className="text-[10px] text-t3">
+          <span className="text-[10px] text-text-faint">
             {totalSubtopics} subtopics total
           </span>
         </div>
@@ -157,20 +156,14 @@ function CourseContent({ courseId }: { courseId: string }) {
                 return (
                   <div
                     key={level.id}
-                    className={`rounded-xl border p-2.5 transition-all ${active ? "" : "border-bd bg-s0"}`}
-                    style={
+                    data-accent={color}
+                    className={`rounded-xl border p-2.5 transition-all ${
                       active
-                        ? {
-                            borderColor: color + "55",
-                            backgroundColor: color + "0a",
-                          }
-                        : undefined
-                    }
+                        ? "accent-border-soft accent-bg-soft"
+                        : "border-border-default bg-surface"
+                    }`}
                   >
-                    <p
-                      className="text-[10px] font-black tracking-wide leading-snug mb-1.5"
-                      style={{ color }}
-                    >
+                    <p className="mb-1.5 text-[10px] font-black tracking-wide leading-snug accent-text">
                       L{idx}&nbsp;{level.title}
                     </p>
                     {level.modules.map((mod) => {
@@ -186,25 +179,24 @@ function CourseContent({ courseId }: { courseId: string }) {
                           className="flex items-center gap-1 text-[10px] leading-relaxed"
                         >
                           <span
-                            className="font-bold uppercase"
-                            style={{ color: mod.color ?? "#888" }}
+                            data-accent={mod.color ?? "#888"}
+                            className="font-bold uppercase accent-text"
                           >
                             {mod.id.toUpperCase()}:
                           </span>
-                          <span className="font-mono text-t1">
+                          <span className="font-mono text-text-muted">
                             {mp.completed}/{mp.total}
                           </span>
                         </div>
                       );
                     })}
                     {lp.percentage > 0 && (
-                      <div className="mt-2 h-px w-full rounded-full bg-bd">
-                        <div
-                          className="h-px rounded-full transition-all"
-                          style={{
-                            width: `${lp.percentage}%`,
-                            backgroundColor: color,
-                          }}
+                      <div className="mt-2">
+                        <ProgressBar
+                          percentage={lp.percentage}
+                          size="sm"
+                          color={color}
+                          showLabel={false}
                         />
                       </div>
                     )}
@@ -218,7 +210,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                 size="sm"
                 color={course.color}
               />
-              <p className="mt-1 text-xs text-t3">
+              <p className="mt-1 text-xs text-text-faint">
                 {totalCompleted}/{totalSubtopics} subtopics completed
               </p>
             </div>
@@ -227,7 +219,7 @@ function CourseContent({ courseId }: { courseId: string }) {
       </div>
 
       {/* ── Level tabs (native scroll) ───────────────────── */}
-      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-bd -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-border-default -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
         <div className="flex min-w-max">
           {course.levels.map((level, idx) => {
             const active = level.id === activeLevel.id;
@@ -236,41 +228,40 @@ function CourseContent({ courseId }: { courseId: string }) {
             return (
               <button
                 key={level.id}
+                data-accent={color}
                 type="button"
                 onClick={() => handleLevelChange(level.id)}
                 className={`flex shrink-0 flex-col items-start gap-0.5 px-5 py-3 transition-all border-b-2 ${
                   active
-                    ? ""
-                    : "border-transparent hover:bg-s1 hover:border-bd2"
+                    ? "accent-border"
+                    : "border-transparent hover:bg-surface-hover hover:border-border-muted"
                 }`}
-                style={active ? { borderColor: color } : undefined}
               >
                 <div className="flex items-center gap-2">
                   <span
-                    className={`text-[10px] font-black font-mono px-1.5 py-0.5 rounded-md leading-none transition-all ${active ? "text-bg" : ""}`}
-                    style={
+                    className={`rounded-md px-1.5 py-0.5 font-mono text-[10px] font-black leading-none transition-all ${
                       active
-                        ? { backgroundColor: color }
-                        : { color: color, backgroundColor: color + "20" }
-                    }
+                        ? "accent-bg-soft-strong text-page"
+                        : "accent-bg-soft accent-text"
+                    }`}
                   >
                     L{idx}
                   </span>
                   <span
                     className={`text-xs font-bold whitespace-nowrap ${
-                      active ? "text-t0" : "text-t2"
+                      active ? "text-text-primary" : "text-text-subtle"
                     }`}
                   >
                     {level.title}
                   </span>
                 </div>
                 {level.description && (
-                  <p className="text-[10px] text-t3 pl-0.5 max-w-[140px] truncate">
+                  <p className="max-w-35 pl-0.5 text-[10px] text-text-faint truncate">
                     {level.description}
                   </p>
                 )}
                 {showProgress && lp.percentage > 0 && (
-                  <div className="mt-0.5 w-full min-w-[120px]">
+                  <div className="mt-0.5 w-full min-w-30">
                     <ProgressBar
                       percentage={lp.percentage}
                       size="sm"
@@ -294,7 +285,7 @@ function CourseContent({ courseId }: { courseId: string }) {
             activeId={resolvedModuleId}
             courseId={course.id}
             levelId={activeLevel.id}
-            onSelect={(id) => setActiveModuleId(id)}
+            onSelect={(id) => setSelectedModuleId(id)}
           />
         </div>
 
@@ -306,15 +297,12 @@ function CourseContent({ courseId }: { courseId: string }) {
               <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-2">
                   <span
-                    className="rounded-md px-2 py-0.5 text-xs font-bold"
-                    style={{
-                      backgroundColor: (activeLevel.color ?? "#888") + "18",
-                      color: activeLevel.color,
-                    }}
+                    data-accent={activeLevel.color ?? "#888"}
+                    className="rounded-md px-2 py-0.5 text-xs font-bold accent-bg-soft-strong accent-text"
                   >
                     L{activeLevelIdx}
                   </span>
-                  <h2 className="text-base font-bold text-t0">
+                  <h2 className="text-base font-bold text-text-primary">
                     {activeModule.title} Topics
                   </h2>
                 </div>
@@ -328,7 +316,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                       />
                     </div>
                   )}
-                  <span className="text-xs text-t3">
+                  <span className="text-xs text-text-faint">
                     {activeModuleStats?.completed ?? 0}/
                     {activeModuleStats?.total ?? 0} done ·{" "}
                     {activeModule.topics.length} sections
@@ -337,6 +325,7 @@ function CourseContent({ courseId }: { courseId: string }) {
               </div>
 
               <TopicAccordion
+                key={`${activeModule.id}:${openTopicId ?? ""}`}
                 topics={activeModule.topics}
                 courseId={course.id}
                 levelId={activeLevel.id}
@@ -362,7 +351,7 @@ export default function CoursePage({
   return (
     <Suspense
       fallback={
-        <div className="py-12 text-center text-t3">Loading course…</div>
+        <div className="py-12 text-center text-text-faint">Loading course…</div>
       }
     >
       <CourseContent courseId={courseId} />

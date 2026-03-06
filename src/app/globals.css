@@ -6,63 +6,106 @@
   --font-sans: var(--font-app-sans);
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
-  /* Color tokens — map Tailwind utilities to theme CSS vars */
-  --color-bg: var(--c-bg);
-  --color-s0: var(--c-s0);
-  --color-s1: var(--c-s1);
-  --color-s2: var(--c-s2);
-  --color-bd: var(--c-bd);
-  --color-bd2: var(--c-bd2);
-  --color-bd3: var(--c-bd3);
-  --color-t0: var(--c-t0);
-  --color-t0b: var(--c-t0b);
-  --color-t1: var(--c-t1);
-  --color-t2: var(--c-t2);
-  --color-t3: var(--c-t3);
-  --color-t4: var(--c-t4);
+  --color-page: var(--color-bg-page);
+  --color-surface: var(--color-bg-surface);
+  --color-surface-hover: var(--color-bg-surface-hover);
+  --color-surface-emphasis: var(--color-bg-surface-emphasis);
+  --color-border-default: var(--color-border-base);
+  --color-border-muted: var(--color-border-soft);
+  --color-border-strong: var(--color-border-high);
+  --color-text-primary: var(--color-fg-primary);
+  --color-text-secondary: var(--color-fg-secondary);
+  --color-text-muted: var(--color-fg-muted);
+  --color-text-subtle: var(--color-fg-subtle);
+  --color-text-faint: var(--color-fg-faint);
+  --color-text-disabled: var(--color-fg-disabled);
 }
 
-/* ── Theme: dark (default) ────────────────────────────── */
 :root {
-  --c-bg: #08080f;
-  --c-s0: #0e0e1c;
-  --c-s1: #131328;
-  --c-s2: #191932;
-  --c-bd: #1e1e38;
-  --c-bd2: #2c2c4c;
-  --c-bd3: #424268;
-  --c-t0: #edeef8;
-  --c-t0b: #c6c8e0;
-  --c-t1: #8486a8;
-  --c-t2: #5c5e80;
-  --c-t3: #484a68;
-  --c-t4: #363658;
+  --color-bg-page: #08080f;
+  --color-bg-surface: #0e0e1c;
+  --color-bg-surface-hover: #131328;
+  --color-bg-surface-emphasis: #191932;
+  --color-border-base: #1e1e38;
+  --color-border-soft: #2c2c4c;
+  --color-border-high: #424268;
+  --color-fg-primary: #edeef8;
+  --color-fg-secondary: #c6c8e0;
+  --color-fg-muted: #8486a8;
+  --color-fg-subtle: #5c5e80;
+  --color-fg-faint: #484a68;
+  --color-fg-disabled: #363658;
+
+  --accent: #3b82f6;
+  --accent-rgb: 59 130 246;
 }
 
-/* ── Theme: light ─────────────────────────────────────── */
 html.light {
-  --c-bg: #f4f4fc;
-  --c-s0: #ffffff;
-  --c-s1: #ededf8;
-  --c-s2: #e2e2f2;
-  --c-bd: #d6d6ee;
-  --c-bd2: #b8b8d8;
-  --c-bd3: #8888b8;
-  --c-t0: #0c0c20;
-  --c-t0b: #222238;
-  --c-t1: #525278;
-  --c-t2: #7676a0;
-  --c-t3: #a8a8c8;
-  --c-t4: #d0d0e8;
+  --color-bg-page: #f4f4fc;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-hover: #ededf8;
+  --color-bg-surface-emphasis: #e2e2f2;
+  --color-border-base: #d6d6ee;
+  --color-border-soft: #b8b8d8;
+  --color-border-high: #8888b8;
+  --color-fg-primary: #0c0c20;
+  --color-fg-secondary: #222238;
+  --color-fg-muted: #525278;
+  --color-fg-subtle: #7676a0;
+  --color-fg-faint: #a8a8c8;
+  --color-fg-disabled: #d0d0e8;
+}
+
+[data-accent="#4ade80"] {
+  --accent: #4ade80;
+  --accent-rgb: 74 222 128;
+}
+
+[data-accent="#22d3ee"] {
+  --accent: #22d3ee;
+  --accent-rgb: 34 211 238;
+}
+
+[data-accent="#f472b6"] {
+  --accent: #f472b6;
+  --accent-rgb: 244 114 182;
+}
+
+[data-accent="#fb923c"] {
+  --accent: #fb923c;
+  --accent-rgb: 251 146 60;
+}
+
+[data-accent="#38bdf8"] {
+  --accent: #38bdf8;
+  --accent-rgb: 56 189 248;
+}
+
+[data-accent="#facc15"] {
+  --accent: #facc15;
+  --accent-rgb: 250 204 21;
+}
+
+[data-accent="#34d399"] {
+  --accent: #34d399;
+  --accent-rgb: 52 211 153;
+}
+
+[data-accent="#f7df1e"] {
+  --accent: #f7df1e;
+  --accent-rgb: 247 223 30;
+}
+
+[data-accent="#888"] {
+  --accent: #888;
+  --accent-rgb: 136 136 136;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--c-bd3) transparent;
-  /* raw CSS — no Tailwind utility for scrollbar-color */
+  scrollbar-color: var(--color-border-high) transparent;
 }
 
-/* Hide scrollbar utility */
 .scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -74,11 +117,74 @@ html.light {
 
 ::selection {
   background: rgba(59, 130, 246, 0.3);
-  color: var(--c-t0);
-  /* raw CSS — @apply not valid in ::selection */
+  color: var(--color-fg-primary);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.accent-bg-soft {
+  background-color: rgb(var(--accent-rgb) / 0.1);
+}
+
+.accent-bg-soft-strong {
+  background-color: rgb(var(--accent-rgb) / 0.18);
+}
+
+.accent-border {
+  border-color: var(--accent);
+}
+
+.accent-border-soft {
+  border-color: rgb(var(--accent-rgb) / 0.35);
+}
+
+.accent-border-left {
+  border-left-color: var(--accent);
+}
+
+.accent-outline {
+  outline: 1px solid rgb(var(--accent-rgb) / 0.75);
+}
+
+.progress-track {
+  appearance: none;
+  -webkit-appearance: none;
+  overflow: hidden;
+  background-color: var(--color-border-base);
+}
+
+.progress-track::-webkit-progress-bar {
+  background-color: var(--color-border-base);
+}
+
+.progress-track::-webkit-progress-value {
+  background-color: var(--progress-fill, #3b82f6);
+  transition: width 300ms ease;
+}
+
+.progress-track::-moz-progress-bar {
+  background-color: var(--progress-fill, #3b82f6);
+}
+
+.progress-fill-empty {
+  --progress-fill: var(--color-border-soft);
+}
+
+.progress-fill-active {
+  --progress-fill: #3b82f6;
+}
+
+.progress-fill-complete {
+  --progress-fill: #10b981;
+}
+
+.progress-fill-accent {
+  --progress-fill: var(--accent);
 }
 
 body {
-  @apply bg-bg text-t0;
+  @apply bg-page text-text-primary;
   font-family: var(--font-sans), system-ui, sans-serif;
 }

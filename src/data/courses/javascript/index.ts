@@ -14,3 +14,4 @@ export const javascriptCourse: Course = {
   color: "#f7df1e",
   levels: [l0Level, l1Level, l2Level, l3Level, l4Level, l5Level],
 };
+

@@ -7,8 +7,8 @@ export default function DashboardPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-t0">Your Learning Dashboard</h1>
-        <p className="mt-1 text-sm text-t2">
+        <h1 className="text-2xl font-bold text-text-primary">Your Learning Dashboard</h1>
+        <p className="mt-1 text-sm text-text-subtle">
           Pick a course and start learning at your own pace.
         </p>
       </div>
@@ -21,3 +21,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+

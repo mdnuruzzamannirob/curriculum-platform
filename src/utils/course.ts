@@ -27,3 +27,4 @@ export function countSubtopics(course: Course): number {
       for (const topic of mod.topics) count += topic.subtopics.length;
   return count;
 }
+

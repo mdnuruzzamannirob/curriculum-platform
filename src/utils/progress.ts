@@ -137,3 +137,4 @@ export function calcCourseProgress(
           );
   return statsFromStatuses(statuses);
 }
+

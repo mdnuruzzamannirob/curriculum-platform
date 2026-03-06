@@ -39,11 +39,11 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ProgressProvider>
-            <header className="sticky top-0 z-40 border-b border-bd bg-bg/90 backdrop-blur-sm">
+            <header className="sticky top-0 z-40 border-b border-border-default bg-page/90 backdrop-blur-sm">
               <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
                 <Link
                   href="/"
-                  className="flex items-center gap-2 text-lg font-bold text-t0 hover:opacity-80 transition-opacity shrink-0"
+                  className="flex items-center gap-2 text-lg font-bold text-text-primary hover:opacity-80 transition-opacity shrink-0"
                 >
                   <span className="text-xl">🎓</span>
                   <span className="hidden sm:inline">Learning Platform</span>
@@ -63,3 +63,4 @@ export default function RootLayout({
     </html>
   );
 }
+

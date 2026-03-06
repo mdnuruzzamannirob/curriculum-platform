@@ -38,35 +38,35 @@ export default function CourseCard({ course }: CourseCardProps) {
   return (
     <Link
       href={`/course/${course.id}`}
-      className="group block rounded-xl border border-bd bg-s0 p-6 transition hover:border-bd3"
+      className="group block rounded-xl border border-border-default bg-surface p-6 transition hover:border-border-strong"
     >
       <div className="mb-4 flex items-center gap-3">
         <span
-          className="text-2xl font-bold font-mono"
-          style={{ color: course.color }}
+          data-accent={course.color}
+          className="text-2xl font-bold font-mono accent-text"
         >
           {course.icon}
         </span>
         <div>
-          <h3 className="text-lg font-bold text-t0 group-hover:opacity-80 transition-opacity">
+          <h3 className="text-lg font-bold text-text-primary group-hover:opacity-80 transition-opacity">
             {course.title}
           </h3>
-          <p className="text-sm text-t2">{course.description}</p>
+          <p className="text-sm text-text-subtle">{course.description}</p>
         </div>
       </div>
 
       {isLoaded && (
         <>
           <ProgressBar percentage={courseStats.percentage} size="md" />
-          <p className="mt-2 text-xs text-t3">
+          <p className="mt-2 text-xs text-text-faint">
             {courseStats.completed}/{courseStats.total} subtopics completed
           </p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
             {Object.entries(moduleAgg).map(([id, agg]) => (
               <span
                 key={id}
-                className="text-xs font-mono"
-                style={{ color: agg.color }}
+                data-accent={agg.color}
+                className="text-xs font-mono accent-text"
               >
                 {agg.completed}/{agg.total} {agg.title}
               </span>

@@ -11,7 +11,7 @@ interface BreadcrumbsProps {
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
-    <nav className="flex items-center gap-1.5 text-sm text-t3">
+    <nav className="flex items-center gap-1.5 text-sm text-text-faint">
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
         return (
@@ -20,12 +20,12 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             {item.href && !isLast ? (
               <Link
                 href={item.href}
-                className="hover:text-t0b transition-colors"
+                className="hover:text-text-secondary transition-colors"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className={isLast ? "font-medium text-t0b" : ""}>
+              <span className={isLast ? "font-medium text-text-secondary" : ""}>
                 {item.label}
               </span>
             )}
@@ -35,3 +35,4 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     </nav>
   );
 }
+

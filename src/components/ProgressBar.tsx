@@ -13,26 +13,23 @@ export default function ProgressBar({
 }: ProgressBarProps) {
   const height = { sm: "h-1.5", md: "h-2.5", lg: "h-4" }[size];
   const clamped = Math.min(100, Math.max(0, percentage));
+  const fillClass = color
+    ? "progress-fill-accent"
+    : clamped === 100
+      ? "progress-fill-complete"
+      : clamped > 0
+        ? "progress-fill-active"
+        : "progress-fill-empty";
 
   return (
-    <div className="flex items-center gap-2">
-      <div className={`flex-1 rounded-full bg-bd ${height}`}>
-        <div
-          className={`${height} rounded-full transition-all duration-300`}
-          style={{
-            width: `${clamped}%`,
-            backgroundColor: color
-              ? color
-              : clamped === 100
-                ? "#10b981"
-                : clamped > 0
-                  ? "#3b82f6"
-                  : undefined,
-          }}
-        />
-      </div>
+    <div data-accent={color} className="flex items-center gap-2">
+      <progress
+        className={`progress-track ${height} ${fillClass} w-full flex-1 rounded-full`}
+        value={clamped}
+        max={100}
+      />
       {showLabel && (
-        <span className="min-w-[3ch] text-right text-xs font-medium text-t2">
+        <span className="min-w-[3ch] text-right text-xs font-medium text-text-subtle">
           {clamped}%
         </span>
       )}
