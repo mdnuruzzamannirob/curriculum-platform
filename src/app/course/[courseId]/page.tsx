@@ -14,9 +14,6 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ProgressBar from "@/components/ProgressBar";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import TopicAccordion from "@/components/TopicAccordion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
-import "swiper/css";
 
 function CourseContent({ courseId }: { courseId: string }) {
   const course = getCourseById(courseId);
@@ -132,94 +129,156 @@ function CourseContent({ courseId }: { courseId: string }) {
           </button>
         </div>
 
-        <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
+        {/* Module totals row */}
+        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
           {Object.entries(moduleAgg).map(([id, agg]) => (
-            <span
-              key={id}
-              className="font-semibold"
-              style={{ color: agg.color }}
-            >
-              {agg.completed}/{agg.total} {agg.title}
+            <span key={id} className="flex items-center gap-1.5">
+              <span className="text-xs font-bold" style={{ color: agg.color }}>
+                {agg.title}
+              </span>
+              <span className="text-xs font-mono text-[var(--c-t1)]">
+                {agg.completed}/{agg.total}
+              </span>
             </span>
           ))}
-          <span className="text-[var(--c-bd3)]">·</span>
-          <span className="text-[var(--c-t2)]">{totalSubtopics} total</span>
+          <span className="text-[10px] text-[var(--c-t3)]">
+            {totalSubtopics} subtopics total
+          </span>
         </div>
 
-        {/* Course progress bar - toggleable */}
+        {/* Level stats cards + overall progress (toggleable) */}
         {showProgress && isLoaded && (
-          <div className="mt-3 max-w-md">
-            <ProgressBar
-              percentage={courseStats.percentage}
-              size="md"
-              color={course.color}
-            />
-            <p className="mt-1 text-xs text-[var(--c-t3)]">
-              {totalCompleted}/{totalSubtopics} subtopics completed
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* ── Level bar (Swiper) ───────────────────────────── */}
-      <div className="border-b border-[var(--c-bd)]">
-        <Swiper
-          modules={[FreeMode]}
-          freeMode
-          slidesPerView="auto"
-          spaceBetween={0}
-          className="!overflow-visible"
-        >
-          {course.levels.map((level, idx) => {
-            const active = level.id === activeLevel.id;
-            const color = level.color ?? "#888";
-            const lp = calcLevelProgress(progress, course.id, level);
-            return (
-              <SwiperSlide key={level.id} className="!w-auto">
-                <button
-                  type="button"
-                  onClick={() => handleLevelChange(level.id)}
-                  className={`flex shrink-0 flex-col items-start px-4 py-3 transition-colors border-b-2 ${
-                    active ? "" : "border-transparent hover:bg-[var(--c-s1)]"
-                  }`}
-                  style={active ? { borderColor: color } : undefined}
-                >
-                  <div className="flex items-center gap-1.5">
-                    <span
-                      className="text-[10px] font-black tracking-wider font-mono"
-                      style={{ color: active ? color : "var(--c-t3)" }}
+          <div className="mt-4 space-y-3">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+              {course.levels.map((level, idx) => {
+                const active = level.id === activeLevel.id;
+                const color = level.color ?? "#888";
+                const lp = calcLevelProgress(progress, course.id, level);
+                return (
+                  <div
+                    key={level.id}
+                    className="rounded-xl border p-2.5 transition-all"
+                    style={{
+                      borderColor: active ? color + "55" : "var(--c-bd)",
+                      backgroundColor: active ? color + "0a" : "var(--c-s0)",
+                    }}
+                  >
+                    <p
+                      className="text-[10px] font-black tracking-wide leading-snug mb-1.5"
+                      style={{ color }}
                     >
-                      L{idx}
-                    </span>
-                    <span
-                      className={`text-xs font-bold ${active ? "text-[var(--c-t0)]" : "text-[var(--c-t2)]"}`}
-                    >
-                      {level.title}
-                    </span>
-                  </div>
-                  {level.description && (
-                    <span className="mt-0.5 text-[10px] text-[var(--c-t3)] whitespace-nowrap">
-                      {level.description}
-                    </span>
-                  )}
-                  {showProgress && lp.percentage > 0 && (
-                    <div className="mt-1.5 w-full min-w-[80px]">
-                      <div className="h-0.5 rounded-full bg-[var(--c-bd2)]">
+                      L{idx}&nbsp;{level.title}
+                    </p>
+                    {level.modules.map((mod) => {
+                      const mp = calcModuleProgress(
+                        progress,
+                        course.id,
+                        level.id,
+                        mod,
+                      );
+                      return (
                         <div
-                          className="h-0.5 rounded-full transition-all"
+                          key={mod.id}
+                          className="flex items-center gap-1 text-[10px] leading-relaxed"
+                        >
+                          <span
+                            className="font-bold uppercase"
+                            style={{ color: mod.color ?? "#888" }}
+                          >
+                            {mod.id.toUpperCase()}:
+                          </span>
+                          <span className="font-mono text-[var(--c-t1)]">
+                            {mp.completed}/{mp.total}
+                          </span>
+                        </div>
+                      );
+                    })}
+                    {lp.percentage > 0 && (
+                      <div className="mt-2 h-px w-full rounded-full bg-[var(--c-bd)]">
+                        <div
+                          className="h-px rounded-full transition-all"
                           style={{
                             width: `${lp.percentage}%`,
                             backgroundColor: color,
                           }}
                         />
                       </div>
-                    </div>
-                  )}
-                </button>
-              </SwiperSlide>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="max-w-sm">
+              <ProgressBar
+                percentage={courseStats.percentage}
+                size="sm"
+                color={course.color}
+              />
+              <p className="mt-1 text-xs text-[var(--c-t3)]">
+                {totalCompleted}/{totalSubtopics} subtopics completed
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* ── Level tabs (native scroll) ───────────────────── */}
+      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-[var(--c-bd)] -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+        <div className="flex min-w-max">
+          {course.levels.map((level, idx) => {
+            const active = level.id === activeLevel.id;
+            const color = level.color ?? "#888";
+            const lp = calcLevelProgress(progress, course.id, level);
+            return (
+              <button
+                key={level.id}
+                type="button"
+                onClick={() => handleLevelChange(level.id)}
+                className={`flex shrink-0 flex-col items-start gap-0.5 px-5 py-3 transition-all border-b-2 ${
+                  active
+                    ? ""
+                    : "border-transparent hover:bg-[var(--c-s1)] hover:border-[var(--c-bd2)]"
+                }`}
+                style={active ? { borderColor: color } : undefined}
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className="text-[10px] font-black font-mono px-1.5 py-0.5 rounded-md leading-none transition-all"
+                    style={
+                      active
+                        ? { color: "var(--c-bg)", backgroundColor: color }
+                        : { color: color, backgroundColor: color + "20" }
+                    }
+                  >
+                    L{idx}
+                  </span>
+                  <span
+                    className={`text-xs font-bold whitespace-nowrap ${
+                      active ? "text-[var(--c-t0)]" : "text-[var(--c-t2)]"
+                    }`}
+                  >
+                    {level.title}
+                  </span>
+                </div>
+                {level.description && (
+                  <p className="text-[10px] text-[var(--c-t3)] pl-0.5 max-w-[140px] truncate">
+                    {level.description}
+                  </p>
+                )}
+                {showProgress && lp.percentage > 0 && (
+                  <div className="mt-0.5 w-full min-w-[120px]">
+                    <ProgressBar
+                      percentage={lp.percentage}
+                      size="sm"
+                      color={color}
+                      showLabel={false}
+                    />
+                  </div>
+                )}
+              </button>
             );
           })}
-        </Swiper>
+        </div>
       </div>
 
       {/* ── Content: sidebar + topics ────────────────────── */}
