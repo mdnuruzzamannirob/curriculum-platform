@@ -24,7 +24,7 @@ export default function ModuleSidebar({
 
   return (
     <>
-      {/* Mobile: horizontal native scroll */}
+      {/* ── Mobile: horizontal scroll, desktop-style cards ── */}
       <div className="md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
         <div className="flex gap-2 pb-2 min-w-max">
           {modules.map((mod) => {
@@ -37,33 +37,52 @@ export default function ModuleSidebar({
                 data-accent={modColor}
                 type="button"
                 onClick={() => onSelect(mod.id)}
-                className={`flex shrink-0 flex-col items-center gap-1.5 rounded-xl border px-4 py-3 text-center ${
+                className={`flex shrink-0 flex-col gap-2 rounded-xl min-w-36 w-fit border px-3 py-3 text-left ${
                   active
-                    ? "accent-bg-soft accent-border-soft border-l-[3px] accent-border-left"
-                    : "border-border-default bg-surface"
+                    ? "accent-bg-soft accent-border"
+                    : "border-border-default bg-surface hover:bg-surface-hover hover:border-border-muted"
                 }`}
               >
-                <span className="text-2xl font-black font-mono leading-none accent-text">
-                  {mod.icon ?? mod.id.charAt(0).toUpperCase()}
-                </span>
-                <span
-                  className={`text-[10px] font-bold tracking-wide leading-tight whitespace-nowrap ${
-                    active ? "accent-text" : "text-text-muted"
-                  }`}
-                >
-                  {mod.title}
-                </span>
-                <span className="text-[9px] font-mono text-text-subtle">
-                  {mp.completed}/{mp.total}
-                </span>
+                {/* Icon + Title */}
+                <div className="flex items-center gap-1.5">
+                  <p
+                    className="rounded justify-center min-w-6 text-center font-mono font-black leading-none accent-text"
+                    style={{ color: modColor }}
+                  >
+                    {mod.icon ?? mod.id.charAt(0).toUpperCase()}
+                  </p>
+                  <p
+                    className={`text-sm font-bold uppercase tracking-wide leading-tight truncate ${
+                      active ? "accent-text" : "text-text-muted"
+                    }`}
+                    style={active ? { color: modColor } : undefined}
+                  >
+                    {mod.title}
+                  </p>
+                </div>
+
+                {/* Progress bar + count */}
+                <div className="flex w-full items-center gap-1">
+                  <div className="w-full">
+                    <ProgressBar
+                      percentage={mp.percentage}
+                      size="sm"
+                      color={modColor}
+                      showLabel={false}
+                    />
+                  </div>
+                  <span className="text-[10px] font-mono tabular-nums text-text-faint whitespace-nowrap">
+                    {mp.completed}/{mp.total}
+                  </span>
+                </div>
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* Desktop: vertical module tabs */}
-      <nav className="hidden md:flex border-l border-border-default  md:flex-col">
+      {/* ── Desktop: vertical module tabs (unchanged) ── */}
+      <nav className="hidden md:flex border-l border-border-default md:flex-col">
         {modules.map((mod) => {
           const active = mod.id === activeId;
           const mp = calcModuleProgress(progress, courseId, levelId, mod);
@@ -85,14 +104,11 @@ export default function ModuleSidebar({
                   {mod.icon ?? mod.id.charAt(0).toUpperCase()}
                 </p>
                 <p
-                  className={`text-sm font-bold uppercase tracking-wide leading-tight ${
-                    active ? "accent-text" : "text-text-muted"
-                  }`}
+                  className={`text-sm font-bold uppercase tracking-wide leading-tight ${active ? "accent-text" : "text-text-muted"}`}
                 >
                   {mod.title}
                 </p>
               </div>
-
               <div className="flex w-full items-center gap-1">
                 <div className="w-full">
                   <ProgressBar
