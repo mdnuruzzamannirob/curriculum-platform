@@ -102,17 +102,17 @@ export default function RootLayout({
                   </div>
                 </div>
               </header>
-              <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6">
-                {children}
-              </main>
+              <main>{children}</main>
               <footer className="border-t border-border-default bg-page/92">
-                <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.3fr,1fr]">
-                  <div className="space-y-3">
-                    <BrandLogo />
-                    <p className="max-w-xl text-sm text-text-subtle">
-                      Structured learning paths for people who want a cleaner
-                      way to progress from fundamentals to mastery.
-                    </p>
+                <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6">
+                  <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="space-y-3">
+                      <BrandLogo />
+                      <p className="max-w-xl text-sm text-text-subtle">
+                        Structured learning paths for people who want a cleaner
+                        way to progress from fundamentals to mastery.
+                      </p>
+                    </div>
                     <div className="flex flex-wrap gap-2 text-sm">
                       <Link
                         href="/"
@@ -128,50 +128,19 @@ export default function RootLayout({
                       </Link>
                     </div>
                   </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="app-panel rounded-2xl p-4">
-                      <div className="flex items-center gap-3">
-                        <LibraryBig className="h-4 w-4 text-text-muted" />
-                        <span className="text-xs uppercase tracking-[0.24em] text-text-faint">
-                          Library
-                        </span>
-                      </div>
-                      <p className="mt-3 text-2xl font-black text-text-primary">
-                        {totalCourses}
-                      </p>
-                      <p className="text-sm text-text-subtle">
-                        Tracks available now
-                      </p>
-                    </div>
-                    <div className="app-panel rounded-2xl p-4">
-                      <div className="flex items-center gap-3">
-                        <Layers3 className="h-4 w-4 text-text-muted" />
-                        <span className="text-xs uppercase tracking-[0.24em] text-text-faint">
-                          Depth
-                        </span>
-                      </div>
-                      <p className="mt-3 text-2xl font-black text-text-primary">
-                        {totalModules}
-                      </p>
-                      <p className="text-sm text-text-subtle">
-                        Modules across {totalTopics} topics
-                      </p>
-                    </div>
-                    <div className="app-panel rounded-2xl p-4 sm:col-span-2">
-                      <div className="flex items-center gap-3">
-                        <Compass className="h-4 w-4 text-text-muted" />
-                        <span className="text-xs uppercase tracking-[0.24em] text-text-faint">
-                          Practice Surface
-                        </span>
-                      </div>
-                      <p className="mt-3 text-2xl font-black text-text-primary">
-                        {totalSubtopics}
-                      </p>
-                      <p className="text-sm text-text-subtle">
-                        Granular learning checkpoints designed for steady
-                        progress.
-                      </p>
-                    </div>
+                  <div className="flex flex-wrap gap-3 border-t border-border-default pt-4">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border-default px-3 py-1.5 text-sm text-text-muted">
+                      <LibraryBig className="h-3.5 w-3.5" />
+                      {totalCourses} track{totalCourses === 1 ? "" : "s"}
+                    </span>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border-default px-3 py-1.5 text-sm text-text-muted">
+                      <Layers3 className="h-3.5 w-3.5" />
+                      {totalModules} modules across {totalTopics} topics
+                    </span>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border-default px-3 py-1.5 text-sm text-text-muted">
+                      <Compass className="h-3.5 w-3.5" />
+                      {totalSubtopics} checkpoints
+                    </span>
                   </div>
                 </div>
               </footer>

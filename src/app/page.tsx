@@ -1,14 +1,13 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Compass,
+  BookOpen,
   LayoutDashboard,
   Sparkles,
   Stars,
   Trophy,
 } from "lucide-react";
 import { courses } from "@/data/courses";
-import BrandLogo from "@/components/BrandLogo";
 import CourseCard from "@/components/CourseCard";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -33,13 +32,13 @@ export default function HomePage() {
   const featuredCourse = courses[0];
 
   return (
-    <div className="space-y-10 pb-6">
+    <div className="space-y-12 pb-8">
       <section className="relative overflow-hidden rounded-4xl border border-border-default bg-surface/80">
         <div className="absolute inset-0 surface-mesh opacity-60" />
         <div className="absolute -left-12 top-12 h-40 w-40 rounded-full bg-[rgba(var(--accent-rgb)/0.16)] blur-3xl" />
         <div className="absolute bottom-0 right-0 h-48 w-48 rounded-full bg-[rgba(56,189,248,0.14)] blur-3xl" />
-        <div className="relative grid gap-8 px-6 py-8 lg:grid-cols-[1.25fr,0.75fr] lg:px-8 lg:py-10">
-          <div className="space-y-6">
+        <div className="relative px-6 py-14 lg:px-10 lg:py-20">
+          <div className=" flex flex-col items-center text-center">
             <Badge
               variant="muted"
               className="w-fit gap-2 rounded-full px-3 py-1"
@@ -47,19 +46,15 @@ export default function HomePage() {
               <Sparkles className="h-3.5 w-3.5" />
               Curated Learning Platform
             </Badge>
-            <BrandLogo className="pointer-events-none" />
-            <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-black tracking-[-0.06em] text-text-primary sm:text-5xl lg:text-6xl">
-                Roadmaps that keep your learning focused, visible, and
-                finishable.
-              </h1>
-              <p className="max-w-2xl text-base leading-7 text-text-subtle sm:text-lg">
-                Start from a clean landing page, jump into your dashboard when
-                you want progress context, and move through each course with a
-                sharper sense of direction.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
+            <h1 className="mt-6 max-w-3xl text-4xl font-black tracking-[-0.06em] text-text-primary sm:text-5xl lg:text-6xl">
+              Roadmaps that keep your learning focused, visible, and finishable.
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-text-subtle sm:text-lg">
+              Start from a clean landing page, jump into your dashboard when you
+              want progress context, and move through each course with a sharper
+              sense of direction.
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
               <Link
                 href="/dashboard"
                 className={cn(
@@ -83,8 +78,8 @@ export default function HomePage() {
                 </Link>
               )}
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <div className="app-panel rounded-2xl p-4">
+            <div className="mt-9 grid w-full gap-3 sm:grid-cols-3">
+              <div className="app-panel rounded-2xl p-4 text-left">
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Tracks
                 </p>
@@ -93,7 +88,7 @@ export default function HomePage() {
                 </p>
                 <p className="text-sm text-text-subtle">Ready to start</p>
               </div>
-              <div className="app-panel rounded-2xl p-4">
+              <div className="app-panel rounded-2xl p-4 text-left">
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Depth
                 </p>
@@ -104,7 +99,7 @@ export default function HomePage() {
                   Modules across {totalTopics} topics
                 </p>
               </div>
-              <div className="app-panel rounded-2xl p-4">
+              <div className="app-panel rounded-2xl p-4 text-left">
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Checkpoints
                 </p>
@@ -116,49 +111,6 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="grid gap-3">
-            <Card className="app-panel overflow-hidden border-border-default/80 bg-surface/80">
-              <CardContent className="space-y-4 p-5">
-                <Badge
-                  variant="muted"
-                  className="w-fit gap-2 rounded-full px-3 py-1"
-                >
-                  <Compass className="h-3.5 w-3.5" />
-                  Why it feels cleaner
-                </Badge>
-                <div className="space-y-3">
-                  <div className="rounded-2xl border border-border-default bg-surface-emphasis p-4">
-                    <p className="text-sm font-semibold text-text-primary">
-                      Landing page for orientation
-                    </p>
-                    <p className="mt-1 text-sm text-text-subtle">
-                      Banner, featured learning paths, and product context
-                      without dashboard clutter.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-border-default bg-surface-emphasis p-4">
-                    <p className="text-sm font-semibold text-text-primary">
-                      Dashboard for active study
-                    </p>
-                    <p className="mt-1 text-sm text-text-subtle">
-                      Progress, course cards, and focused next actions in one
-                      dedicated place.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-border-default bg-surface-emphasis p-4">
-                    <p className="text-sm font-semibold text-text-primary">
-                      Course pages for execution
-                    </p>
-                    <p className="mt-1 text-sm text-text-subtle">
-                      Modules, topics, and checkpoints stay close to the work
-                      itself.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
@@ -217,9 +169,9 @@ export default function HomePage() {
               </p>
             </div>
             <div className="rounded-2xl border border-border-default bg-surface-emphasis p-4">
-              <Compass className="h-5 w-5 text-text-muted" />
+              <BookOpen className="h-5 w-5 text-text-muted" />
               <p className="mt-3 text-sm font-semibold text-text-primary">
-                Focused navigation
+                Focused execution
               </p>
               <p className="mt-1 text-sm text-text-subtle">
                 Course pages stay dedicated to modules, topics, and next
@@ -235,16 +187,16 @@ export default function HomePage() {
               variant="muted"
               className="w-fit gap-2 rounded-full px-3 py-1"
             >
-              <LayoutDashboard className="h-3.5 w-3.5" />
-              Ready to study
+              <BookOpen className="h-3.5 w-3.5" />
+              Start here
             </Badge>
             <div>
               <h3 className="text-xl font-black tracking-tight text-text-primary">
-                Jump into your dashboard.
+                Pick the right next step.
               </h3>
               <p className="mt-2 text-sm leading-6 text-text-subtle">
-                Use the dedicated dashboard view for progress, course access,
-                and a cleaner study routine.
+                Use home for orientation and featured paths. Use dashboard when
+                you want progress, active study context, and fast continuation.
               </p>
             </div>
             <Link
