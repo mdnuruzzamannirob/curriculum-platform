@@ -17,6 +17,8 @@ export interface Module {
   id: string;
   title: string;
   description?: string;
+  icon?: string;
+  color?: string;
   topics: Topic[];
 }
 
@@ -24,6 +26,7 @@ export interface Level {
   id: string;
   title: string;
   description?: string;
+  color?: string;
   modules: Module[];
 }
 

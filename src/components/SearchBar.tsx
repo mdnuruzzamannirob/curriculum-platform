@@ -7,11 +7,11 @@ import { buildSearchIndex, searchItems } from "@/utils/search";
 import { SearchItem } from "@/types";
 
 const TYPE_BADGE: Record<SearchItem["type"], string> = {
-  course: "bg-purple-100 text-purple-700",
-  level: "bg-blue-100 text-blue-700",
-  module: "bg-teal-100 text-teal-700",
-  topic: "bg-amber-100 text-amber-700",
-  subtopic: "bg-gray-100 text-gray-700",
+  course: "bg-purple-500/20 text-purple-300",
+  level: "bg-blue-500/20 text-blue-300",
+  module: "bg-teal-500/20 text-teal-300",
+  topic: "bg-amber-500/20 text-amber-300",
+  subtopic: "bg-gray-500/20 text-gray-300",
 };
 
 export default function SearchBar() {
@@ -47,24 +47,24 @@ export default function SearchBar() {
     <div ref={wrapperRef} className="relative w-full max-w-md">
       <input
         type="text"
-        placeholder="Search courses, topics…"
+        placeholder="Search all topics..."
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
           setOpen(true);
         }}
         onFocus={() => query && setOpen(true)}
-        className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition"
+        className="w-full rounded-lg border border-[#333] bg-[#1a1a1a] px-4 py-2 text-sm text-[#e5e5e5] placeholder-[#555] outline-none focus:border-[#555] transition"
       />
 
       {open && results.length > 0 && (
-        <ul className="absolute z-50 mt-1 max-h-80 w-full overflow-auto rounded-lg border border-gray-200 bg-white shadow-lg">
+        <ul className="absolute z-50 mt-1 max-h-80 w-full overflow-auto rounded-lg border border-[#2a2a2a] bg-[#141414] shadow-2xl">
           {results.map((item, i) => (
             <li key={i}>
               <button
                 type="button"
                 onClick={() => navigate(item.href)}
-                className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-gray-50 transition-colors"
+                className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-[#1e1e1e] transition-colors"
               >
                 <span
                   className={`mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${TYPE_BADGE[item.type]}`}
@@ -72,10 +72,10 @@ export default function SearchBar() {
                   {item.type}
                 </span>
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-gray-900">
+                  <p className="truncate text-sm font-medium text-[#e5e5e5]">
                     {item.title}
                   </p>
-                  <p className="truncate text-xs text-gray-400">
+                  <p className="truncate text-xs text-[#555]">
                     {item.breadcrumb}
                   </p>
                 </div>
@@ -86,7 +86,7 @@ export default function SearchBar() {
       )}
 
       {open && query && results.length === 0 && (
-        <div className="absolute z-50 mt-1 w-full rounded-lg border border-gray-200 bg-white p-4 text-center text-sm text-gray-400 shadow-lg">
+        <div className="absolute z-50 mt-1 w-full rounded-lg border border-[#2a2a2a] bg-[#141414] p-4 text-center text-sm text-[#555] shadow-2xl">
           No results found
         </div>
       )}

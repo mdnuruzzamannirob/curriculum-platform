@@ -4,18 +4,21 @@ export const javascriptCourse: Course = {
   id: "javascript",
   title: "JavaScript",
   description: "Master JavaScript from fundamentals to advanced internals.",
-  icon: "📜",
+  icon: "{ }",
   color: "#f7df1e",
   levels: [
-    // ── Entry ──────────────────────────────────────────────
+    // ── L0 Absolute Basics ─────────────────────────────────
     {
       id: "entry",
-      title: "Entry",
-      description: "Absolute basics of JavaScript.",
+      title: "Absolute Basics",
+      description: "Beginner",
+      color: "#4ade80",
       modules: [
         {
           id: "js",
           title: "JS",
+          icon: "{ }",
+          color: "#4ade80",
           description: "Core JavaScript fundamentals.",
           topics: [
             {
@@ -54,6 +57,8 @@ export const javascriptCourse: Course = {
         {
           id: "dsa",
           title: "DSA",
+          icon: "~",
+          color: "#22d3ee",
           description: "Basic data structures.",
           topics: [
             {
@@ -78,8 +83,10 @@ export const javascriptCourse: Course = {
           ],
         },
         {
-          id: "qa",
-          title: "Q&A",
+          id: "iq",
+          title: "Interview Q",
+          icon: "?",
+          color: "#f472b6",
           description: "Common entry-level questions.",
           topics: [
             {
@@ -97,15 +104,18 @@ export const javascriptCourse: Course = {
       ],
     },
 
-    // ── Junior ─────────────────────────────────────────────
+    // ── L1 Core JavaScript ─────────────────────────────────
     {
       id: "junior",
-      title: "Junior",
-      description: "Building practical JavaScript skills.",
+      title: "Core JavaScript",
+      description: "Junior Dev",
+      color: "#facc15",
       modules: [
         {
           id: "js",
           title: "JS",
+          icon: "{ }",
+          color: "#4ade80",
           description: "Intermediate JavaScript.",
           topics: [
             {
@@ -145,6 +155,8 @@ export const javascriptCourse: Course = {
         {
           id: "dsa",
           title: "DSA",
+          icon: "~",
+          color: "#22d3ee",
           description: "Searching and sorting.",
           topics: [
             {
@@ -169,8 +181,10 @@ export const javascriptCourse: Course = {
           ],
         },
         {
-          id: "qa",
-          title: "Q&A",
+          id: "iq",
+          title: "Interview Q",
+          icon: "?",
+          color: "#f472b6",
           description: "Junior interview prep.",
           topics: [
             {
@@ -188,15 +202,18 @@ export const javascriptCourse: Course = {
       ],
     },
 
-    // ── Mid ────────────────────────────────────────────────
+    // ── L2 Intermediate JS ─────────────────────────────────
     {
       id: "mid",
-      title: "Mid",
-      description: "Intermediate to advanced concepts.",
+      title: "Intermediate JS",
+      description: "Mid-level Dev",
+      color: "#fb923c",
       modules: [
         {
           id: "js",
           title: "JS",
+          icon: "{ }",
+          color: "#4ade80",
           description: "Advanced JavaScript features.",
           topics: [
             {
@@ -234,6 +251,8 @@ export const javascriptCourse: Course = {
         {
           id: "dsa",
           title: "DSA",
+          icon: "~",
+          color: "#22d3ee",
           description: "Core data structures.",
           topics: [
             {
@@ -259,8 +278,10 @@ export const javascriptCourse: Course = {
           ],
         },
         {
-          id: "qa",
-          title: "Q&A",
+          id: "iq",
+          title: "Interview Q",
+          icon: "?",
+          color: "#f472b6",
           description: "Mid-level interview prep.",
           topics: [
             {
@@ -278,15 +299,18 @@ export const javascriptCourse: Course = {
       ],
     },
 
-    // ── Senior ─────────────────────────────────────────────
+    // ── L3 Advanced JS ─────────────────────────────────────
     {
       id: "senior",
-      title: "Senior",
-      description: "Advanced patterns and architecture.",
+      title: "Advanced JS",
+      description: "Senior Dev",
+      color: "#f472b6",
       modules: [
         {
           id: "js",
           title: "JS",
+          icon: "{ }",
+          color: "#4ade80",
           description: "Patterns and memory.",
           topics: [
             {
@@ -314,6 +338,8 @@ export const javascriptCourse: Course = {
         {
           id: "dsa",
           title: "DSA",
+          icon: "~",
+          color: "#22d3ee",
           description: "Trees and hash tables.",
           topics: [
             {
@@ -339,8 +365,10 @@ export const javascriptCourse: Course = {
           ],
         },
         {
-          id: "qa",
-          title: "Q&A",
+          id: "iq",
+          title: "Interview Q",
+          icon: "?",
+          color: "#f472b6",
           description: "Senior architecture questions.",
           topics: [
             {
@@ -358,15 +386,18 @@ export const javascriptCourse: Course = {
       ],
     },
 
-    // ── Staff ──────────────────────────────────────────────
+    // ── L4 Runtime & Engine ────────────────────────────────
     {
       id: "staff",
-      title: "Staff",
-      description: "Performance, security, and leadership.",
+      title: "Runtime & Engine",
+      description: "Staff Engineer",
+      color: "#38bdf8",
       modules: [
         {
           id: "js",
           title: "JS",
+          icon: "{ }",
+          color: "#4ade80",
           description: "Performance and security.",
           topics: [
             {
@@ -394,6 +425,8 @@ export const javascriptCourse: Course = {
         {
           id: "dsa",
           title: "DSA",
+          icon: "~",
+          color: "#22d3ee",
           description: "Dynamic programming.",
           topics: [
             {
@@ -409,8 +442,10 @@ export const javascriptCourse: Course = {
           ],
         },
         {
-          id: "qa",
-          title: "Q&A",
+          id: "iq",
+          title: "Interview Q",
+          icon: "?",
+          color: "#f472b6",
           description: "Leadership topics.",
           topics: [
             {
@@ -428,15 +463,18 @@ export const javascriptCourse: Course = {
       ],
     },
 
-    // ── Principal ──────────────────────────────────────────
+    // ── L5 Mastery & Ecosystem ─────────────────────────────
     {
       id: "principal",
-      title: "Principal",
-      description: "Language internals and strategic thinking.",
+      title: "Mastery & Ecosystem",
+      description: "Principal / Lead",
+      color: "#34d399",
       modules: [
         {
           id: "js",
           title: "JS",
+          icon: "{ }",
+          color: "#4ade80",
           description: "Engine internals and standards.",
           topics: [
             {
@@ -464,6 +502,8 @@ export const javascriptCourse: Course = {
         {
           id: "dsa",
           title: "DSA",
+          icon: "~",
+          color: "#22d3ee",
           description: "Algorithm design theory.",
           topics: [
             {
@@ -479,8 +519,10 @@ export const javascriptCourse: Course = {
           ],
         },
         {
-          id: "qa",
-          title: "Q&A",
+          id: "iq",
+          title: "Interview Q",
+          icon: "?",
+          color: "#f472b6",
           description: "Strategic engineering questions.",
           topics: [
             {
