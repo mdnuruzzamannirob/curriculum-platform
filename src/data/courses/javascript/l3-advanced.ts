@@ -161,6 +161,78 @@ export const l3Level: Level = {
             },
           ],
         },
+        {
+          id: "functional-programming",
+          title: "Functional Programming Paradigm",
+          description: "FP principles in JavaScript.",
+          subtopics: [
+            { id: "immutability", title: "Immutability Principles" },
+            {
+              id: "pure-functions-fp",
+              title: "Pure Functions & Referential Transparency",
+            },
+            {
+              id: "first-class-higher-order",
+              title: "First-Class & Higher-Order Functions",
+            },
+            {
+              id: "functor-monad-intro",
+              title: "Functors & Monads (conceptual)",
+            },
+            { id: "point-free-style", title: "Point-Free (Tacit) Style" },
+            {
+              id: "transducers",
+              title: "Transducers (composable transformations)",
+            },
+            {
+              id: "algebraic-data-types",
+              title: "Algebraic Data Types (Option, Result)",
+            },
+            {
+              id: "lens-optics",
+              title: "Lenses & Optics for immutable updates",
+            },
+          ],
+        },
+        {
+          id: "object-internals",
+          title: "Object Internals & Descriptors",
+          description: "Deep dive into object property model.",
+          subtopics: [
+            {
+              id: "define-property",
+              title: "Object.defineProperty() — full API",
+            },
+            {
+              id: "define-properties",
+              title: "Object.defineProperties() — batch",
+            },
+            {
+              id: "get-own-descriptor",
+              title: "Object.getOwnPropertyDescriptor()",
+            },
+            {
+              id: "configurable-writable",
+              title: "configurable, writable, enumerable",
+            },
+            {
+              id: "prevent-extensions",
+              title: "Object.preventExtensions()",
+            },
+            {
+              id: "is-frozen-sealed",
+              title: "Object.isFrozen & isSealed checks",
+            },
+            {
+              id: "own-property-names",
+              title: "getOwnPropertyNames vs keys",
+            },
+            {
+              id: "own-property-symbols",
+              title: "getOwnPropertySymbols()",
+            },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -280,6 +352,33 @@ export const l3Level: Level = {
             { id: "word-search", title: "Word Search / Boggle Board" },
           ],
         },
+        {
+          id: "bit-manipulation",
+          title: "Bit Manipulation Techniques",
+          description: "Advanced bitwise problem solving.",
+          subtopics: [
+            { id: "single-number", title: "Single Number (XOR trick)" },
+            {
+              id: "two-unique-numbers",
+              title: "Two Unique Numbers in Array",
+            },
+            { id: "reverse-bits", title: "Reverse Bits of a Number" },
+            {
+              id: "bitwise-subset",
+              title: "Subset Generation using Bitmask",
+            },
+            { id: "hamming-distance", title: "Hamming Distance" },
+            {
+              id: "missing-number-xor",
+              title: "Missing Number (XOR approach)",
+            },
+            {
+              id: "bitwise-addition",
+              title: "Add Two Numbers Without + Operator",
+            },
+            { id: "bit-dp-intro", title: "Bitmask DP Introduction" },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -363,8 +462,36 @@ export const l3Level: Level = {
             },
           ],
         },
+        {
+          id: "dsa-coding-qa",
+          title: "DSA Problem Solving Q&A",
+          description: "Data structure & algorithm interview problems.",
+          subtopics: [
+            {
+              id: "tree-interview-problems",
+              title: "Top 5 Tree Interview Problems",
+            },
+            {
+              id: "graph-interview-problems",
+              title: "Top 5 Graph Interview Problems",
+            },
+            {
+              id: "heap-interview-problems",
+              title: "Top 5 Heap Interview Problems",
+            },
+            {
+              id: "trie-interview-problems",
+              title: "Top 5 Trie Interview Problems",
+            },
+            {
+              id: "bit-interview-problems",
+              title: "Top 5 Bit Manipulation Problems",
+            },
+            { id: "design-lru-cache", title: "Design LRU Cache" },
+            { id: "design-lfu-cache", title: "Design LFU Cache" },
+          ],
+        },
       ],
     },
   ],
 };
-

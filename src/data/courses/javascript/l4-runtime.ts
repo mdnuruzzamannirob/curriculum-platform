@@ -265,6 +265,57 @@ export const l4Level: Level = {
             },
           ],
         },
+        {
+          id: "monotonic-patterns",
+          title: "Monotonic Stack & Queue Patterns",
+          description: "Advanced monotonic data structure problems.",
+          subtopics: [
+            { id: "daily-temperatures", title: "Daily Temperatures" },
+            { id: "stock-span", title: "Stock Span Problem" },
+            {
+              id: "largest-rectangle",
+              title: "Largest Rectangle in Histogram",
+            },
+            { id: "trapping-rain-water", title: "Trapping Rain Water" },
+            {
+              id: "sliding-window-max",
+              title: "Sliding Window Maximum (deque)",
+            },
+            { id: "next-smaller-element", title: "Next Smaller Element" },
+            { id: "online-stock-span", title: "Online Stock Span" },
+          ],
+        },
+        {
+          id: "bitmask-dp",
+          title: "Bitmask DP",
+          description: "Dynamic programming with bitmasks.",
+          subtopics: [
+            {
+              id: "bitmask-dp-intro",
+              title: "Bitmask DP Concept & Setup",
+            },
+            {
+              id: "traveling-salesman",
+              title: "Traveling Salesman Problem (TSP)",
+            },
+            {
+              id: "assign-problem",
+              title: "Assignment Problem (dp + bitmask)",
+            },
+            {
+              id: "min-cost-visits",
+              title: "Minimum Cost to Visit All Cities",
+            },
+            {
+              id: "count-subsets-dp",
+              title: "Count Subsets with Given Sum",
+            },
+            {
+              id: "partition-equal-subset",
+              title: "Partition Equal Subset Sum",
+            },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -342,8 +393,36 @@ export const l4Level: Level = {
             },
           ],
         },
+        {
+          id: "dp-advanced-qa",
+          title: "DP & Advanced DSA Q&A",
+          description: "Hard interview problems.",
+          subtopics: [
+            { id: "word-break", title: "Word Break Problem" },
+            {
+              id: "regular-expression-match",
+              title: "Regular Expression Matching",
+            },
+            { id: "wildcard-matching", title: "Wildcard Matching" },
+            {
+              id: "burst-balloons",
+              title: "Burst Balloons — interval DP",
+            },
+            {
+              id: "palindrome-partition-dp",
+              title: "Palindrome Partitioning (DP)",
+            },
+            {
+              id: "max-subarray-variants",
+              title: "Maximum Subarray Variants (Kadane+)",
+            },
+            {
+              id: "shortest-path-variants",
+              title: "Shortest Path Variants",
+            },
+          ],
+        },
       ],
     },
   ],
 };
-

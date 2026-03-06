@@ -169,6 +169,91 @@ export const l2Level: Level = {
             { id: "form-data", title: "FormData & multipart uploads" },
           ],
         },
+        {
+          id: "typed-arrays",
+          title: "Typed Arrays & Binary Data",
+          description: "Working with binary data in JavaScript.",
+          subtopics: [
+            {
+              id: "arraybuffer",
+              title: "ArrayBuffer — fixed-length binary buffer",
+            },
+            {
+              id: "typed-array-views",
+              title: "Typed Array Views (Uint8Array, Float32Array)",
+            },
+            { id: "dataview", title: "DataView — fine-grained buffer access" },
+            { id: "blob-api", title: "Blob & File constructors" },
+            {
+              id: "text-encoder-decoder",
+              title: "TextEncoder & TextDecoder (UTF-8)",
+            },
+            { id: "base64-encoding", title: "Base64 Encoding (btoa/atob)" },
+          ],
+        },
+        {
+          id: "intl-api",
+          title: "Internationalization (Intl API)",
+          description: "Locale-aware formatting and comparison.",
+          subtopics: [
+            {
+              id: "intl-number",
+              title: "Intl.NumberFormat (currency, percent)",
+            },
+            {
+              id: "intl-datetime",
+              title: "Intl.DateTimeFormat (locale dates)",
+            },
+            {
+              id: "intl-relative-time",
+              title: "Intl.RelativeTimeFormat ('3 days ago')",
+            },
+            {
+              id: "intl-collator",
+              title: "Intl.Collator (locale-aware sorting)",
+            },
+            {
+              id: "intl-plural-rules",
+              title: "Intl.PluralRules (pluralization)",
+            },
+            {
+              id: "intl-list-format",
+              title: "Intl.ListFormat ('A, B, and C')",
+            },
+            {
+              id: "intl-segmenter",
+              title: "Intl.Segmenter (word/sentence splitting)",
+            },
+          ],
+        },
+        {
+          id: "abort-cancellation",
+          title: "AbortController & Cancellation",
+          description: "Cancelling async operations.",
+          subtopics: [
+            {
+              id: "abort-controller",
+              title: "AbortController & AbortSignal",
+            },
+            { id: "abort-fetch", title: "Cancelling Fetch Requests" },
+            {
+              id: "abort-event-listeners",
+              title: "Cancelling Event Listeners (signal)",
+            },
+            {
+              id: "abort-timeout",
+              title: "AbortSignal.timeout() — auto-cancel",
+            },
+            {
+              id: "abort-any",
+              title: "AbortSignal.any() — multiple signals",
+            },
+            {
+              id: "cancel-patterns",
+              title: "Cancellation Patterns for Custom Async",
+            },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -261,6 +346,56 @@ export const l2Level: Level = {
             {
               id: "longest-ones",
               title: "Longest Subarray of 1s (with k flips)",
+            },
+          ],
+        },
+        {
+          id: "binary-search-advanced",
+          title: "Binary Search Patterns",
+          description: "Advanced binary search techniques.",
+          subtopics: [
+            { id: "bs-lower-upper-bound", title: "Lower Bound & Upper Bound" },
+            { id: "bs-on-answer", title: "Binary Search on Answer" },
+            {
+              id: "bs-min-max",
+              title: "Binary Search for Min/Max (optimization)",
+            },
+            { id: "bs-matrix", title: "Binary Search in 2D Matrix" },
+            {
+              id: "bs-rotated-array",
+              title: "Search in Rotated Array (with dupes)",
+            },
+            { id: "bs-peak-element", title: "Find Peak Element" },
+            {
+              id: "bs-capacity",
+              title: "Capacity to Ship Packages (BS on answer)",
+            },
+            {
+              id: "bs-koko-bananas",
+              title: "Koko Eating Bananas (BS on answer)",
+            },
+          ],
+        },
+        {
+          id: "recursion-patterns",
+          title: "Recursion Patterns",
+          description: "Common recursive problem-solving patterns.",
+          subtopics: [
+            {
+              id: "generate-subsets",
+              title: "Generate All Subsets (power set)",
+            },
+            { id: "generate-permutations", title: "Generate Permutations" },
+            { id: "string-permutations", title: "String Permutations" },
+            { id: "tower-of-hanoi", title: "Tower of Hanoi" },
+            { id: "print-subsequences", title: "Print All Subsequences" },
+            {
+              id: "maze-paths",
+              title: "Count Paths in a Grid (recursion)",
+            },
+            {
+              id: "combination-sum-rec",
+              title: "Combination Sum (recursive)",
             },
           ],
         },
@@ -365,8 +500,38 @@ export const l2Level: Level = {
             { id: "pipe-compose", title: "Implement pipe() & compose()" },
           ],
         },
+        {
+          id: "module-pattern-qa",
+          title: "Modules & Patterns Q&A",
+          description: "Module system interview questions.",
+          subtopics: [
+            {
+              id: "esm-vs-cjs-qa",
+              title: "ESM vs CJS — differences & interop",
+            },
+            {
+              id: "tree-shaking-qa",
+              title: "What is tree shaking? How does it work?",
+            },
+            {
+              id: "dynamic-import-qa",
+              title: "When to use dynamic import()?",
+            },
+            {
+              id: "circular-deps-qa",
+              title: "What happens with circular dependencies?",
+            },
+            {
+              id: "module-vs-script-qa",
+              title: "script vs module — differences",
+            },
+            {
+              id: "barrel-file-qa",
+              title: "Barrel files — pros and cons",
+            },
+          ],
+        },
       ],
     },
   ],
 };
-

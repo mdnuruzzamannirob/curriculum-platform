@@ -146,6 +146,30 @@ export const l0Level: Level = {
             { id: "array-indexOf", title: "indexOf, includes, find" },
           ],
         },
+        {
+          id: "objects-basics",
+          title: "Objects Basics",
+          description: "Introduction to JavaScript objects.",
+          subtopics: [
+            { id: "object-literals", title: "Object Literals ({})" },
+            { id: "dot-bracket-notation", title: "Dot vs Bracket Notation" },
+            { id: "adding-properties", title: "Adding & Modifying Properties" },
+            {
+              id: "deleting-properties",
+              title: "Deleting Properties (delete)",
+            },
+            { id: "nested-objects", title: "Nested Objects" },
+            {
+              id: "object-methods-intro",
+              title: "Object Methods (function in object)",
+            },
+            { id: "in-operator", title: "in Operator & hasOwnProperty" },
+            {
+              id: "object-iteration",
+              title: "Iterating Object Keys (for...in)",
+            },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -207,6 +231,24 @@ export const l0Level: Level = {
             { id: "prime-check", title: "Prime Number Check" },
             { id: "gcd-lcm", title: "GCD & LCM" },
             { id: "power-naive", title: "Power of N (naive approach)" },
+          ],
+        },
+        {
+          id: "pattern-problems",
+          title: "Pattern Printing Problems",
+          description: "Building logic with pattern problems.",
+          subtopics: [
+            { id: "square-pattern", title: "Square Star Pattern" },
+            { id: "triangle-pattern", title: "Right Triangle Pattern" },
+            { id: "pyramid-pattern", title: "Pyramid Pattern" },
+            { id: "inverted-triangle", title: "Inverted Triangle Pattern" },
+            { id: "diamond-pattern", title: "Diamond Pattern" },
+            {
+              id: "number-patterns",
+              title: "Number Patterns (Floyd's Triangle)",
+            },
+            { id: "alphabet-patterns", title: "Alphabet Patterns" },
+            { id: "hollow-patterns", title: "Hollow Patterns" },
           ],
         },
         {
@@ -292,4 +334,3 @@ export const l0Level: Level = {
     },
   ],
 };
-

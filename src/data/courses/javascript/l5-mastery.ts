@@ -223,6 +223,59 @@ export const l5Level: Level = {
             },
           ],
         },
+        {
+          id: "network-flow",
+          title: "Network Flow & Matching",
+          description: "Flow networks and matching algorithms.",
+          subtopics: [
+            {
+              id: "max-flow",
+              title: "Max Flow (Ford-Fulkerson method)",
+            },
+            {
+              id: "edmonds-karp",
+              title: "Edmonds-Karp (BFS-based max flow)",
+            },
+            {
+              id: "min-cut",
+              title: "Min Cut (Max-Flow Min-Cut theorem)",
+            },
+            {
+              id: "bipartite-matching",
+              title: "Bipartite Matching (Hungarian)",
+            },
+            { id: "hopcroft-karp", title: "Hopcroft-Karp Algorithm" },
+            {
+              id: "flow-applications",
+              title: "Flow Applications (assignment, routing)",
+            },
+          ],
+        },
+        {
+          id: "advanced-dp",
+          title: "Advanced DP Techniques",
+          description: "Expert-level dynamic programming.",
+          subtopics: [
+            { id: "digit-dp", title: "Digit DP" },
+            { id: "dp-on-trees", title: "DP on Trees" },
+            {
+              id: "profile-dp",
+              title: "Profile DP (Broken Profile)",
+            },
+            {
+              id: "sos-dp",
+              title: "Sum over Subsets (SOS) DP",
+            },
+            {
+              id: "convex-hull-trick",
+              title: "Convex Hull Trick (DP optimization)",
+            },
+            {
+              id: "divide-conquer-dp",
+              title: "Divide & Conquer DP Optimization",
+            },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -309,8 +362,38 @@ export const l5Level: Level = {
             { id: "staff-plus-career", title: "Staff+ Career Path & impact" },
           ],
         },
+        {
+          id: "competitive-problems-qa",
+          title: "Hard Competitive Problems Q&A",
+          description: "Competition-level problem solving.",
+          subtopics: [
+            {
+              id: "range-query-problems",
+              title: "Range Query Problems (Segment Tree/BIT)",
+            },
+            {
+              id: "string-matching-hard",
+              title: "Hard String Matching Problems",
+            },
+            {
+              id: "graph-flow-problems",
+              title: "Graph + Flow Combined Problems",
+            },
+            {
+              id: "interactive-problems",
+              title: "Interactive Problem Solving",
+            },
+            {
+              id: "constructive-algorithms",
+              title: "Constructive Algorithm Problems",
+            },
+            {
+              id: "game-theory",
+              title: "Game Theory (Sprague-Grundy theorem)",
+            },
+          ],
+        },
       ],
     },
   ],
 };
-

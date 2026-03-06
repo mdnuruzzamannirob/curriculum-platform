@@ -169,6 +169,130 @@ export const l1Level: Level = {
             { id: "event-delegation", title: "Event Delegation pattern" },
           ],
         },
+        {
+          id: "dates-time",
+          title: "Date & Time",
+          description: "Working with dates and time in JavaScript.",
+          subtopics: [
+            { id: "date-constructor", title: "Date Constructor (new Date)" },
+            {
+              id: "date-methods",
+              title: "getFullYear, getMonth, getDate, getDay",
+            },
+            { id: "date-setters", title: "setFullYear, setMonth, setDate" },
+            { id: "date-now", title: "Date.now() & getTime() (timestamps)" },
+            {
+              id: "date-formatting",
+              title: "toLocaleDateString & toISOString",
+            },
+            { id: "date-comparison", title: "Comparing Dates" },
+            {
+              id: "date-arithmetic",
+              title: "Date Arithmetic (add/subtract days)",
+            },
+            {
+              id: "intl-datetime",
+              title: "Intl.DateTimeFormat (locale-aware)",
+            },
+          ],
+        },
+        {
+          id: "json-methods",
+          title: "JSON Methods",
+          description: "Parsing and serializing JSON data.",
+          subtopics: [
+            { id: "json-parse", title: "JSON.parse() — string to object" },
+            {
+              id: "json-stringify",
+              title: "JSON.stringify() — object to string",
+            },
+            { id: "json-reviver", title: "Reviver Function (custom parsing)" },
+            {
+              id: "json-replacer",
+              title: "Replacer Function (custom serialization)",
+            },
+            { id: "json-space", title: "Pretty Printing (space parameter)" },
+            {
+              id: "json-deep-clone",
+              title: "Deep Clone via JSON (limitations)",
+            },
+            {
+              id: "structured-clone-intro",
+              title: "structuredClone() (modern deep copy)",
+            },
+          ],
+        },
+        {
+          id: "map-set",
+          title: "Map & Set",
+          description: "Map and Set collections.",
+          subtopics: [
+            { id: "map-create", title: "Creating a Map (new Map)" },
+            { id: "map-methods", title: "Map: set, get, has, delete, size" },
+            { id: "map-iteration", title: "Map Iteration (for...of, forEach)" },
+            { id: "map-vs-object", title: "Map vs Object (when to use)" },
+            { id: "set-create", title: "Creating a Set (unique values)" },
+            { id: "set-methods", title: "Set: add, has, delete, size" },
+            {
+              id: "set-iteration",
+              title: "Set Iteration & conversion to Array",
+            },
+            {
+              id: "set-operations",
+              title: "Set Operations (union, intersection, difference)",
+            },
+          ],
+        },
+        {
+          id: "math-number-methods",
+          title: "Math & Number Methods",
+          description: "Built-in Math and Number utilities.",
+          subtopics: [
+            {
+              id: "math-round-floor-ceil",
+              title: "Math.round, floor, ceil, trunc",
+            },
+            { id: "math-min-max", title: "Math.min, Math.max" },
+            {
+              id: "math-random",
+              title: "Math.random (random numbers, ranges)",
+            },
+            { id: "math-abs-pow-sqrt", title: "Math.abs, pow, sqrt, cbrt" },
+            { id: "math-sign-log", title: "Math.sign, log, log2, log10" },
+            { id: "number-isnan", title: "Number.isNaN vs isNaN (global)" },
+            {
+              id: "number-isfinite",
+              title: "Number.isFinite & Number.isInteger",
+            },
+            {
+              id: "number-toFixed",
+              title: "toFixed, toPrecision, toLocaleString",
+            },
+            {
+              id: "number-parseint-float",
+              title: "Number.parseInt & Number.parseFloat",
+            },
+          ],
+        },
+        {
+          id: "string-methods-advanced",
+          title: "String Methods Advanced",
+          description: "Advanced string manipulation methods.",
+          subtopics: [
+            { id: "string-split", title: "split() — string to array" },
+            { id: "string-replace", title: "replace() & replaceAll()" },
+            { id: "string-match", title: "match() & search()" },
+            { id: "string-repeat", title: "repeat()" },
+            { id: "string-pad", title: "padStart() & padEnd()" },
+            { id: "string-starts-ends", title: "startsWith() & endsWith()" },
+            {
+              id: "string-slice-substring",
+              title: "slice() vs substring() vs substr()",
+            },
+            { id: "string-at", title: "at() — negative indexing" },
+            { id: "string-raw", title: "String.raw (template literal tag)" },
+          ],
+        },
       ],
     },
     // ── DSA ──────────────────────────────────────────────
@@ -255,6 +379,60 @@ export const l1Level: Level = {
             { id: "variable-window", title: "Variable Size Sliding Window" },
           ],
         },
+        {
+          id: "prefix-sum",
+          title: "Prefix Sum Technique",
+          description: "Efficient range queries with prefix sum.",
+          subtopics: [
+            { id: "prefix-sum-1d", title: "1D Prefix Sum Construction" },
+            { id: "range-sum-query", title: "Range Sum Query — O(1)" },
+            { id: "subarray-sum", title: "Subarray Sum Equals K" },
+            { id: "equilibrium-index", title: "Equilibrium Index" },
+            {
+              id: "product-except-self",
+              title: "Product of Array Except Self",
+            },
+            { id: "prefix-sum-2d", title: "2D Prefix Sum (Matrix)" },
+          ],
+        },
+        {
+          id: "matrix-problems",
+          title: "Matrix / 2D Array Problems",
+          description: "Working with 2D arrays and matrices.",
+          subtopics: [
+            {
+              id: "matrix-traversal",
+              title: "Matrix Traversal (row-wise, col-wise)",
+            },
+            { id: "matrix-rotation", title: "Rotate Matrix 90 degrees" },
+            { id: "spiral-matrix", title: "Spiral Matrix Traversal" },
+            { id: "transpose-matrix", title: "Transpose a Matrix" },
+            { id: "set-zeroes", title: "Set Matrix Zeroes" },
+            { id: "diagonal-traversal", title: "Diagonal Traversal" },
+            { id: "search-2d-matrix", title: "Search in 2D Sorted Matrix" },
+          ],
+        },
+        {
+          id: "bit-manipulation-basics",
+          title: "Bit Manipulation Basics",
+          description: "Understanding bitwise operations.",
+          subtopics: [
+            {
+              id: "binary-representation",
+              title: "Binary Number Representation",
+            },
+            { id: "bitwise-and-or-xor", title: "AND (&), OR (|), XOR (^)" },
+            { id: "bitwise-not", title: "NOT (~) & Two's Complement" },
+            {
+              id: "left-right-shift",
+              title: "Left Shift (<<) & Right Shift (>>)",
+            },
+            { id: "check-bit", title: "Check if Bit is Set" },
+            { id: "set-clear-toggle", title: "Set, Clear & Toggle a Bit" },
+            { id: "power-of-two", title: "Check Power of Two (n & n-1)" },
+            { id: "count-set-bits", title: "Count Set Bits (Brian Kernighan)" },
+          ],
+        },
       ],
     },
     // ── Interview Q ──────────────────────────────────────
@@ -337,8 +515,31 @@ export const l1Level: Level = {
             { id: "event-loop-basic", title: "Basic Event Loop explanation" },
           ],
         },
+        {
+          id: "coding-challenges-basic",
+          title: "Basic Coding Challenges",
+          description: "Entry-level coding interview problems.",
+          subtopics: [
+            { id: "reverse-string", title: "Reverse a String (3 ways)" },
+            {
+              id: "palindrome-check",
+              title: "Check if a String is Palindrome",
+            },
+            { id: "fizzbuzz", title: "FizzBuzz Implementation" },
+            { id: "max-min-array", title: "Find Max/Min in Array" },
+            { id: "count-vowels", title: "Count Vowels in a String" },
+            {
+              id: "capitalize-words",
+              title: "Capitalize First Letter of Each Word",
+            },
+            {
+              id: "remove-duplicates-arr",
+              title: "Remove Duplicates from Array",
+            },
+            { id: "flatten-simple", title: "Flatten a Simple Nested Array" },
+          ],
+        },
       ],
     },
   ],
 };
-
