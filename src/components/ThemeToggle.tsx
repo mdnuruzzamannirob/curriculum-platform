@@ -9,11 +9,10 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="flex h-8 w-8 items-center justify-center rounded-lg border border-border-default bg-surface text-base text-text-muted transition-all hover:border-border-strong hover:text-text-primary shrink-0"
+      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border-default bg-surface text-base text-text-muted hover:border-border-strong hover:text-text-primary"
       title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >
       {theme === "dark" ? "☀" : "🌙"}
     </button>
   );
 }
-

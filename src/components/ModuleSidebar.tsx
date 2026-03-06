@@ -37,7 +37,7 @@ export default function ModuleSidebar({
                 data-accent={modColor}
                 type="button"
                 onClick={() => onSelect(mod.id)}
-                className={`flex shrink-0 flex-col items-center gap-1.5 rounded-xl border px-4 py-3 text-center transition-all ${
+                className={`flex shrink-0 flex-col items-center gap-1.5 rounded-xl border px-4 py-3 text-center ${
                   active
                     ? "accent-bg-soft accent-border-soft border-l-[3px] accent-border-left"
                     : "border-border-default bg-surface"
@@ -74,7 +74,7 @@ export default function ModuleSidebar({
               data-accent={modColor}
               type="button"
               onClick={() => onSelect(mod.id)}
-              className={`flex flex-col items-center gap-2 rounded-xl px-3 py-4 text-center transition-all w-full border ${
+              className={`flex w-full flex-col items-center gap-2 rounded-xl border px-3 py-4 text-center ${
                 active
                   ? "accent-bg-soft accent-border-soft border-l-[3px] accent-border-left"
                   : "border-border-default bg-surface hover:border-border-muted hover:bg-surface-hover"

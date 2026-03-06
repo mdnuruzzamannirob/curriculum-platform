@@ -18,10 +18,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           <span key={i} className="flex items-center gap-1.5">
             {i > 0 && <span className="select-none">›</span>}
             {item.href && !isLast ? (
-              <Link
-                href={item.href}
-                className="hover:text-text-secondary transition-colors"
-              >
+              <Link href={item.href} className="hover:text-text-secondary">
                 {item.label}
               </Link>
             ) : (
@@ -35,4 +32,3 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     </nav>
   );
 }
-

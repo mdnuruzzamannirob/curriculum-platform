@@ -89,7 +89,7 @@ export default function TopicAccordion({
             <button
               type="button"
               onClick={() => toggle(topic.id)}
-              className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-surface-hover"
+              className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-surface-hover"
             >
               <div className="flex items-center gap-3">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-bold accent-bg-soft-strong accent-text">
@@ -109,7 +109,7 @@ export default function TopicAccordion({
                   {tp.total} items
                 </span>
                 <svg
-                  className={`h-4 w-4 text-text-faint transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-text-faint ${isOpen ? "rotate-180" : ""}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -154,7 +154,7 @@ export default function TopicAccordion({
                               NEXT_STATUS[status],
                             )
                           }
-                          className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-all group ${
+                          className={`group flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left ${
                             isHighlighted
                               ? "accent-bg-soft accent-outline"
                               : "hover:bg-surface-emphasis"
@@ -162,7 +162,7 @@ export default function TopicAccordion({
                         >
                           {/* Checkbox visual */}
                           <span
-                            className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
+                            className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
                               status === "completed"
                                 ? "border-emerald-500 bg-emerald-500/20"
                                 : status === "in-progress"

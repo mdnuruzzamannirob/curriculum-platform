@@ -54,7 +54,7 @@ export default function SearchBar() {
           setOpen(true);
         }}
         onFocus={() => query && setOpen(true)}
-        className="w-full rounded-lg border border-border-strong bg-surface px-4 py-2 text-sm text-text-primary placeholder:text-text-faint outline-none focus:border-text-muted transition"
+        className="w-full rounded-lg border border-border-strong bg-surface px-4 py-2 text-sm text-text-primary placeholder:text-text-faint outline-none focus:border-text-muted"
       />
 
       {open && results.length > 0 && (
@@ -64,7 +64,7 @@ export default function SearchBar() {
               <button
                 type="button"
                 onClick={() => navigate(item.href)}
-                className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-surface-hover transition-colors"
+                className="flex w-full items-start gap-2 px-4 py-2.5 text-left hover:bg-surface-hover"
               >
                 <span
                   className={`mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${TYPE_BADGE[item.type]}`}
@@ -75,7 +75,9 @@ export default function SearchBar() {
                   <p className="truncate text-sm font-medium text-text-primary">
                     {item.title}
                   </p>
-                  <p className="truncate text-xs text-text-faint">{item.breadcrumb}</p>
+                  <p className="truncate text-xs text-text-faint">
+                    {item.breadcrumb}
+                  </p>
                 </div>
               </button>
             </li>
@@ -91,4 +93,3 @@ export default function SearchBar() {
     </div>
   );
 }
-

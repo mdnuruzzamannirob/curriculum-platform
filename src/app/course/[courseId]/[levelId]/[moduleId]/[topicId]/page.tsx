@@ -126,10 +126,10 @@ export default function TopicPage({
                       NEXT_STATUS[status],
                     )
                   }
-                  className="flex w-full items-center gap-3 rounded-lg border border-border-default bg-surface px-4 py-3 text-left transition-colors hover:border-border-strong group"
+                  className="group flex w-full items-center gap-3 rounded-lg border border-border-default bg-surface px-4 py-3 text-left hover:border-border-strong"
                 >
                   <span
-                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors ${
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
                       status === "completed"
                         ? "border-emerald-500 bg-emerald-500/20"
                         : status === "in-progress"

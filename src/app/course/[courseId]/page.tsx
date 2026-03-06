@@ -119,14 +119,14 @@ function CourseContent({ courseId }: { courseId: string }) {
           <button
             type="button"
             onClick={() => setShowProgress(!showProgress)}
-            className="rounded-lg border border-border-default bg-surface px-3 py-1.5 text-xs font-medium text-text-muted transition-colors hover:border-border-strong hover:text-text-primary shrink-0 mt-2"
+            className="mt-2 shrink-0 rounded-lg border border-border-default bg-surface px-3 py-1.5 text-xs font-medium text-text-muted hover:border-border-strong hover:text-text-primary"
           >
             {showProgress ? "Hide Stats" : "Show Stats"}
           </button>
         </div>
 
         {/* Module totals row */}
-        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+        <div className="my-2 flex flex-wrap items-center gap-x-4 gap-y-1">
           {Object.entries(moduleAgg).map(([id, agg]) => (
             <span key={id} className="flex items-center gap-1.5">
               <span
@@ -157,7 +157,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                   <div
                     key={level.id}
                     data-accent={color}
-                    className={`rounded-xl border p-2.5 transition-all ${
+                    className={`rounded-xl border p-2.5 ${
                       active
                         ? "accent-border-soft accent-bg-soft"
                         : "border-border-default bg-surface"
@@ -204,7 +204,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                 );
               })}
             </div>
-            <div className="max-w-sm">
+            <div className="w-full">
               <ProgressBar
                 percentage={courseStats.percentage}
                 size="sm"
@@ -231,7 +231,7 @@ function CourseContent({ courseId }: { courseId: string }) {
                 data-accent={color}
                 type="button"
                 onClick={() => handleLevelChange(level.id)}
-                className={`flex shrink-0 flex-col items-start gap-0.5 px-5 py-3 transition-all border-b-2 ${
+                className={`flex shrink-0 flex-col items-start gap-0.5 border-b-2 px-5 py-3 ${
                   active
                     ? "accent-border"
                     : "border-transparent hover:bg-surface-hover hover:border-border-muted"
@@ -239,7 +239,7 @@ function CourseContent({ courseId }: { courseId: string }) {
               >
                 <div className="flex items-center gap-2">
                   <span
-                    className={`rounded-md px-1.5 py-0.5 font-mono text-[10px] font-black leading-none transition-all ${
+                    className={`rounded-md px-1.5 py-0.5 font-mono text-[10px] font-black leading-none ${
                       active
                         ? "accent-bg-soft-strong text-page"
                         : "accent-bg-soft accent-text"

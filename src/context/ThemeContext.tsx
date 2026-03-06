@@ -33,7 +33,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme]);
 
   function toggle() {
+    document.documentElement.classList.add("theme-switching");
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    window.setTimeout(() => {
+      document.documentElement.classList.remove("theme-switching");
+    }, 220);
   }
 
   return (

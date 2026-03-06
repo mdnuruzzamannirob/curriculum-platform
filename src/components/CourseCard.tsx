@@ -38,7 +38,7 @@ export default function CourseCard({ course }: CourseCardProps) {
   return (
     <Link
       href={`/course/${course.id}`}
-      className="group block rounded-xl border border-border-default bg-surface p-6 transition hover:border-border-strong"
+      className="group block rounded-xl border border-border-default bg-surface p-6 hover:border-border-strong"
     >
       <div className="mb-4 flex items-center gap-3">
         <span
@@ -48,7 +48,7 @@ export default function CourseCard({ course }: CourseCardProps) {
           {course.icon}
         </span>
         <div>
-          <h3 className="text-lg font-bold text-text-primary group-hover:opacity-80 transition-opacity">
+          <h3 className="text-lg font-bold text-text-primary group-hover:opacity-90">
             {course.title}
           </h3>
           <p className="text-sm text-text-subtle">{course.description}</p>
