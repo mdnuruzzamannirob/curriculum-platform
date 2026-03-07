@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import AppFooter from "@/components/AppFooter";
 import AppHeader from "@/components/AppHeader";
+import ThemeProvider from "@/components/theme-provider";
 import { ProgressProvider } from "@/context/ProgressContext";
-import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -24,17 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Anti-flicker: apply saved theme before hydration */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('lp-theme')||'dark';if(t==='light')document.documentElement.classList.add('light')}catch(e){}`,
-          }}
-        />
-      </head>
       <body
         suppressHydrationWarning
-        className={`${jakarta.className} page-shell antialiased`}
+        className={`${jakarta.variable} ${jakarta.className} page-shell antialiased`}
       >
         <ThemeProvider>
           <ProgressProvider>

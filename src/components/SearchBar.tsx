@@ -81,7 +81,7 @@ export default function SearchBar() {
             setOpen(true);
           }}
           onFocus={() => query && setOpen(true)}
-          className="w-full pl-9 pr-8"
+          className="w-full pl-9 pr-8 bg-inherit hover:border-border-strong"
         />
 
         {query && (

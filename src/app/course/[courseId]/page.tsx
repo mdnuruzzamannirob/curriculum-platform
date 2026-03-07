@@ -13,6 +13,7 @@ import {
   calcLevelProgress,
 } from "@/utils/progress";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import ProgressBar from "@/components/ProgressBar";
@@ -268,7 +269,7 @@ function CourseContent({ courseId }: { courseId: string }) {
       </div>
 
       {/* ── Level tabs (native scroll) ───────────────────── */}
-      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-border-default -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide border-b border-border-default -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div className="flex min-w-max">
           {course.levels.map((level, idx) => {
             const active = level.id === activeLevel.id;
@@ -413,12 +414,16 @@ export default function CoursePage({
 }) {
   const { courseId } = use(params);
   return (
-    <Suspense
-      fallback={
-        <div className="py-12 text-center text-text-faint">Loading course…</div>
-      }
-    >
-      <CourseContent courseId={courseId} />
-    </Suspense>
+    <Container className="py-6 pb-14">
+      <Suspense
+        fallback={
+          <div className="py-12 text-center text-text-faint">
+            Loading course…
+          </div>
+        }
+      >
+        <CourseContent courseId={courseId} />
+      </Suspense>
+    </Container>
   );
 }

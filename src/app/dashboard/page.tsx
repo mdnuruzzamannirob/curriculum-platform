@@ -62,55 +62,60 @@ export default function DashboardPage() {
     <Container className="py-8 pb-14">
       <div className="space-y-10">
         <section className="space-y-6">
-          <div className="flex flex-col gap-5 border-b border-border-default pb-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="space-y-3">
-              <Badge
-                variant="muted"
-                className="w-fit gap-2 rounded-full px-3 py-1"
-              >
-                <ListChecks className="h-3.5 w-3.5" />
-                Dashboard
-              </Badge>
-              <div>
-                <h1 className="text-3xl font-black tracking-[-0.05em] text-text-primary sm:text-4xl">
-                  Keep your study flow structured.
-                </h1>
-                <p className="mt-2 max-w-2xl text-base leading-7 text-text-subtle">
-                  This page is for active learning: progress, quick
-                  continuation, and a clean overview of what matters now.
-                </p>
+          {/* Page header */}
+          <div className="relative overflow-hidden rounded-2xl border border-border-default bg-surface px-6 py-8">
+            <div className="absolute inset-0 surface-mesh opacity-30 pointer-events-none" />
+            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[rgb(var(--accent-rgb)/0.07)] blur-3xl pointer-events-none" />
+            <div className="relative flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+              <div className="space-y-2">
+                <Badge
+                  variant="muted"
+                  className="w-fit gap-2 rounded-full px-3 py-1"
+                >
+                  <ListChecks className="h-3.5 w-3.5" />
+                  Dashboard
+                </Badge>
+                <div>
+                  <h1 className="text-3xl font-black tracking-[-0.05em] text-text-primary sm:text-4xl">
+                    Keep your study flow structured.
+                  </h1>
+                  <p className="mt-2 max-w-2xl text-base leading-7 text-text-subtle">
+                    Your active progress, quick continuation, and a clean
+                    overview of what matters now.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {nextCourse && (
+              <div className="flex flex-wrap gap-3">
+                {nextCourse && (
+                  <Link
+                    href={`/course/${nextCourse.id}`}
+                    className={cn(
+                      buttonVariants({ size: "default" }),
+                      "rounded-full px-5",
+                    )}
+                  >
+                    Continue {nextCourse.title}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
                 <Link
-                  href={`/course/${nextCourse.id}`}
+                  href="/"
                   className={cn(
-                    buttonVariants({ size: "default" }),
+                    buttonVariants({ variant: "subtle", size: "default" }),
                     "rounded-full px-5",
                   )}
                 >
-                  Continue {nextCourse.title}
-                  <ArrowRight className="h-4 w-4" />
+                  Back to Home
                 </Link>
-              )}
-              <Link
-                href="/"
-                className={cn(
-                  buttonVariants({ variant: "subtle", size: "default" }),
-                  "rounded-full px-5",
-                )}
-              >
-                Back to Home
-              </Link>
+              </div>
             </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <Card className="app-panel">
               <CardContent className="p-6">
-                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl accent-bg-soft">
-                  <BarChart3 className="h-4 w-4 accent-text" />
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/10">
+                  <BarChart3 className="h-4 w-4 text-blue-400" />
                 </div>
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Active Courses
@@ -129,8 +134,8 @@ export default function DashboardPage() {
             </Card>
             <Card className="app-panel">
               <CardContent className="p-6">
-                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl accent-bg-soft">
-                  <CircleCheckBig className="h-4 w-4 accent-text" />
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10">
+                  <CircleCheckBig className="h-4 w-4 text-emerald-400" />
                 </div>
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Completed Steps
@@ -149,8 +154,8 @@ export default function DashboardPage() {
             </Card>
             <Card className="app-panel">
               <CardContent className="p-6">
-                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl accent-bg-soft">
-                  <Layers3 className="h-4 w-4 accent-text" />
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/10">
+                  <Layers3 className="h-4 w-4 text-violet-400" />
                 </div>
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Library Depth
@@ -165,8 +170,8 @@ export default function DashboardPage() {
             </Card>
             <Card className="app-panel">
               <CardContent className="p-6">
-                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl accent-bg-soft">
-                  <BookMarked className="h-4 w-4 accent-text" />
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500/10">
+                  <BookMarked className="h-4 w-4 text-amber-400" />
                 </div>
                 <p className="text-xs uppercase tracking-[0.24em] text-text-faint">
                   Study Surface

@@ -33,22 +33,18 @@ export default function BrandLogo({
         />
       </span>
       <span className="flex min-w-0 flex-col leading-none">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.38em] text-text-faint">
-          Structured Learning Maps
-        </span>
         <span
           className={cn(
-            "mt-1 truncate text-[1.1rem] font-black tracking-[-0.04em] text-text-primary",
+            "mt-1 truncate text-[1.1rem] font-bold tracking-widest text-text-primary",
             compact && "text-base",
           )}
         >
           Pathshala
         </span>
-        {!compact && (
-          <span className="mt-1 text-xs font-medium text-text-subtle">
-            Learn in sequence. Build real depth.
-          </span>
-        )}
+
+        <span className=" text-xs font-medium tracking-tight text-text-subtle">
+          Learn. Build. Share.
+        </span>
       </span>
     </Link>
   );
