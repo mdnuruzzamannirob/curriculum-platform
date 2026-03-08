@@ -69,7 +69,7 @@ const Banner = () => {
           </div>
 
           {/* Title */}
-          <h1 className="mt-5 max-w-3xl text-3xl font-black leading-[1.02] tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl">
             Learn with clarity.
             <br />
             <span className="text-muted-foreground">
@@ -78,7 +78,7 @@ const Banner = () => {
           </h1>
 
           {/* Description */}
-          <p className="mt-4 max-w-190 text-sm leading-6 text-subtle sm:text-[15px] sm:leading-7">
+          <p className="mt-4 max-w-190 text-sm text-subtle sm:text-[15px]">
             A focused learning platform built for level-based growth. Follow
             structured roadmaps, unlock topics step by step, and monitor your
             progress through a clean system designed to keep learning visible,

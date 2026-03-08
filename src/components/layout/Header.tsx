@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Theme from "@/components/layout/Theme";
 import Searchbar from "./Searchbar";
+import BrandLogo from "../BrandLogo";
 
 const navItems = [
   { label: "Features", href: "#features" },
@@ -51,18 +52,7 @@ export default function Header() {
               <Menu className="h-5 w-5" />
             </button>
 
-            <Link href="/" className="group flex shrink-0 items-center gap-3">
-              <BookOpen className="mt-1 size-7 text-foreground" />
-
-              <div className="flex flex-col leading-none">
-                <span className="text-sm font-semibold tracking-tight text-foreground">
-                  Classroom
-                </span>
-                <span className="text-[11px] text-faint">
-                  Learn with clarity
-                </span>
-              </div>
-            </Link>
+            <BrandLogo />
 
             <nav className="hidden items-center gap-7 lg:flex">
               {navItems.map((item) => (
