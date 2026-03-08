@@ -87,7 +87,7 @@ const Banner = () => {
               href="/dashboard"
               className={cn(
                 buttonVariants({ size: "default" }),
-                "h-11 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90 dark:shadow-[0_10px_30px_rgba(255,255,255,0.10)]",
+                "h-11 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
               )}
             >
               <LayoutDashboard className="h-4 w-4" />
@@ -107,20 +107,14 @@ const Banner = () => {
 
           {/* 4 cards */}
           <div className="mt-12 sm:mt-16 sticky bottom-0 grid w-full max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4">
-            {stats.map((item, i) => {
+            {stats.map((item) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={item.label}
                   className="group relative overflow-hidden rounded-2xl border border-border bg-card/90 p-4 text-left backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-border-strong hover:bg-card-hover hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
-                  style={{
-                    animation: `cardRise 0.7s ease-out ${i * 120}ms both`,
-                  }}
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-black/15 to-transparent dark:via-white/20" />
-                  <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-foreground/5 blur-2xl transition-all duration-500 group-hover:scale-125" />
-
                   <div className="relative flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-primary text-primary-foreground transition-all duration-300 group-hover:scale-105 group-hover:rotate-3">
                       <Icon className="size-4.5" />

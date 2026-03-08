@@ -29,11 +29,11 @@ export default function Theme() {
     >
       <span className="relative block size-4.5">
         <Sun
-          className="absolute inset-0 m-auto size-4.5 rotate-0 scale-100 transition-transform duration-300 dark:-rotate-90 dark:scale-0"
+          className="absolute inset-0 m-auto size-4 rotate-0 scale-100 transition-transform duration-300 dark:-rotate-90 dark:scale-0"
           strokeWidth={2.2}
         />
         <Moon
-          className="absolute inset-0 m-auto size-4.5 rotate-90 scale-0 transition-transform duration-300 dark:rotate-0 dark:scale-100"
+          className="absolute inset-0 m-auto size-4 rotate-90 scale-0 transition-transform duration-300 dark:rotate-0 dark:scale-100"
           strokeWidth={2.2}
         />
       </span>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, Github, Menu, Search, X } from "lucide-react";
+import { ChevronRight, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Theme from "@/components/layout/Theme";
@@ -66,7 +66,7 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
@@ -74,19 +74,29 @@ export default function Header() {
               aria-label="Open search"
               title="Search"
             >
-              <Search className="size-4.5" />
+              <Search className="size-4" />
             </button>
 
-            <Link
-              href="https://github.com"
+            {/* <Link
+              href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
               aria-label="GitHub"
               title="GitHub"
             >
-              <Github className="size-4.5" />
+              <Linkedin className="size-4" />
             </Link>
+            <Link
+              href="https://github.com"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 px-3 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all gap-1.5 text-xs duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <Github className="size-4" /> 12k
+            </Link> */}
 
             <Theme />
 
