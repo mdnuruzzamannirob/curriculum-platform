@@ -189,7 +189,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const socialLogin = useCallback(async (provider: "google" | "github") => {
     const email =
-      provider === "google" ? "demo.google@example.com" : "demo.github@example.com";
+      provider === "google"
+        ? "demo.google@example.com"
+        : "demo.github@example.com";
     const name = provider === "google" ? "Google User" : "GitHub User";
     const users = readUsers();
     let found = users.find((u) => u.email === email);

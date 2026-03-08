@@ -181,7 +181,7 @@ export default function Header() {
                   <div className="flex items-center gap-2">
                     <Link
                       href="/auth/login"
-                      className="hidden h-10 items-center px-3 text-sm font-medium text-muted-foreground hover:text-foreground sm:inline-flex"
+                      className="hidden h-9 items-center px-3 transition-all duration-300 hover:-translate-y-0.5 text-sm hover:bg-card-hover font-medium rounded-full text-muted-foreground hover:text-foreground sm:inline-flex"
                     >
                       Log in
                     </Link>
@@ -189,7 +189,7 @@ export default function Header() {
                       href="/auth/register"
                       className={cn(
                         buttonVariants({ size: "default" }),
-                        "h-10 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground hover:opacity-90",
+                        "h-9 rounded-full bg-primary px-5 text-sm transition-all duration-300 hover:-translate-y-0.5 font-medium text-primary-foreground hover:opacity-90",
                       )}
                     >
                       Sign up
@@ -283,7 +283,7 @@ export default function Header() {
                 <Link
                   href="/auth/login"
                   onClick={() => setMenuOpen(false)}
-                  className="flex h-11 items-center justify-center rounded-full border border-border bg-card text-sm font-medium text-card-foreground hover:bg-card-hover"
+                  className="flex h-10 items-center justify-center rounded-full border border-border bg-card text-sm font-medium text-card-foreground hover:bg-card-hover"
                 >
                   Log in
                 </Link>
@@ -292,7 +292,7 @@ export default function Header() {
                   onClick={() => setMenuOpen(false)}
                   className={cn(
                     buttonVariants({ size: "default" }),
-                    "h-11 rounded-full bg-primary text-sm font-medium text-primary-foreground",
+                    "h-10 rounded-full bg-primary text-sm font-medium text-primary-foreground",
                   )}
                 >
                   Sign up

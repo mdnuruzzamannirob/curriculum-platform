@@ -30,9 +30,7 @@ function VerifyOTPForm() {
     if (result.error) {
       setError(result.error);
     } else {
-      router.push(
-        `/auth/reset-password?email=${encodeURIComponent(email)}`,
-      );
+      router.push(`/auth/reset-password?email=${encodeURIComponent(email)}`);
     }
   }
 
@@ -46,7 +44,9 @@ function VerifyOTPForm() {
           </h1>
           <p className="mt-1 text-sm text-subtle">
             Enter the 6-digit code sent to{" "}
-            <span className="font-medium text-foreground">{email || "your email"}</span>
+            <span className="font-medium text-foreground">
+              {email || "your email"}
+            </span>
           </p>
         </div>
 

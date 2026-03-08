@@ -138,7 +138,9 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
           <div className="flex items-center justify-between border-t border-border px-5 py-2.5">
             <span className="text-xs text-faint">Press ESC to close</span>
             {query.trim() && results.length > 0 && (
-              <span className="text-xs text-faint">{results.length} results</span>
+              <span className="text-xs text-faint">
+                {results.length} results
+              </span>
             )}
           </div>
         </div>
@@ -146,4 +148,3 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
     </div>
   );
 }
-
