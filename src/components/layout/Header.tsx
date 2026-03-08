@@ -10,10 +10,10 @@ import Searchbar from "./Searchbar";
 import BrandLogo from "../BrandLogo";
 
 const navItems = [
-  { label: "Features", href: "#features" },
-  { label: "Roadmaps", href: "#roadmaps" },
-  { label: "Progress", href: "#progress" },
-  { label: "About", href: "#about" },
+  { label: "Courses", href: "/course" },
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Features", href: "/#features" },
+  { label: "About", href: "/#about" },
 ];
 
 export default function Header() {

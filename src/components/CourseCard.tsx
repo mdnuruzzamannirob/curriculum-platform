@@ -53,7 +53,7 @@ export default function CourseCard({ course }: CourseCardProps) {
           <div className="flex items-start gap-3">
             <span
               data-accent={course.color}
-              className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-border bg-card accent-bg-soft-strong accent-text"
+              className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-border accent-bg-soft-strong accent-text"
             >
               <AppIcon
                 name={course.icon}
@@ -88,7 +88,7 @@ export default function CourseCard({ course }: CourseCardProps) {
                   <span
                     key={id}
                     data-accent={agg.color}
-                    className="rounded-full border border-border bg-card px-2.5 py-1 text-xs font-medium accent-bg-soft accent-text"
+                    className="rounded-full border border-border px-2.5 py-1 text-xs font-medium accent-bg-soft accent-text"
                   >
                     {agg.completed}/{agg.total} {agg.title}
                   </span>

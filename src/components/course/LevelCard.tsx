@@ -35,7 +35,6 @@ export default function LevelCard({
   return (
     <Link
       href={`/course/${course.id}/${level.id}`}
-      data-accent={level.color}
       className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
     >
       {/* Header */}
@@ -43,7 +42,11 @@ export default function LevelCard({
         <div className="flex items-center gap-3">
           <span
             data-accent={level.color}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border text-xs font-black accent-bg-soft accent-text"
+            style={{
+              backgroundColor: "rgb(var(--accent-rgb) / 0.1)",
+              color: "var(--accent)",
+            }}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border text-xs font-black"
           >
             L{levelIndex}
           </span>
