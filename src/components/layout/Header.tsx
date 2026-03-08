@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BookOpen, ChevronRight, Github, Menu, Search, X } from "lucide-react";
-
+import { ChevronRight, Github, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Theme from "@/components/layout/Theme";
@@ -46,7 +45,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-colors hover:bg-card-hover lg:hidden"
+              className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover lg:hidden "
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
@@ -126,29 +125,12 @@ export default function Header() {
           )}
         >
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-3"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-border bg-primary text-primary-foreground">
-                <BookOpen className="size-4.5" />
-              </div>
-
-              <div className="flex flex-col leading-none">
-                <span className="text-sm font-semibold tracking-tight text-foreground">
-                  Classroom
-                </span>
-                <span className="text-[11px] text-faint">
-                  Learn with clarity
-                </span>
-              </div>
-            </Link>
+            <BrandLogo />
 
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-colors hover:bg-card-hover"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
               aria-label="Close menu"
             >
               <X className="h-5 w-5" />

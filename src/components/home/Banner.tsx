@@ -5,7 +5,6 @@ import {
   ArrowRight,
   BookOpen,
   LayoutDashboard,
-  Sparkles,
   Stars,
   Target,
   Zap,
@@ -15,6 +14,7 @@ import { courses } from "@/data/courses";
 import { cn } from "@/lib/utils";
 import { countModules, countSubtopics, countTopics } from "@/utils/course";
 import { buttonVariants } from "@/components/ui/button";
+import AnimatedBadge from "../AnimatedBadge";
 
 const Banner = () => {
   const totalModules = courses.reduce(
@@ -62,14 +62,10 @@ const Banner = () => {
       <div className="app-container relative py-12 sm:py-16 lg:py-20">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           {/* Badge */}
-          <div className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border bg-card/80 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-sm">
-            <span className="badge-shine absolute inset-0 translate-x-[-130%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.85),transparent)] dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent)]" />
-            <Sparkles className="relative h-3.5 w-3.5 text-pink-500" />
-            <span className="relative">Structured Learning Platform</span>
-          </div>
+          <AnimatedBadge />
 
           {/* Title */}
-          <h1 className="mt-5 max-w-3xl text-3xl font-black tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 sm:mt-8 max-w-3xl text-3xl font-black tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl">
             Learn with clarity.
             <br />
             <span className="text-muted-foreground">
@@ -78,15 +74,15 @@ const Banner = () => {
           </h1>
 
           {/* Description */}
-          <p className="mt-4 max-w-190 text-sm text-subtle sm:text-[15px]">
-            A focused learning platform built for level-based growth. Follow
-            structured roadmaps, unlock topics step by step, and monitor your
-            progress through a clean system designed to keep learning visible,
-            motivating, and finishable.
+          <p className="mt-6 sm:mt-8 max-w-190 text-sm text-subtle sm:text-lg">
+            A focused learning platform built around structured roadmaps and
+            visible progress. Follow level-based paths, complete modules step by
+            step, and track every checkpoint as you grow from fundamentals to
+            real mastery.
           </p>
 
           {/* Buttons */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/dashboard"
               className={cn(
@@ -110,7 +106,7 @@ const Banner = () => {
           </div>
 
           {/* 4 cards */}
-          <div className="mt-16 grid w-full max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4">
+          <div className="mt-12 sm:mt-16 sticky bottom-0 grid w-full max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4">
             {stats.map((item, i) => {
               const Icon = item.icon;
 

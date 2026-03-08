@@ -12,7 +12,10 @@ export default function BrandLogo({ className, href = "/" }: BrandLogoProps) {
   return (
     <Link
       href={href}
-      className={cn("group flex shrink-0 items-center gap-3", className)}
+      className={cn(
+        "group flex shrink-0 transition-all duration-300 hover:-translate-y-0.5 items-center gap-3",
+        className,
+      )}
     >
       <BookOpen className="mt-1 size-7 text-foreground" />
 

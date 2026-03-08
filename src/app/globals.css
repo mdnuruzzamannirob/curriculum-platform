@@ -165,6 +165,21 @@ button {
   }
 }
 
+
+.badge-shine {
+  animation: badgeShine 3s linear infinite;
+}
+
+@keyframes badgeShine {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  100% {
+    transform: translateX(220%);
+  }
+}
+
 .badge-shine {
   animation: badgeShine 3s linear infinite;
 }
