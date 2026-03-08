@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import AppFooter from "@/components/AppFooter";
-import AppHeader from "@/components/AppHeader";
 import ThemeProvider from "@/components/theme-provider";
 import { ProgressProvider } from "@/context/ProgressContext";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-app-sans",
+  variable: "--font-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Pathshala",
+  title: "Curriculum Platform",
   description: "Roadmap-based learning dashboard for structured mastery.",
 };
 
@@ -26,14 +27,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${jakarta.variable} ${jakarta.className} page-shell antialiased`}
+        className={cn("antialiased", jakarta.className)}
       >
         <ThemeProvider>
           <ProgressProvider>
             <div className="flex min-h-screen flex-col">
-              <AppHeader />
+              <Header />
               <main className="flex-1">{children}</main>
-              <AppFooter />
+              <Footer />
             </div>
           </ProgressProvider>
         </ThemeProvider>

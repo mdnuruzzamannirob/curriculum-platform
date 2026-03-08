@@ -11,7 +11,6 @@ import {
 import BrandLogo from "@/components/BrandLogo";
 import { courses } from "@/data/courses";
 import { countModules, countSubtopics, countTopics } from "@/utils/course";
-import Container from "./Container";
 
 const totalCourses = courses.length;
 const totalModules = courses.reduce(
@@ -27,12 +26,12 @@ const totalSubtopics = courses.reduce(
   0,
 );
 
-export default function AppFooter() {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border-default bg-surface/20">
-      <Container className="py-12">
+      <div className="app-container py-12">
         {/* Main grid */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1.4fr_1fr]">
           {/* Brand */}
@@ -146,7 +145,7 @@ export default function AppFooter() {
             Learn in sequence. Build real depth.
           </p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }
