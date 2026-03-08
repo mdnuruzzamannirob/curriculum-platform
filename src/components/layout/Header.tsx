@@ -3,7 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChevronRight, LogOut, Menu, Search, User, X } from "lucide-react";
+import {
+  ChevronRight,
+  LogOut,
+  Menu,
+  Search,
+  Settings,
+  User,
+  X,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Theme from "@/components/layout/Theme";
@@ -15,7 +23,7 @@ const navItems = [
   { label: "Courses", href: "/course" },
   { label: "Dashboard", href: "/dashboard" },
   { label: "Features", href: "/#features" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
 ];
 
 function UserMenu() {
@@ -88,6 +96,15 @@ function UserMenu() {
             <User className="h-3.5 w-3.5" />
             Dashboard
           </Link>
+          <Link
+            href="/account"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-medium text-popover-foreground hover:bg-card-hover"
+          >
+            <Settings className="h-3.5 w-3.5" />
+            Account settings
+          </Link>
+          <div className="my-1 border-t border-border" />
           <button
             type="button"
             onClick={handleLogout}

@@ -92,6 +92,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setUser(readUser());
     setIsLoaded(true);
+
+    const sync = () => setUser(readUser());
+    window.addEventListener("lp-auth-change", sync);
+    return () => window.removeEventListener("lp-auth-change", sync);
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {

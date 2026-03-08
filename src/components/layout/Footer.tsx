@@ -4,8 +4,10 @@ import {
   CheckSquare,
   Hash,
   Home,
+  Info,
   LayoutDashboard,
   Route,
+  Settings,
   Sparkles,
 } from "lucide-react";
 
@@ -68,11 +70,35 @@ export default function Footer() {
               </Link>
 
               <Link
+                href="/course"
+                className="group flex items-center gap-2 rounded-xl px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-card-hover hover:text-foreground"
+              >
+                <BookOpen className="h-4 w-4 shrink-0" />
+                Courses
+              </Link>
+
+              <Link
                 href="/dashboard"
                 className="group flex items-center gap-2 rounded-xl px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-card-hover hover:text-foreground"
               >
                 <LayoutDashboard className="h-4 w-4 shrink-0" />
                 Dashboard
+              </Link>
+
+              <Link
+                href="/about"
+                className="group flex items-center gap-2 rounded-xl px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-card-hover hover:text-foreground"
+              >
+                <Info className="h-4 w-4 shrink-0" />
+                About
+              </Link>
+
+              <Link
+                href="/account"
+                className="group flex items-center gap-2 rounded-xl px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-card-hover hover:text-foreground"
+              >
+                <Settings className="h-4 w-4 shrink-0" />
+                Account
               </Link>
             </nav>
           </div>
@@ -96,17 +122,91 @@ export default function Footer() {
               ))}
             </nav>
           </div>
+
+          {/* Stats */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.22em] text-faint">
+              Platform
+            </h4>
+
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card">
+                  <BookOpen className="h-3.5 w-3.5" />
+                </span>
+                <span>
+                  <span className="font-semibold text-foreground">
+                    {totalCourses}
+                  </span>{" "}
+                  courses
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card">
+                  <LayoutDashboard className="h-3.5 w-3.5" />
+                </span>
+                <span>
+                  <span className="font-semibold text-foreground">
+                    {totalModules}
+                  </span>{" "}
+                  modules
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card">
+                  <Hash className="h-3.5 w-3.5" />
+                </span>
+                <span>
+                  <span className="font-semibold text-foreground">
+                    {totalTopics}
+                  </span>{" "}
+                  topics
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-card">
+                  <CheckSquare className="h-3.5 w-3.5" />
+                </span>
+                <span>
+                  <span className="font-semibold text-foreground">
+                    {totalSubtopics}
+                  </span>{" "}
+                  subtopics
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex flex-col gap-2 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-faint">
             &copy; {year} Classroom. Built for focused learners.
           </p>
 
-          <p className="text-xs text-faint">
-            Learn in sequence. Build real depth.
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/about"
+              className="text-xs text-faint hover:text-muted-foreground"
+            >
+              About
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-xs text-faint hover:text-muted-foreground"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-xs text-faint hover:text-muted-foreground"
+            >
+              Terms
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
