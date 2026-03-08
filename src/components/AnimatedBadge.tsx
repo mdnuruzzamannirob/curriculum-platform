@@ -39,26 +39,50 @@ export default function AnimatedBadge() {
       return { x: R + Math.cos(a) * R, y: R + Math.sin(a) * R };
     });
 
+    const isDark = () => document.documentElement.classList.contains("dark");
+
+    const getSnakeColor = (frac: number, alpha: number): string => {
+      if (isDark()) {
+        // Blue → violet on dark
+        const r = Math.round(90 + frac * 165);
+        const g = Math.round(50 + frac * 205);
+        return `rgba(${r},${g},255,${alpha})`;
+      } else {
+        // Indigo → violet on light — fully opaque enough to show
+        const r = Math.round(79 + frac * 120);
+        const g = Math.round(70 + frac * 40);
+        const b = Math.round(200 + frac * 55);
+        return `rgba(${r},${g},${b},${alpha})`;
+      }
+    };
+
+    const getHeadColor = (): string =>
+      isDark() ? "rgba(255,255,255,0.9)" : "rgba(60,40,180,0.95)";
+
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
+
       for (let i = 0; i < SNAKE; i++) {
         const frac = i / SNAKE;
+        const alpha = Math.pow(frac, 1.4);
         const idx = Math.floor((progress - (SNAKE - i) + POINTS * 99) % POINTS);
         const pt = pts[idx],
           np = pts[(idx + 1) % POINTS];
         ctx.beginPath();
         ctx.moveTo(pt.x, pt.y);
         ctx.lineTo(np.x, np.y);
-        ctx.strokeStyle = `rgba(${Math.round(90 + frac * 165)},${Math.round(50 + frac * 205)},255,${Math.pow(frac, 1.4)})`;
+        ctx.strokeStyle = getSnakeColor(frac, alpha);
         ctx.lineWidth = 0.4 + frac * 1.2;
         ctx.lineCap = "round";
         ctx.stroke();
       }
+
       const hp = pts[Math.floor(progress % POINTS)];
       ctx.beginPath();
       ctx.arc(hp.x, hp.y, 1.5, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,255,255,0.9)";
+      ctx.fillStyle = getHeadColor();
       ctx.fill();
+
       progress = (progress + SPEED) % POINTS;
       animId = requestAnimationFrame(draw);
     };
@@ -71,12 +95,11 @@ export default function AnimatedBadge() {
     <div className="relative inline-flex">
       <canvas
         ref={canvasRef}
-        className="absolute  pointer-events-none z-10 rounded-full"
+        className="absolute pointer-events-none z-10 rounded-full"
       />
-
       <div
         ref={containerRef}
-        className="relative inline-flex items-center gap-2 overflow-hidden rounded-full border  px-3 py-1.5 text-[10px] font-semibold text-subtle border-border bg-card/80 uppercase tracking-wide backdrop-blur-md"
+        className="relative inline-flex items-center gap-2 overflow-hidden rounded-full border px-3 py-1.5 text-[10px] font-semibold text-subtle border-border bg-card/80 uppercase tracking-wide backdrop-blur-md"
       >
         <span
           className="badge-shine absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)]"
@@ -96,7 +119,7 @@ export default function AnimatedBadge() {
             d="M50 2 C50 2 56 38 98 50 C56 62 50 98 50 98 C50 98 44 62 2 50 C44 38 50 2 50 2 Z"
           />
         </svg>
-        <span className="relative ">Structured Learning Platform</span>
+        <span className="relative">Structured Learning Platform</span>
       </div>
     </div>
   );
