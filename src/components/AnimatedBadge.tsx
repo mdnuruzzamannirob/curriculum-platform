@@ -119,7 +119,7 @@ export default function AnimatedBadge() {
             d="M50 2 C50 2 56 38 98 50 C56 62 50 98 50 98 C50 98 44 62 2 50 C44 38 50 2 50 2 Z"
           />
         </svg>
-        <span className="relative">Structured Learning Platform</span>
+        <span className="relative">Structured Roadmap Platform</span>
       </div>
     </div>
   );

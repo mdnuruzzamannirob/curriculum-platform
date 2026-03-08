@@ -1,87 +1,149 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, X, ArrowRight } from "lucide-react";
+import { Search, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { courses } from "@/data/courses";
+import { buildSearchIndex, searchItems } from "@/utils/search";
+import type { SearchItem } from "@/types";
 
 type SearchOverlayProps = {
   open: boolean;
   onClose: () => void;
 };
 
+const TYPE_LABEL: Record<SearchItem["type"], string> = {
+  course: "Course",
+  level: "Level",
+  module: "Module",
+  topic: "Topic",
+  subtopic: "Subtopic",
+};
+
+const TYPE_CLS: Record<SearchItem["type"], string> = {
+  course: "bg-blue-500/10 text-blue-500",
+  level: "bg-emerald-500/10 text-emerald-600",
+  module: "bg-amber-500/10 text-amber-600",
+  topic: "bg-violet-500/10 text-violet-500",
+  subtopic: "bg-border text-subtle",
+};
+
+const searchIndex = buildSearchIndex(courses);
+
 const quickLinks = [
-  { label: "Frontend Roadmap", href: "/roadmaps/frontend" },
-  { label: "Backend Roadmap", href: "/roadmaps/backend" },
-  { label: "AI / ML Roadmap", href: "/roadmaps/ai-ml" },
+  { label: "JavaScript Track", href: "/course/javascript" },
   { label: "Dashboard", href: "/dashboard" },
+  { label: "Courses", href: "/course" },
 ];
 
 export default function Searchbar({ open, onClose }: SearchOverlayProps) {
+  const [query, setQuery] = useState("");
+
+  const results = useMemo(() => searchItems(searchIndex, query), [query]);
+
+  useEffect(() => {
+    if (!open) setQuery("");
+  }, [open]);
+
   if (!open) return null;
+
+  function handleClose() {
+    setQuery("");
+    onClose();
+  }
 
   return (
     <div className="fixed inset-0 z-90 bg-black/60 backdrop-blur-md">
-      <div className="mx-auto flex h-full w-full max-w-5xl flex-col px-4 pt-16 sm:px-6 lg:px-8">
-        <div className="rounded-[28px] border border-border bg-popover text-popover-foreground shadow-2xl">
-          <div className="flex items-center justify-between border-b border-border px-4 py-4 sm:px-6">
-            <div>
-              <p className="text-sm font-semibold text-popover-foreground">
-                Search
-              </p>
-              <p className="text-xs text-faint">
-                Search roadmaps, modules, topics
-              </p>
-            </div>
-
+      <div className="mx-auto flex h-full w-full max-w-2xl flex-col px-4 pt-14 sm:px-6">
+        <div className="overflow-hidden rounded-[28px] border border-border bg-popover text-popover-foreground shadow-2xl">
+          {/* Input row */}
+          <div className="flex items-center gap-3 border-b border-border px-4">
+            <Search className="h-5 w-5 shrink-0 text-faint" />
+            <input
+              autoFocus
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search courses, topics, subtopics…"
+              className="h-14 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-faint"
+            />
             <button
               type="button"
-              onClick={onClose}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-colors hover:bg-card-hover"
+              onClick={handleClose}
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-card-foreground hover:bg-card-hover"
               aria-label="Close search"
             >
-              <X className="h-5 w-5" />
+              <X className="h-4 w-4" />
             </button>
           </div>
 
-          <div className="p-4 sm:p-6">
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-faint" />
-              <input
-                autoFocus
-                type="text"
-                placeholder="Search roadmaps, topics, modules..."
-                className="h-14 w-full rounded-2xl border border-input bg-background pl-12 pr-4 text-sm text-foreground outline-none transition-colors placeholder:text-faint focus:border-border-strong"
-              />
-            </div>
-
-            <div className="mt-6">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-faint">
-                Quick Links
-              </p>
-
-              <div className="grid gap-3 sm:grid-cols-2">
+          {/* Results / empty state */}
+          <div className="max-h-[60vh] overflow-y-auto">
+            {query.trim() ? (
+              results.length > 0 ? (
+                <div className="p-2">
+                  {results.map((item, i) => (
+                    <Link
+                      key={`${item.href}-${i}`}
+                      href={item.href}
+                      onClick={handleClose}
+                      className="flex items-start gap-3 rounded-xl px-3 py-2.5 hover:bg-card-hover"
+                    >
+                      <span
+                        className={cn(
+                          "mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide",
+                          TYPE_CLS[item.type],
+                        )}
+                      >
+                        {TYPE_LABEL[item.type]}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-foreground">
+                          {item.title}
+                        </p>
+                        <p className="truncate text-xs text-faint">
+                          {item.breadcrumb}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="py-10 text-center text-sm text-faint">
+                  No results for &ldquo;{query}&rdquo;
+                </div>
+              )
+            ) : (
+              <div className="p-2">
+                <p className="mb-1 px-3 pt-2 text-xs font-semibold uppercase tracking-[0.18em] text-faint">
+                  Quick links
+                </p>
                 {quickLinks.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    onClick={onClose}
-                    className="group flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
+                    onClick={handleClose}
+                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-card-hover"
                   >
-                    <span className="text-sm font-medium text-card-foreground">
+                    <span className="text-sm font-medium text-foreground">
                       {item.label}
                     </span>
-                    <ArrowRight className="h-4 w-4 text-faint transition-transform duration-300 group-hover:translate-x-0.5" />
                   </Link>
                 ))}
               </div>
-            </div>
+            )}
+          </div>
 
-            <div className="mt-6 flex items-center justify-between text-xs text-faint">
-              <span>Press ESC to close</span>
-              <span>Search experience coming soon</span>
-            </div>
+          <div className="flex items-center justify-between border-t border-border px-5 py-2.5">
+            <span className="text-xs text-faint">Press ESC to close</span>
+            {query.trim() && results.length > 0 && (
+              <span className="text-xs text-faint">{results.length} results</span>
+            )}
           </div>
         </div>
       </div>
     </div>
   );
 }
+

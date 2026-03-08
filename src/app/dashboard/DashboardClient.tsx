@@ -17,8 +17,16 @@ export default function DashboardClient() {
     const s = calcCourseProgress(progress, course);
     return sum + s.completed;
   }, 0);
+  const overallInProgress = courses.reduce((sum, course) => {
+    const s = calcCourseProgress(progress, course);
+    return sum + s.inProgress;
+  }, 0);
   const overallTotal = courses.reduce(
     (sum, course) => sum + countSubtopics(course),
+    0,
+  );
+  const totalLevels = courses.reduce(
+    (sum, course) => sum + course.levels.length,
     0,
   );
   const overallPct = overallTotal
@@ -28,46 +36,61 @@ export default function DashboardClient() {
   return (
     <div className="space-y-8">
       {/* Overall stats */}
-      <div className="grid gap-4 sm:grid-cols-3">
-        {[
-          {
-            label: "Overall Progress",
-            value: isLoaded ? `${overallPct}%` : null,
-            sub: isLoaded
-              ? `${overallCompleted} / ${overallTotal} subtopics`
-              : null,
-          },
-          {
-            label: "Courses",
-            value: String(courses.length),
-            sub: "available tracks",
-          },
-          {
-            label: "Total Subtopics",
-            value: String(overallTotal),
-            sub: "checkpoints across all tracks",
-          },
-        ].map((stat) => (
-          <div
-            key={stat.label}
-            className="flex flex-col gap-1 rounded-2xl border border-border bg-card p-5"
-          >
-            <p className="text-xs text-subtle">{stat.label}</p>
-            {isLoaded || stat.value !== null ? (
-              <>
-                <p className="text-2xl font-black text-foreground">
-                  {stat.value ?? "—"}
-                </p>
-                <p className="text-xs text-subtle">{stat.sub}</p>
-              </>
-            ) : (
-              <>
-                <Skeleton className="h-7 w-16 rounded" />
-                <Skeleton className="mt-1 h-3.5 w-32 rounded" />
-              </>
-            )}
-          </div>
-        ))}
+      <div>
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-faint">
+          Overview
+        </p>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+          {[
+            {
+              label: "Overall Progress",
+              value: isLoaded ? `${overallPct}%` : null,
+              sub: isLoaded
+                ? `${overallCompleted} / ${overallTotal} subtopics`
+                : null,
+            },
+            {
+              label: "Completed",
+              value: isLoaded ? String(overallCompleted) : null,
+              sub: "subtopics mastered",
+            },
+            {
+              label: "In Progress",
+              value: isLoaded ? String(overallInProgress) : null,
+              sub: "currently active",
+            },
+            {
+              label: "Courses",
+              value: String(courses.length),
+              sub: "available tracks",
+            },
+            {
+              label: "Levels",
+              value: String(totalLevels),
+              sub: "learning stages",
+            },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col gap-1 rounded-2xl border border-border bg-card p-5"
+            >
+              <p className="text-xs text-subtle">{stat.label}</p>
+              {isLoaded || stat.value !== null ? (
+                <>
+                  <p className="text-2xl font-black text-foreground">
+                    {stat.value ?? "—"}
+                  </p>
+                  <p className="text-xs text-subtle">{stat.sub}</p>
+                </>
+              ) : (
+                <>
+                  <Skeleton className="h-7 w-16 rounded" />
+                  <Skeleton className="mt-1 h-3.5 w-32 rounded" />
+                </>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Per-course progress */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import ThemeProvider from "@/components/theme-provider";
 import { ProgressProvider } from "@/context/ProgressContext";
+import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/Header";
@@ -30,13 +31,15 @@ export default function RootLayout({
         className={cn("antialiased", jakarta.className)}
       >
         <ThemeProvider>
-          <ProgressProvider>
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-          </ProgressProvider>
+          <AuthProvider>
+            <ProgressProvider>
+              <div className="flex min-h-screen flex-col">
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+            </ProgressProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

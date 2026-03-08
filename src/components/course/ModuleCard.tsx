@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { Check, ChevronDown, Copy, Loader } from "lucide-react";
+import { Check, ChevronDown, Copy } from "lucide-react";
 import { Course, Module, SubtopicStatus } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
 import {
@@ -33,9 +33,8 @@ function StatusIcon({ status }: { status: SubtopicStatus }) {
     );
   if (status === "in-progress")
     return (
-      <Loader
-        className="h-2.5 w-2.5 animate-spin"
-        strokeWidth={2.5}
+      <span
+        className="block h-1.5 w-1.5 rounded-full bg-current"
         aria-label="In progress"
       />
     );
@@ -64,12 +63,12 @@ function CheckboxButton({
             : "Reset"
       }
       className={cn(
-        "flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-all",
+        "flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors",
         status === "completed"
           ? "border-foreground bg-foreground text-background"
           : status === "in-progress"
             ? "border-amber-400 bg-amber-400/10 text-amber-400"
-            : "border-border hover:border-border-strong",
+            : "border-subtle hover:border-foreground",
       )}
     >
       <StatusIcon status={status} />
@@ -258,7 +257,17 @@ export default function ModuleCard({
                     return (
                       <div
                         key={subtopic.id}
-                        className="group/item flex items-center gap-2.5 rounded-lg px-2 py-1.5 transition-colors hover:bg-card-hover"
+                        onClick={() =>
+                          updateSubtopicStatus(
+                            course.id,
+                            levelId,
+                            module.id,
+                            topic.id,
+                            subtopic.id,
+                            nextStatus(status),
+                          )
+                        }
+                        className="group/item flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-1.5 hover:bg-card-hover"
                       >
                         <CheckboxButton
                           status={status}
