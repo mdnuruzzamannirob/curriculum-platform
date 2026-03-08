@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ChevronRight,
+  Github,
   LogOut,
   Menu,
   Search,
@@ -22,9 +23,40 @@ import { useAuth } from "@/context/AuthContext";
 const navItems = [
   { label: "Roadmaps", href: "/course" },
   { label: "Dashboard", href: "/dashboard" },
-  { label: "How it works", href: "/#how-it-works" },
+  { label: "How it works", href: "/how-it-works" },
   { label: "About", href: "/about" },
 ];
+
+function GitHubStars() {
+  const [stars, setStars] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("https://api.github.com/repos/mdnuruzzamannirob/curriculum-platform")
+      .then((r) => r.json())
+      .then((d) => {
+        if (typeof d?.stargazers_count === "number") {
+          setStars(d.stargazers_count);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  return (
+    <a
+      href="https://github.com/mdnuruzzamannirob/curriculum-platform"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hidden h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-medium text-card-foreground hover:bg-card-hover sm:inline-flex"
+      aria-label="GitHub repository"
+    >
+      <Github className="h-4 w-4 shrink-0" />
+      {stars !== null && (
+        <span>{stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars}</span>
+      )}
+      <span className="hidden lg:inline">Star</span>
+    </a>
+  );
+}
 
 function UserMenu() {
   const { user, logout } = useAuth();
@@ -178,15 +210,28 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Desktop search pill */}
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground hover:bg-card-hover"
+              className="hidden h-10 w-52 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm text-muted-foreground hover:bg-card-hover lg:inline-flex"
+              aria-label="Open search"
+            >
+              <Search className="h-4 w-4 shrink-0" />
+              Search roadmaps...
+            </button>
+            {/* Mobile search icon */}
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground hover:bg-card-hover lg:hidden"
               aria-label="Open search"
               title="Search"
             >
               <Search className="size-4" />
             </button>
+
+            <GitHubStars />
 
             <Theme />
 
@@ -237,7 +282,7 @@ export default function Header() {
 
         <aside
           className={cn(
-            "absolute left-0 top-0 h-full w-[86%] max-w-85 border-r border-border bg-background p-5 shadow-2xl",
+            "absolute left-0 top-0 flex h-full flex-col w-[86%] max-w-85 overflow-y-auto border-r border-border bg-background p-5 shadow-2xl",
             menuOpen ? "translate-x-0" : "-translate-x-full",
           )}
         >
@@ -267,7 +312,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="mt-6">
+          <div className="mt-auto border-t border-border pt-4">
             {isLoaded && user ? (
               <div className="space-y-2">
                 <div className="flex items-center gap-3 rounded-xl border border-border bg-card px-3 py-2.5">

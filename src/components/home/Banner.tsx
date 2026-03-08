@@ -69,16 +69,16 @@ const Banner = () => {
             Know what to learn
             <br />
             <span className="text-muted-foreground">
-              at every developer level.
+              at every career level.
             </span>
           </h1>
 
           {/* Description */}
           <p className="mt-6 sm:mt-8 max-w-190 text-sm text-subtle sm:text-lg">
             Stop second-guessing your curriculum. DevPath maps every technology
-            into 6 developer levels — from entry-level basics to principal‑level
-            mastery — so you always know exactly which topics belong at your
-            stage, with nothing missing and nothing wasted.
+            into 6 career levels — for developers, engineers, designers, and
+            career switchers — so you always know exactly which topics belong at
+            your stage, with nothing missing and nothing wasted.
           </p>
 
           {/* Buttons */}
