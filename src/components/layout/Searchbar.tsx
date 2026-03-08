@@ -21,13 +21,13 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
   return (
     <div className="fixed inset-0 z-90 bg-black/60 backdrop-blur-md">
       <div className="mx-auto flex h-full w-full max-w-5xl flex-col px-4 pt-16 sm:px-6 lg:px-8">
-        <div className="rounded-[28px] border border-black/10 bg-white shadow-2xl dark:border-white/10 dark:bg-black">
-          <div className="flex items-center justify-between border-b border-black/10 px-4 py-4 dark:border-white/10 sm:px-6">
+        <div className="rounded-[28px] border border-border bg-popover text-popover-foreground shadow-2xl">
+          <div className="flex items-center justify-between border-b border-border px-4 py-4 sm:px-6">
             <div>
-              <p className="text-sm font-semibold text-black dark:text-white">
+              <p className="text-sm font-semibold text-popover-foreground">
                 Search
               </p>
-              <p className="text-xs text-black/50 dark:text-white/45">
+              <p className="text-xs text-faint">
                 Search roadmaps, modules, topics
               </p>
             </div>
@@ -35,7 +35,7 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white text-black transition-colors hover:bg-black/3 dark:border-white/10 dark:bg-black dark:text-white dark:hover:bg-white/5"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-colors hover:bg-card-hover"
               aria-label="Close search"
             >
               <X className="h-5 w-5" />
@@ -44,17 +44,17 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
 
           <div className="p-4 sm:p-6">
             <div className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-black/40 dark:text-white/35" />
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-faint" />
               <input
                 autoFocus
                 type="text"
                 placeholder="Search roadmaps, topics, modules..."
-                className="h-14 w-full rounded-2xl border border-black/10 bg-black/3 pl-12 pr-4 text-sm text-black outline-none transition-colors placeholder:text-black/40 focus:border-black/20 focus:bg-white dark:border-white/10 dark:bg-white/4 dark:text-white dark:placeholder:text-white/35 dark:focus:border-white/20 dark:focus:bg-white/6"
+                className="h-14 w-full rounded-2xl border border-input bg-background pl-12 pr-4 text-sm text-foreground outline-none transition-colors placeholder:text-faint focus:border-border-strong"
               />
             </div>
 
             <div className="mt-6">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-black/45 dark:text-white/40">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-faint">
                 Quick Links
               </p>
 
@@ -64,18 +64,18 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
                     key={item.label}
                     href={item.href}
                     onClick={onClose}
-                    className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-black/3 dark:border-white/10 dark:bg-white/3 dark:hover:bg-white/5"
+                    className="group flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
                   >
-                    <span className="text-sm font-medium text-black dark:text-white">
+                    <span className="text-sm font-medium text-card-foreground">
                       {item.label}
                     </span>
-                    <ArrowRight className="h-4 w-4 text-black/45 transition-transform duration-300 group-hover:translate-x-0.5 dark:text-white/45" />
+                    <ArrowRight className="h-4 w-4 text-faint transition-transform duration-300 group-hover:translate-x-0.5" />
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="mt-6 flex items-center justify-between text-xs text-black/45 dark:text-white/40">
+            <div className="mt-6 flex items-center justify-between text-xs text-faint">
               <span>Press ESC to close</span>
               <span>Search experience coming soon</span>
             </div>

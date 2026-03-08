@@ -18,11 +18,11 @@ export default function Theme() {
     <button
       type="button"
       onClick={onToggle}
-      className=" h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-black/3 inline-flex dark:border-white/10 dark:bg-black dark:text-white dark:hover:bg-white/5"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
       title={title}
       aria-label={title}
     >
-      <Icon className="h-4.5 w-4.5" strokeWidth={2.2} />
+      <Icon className="size-4.5" strokeWidth={2.2} />
     </button>
   );
 }
