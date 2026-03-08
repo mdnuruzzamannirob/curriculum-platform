@@ -14,8 +14,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Curriculum Platform",
-  description: "Roadmap-based learning dashboard for structured mastery.",
+  title: "Roadmap Mastery",
+  description: "Level based roadmaps for focused learners",
 };
 
 export default function RootLayout({

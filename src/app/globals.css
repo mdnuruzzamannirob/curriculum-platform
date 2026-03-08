@@ -170,16 +170,107 @@ button {
   animation: badgeShine 3s linear infinite;
 }
 
-@keyframes badgeShine {
-  0% {
-    transform: translateX(-130%);
-  }
-
-  100% {
-    transform: translateX(220%);
-  }
+/* ── Accent colour system ──────────────────────────────── */
+/* Specific hex → CSS variable mappings (add new colors here) */
+[data-accent="#4ade80"] {
+  --accent: #4ade80;
+  --accent-rgb: 74 222 128;
 }
 
-.badge-shine {
-  animation: badgeShine 3s linear infinite;
+[data-accent="#facc15"] {
+  --accent: #facc15;
+  --accent-rgb: 250 204 21;
+}
+
+[data-accent="#fb923c"] {
+  --accent: #fb923c;
+  --accent-rgb: 251 146 60;
+}
+
+[data-accent="#f472b6"] {
+  --accent: #f472b6;
+  --accent-rgb: 244 114 182;
+}
+
+[data-accent="#38bdf8"] {
+  --accent: #38bdf8;
+  --accent-rgb: 56 189 248;
+}
+
+[data-accent="#34d399"] {
+  --accent: #34d399;
+  --accent-rgb: 52 211 153;
+}
+
+[data-accent="#22d3ee"] {
+  --accent: #22d3ee;
+  --accent-rgb: 34 211 238;
+}
+
+[data-accent="#f7df1e"] {
+  --accent: #f7df1e;
+  --accent-rgb: 247 223 30;
+}
+
+@utility accent-text {
+  color: var(--accent);
+}
+
+@utility accent-bg-soft {
+  background-color: rgb(var(--accent-rgb) / 0.1);
+}
+
+@utility accent-bg-soft-strong {
+  background-color: rgb(var(--accent-rgb) / 0.18);
+}
+
+@utility accent-border {
+  border-color: rgb(var(--accent-rgb) / 0.72);
+}
+
+@utility accent-border-soft {
+  border-color: rgb(var(--accent-rgb) / 0.26);
+}
+
+@utility accent-border-left {
+  border-left-color: var(--accent);
+}
+
+@utility accent-outline {
+  outline: 1px solid rgb(var(--accent-rgb) / 0.52);
+}
+
+/* ── Progress bar ──────────────────────────────────────── */
+.progress-track {
+  appearance: none;
+  background-color: var(--border);
+  overflow: hidden;
+}
+
+.progress-track::-webkit-progress-bar {
+  background-color: var(--border);
+}
+
+.progress-track::-webkit-progress-value {
+  background-color: var(--progress-fill, #6366f1);
+}
+
+.progress-track::-moz-progress-bar {
+  background-color: var(--progress-fill, #6366f1);
+}
+
+.progress-fill-empty {
+  --progress-fill: var(--border-strong, #ccc);
+}
+
+.progress-fill-active {
+  --progress-fill: #6366f1;
+}
+
+.progress-fill-complete {
+  --progress-fill: #22c55e;
+}
+
+.progress-fill-accent {
+  --progress-fill: var(--accent, #6366f1);
 }
