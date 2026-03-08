@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Classroom",
-  description: "How Classroom handles your data and privacy.",
+  title: "Privacy Policy | DevPath",
+  description: "How DevPath handles your data and privacy.",
 };
 
 const sections = [
   {
     title: "Information We Collect",
     content: [
-      "Classroom is a client-side learning platform. All data — including your account credentials and progress — is stored exclusively in your browser's localStorage.",
+      "DevPath is a client-side learning platform. All data — including your account credentials and progress — is stored exclusively in your browser's localStorage.",
       "We do not transmit any personal information to external servers. There is no backend database, analytics tracking, or third-party data sharing.",
     ],
   },
@@ -33,20 +33,20 @@ const sections = [
   {
     title: "Cookies",
     content: [
-      "Classroom does not use cookies for tracking or advertising purposes. The application may use browser session storage for temporary UI state only.",
+      "DevPath does not use cookies for tracking or advertising purposes. The application may use browser session storage for temporary UI state only.",
     ],
   },
   {
     title: "Third-Party Services",
     content: [
-      "Classroom does not integrate with any third-party analytics, advertising, or data collection services.",
+      "DevPath does not integrate with any third-party analytics, advertising, or data collection services.",
       "The 'Sign in with Google' and 'Sign in with GitHub' buttons on the auth pages are demonstration features only and do not connect to real OAuth providers. No data is sent to Google or GitHub.",
     ],
   },
   {
     title: "Children's Privacy",
     content: [
-      "Classroom is not directed to children under the age of 13. We do not knowingly collect personal information from children.",
+      "DevPath is not directed to children under the age of 13. We do not knowingly collect personal information from children.",
     ],
   },
   {
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
             Effective date: January 1, 2025
           </p>
           <p className="mt-3 text-base text-muted-foreground">
-            Your privacy matters. This policy explains what data Classroom
+            Your privacy matters. This policy explains what data DevPath
             collects, how it is used, and how you can control it.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
             href="/about"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
-            About Classroom
+            About DevPath
           </Link>
           <Link
             href="/"

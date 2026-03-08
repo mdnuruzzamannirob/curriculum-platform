@@ -15,8 +15,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Roadmap Mastery",
-  description: "Level based roadmaps for focused learners",
+  title: "DevPath — Level-based Developer Roadmaps",
+  description:
+    "Level-scoped roadmaps that tell you exactly what to learn at each developer stage — from entry-level to principal.",
 };
 
 export default function RootLayout({

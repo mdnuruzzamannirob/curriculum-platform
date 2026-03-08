@@ -4,35 +4,38 @@ import SectionTop from "../SectionTop";
 const steps = [
   {
     step: "01",
-    title: "Choose a Learning Track",
+    title: "Choose a Roadmap",
     description:
-      "Pick from curated paths covering the full spectrum — from beginner fundamentals to advanced mastery.",
+      "Pick a technology track. Each roadmap spans 6 developer levels — from entry-level fundamentals to principal-level mastery — so you see the full scope upfront.",
     icon: BookOpen,
   },
   {
     step: "02",
-    title: "Follow the Roadmap",
+    title: "Jump to Your Level",
     description:
-      "Each course is organized into levels and modules. Move in order or jump to exactly what you need.",
+      "Select the level that matches where you are today. Every level is scoped to the right depth — no more wondering if you should know a topic yet.",
     icon: Route,
   },
   {
     step: "03",
     title: "Track Every Checkpoint",
     description:
-      "Check off subtopics as you complete them. Your progress is saved locally and always visible.",
+      "Check off topics and subtopics as you complete them. Progress is saved locally and always visible — across every roadmap and every level.",
     icon: CheckCircle2,
   },
 ] as const;
 
 export default function HowItWorksSection() {
   return (
-    <section id="features" className="space-y-10 app-container  py-16 sm:py-20">
+    <section
+      id="how-it-works"
+      className="space-y-10 app-container  py-16 sm:py-20"
+    >
       <SectionTop
-        titleBottom="structured mastery"
-        titleTop="Three steps to"
-        description="From picking a track to checking off your last subtopic — the path
-          stays clear, readable, and focused from start to finish."
+        titleBottom="in three steps"
+        titleTop="From confusion to clarity"
+        description="Pick your roadmap, select your developer level, and follow
+            a scoped path that tells you exactly what to learn — nothing more, nothing less."
         position="center"
       />
 

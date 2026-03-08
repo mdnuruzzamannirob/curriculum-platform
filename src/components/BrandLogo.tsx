@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { Route } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface BrandLogoProps {
@@ -17,13 +17,13 @@ export default function BrandLogo({ className, href = "/" }: BrandLogoProps) {
         className,
       )}
     >
-      <BookOpen className="mt-1 size-7 text-foreground" />
+      <Route className="mt-1 size-7 text-foreground" />
 
       <div className="flex flex-col leading-none">
         <span className="text-sm font-semibold tracking-tight text-foreground">
-          Classroom
+          DevPath
         </span>
-        <span className="text-[11px] text-faint">Learn with clarity</span>
+        <span className="text-[11px] text-faint">Level-based roadmaps</span>
       </div>
     </Link>
   );

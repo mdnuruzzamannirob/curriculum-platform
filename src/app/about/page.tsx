@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,12 +16,18 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { courses } from "@/data/courses";
 import { countModules, countSubtopics, countTopics } from "@/utils/course";
 
+export const metadata: Metadata = {
+  title: "About | DevPath",
+  description:
+    "How DevPath helps developers stop guessing what to learn by mapping every technology into 6 scoped developer levels.",
+};
+
 const totalModules = courses.reduce((sum, c) => sum + countModules(c), 0);
 const totalTopics = courses.reduce((sum, c) => sum + countTopics(c), 0);
 const totalSubtopics = courses.reduce((sum, c) => sum + countSubtopics(c), 0);
 
 const stats = [
-  { value: String(courses.length), label: "Learning tracks" },
+  { value: String(courses.length), label: "Roadmaps" },
   { value: String(totalModules), label: "Modules" },
   { value: String(totalTopics), label: "Topics" },
   { value: String(totalSubtopics), label: "Checkpoints" },
@@ -29,13 +36,13 @@ const stats = [
 const values = [
   {
     icon: Target,
-    title: "Clarity over quantity",
-    desc: "We design every roadmap around one goal: knowing exactly what to learn next and why. No bloated syllabi, no random tutorial rabbit holes.",
+    title: "Level clarity over guesswork",
+    desc: "Every roadmap is scoped by developer stage. Know exactly which topics belong at junior, mid, senior, or staff level — no more over- or under-learning.",
   },
   {
     icon: BookOpen,
-    title: "Depth over breadth",
-    desc: "Each track goes from fundamentals to real mastery — not surface-level overviews that leave you Googling everything after 10 minutes.",
+    title: "Depth at every level",
+    desc: "Each track covers the full scope of a technology — from entry-level syntax to principal-level internals — without skipping what matters.",
   },
   {
     icon: Heart,
@@ -50,7 +57,7 @@ const values = [
   {
     icon: Zap,
     title: "Instant access, always",
-    desc: "Everything is available immediately — no sign-up required to browse. Your progress is saved locally so it's always there when you return.",
+    desc: "No sign-up needed to browse any roadmap. Jump straight to your level and start exploring. Your progress is saved locally when you do log in.",
   },
   {
     icon: CheckCircle2,
@@ -79,21 +86,20 @@ export default function AboutPage() {
           <div className="mx-auto mt-8 max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground">
               <Code2 className="h-3.5 w-3.5" />
-              About Classroom
+              About DevPath
             </div>
 
             <h1 className="mt-5 text-4xl font-black tracking-tight text-foreground sm:text-5xl">
-              Built for people who
+              Built to stop
               <br />
-              <span className="text-muted-foreground">want real mastery</span>
+              <span className="text-muted-foreground">the confusion</span>
             </h1>
 
             <p className="mt-6 text-base text-subtle sm:text-lg">
-              Classroom is a structured learning platform built out of
-              frustration with the usual &ldquo;watch 200 hours of video and
-              hope for the best&rdquo; approach. We organize knowledge into
-              level-based roadmaps with granular checkpoints — so the path
-              forward is always clear.
+              DevPath is a level-based roadmap platform that tells you exactly
+              what to learn — and how much — at every developer stage. Not a
+              tutorial site, not a course marketplace: a scoped curriculum for
+              developers who are tired of second-guessing their learning path.
             </p>
           </div>
         </div>
@@ -130,21 +136,23 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6 space-y-4 text-base text-subtle">
                 <p>
-                  Most online learning is unstructured. You watch a tutorial,
-                  feel productive, then realize three days later you have no
-                  idea where you are or what to tackle next. The path is
-                  unclear.
+                  Most online resources don&apos;t tell you <em>how much</em> of
+                  a topic to learn at your level. Should a junior developer
+                  understand closures deeply? Should a mid-level developer know
+                  V8 internals? The answer isn&apos;t the same for everyone — it
+                  depends on your current stage.
                 </p>
                 <p>
-                  Classroom solves this by turning every subject into a
-                  structured roadmap — broken into levels, modules, topics, and
-                  subtopics. Every checkpoint is trackable, every level builds
-                  on the last, and your progress is always visible.
+                  DevPath solves this by scoping every technology into 6
+                  developer levels — each tied to a career stage (entry, junior,
+                  mid, senior, staff, principal). Each level lists exactly the
+                  modules and topics that belong there, so you know you&apos;re
+                  learning the right things at the right depth.
                 </p>
                 <p>
-                  Whether you&apos;re an absolute beginner or filling in gaps as
-                  an experienced developer, the roadmap meets you where you are
-                  and shows you exactly what&apos;s next.
+                  Plus, every roadmap ships with additional topic tracks — like
+                  DSA in JavaScript and interview prep questions — organized by
+                  level, so you prepare for interviews at your actual stage.
                 </p>
               </div>
             </div>
@@ -159,18 +167,18 @@ export default function AboutPage() {
                 {[
                   {
                     icon: Route,
-                    title: "Choose a track",
-                    desc: "Pick a curated learning path covering the full scope of a technology from basics to mastery.",
+                    title: "Choose your roadmap",
+                    desc: "Pick a technology. Each roadmap spans 6 developer levels so you see the full scope before you even start.",
                   },
                   {
                     icon: BookOpen,
-                    title: "Follow the roadmap",
-                    desc: "Work through levels and modules in order, or jump directly to whatever you need right now.",
+                    title: "Jump to your level",
+                    desc: "Select the developer stage that matches where you are today. Your level’s modules and topics are scoped precisely for that stage.",
                   },
                   {
                     icon: GraduationCap,
-                    title: "Track your progress",
-                    desc: "Check off subtopics as you learn them. Progress is saved and always visible across all your tracks.",
+                    title: "Track every checkpoint",
+                    desc: "Check off subtopics as you complete them. Progress is saved locally and always visible across all roadmaps.",
                   },
                 ].map((step) => {
                   const Icon = step.icon;
@@ -204,7 +212,7 @@ export default function AboutPage() {
               Design principles
             </h2>
             <p className="mt-4 text-base text-subtle">
-              Every decision in Classroom flows from a core set of beliefs about
+              Every decision in DevPath flows from a core set of beliefs about
               how good learning tools should work.
             </p>
           </div>
@@ -237,8 +245,8 @@ export default function AboutPage() {
               Built with
             </h2>
             <p className="mt-4 max-w-xl text-base text-subtle">
-              Classroom is built with modern, open-source tools with a focus on
-              speed, type safety, and maintainability.
+              DevPath is built with modern, open-source tools with a focus on
+              speed, type safety, and zero-backend simplicity.
             </p>
           </div>
 
@@ -260,11 +268,11 @@ export default function AboutPage() {
       <section className="app-container py-14 sm:py-20">
         <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
           <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
-            Ready to get started?
+            Pick your roadmap.
           </h2>
           <p className="mt-4 text-base text-subtle">
-            Pick a learning track and start building real, structured knowledge
-            today.
+            Choose your developer level and start following a scoped, structured
+            path today. No guesswork.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
@@ -272,7 +280,7 @@ export default function AboutPage() {
               className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90"
             >
               <GraduationCap className="h-4 w-4" />
-              Browse courses
+              Browse roadmaps
             </Link>
             <Link
               href="/dashboard"

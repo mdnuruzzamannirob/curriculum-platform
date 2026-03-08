@@ -41,26 +41,26 @@ export default function AboutSection() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground">
               <Code2 className="h-3.5 w-3.5" />
-              About Classroom
+              About DevPath
             </div>
 
             <h2 className="mt-5 text-3xl font-black tracking-tight text-foreground sm:text-4xl">
-              A better way to
+              Built to stop
               <br />
-              <span className="text-muted-foreground">learn programming</span>
+              <span className="text-muted-foreground">the confusion</span>
             </h2>
 
             <p className="mt-5 text-base text-subtle">
-              Classroom was built out of frustration with the usual &quot;watch
-              200 hours of video and hope for the best&quot; approach to
-              learning.
+              Most learning resources don&apos;t tell you <em>how much</em> of a
+              topic you need at your level. Should a junior dev know the event
+              loop internals? Should a mid-level dev tackle V8 optimization?
             </p>
 
             <p className="mt-4 text-base text-subtle">
-              Instead of passive consumption, Classroom organizes knowledge into
-              level-based roadmaps with granular checkpoints. Every topic you
-              cover is tracked, every level you complete is visible, and the
-              path forward is always clear.
+              DevPath answers this by scoping every technology into 6 developer
+              levels — from Absolute Basics to Mastery — each listing exactly
+              the topics that belong there. Follow your level, track your
+              progress, and always know what’s next.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

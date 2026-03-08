@@ -1,8 +1,8 @@
 import {
   BarChart3,
+  BookMarked,
   CheckCircle2,
   Layers3,
-  Palette,
   Route,
   Zap,
 } from "lucide-react";
@@ -11,33 +11,33 @@ import SectionTop from "../SectionTop";
 const features = [
   {
     icon: Route,
-    label: "Structured Curriculum",
-    desc: "Every course is methodically organized into levels and modules for clear, logical progression.",
+    label: "Structured Roadmaps",
+    desc: "Every track is methodically split into levels and modules for clear, level-by-level progression across a technology.",
   },
   {
     icon: Layers3,
-    label: "Level-by-level Learning",
-    desc: "Progress through beginner, intermediate, and advanced concepts in the right order.",
+    label: "Level-scoped Curriculum",
+    desc: "Each level is scoped to a specific developer stage — junior, mid, senior, staff, lead. Know exactly which topics belong at your level.",
   },
   {
     icon: CheckCircle2,
     label: "Granular Checkpoints",
-    desc: "Break each module into bite-sized subtopics and check them off as you go.",
+    desc: "Break each module into bite-sized subtopics. Check them off as you complete them and watch your progress in real time.",
   },
   {
     icon: BarChart3,
     label: "Visual Progress Tracking",
-    desc: "Progress bars and completion stats let you see exactly how far you've come.",
+    desc: "Progress bars and completion stats let you see exactly how far you’ve come — across every roadmap, level, and module.",
   },
   {
-    icon: Palette,
-    label: "Dark & Light Modes",
-    desc: "Switch between clean light and elegant dark themes to suit your learning environment.",
+    icon: BookMarked,
+    label: "Interview & DSA Paths",
+    desc: "Every roadmap ships with additional topic tracks — DSA and interview prep — organized by developer level, so you prep for the right stage.",
   },
   {
     icon: Zap,
-    label: "Fast Navigation",
-    desc: "Jump directly to any level, module, or topic instantly using intuitive navigation.",
+    label: "Instant Navigation",
+    desc: "Jump directly to any level, module, or topic in seconds. No sign-up needed to browse — your progress is saved locally.",
   },
 ] as const;
 
@@ -46,9 +46,8 @@ export default function Features() {
     <section className="space-y-10 app-container  py-16 sm:py-20" id="features">
       <SectionTop
         titleTop="Everything you need"
-        titleBottom="to stay on track"
-        description=" Designed for depth and clarity — not distraction. Every piece of the
-          interface helps learners focus on real progress."
+        titleBottom="to own your level"
+        description="Built for developers who want a clear scope, not an infinite syllabus. Every feature helps you focus on what actually matters at your current stage."
         position="center"
       />
 

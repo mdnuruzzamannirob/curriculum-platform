@@ -19,32 +19,33 @@ export default function HomeCta() {
           </div>
 
           <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
-            Ready to start learning?
+            Ready to follow your roadmap?
           </h2>
 
           <p className="mx-auto mt-4 max-w-lg text-base text-subtle">
-            Pick a track, follow the roadmap, and build skills that stick — at
-            your own pace, with a system built for clarity and progress.
+            Pick a track, choose your developer level, and start building real,
+            structured knowledge — every topic is scoped to exactly where you
+            are right now.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
-              href="/dashboard"
+              href="/course"
               className={cn(
                 buttonVariants({ size: "default" }),
                 "h-11 rounded-full bg-primary px-7 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
               )}
             >
               <LayoutDashboard className="h-4 w-4" />
-              Go to Dashboard
+              Browse Roadmaps
             </Link>
 
             {featuredCourse && (
               <Link
-                href={`/course/${featuredCourse.id}`}
+                href="/dashboard"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
               >
-                Browse Courses
+                Open Dashboard
                 <ArrowRight className="h-4 w-4" />
               </Link>
             )}

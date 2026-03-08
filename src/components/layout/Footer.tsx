@@ -42,15 +42,16 @@ export default function Footer() {
             <BrandLogo />
 
             <p className="max-w-sm text-sm text-subtle">
-              Structured learning paths for people who want a cleaner, more
-              focused way to grow from fundamentals to real mastery.
+              Level-scoped roadmaps that tell you exactly what to learn at each
+              developer stage — from entry-level basics to principal-level
+              mastery.
             </p>
 
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-2 text-xs text-faint">
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 <Sparkles className="h-3.5 w-3.5" />
               </span>
-              Built for focused learners
+              Level-based developer roadmaps
             </div>
           </div>
 
@@ -74,7 +75,7 @@ export default function Footer() {
                 className="group flex items-center gap-2 rounded-xl px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-card-hover hover:text-foreground"
               >
                 <BookOpen className="h-4 w-4 shrink-0" />
-                Courses
+                Roadmaps
               </Link>
 
               <Link
@@ -184,7 +185,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-faint">
-            &copy; {year} Classroom. Built for focused learners.
+            &copy; {year} DevPath. Level-based developer roadmaps.
           </p>
 
           <div className="flex items-center gap-4">

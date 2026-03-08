@@ -35,7 +35,7 @@ const Banner = () => {
   const featuredCourse = courses[0];
 
   const stats = [
-    { icon: BookOpen, value: courses.length, label: "Tracks" },
+    { icon: BookOpen, value: courses.length, label: "Roadmaps" },
     { icon: Target, value: totalModules, label: "Modules" },
     { icon: Stars, value: totalTopics, label: "Topics" },
     { icon: Zap, value: totalCheckpoints, label: "Checkpoints" },
@@ -66,32 +66,32 @@ const Banner = () => {
 
           {/* Title */}
           <h1 className="mt-6 sm:mt-8 max-w-3xl text-3xl font-black tracking-[-0.055em] text-foreground sm:text-5xl lg:text-6xl">
-            Learn with clarity.
+            Know what to learn
             <br />
             <span className="text-muted-foreground">
-              Track progress with purpose.
+              at every developer level.
             </span>
           </h1>
 
           {/* Description */}
           <p className="mt-6 sm:mt-8 max-w-190 text-sm text-subtle sm:text-lg">
-            A focused learning platform built around structured roadmaps and
-            visible progress. Follow level-based paths, complete modules step by
-            step, and track every checkpoint as you grow from fundamentals to
-            real mastery.
+            Stop second-guessing your curriculum. DevPath maps every technology
+            into 6 developer levels — from entry-level basics to principal‑level
+            mastery — so you always know exactly which topics belong at your
+            stage, with nothing missing and nothing wasted.
           </p>
 
           {/* Buttons */}
           <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/dashboard"
+              href="/course"
               className={cn(
                 buttonVariants({ size: "default" }),
                 "h-11 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
               )}
             >
               <LayoutDashboard className="h-4 w-4" />
-              Start Learning
+              Browse Roadmaps
             </Link>
 
             {featuredCourse && (

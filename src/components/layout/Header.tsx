@@ -20,9 +20,9 @@ import BrandLogo from "../BrandLogo";
 import { useAuth } from "@/context/AuthContext";
 
 const navItems = [
-  { label: "Courses", href: "/course" },
+  { label: "Roadmaps", href: "/course" },
   { label: "Dashboard", href: "/dashboard" },
-  { label: "Features", href: "/#features" },
+  { label: "How it works", href: "/#how-it-works" },
   { label: "About", href: "/about" },
 ];
 

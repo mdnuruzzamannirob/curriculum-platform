@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Classroom",
+  title: "Terms of Service | DevPath",
   description:
-    "Terms and conditions for using the Classroom learning platform.",
+    "Terms and conditions for using the DevPath learning platform.",
 };
 
 const sections = [
   {
     title: "Acceptance of Terms",
     content: [
-      "By accessing and using Classroom, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the platform.",
-      "Classroom is a free, open-source educational platform. These terms govern your use of the application.",
+      "By accessing and using DevPath, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the platform.",
+      "DevPath is a free, open-source educational platform. These terms govern your use of the application.",
     ],
   },
   {
     title: "Description of Service",
     content: [
-      "Classroom is a structured learning platform that provides programming courses with a hierarchical curriculum. It operates entirely client-side — your account and progress data are stored locally in your browser.",
+      "DevPath is a structured learning platform that provides programming courses with a hierarchical curriculum. It operates entirely client-side — your account and progress data are stored locally in your browser.",
       "The platform offers course content, progress tracking, and a dashboard for visualizing your learning journey.",
     ],
   },
@@ -33,7 +33,7 @@ const sections = [
   {
     title: "Acceptable Use",
     content: [
-      "You agree to use Classroom for lawful purposes only and in a manner that does not infringe the rights of others.",
+      "You agree to use DevPath for lawful purposes only and in a manner that does not infringe the rights of others.",
       "You may not attempt to reverse-engineer, modify, distribute, or otherwise misuse the platform's source code in ways that violate the project's open-source license.",
       "You may not use the platform to distribute spam, malicious code, or any content that violates applicable laws.",
     ],
@@ -41,7 +41,7 @@ const sections = [
   {
     title: "Intellectual Property",
     content: [
-      "The course content, design, and code of Classroom are the intellectual property of the project contributors.",
+      "The course content, design, and code of DevPath are the intellectual property of the project contributors.",
       "You may use the platform for personal learning and may reference the curriculum for educational purposes, provided proper attribution is given.",
       "Wholesale reproduction of the course content for commercial purposes without permission is prohibited.",
     ],
@@ -49,14 +49,14 @@ const sections = [
   {
     title: "Disclaimer of Warranties",
     content: [
-      "Classroom is provided 'as is' without any warranties, express or implied. We make no guarantees about the completeness, accuracy, or reliability of the course content.",
+      "DevPath is provided 'as is' without any warranties, express or implied. We make no guarantees about the completeness, accuracy, or reliability of the course content.",
       "We do not guarantee uninterrupted access to the platform, as it depends on your local browser environment.",
     ],
   },
   {
     title: "Limitation of Liability",
     content: [
-      "To the maximum extent permitted by law, Classroom and its contributors shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the platform.",
+      "To the maximum extent permitted by law, DevPath and its contributors shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the platform.",
       "Our total liability to you for any claims related to these terms shall not exceed zero dollars, as the service is provided free of charge.",
     ],
   },
@@ -90,7 +90,7 @@ export default function TermsPage() {
             Effective date: January 1, 2025
           </p>
           <p className="mt-3 text-base text-muted-foreground">
-            Please read these terms carefully before using Classroom. By using
+            Please read these terms carefully before using DevPath. By using
             the platform, you agree to these terms.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function TermsPage() {
             href="/about"
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
-            About Classroom
+            About DevPath
           </Link>
           <Link
             href="/"
