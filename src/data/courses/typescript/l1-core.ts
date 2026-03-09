@@ -4,7 +4,7 @@ export const l1Level: Level = {
   id: "junior",
   title: "Core TypeScript",
   description: "Junior Dev",
-  color: "#818cf8",
+  color: "#facc15",
   modules: [
     // ── TS ───────────────────────────────────────────────
     {

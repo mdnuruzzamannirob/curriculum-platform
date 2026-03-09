@@ -4,7 +4,7 @@ export const l0Level: Level = {
   id: "entry",
   title: "Node.js Foundations",
   description: "Beginner",
-  color: "#86efac",
+  color: "#4ade80",
   modules: [
     // ── Node.js ──────────────────────────────────────────
     {

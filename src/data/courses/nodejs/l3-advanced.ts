@@ -4,7 +4,7 @@ export const l3Level: Level = {
   id: "senior",
   title: "Advanced Node.js",
   description: "Senior Dev",
-  color: "#67e8f9",
+  color: "#f472b6",
   modules: [
     // ── Node.js ──────────────────────────────────────────
     {

@@ -4,7 +4,7 @@ export const l3Level: Level = {
   id: "senior",
   title: "Advanced TypeScript",
   description: "Senior Dev",
-  color: "#c084fc",
+  color: "#f472b6",
   modules: [
     // ── TS ───────────────────────────────────────────────
     {

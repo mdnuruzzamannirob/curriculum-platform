@@ -4,7 +4,7 @@ export const l0Level: Level = {
   id: "entry",
   title: "TypeScript Foundations",
   description: "Beginner",
-  color: "#60a5fa",
+  color: "#4ade80",
   modules: [
     // ── TS ───────────────────────────────────────────────
     {

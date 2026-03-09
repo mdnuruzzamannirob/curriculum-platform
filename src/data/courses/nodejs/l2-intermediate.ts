@@ -4,7 +4,7 @@ export const l2Level: Level = {
   id: "mid",
   title: "Intermediate Node.js",
   description: "Mid-level Dev",
-  color: "#5eead4",
+  color: "#fb923c",
   modules: [
     // ── Node.js ──────────────────────────────────────────
     {

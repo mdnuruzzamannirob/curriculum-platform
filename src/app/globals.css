@@ -212,6 +212,12 @@ button {
   --accent-rgb: 247 223 30;
 }
 
+/* ── Express.js accent colours ────────────────────────── */
+[data-accent="#e67e22"] {
+  --accent: #e67e22;
+  --accent-rgb: 230 126 34;
+}
+
 /* ── TypeScript accent colours ─────────────────────────── */
 [data-accent="#60a5fa"] {
   --accent: #60a5fa;

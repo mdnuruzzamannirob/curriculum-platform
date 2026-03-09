@@ -4,7 +4,7 @@ export const l5Level: Level = {
   id: "mastery",
   title: "TypeScript Mastery",
   description: "Expert / Principal",
-  color: "#f0abfc",
+  color: "#34d399",
   modules: [
     // ── TS ───────────────────────────────────────────────
     {

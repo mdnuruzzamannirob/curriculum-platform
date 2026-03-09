@@ -4,7 +4,7 @@ export const l2Level: Level = {
   id: "mid",
   title: "Intermediate TypeScript",
   description: "Mid-level Dev",
-  color: "#a78bfa",
+  color: "#fb923c",
   modules: [
     // ── TS ───────────────────────────────────────────────
     {

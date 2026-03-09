@@ -4,7 +4,7 @@ export const l4Level: Level = {
   id: "professional",
   title: "TypeScript in Practice",
   description: "Professional Dev",
-  color: "#e879f9",
+  color: "#38bdf8",
   modules: [
     // ── TS ───────────────────────────────────────────────
     {

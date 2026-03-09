@@ -4,7 +4,7 @@ export const l1Level: Level = {
   id: "junior",
   title: "Core Node.js",
   description: "Junior Dev",
-  color: "#6ee7b7",
+  color: "#facc15",
   modules: [
     // ── Node.js ──────────────────────────────────────────
     {

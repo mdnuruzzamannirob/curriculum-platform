@@ -2,6 +2,7 @@ import { Course } from "@/types";
 import { javascriptCourse } from "./javascript";
 import { typescriptCourse } from "./typescript";
 import { nodejsCourse } from "./nodejs";
+import { expressCourse } from "./express";
 
 // Register all courses here. To add a new course, create its data file
 // and add it to this array.
@@ -9,6 +10,7 @@ export const courses: Course[] = [
   javascriptCourse,
   typescriptCourse,
   nodejsCourse,
+  expressCourse,
 ];
 
 export function getCourseById(id: string): Course | undefined {

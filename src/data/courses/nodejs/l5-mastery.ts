@@ -4,7 +4,7 @@ export const l5Level: Level = {
   id: "mastery",
   title: "Node.js Mastery",
   description: "Principal / Lead",
-  color: "#a5b4fc",
+  color: "#34d399",
   modules: [
     // ── Node.js ──────────────────────────────────────────
     {

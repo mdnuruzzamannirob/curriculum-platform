@@ -4,7 +4,7 @@ export const l4Level: Level = {
   id: "professional",
   title: "Node.js in Production",
   description: "Staff Engineer",
-  color: "#7dd3fc",
+  color: "#38bdf8",
   modules: [
     // ── Node.js ──────────────────────────────────────────
     {
