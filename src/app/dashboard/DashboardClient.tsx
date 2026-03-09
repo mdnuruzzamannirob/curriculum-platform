@@ -94,6 +94,7 @@ export default function DashboardClient() {
       </div>
 
       {/* Per-course progress */}
+      <h2 className="mb-4 text-lg font-bold text-foreground">Your Courses</h2>
       <div className="space-y-5">
         {courses.map((course) => {
           const courseStats = calcCourseProgress(progress, course);
@@ -124,7 +125,7 @@ export default function DashboardClient() {
                     </p>
                     <Link
                       href={`/course/${course.id}`}
-                      className="inline-flex items-center gap-1 text-xs text-subtle hover:text-foreground transition-colors"
+                      className="inline-flex items-center gap-1 hover:bg-card-hover border border-border px-4 rounded-full py-2 text-xs text-subtle hover:text-foreground transition-colors"
                     >
                       Open <ArrowRight className="h-3 w-3" />
                     </Link>

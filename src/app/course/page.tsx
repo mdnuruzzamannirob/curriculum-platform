@@ -9,7 +9,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function CoursesPage() {
   return (
-    <div className="app-container space-y-10 py-10">
+    <div className="app-container space-y-6 py-4 sm:py-6 lg:py-8">
       <Breadcrumbs
         items={[{ label: "Home", href: "/" }, { label: "Courses" }]}
       />

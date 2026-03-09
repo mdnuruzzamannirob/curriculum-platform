@@ -1,12 +1,10 @@
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { getCourseById } from "@/data/courses";
 import { AppIcon } from "@/lib/icons";
 import { countSubtopics, countTopics, countModules } from "@/utils/course";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CourseProgressSummary from "@/components/course/CourseProgressSummary";
 import LevelCard from "@/components/course/LevelCard";
-import Link from "next/link";
 
 interface CoursePageProps {
   params: Promise<{ courseId: string }>;
@@ -22,24 +20,15 @@ export default async function CoursePage({ params }: CoursePageProps) {
   const totalSubtopics = countSubtopics(course);
 
   return (
-    <div className="app-container space-y-6 py-8">
+    <div className="app-container space-y-6 py-4 sm:py-6 lg:py-8">
       {/* Back + breadcrumbs */}
-      <div className="flex items-center gap-3">
-        <Link
-          href="/course"
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-card-hover"
-          aria-label="Back to courses"
-        >
-          <ArrowLeft className="h-4 w-4" />
-        </Link>
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Courses", href: "/course" },
-            { label: course.title },
-          ]}
-        />
-      </div>
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Courses", href: "/course" },
+          { label: course.title },
+        ]}
+      />
 
       {/* Course header card */}
       <div
@@ -49,7 +38,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
         <div className="flex items-start gap-4">
           <span
             data-accent={course.color}
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-border accent-bg-soft-strong accent-text"
+            className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-border accent-bg-soft-strong accent-text"
           >
             <AppIcon name={course.icon} className="h-7 w-7" strokeWidth={2.2} />
           </span>
@@ -93,20 +82,19 @@ export default async function CoursePage({ params }: CoursePageProps) {
       </div>
 
       {/* Level cards */}
-      <div>
-        <h2 className="mb-4 text-lg font-bold text-foreground">
-          Learning Levels
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {course.levels.map((level, index) => (
-            <LevelCard
-              key={level.id}
-              course={course}
-              level={level}
-              levelIndex={index}
-            />
-          ))}
-        </div>
+
+      <h2 className="mb-4 text-lg font-bold text-foreground">
+        Learning Levels
+      </h2>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {course.levels.map((level, index) => (
+          <LevelCard
+            key={level.id}
+            course={course}
+            level={level}
+            levelIndex={index}
+          />
+        ))}
       </div>
     </div>
   );

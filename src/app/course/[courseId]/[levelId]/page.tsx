@@ -23,25 +23,16 @@ export default async function LevelPage({ params }: LevelPageProps) {
   const nextLevel = course.levels[levelIndex + 1];
 
   return (
-    <div className="app-container space-y-6 py-8">
+    <div className="app-container space-y-6 py-4 sm:py-6 lg:py-8">
       {/* Back + breadcrumbs */}
-      <div className="flex items-center gap-3">
-        <Link
-          href={`/course/${course.id}`}
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-card-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-card-hover"
-          aria-label="Back to course"
-        >
-          <ArrowLeft className="h-4 w-4" />
-        </Link>
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Courses", href: "/course" },
-            { label: course.title, href: `/course/${course.id}` },
-            { label: level.title },
-          ]}
-        />
-      </div>
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Courses", href: "/course" },
+          { label: course.title, href: `/course/${course.id}` },
+          { label: level.title },
+        ]}
+      />
 
       <LevelProgressHeader
         course={course}
@@ -50,18 +41,17 @@ export default async function LevelPage({ params }: LevelPageProps) {
       />
 
       {/* Modules */}
-      <div>
-        <h2 className="mb-4 text-base font-bold text-foreground">Modules</h2>
-        <div className="space-y-4">
-          {level.modules.map((mod) => (
-            <ModuleCard
-              key={mod.id}
-              course={course}
-              levelId={level.id}
-              module={mod}
-            />
-          ))}
-        </div>
+
+      <h2 className="mb-4 text-lg font-bold text-foreground">Modules</h2>
+      <div className="space-y-4">
+        {level.modules.map((mod) => (
+          <ModuleCard
+            key={mod.id}
+            course={course}
+            levelId={level.id}
+            module={mod}
+          />
+        ))}
       </div>
 
       {/* Level navigation */}
