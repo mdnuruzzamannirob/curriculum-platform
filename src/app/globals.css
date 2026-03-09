@@ -218,6 +218,12 @@ button {
   --accent-rgb: 230 126 34;
 }
 
+/* ── NestJS accent colours ─────────────────────────────── */
+[data-accent="#e0234e"] {
+  --accent: #e0234e;
+  --accent-rgb: 224 35 78;
+}
+
 /* ── TypeScript accent colours ─────────────────────────── */
 [data-accent="#60a5fa"] {
   --accent: #60a5fa;

@@ -3,6 +3,7 @@ import { javascriptCourse } from "./javascript";
 import { typescriptCourse } from "./typescript";
 import { nodejsCourse } from "./nodejs";
 import { expressCourse } from "./express";
+import { nestjsCourse } from "./nestjs";
 
 // Register all courses here. To add a new course, create its data file
 // and add it to this array.
@@ -11,6 +12,7 @@ export const courses: Course[] = [
   typescriptCourse,
   nodejsCourse,
   expressCourse,
+  nestjsCourse,
 ];
 
 export function getCourseById(id: string): Course | undefined {
