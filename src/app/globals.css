@@ -230,6 +230,12 @@ button {
   --accent-rgb: 71 162 72;
 }
 
+/* ── PostgreSQL accent colours ──────────────────────────── */
+[data-accent="#336791"] {
+  --accent: #336791;
+  --accent-rgb: 51 103 145;
+}
+
 /* ── TypeScript accent colours ─────────────────────────── */
 [data-accent="#60a5fa"] {
   --accent: #60a5fa;
