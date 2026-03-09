@@ -224,6 +224,12 @@ button {
   --accent-rgb: 224 35 78;
 }
 
+/* ── MongoDB accent colours ─────────────────────────────── */
+[data-accent="#47a248"] {
+  --accent: #47a248;
+  --accent-rgb: 71 162 72;
+}
+
 /* ── TypeScript accent colours ─────────────────────────── */
 [data-accent="#60a5fa"] {
   --accent: #60a5fa;
