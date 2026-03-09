@@ -35,7 +35,7 @@ export default function LevelCard({
   return (
     <Link
       href={`/course/${course.id}/${level.id}`}
-      className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
+      className="group flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-3">

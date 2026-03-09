@@ -162,7 +162,7 @@ export default function AccountPage() {
       />
 
       <div className="flex items-center gap-4">
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-xl font-black text-primary-foreground">
+        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary text-xl font-black text-primary-foreground">
           {initials}
         </span>
         <div>
@@ -198,7 +198,7 @@ export default function AccountPage() {
       {/* Profile tab */}
       {tab === "profile" && (
         <div className="space-y-5 max-w-lg">
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="text-sm font-semibold text-foreground mb-4">
               Profile information
             </h2>
@@ -264,7 +264,7 @@ export default function AccountPage() {
           </div>
 
           {/* Danger zone */}
-          <div className="rounded-2xl border border-destructive/30 bg-card p-6">
+          <div className="rounded-xl border border-destructive/30 bg-card p-6">
             <h2 className="text-sm font-semibold text-foreground mb-1">
               Sign out
             </h2>
@@ -286,7 +286,7 @@ export default function AccountPage() {
       {/* Security tab */}
       {tab === "security" && (
         <div className="max-w-lg">
-          <div className="rounded-2xl border border-border bg-card p-6">
+          <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="text-sm font-semibold text-foreground mb-4">
               Change password
             </h2>

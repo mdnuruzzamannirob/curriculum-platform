@@ -31,7 +31,7 @@ export default function LevelProgressHeader({
   );
 
   return (
-    <div className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 sm:p-8">
+    <div className="flex flex-col gap-5 rounded-xl border border-border bg-card p-6 sm:p-8">
       {/* Level identity */}
       <div className="flex items-start gap-4">
         <span
@@ -40,7 +40,7 @@ export default function LevelProgressHeader({
             backgroundColor: "rgb(var(--accent-rgb) / 0.1)",
             color: "var(--accent)",
           }}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-border text-sm font-black"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border text-sm font-black"
         >
           L{levelIndex}
         </span>

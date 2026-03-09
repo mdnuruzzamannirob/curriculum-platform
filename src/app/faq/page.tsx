@@ -143,11 +143,11 @@ export default function FaqPage() {
                   {section.items.map((item) => (
                     <details
                       key={item.q}
-                      className="group rounded-2xl border border-border bg-card"
+                      className="group rounded-xl border border-border bg-card"
                     >
                       <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold text-foreground marker:hidden [&::-webkit-details-marker]:hidden">
                         <span className="text-sm sm:text-base">{item.q}</span>
-                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border bg-background text-muted-foreground text-lg leading-none group-open:rotate-45">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-muted-foreground text-lg leading-none group-open:rotate-45">
                           +
                         </span>
                       </summary>
@@ -180,7 +180,7 @@ export default function FaqPage() {
               href="/how-it-works"
               className={cn(
                 buttonVariants({ size: "default" }),
-                "h-10 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground hover:opacity-90",
+                "h-10 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground hover:opacity-90",
               )}
             >
               How it works
@@ -188,7 +188,7 @@ export default function FaqPage() {
             </Link>
             <Link
               href="/course"
-              className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-background px-5 text-sm font-medium text-foreground hover:bg-card-hover"
+              className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-background px-5 text-sm font-medium text-foreground hover:bg-card-hover"
             >
               Browse roadmaps
             </Link>

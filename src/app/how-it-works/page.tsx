@@ -129,7 +129,7 @@ export default function HowItWorksPage() {
                 href="/course"
                 className={cn(
                   buttonVariants({ size: "default" }),
-                  "h-11 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90",
+                  "h-11 rounded-xl bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90",
                 )}
               >
                 Browse roadmaps
@@ -137,7 +137,7 @@ export default function HowItWorksPage() {
               </Link>
               <Link
                 href="/faq"
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-6 text-sm font-medium text-card-foreground hover:bg-card-hover"
+                className="inline-flex h-11 items-center gap-2 rounded-xl border border-border bg-card px-6 text-sm font-medium text-card-foreground hover:bg-card-hover"
               >
                 Read the FAQ
               </Link>
@@ -156,7 +156,7 @@ export default function HowItWorksPage() {
             {audiences.map((a) => (
               <span
                 key={a.label}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-medium text-foreground"
               >
                 <span>{a.icon}</span>
                 {a.label}
@@ -183,10 +183,10 @@ export default function HowItWorksPage() {
               return (
                 <div
                   key={step.number}
-                  className="flex gap-6 rounded-2xl border border-border bg-card p-6 sm:p-8"
+                  className="flex gap-6 rounded-xl border border-border bg-card p-6 sm:p-8"
                 >
                   <div className="shrink-0">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-primary text-primary-foreground">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-primary text-primary-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
@@ -228,7 +228,7 @@ export default function HowItWorksPage() {
             {levels.map((level, i) => (
               <div
                 key={level.id}
-                className="rounded-2xl border border-border bg-background p-5"
+                className="rounded-xl border border-border bg-background p-5"
               >
                 <div className="mb-3 flex items-center gap-3">
                   <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-primary text-sm font-black text-primary-foreground">
@@ -249,7 +249,7 @@ export default function HowItWorksPage() {
       <section className="bg-background py-16 sm:py-24">
         <div className="app-container">
           <div className="mx-auto max-w-2xl">
-            <div className="flex gap-4 rounded-2xl border border-border bg-card p-6 sm:p-8">
+            <div className="flex gap-4 rounded-xl border border-border bg-card p-6 sm:p-8">
               <div className="shrink-0">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card-hover">
                   <Users className="h-5 w-5 text-muted-foreground" />
@@ -288,7 +288,7 @@ export default function HowItWorksPage() {
               href="/course"
               className={cn(
                 buttonVariants({ size: "default" }),
-                "h-11 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90",
+                "h-11 rounded-xl bg-primary px-6 text-sm font-medium text-primary-foreground hover:opacity-90",
               )}
             >
               Browse roadmaps
@@ -296,7 +296,7 @@ export default function HowItWorksPage() {
             </Link>
             <Link
               href="/auth/register"
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-card-hover"
+              className="inline-flex h-11 items-center gap-2 rounded-xl border border-border bg-background px-6 text-sm font-medium text-foreground hover:bg-card-hover"
             >
               Create free account
             </Link>

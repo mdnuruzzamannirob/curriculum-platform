@@ -101,12 +101,12 @@ function CopyButton({
       type="button"
       onClick={handleCopy}
       title={`Copy ${label}`}
-      className="ml-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded opacity-0 transition-all group-hover/item:opacity-50 hover:opacity-100!"
+      className="ml-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded opacity-0 transition-all group-hover/item:opacity-60 hover:opacity-100!"
     >
       {copied ? (
-        <Check className="h-3 w-3 text-foreground" strokeWidth={3} />
+        <Check className="h-4 w-4 text-foreground" strokeWidth={3} />
       ) : (
-        <Copy className="h-3 w-3 text-subtle" />
+        <Copy className="h-4 w-4 text-muted-foreground" />
       )}
     </button>
   );
@@ -117,6 +117,7 @@ export default function ModuleCard({
   levelId,
   module,
 }: ModuleCardProps) {
+  const [isModuleExpanded, setIsModuleExpanded] = useState(true);
   const [expandedTopics, setExpandedTopics] = useState<Set<string>>(new Set());
   const { progress, updateSubtopicStatus } = useProgress();
 
@@ -134,10 +135,14 @@ export default function ModuleCard({
   return (
     <div
       data-accent={module.color}
-      className="overflow-hidden rounded-2xl border border-border bg-card"
+      className="overflow-hidden rounded-xl border border-border bg-card"
     >
-      {/* Module header */}
-      <div className="flex items-center gap-3 border-b border-border p-4">
+      {/* Module header — clickable to collapse/expand */}
+      <button
+        type="button"
+        onClick={() => setIsModuleExpanded((prev) => !prev)}
+        className="flex w-full items-start gap-3 p-4 text-left"
+      >
         <span
           data-accent={module.color}
           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border accent-bg-soft accent-text"
@@ -154,123 +159,116 @@ export default function ModuleCard({
           {module.description && (
             <p className="text-xs text-subtle">{module.description}</p>
           )}
-        </div>
 
-        <div className="shrink-0 text-right">
-          <p className="text-sm font-bold text-card-foreground">
-            {moduleStats.percentage}%
-          </p>
+          <div className="flex items-center gap-2 mt-2 ">
+            <div className="flex-1">
+              <ProgressBar
+                percentage={moduleStats.percentage}
+                size="sm"
+                color={module.color}
+                showLabel={false}
+              />
+            </div>
+            <span className="shrink-0 text-xs font-medium text-card-foreground">
+              {moduleStats.percentage}%
+            </span>
+          </div>
           <p className="text-xs text-subtle">
-            {moduleStats.completed}/{moduleStats.total}
+            {moduleStats.completed} of {moduleStats.total} subtopics completed
           </p>
         </div>
-      </div>
 
-      {/* Module progress bar */}
-      <div className="border-b border-border px-4 py-2">
-        <ProgressBar
-          percentage={moduleStats.percentage}
-          size="sm"
-          color={module.color}
-          showLabel={false}
+        <ChevronDown
+          className={cn(
+            "mt-0.5 h-4 w-4 shrink-0 text-disabled transition-transform duration-200",
+            isModuleExpanded && "rotate-180",
+          )}
         />
-      </div>
+      </button>
 
-      {/* Topics list */}
-      <div className="divide-y divide-border">
-        {module.topics.map((topic) => {
-          const topicStats = calcTopicProgress(
-            progress,
-            course.id,
-            levelId,
-            module.id,
-            topic,
-          );
-          const isExpanded = expandedTopics.has(topic.id);
-          const allDone = topicStats.percentage === 100;
-          const inProg =
-            topicStats.inProgress > 0 || (topicStats.completed > 0 && !allDone);
+      {/* Topics list — collapsible */}
+      {isModuleExpanded && (
+        <div className="divide-y divide-border border-t border-border">
+          {module.topics.map((topic) => {
+            const topicStats = calcTopicProgress(
+              progress,
+              course.id,
+              levelId,
+              module.id,
+              topic,
+            );
+            const isExpanded = expandedTopics.has(topic.id);
+            const allDone = topicStats.percentage === 100;
+            const inProg =
+              topicStats.inProgress > 0 ||
+              (topicStats.completed > 0 && !allDone);
 
-          const topicCopyText =
-            `${topic.title}\n` +
-            topic.subtopics.map((s) => `- ${s.title}`).join("\n");
+            const topicCopyText =
+              `${topic.title}\n` +
+              topic.subtopics.map((s) => `- ${s.title}`).join("\n");
 
-          return (
-            <div key={topic.id}>
-              {/* Topic row */}
-              <div className="group/item flex w-full items-center px-4 py-3">
-                <button
+            return (
+              <div key={topic.id}>
+                {/* Topic row — fully clickable */}
+                <div
+                  className="group/item flex w-full cursor-pointer items-center px-4 py-3"
                   onClick={() => toggleTopic(topic.id)}
-                  className="flex flex-1 items-center gap-3 text-left"
                 >
-                  <ChevronDown
-                    className={cn(
-                      "h-4 w-4 shrink-0 text-disabled transition-transform duration-200",
-                      isExpanded && "rotate-180",
-                    )}
-                  />
+                  <div className="flex flex-1 items-center gap-3 text-left">
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 shrink-0 text-disabled transition-transform duration-200",
+                        isExpanded && "rotate-180",
+                      )}
+                    />
 
-                  {/* Status dot */}
-                  <span
-                    className={cn(
-                      "flex h-2 w-2 shrink-0 rounded-full",
-                      allDone
-                        ? "bg-emerald-500"
-                        : inProg
-                          ? "bg-amber-400"
-                          : "bg-border-strong",
-                    )}
-                  />
+                    {/* Status dot */}
+                    <span
+                      className={cn(
+                        "flex h-2 w-2 shrink-0 rounded-full",
+                        allDone
+                          ? "bg-emerald-500"
+                          : inProg
+                            ? "bg-amber-400"
+                            : "bg-border-strong",
+                      )}
+                    />
 
-                  <span
-                    className={cn(
-                      "flex-1 text-sm font-medium",
-                      allDone
-                        ? "text-subtle line-through"
-                        : "text-card-foreground",
-                    )}
-                  >
-                    {topic.title}
+                    <span
+                      className={cn(
+                        "flex-1 text-sm font-medium",
+                        allDone
+                          ? "text-subtle line-through"
+                          : "text-card-foreground",
+                      )}
+                    >
+                      {topic.title}
+                    </span>
+                  </div>
+
+                  <CopyButton text={topicCopyText} label="topic" />
+
+                  <span className="ml-3 shrink-0 text-xs text-subtle">
+                    {topicStats.completed}/{topicStats.total}
                   </span>
-                </button>
+                </div>
 
-                <CopyButton text={topicCopyText} label="topic" />
+                {/* Subtopics */}
+                {isExpanded && (
+                  <div className="space-y-0.5 px-4 pb-3 pt-1">
+                    {topic.subtopics.map((subtopic) => {
+                      const status = getSubtopicStatus(
+                        progress,
+                        course.id,
+                        levelId,
+                        module.id,
+                        topic.id,
+                        subtopic.id,
+                      );
 
-                <span className="ml-3 shrink-0 text-xs text-subtle">
-                  {topicStats.completed}/{topicStats.total}
-                </span>
-              </div>
-
-              {/* Subtopics */}
-              {isExpanded && (
-                <div className="space-y-0.5 px-4 pb-3 pt-1">
-                  {topic.subtopics.map((subtopic) => {
-                    const status = getSubtopicStatus(
-                      progress,
-                      course.id,
-                      levelId,
-                      module.id,
-                      topic.id,
-                      subtopic.id,
-                    );
-
-                    return (
-                      <div
-                        key={subtopic.id}
-                        onClick={() =>
-                          updateSubtopicStatus(
-                            course.id,
-                            levelId,
-                            module.id,
-                            topic.id,
-                            subtopic.id,
-                            nextStatus(status),
-                          )
-                        }
-                        className="group/item flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-1.5 hover:bg-card-hover"
-                      >
-                        <CheckboxButton
-                          status={status}
+                      return (
+                        <div
+                          key={subtopic.id}
                           onClick={() =>
                             updateSubtopicStatus(
                               course.id,
@@ -281,35 +279,50 @@ export default function ModuleCard({
                               nextStatus(status),
                             )
                           }
-                        />
-
-                        <span
-                          className={cn(
-                            "flex-1 text-sm",
-                            status === "completed"
-                              ? "text-subtle line-through opacity-60"
-                              : "text-card-foreground",
-                          )}
+                          className="group/item flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 hover:bg-card-hover"
                         >
-                          {subtopic.title}
-                        </span>
+                          <CheckboxButton
+                            status={status}
+                            onClick={() =>
+                              updateSubtopicStatus(
+                                course.id,
+                                levelId,
+                                module.id,
+                                topic.id,
+                                subtopic.id,
+                                nextStatus(status),
+                              )
+                            }
+                          />
 
-                        {status === "in-progress" && (
-                          <span className="shrink-0 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-medium text-amber-500">
-                            In Progress
+                          <span
+                            className={cn(
+                              "flex-1 text-sm",
+                              status === "completed"
+                                ? "text-subtle line-through opacity-60"
+                                : "text-card-foreground",
+                            )}
+                          >
+                            {subtopic.title}
                           </span>
-                        )}
 
-                        <CopyButton text={subtopic.title} label="subtopic" />
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                          {status === "in-progress" && (
+                            <span className="shrink-0 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-medium text-amber-500">
+                              In Progress
+                            </span>
+                          )}
+
+                          <CopyButton text={subtopic.title} label="subtopic" />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

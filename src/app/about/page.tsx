@@ -112,7 +112,7 @@ export default function AboutPage() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex flex-col items-center rounded-2xl border border-border bg-card p-5 text-center"
+                className="flex flex-col items-center rounded-xl border border-border bg-card p-5 text-center"
               >
                 <p className="text-3xl font-black text-foreground">{s.value}</p>
                 <p className="mt-1 text-xs text-subtle">{s.label}</p>
@@ -223,7 +223,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={v.title}
-                  className="rounded-2xl border border-border bg-card p-5 hover:bg-card-hover"
+                  className="rounded-xl border border-border bg-card p-5 hover:bg-card-hover"
                 >
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                     <Icon className="h-4 w-4" />
@@ -254,7 +254,7 @@ export default function AboutPage() {
             {stack.map((s) => (
               <div
                 key={s.label}
-                className="rounded-2xl border border-border bg-card p-5"
+                className="rounded-xl border border-border bg-card p-5"
               >
                 <p className="font-bold text-card-foreground">{s.label}</p>
                 <p className="mt-1 text-sm text-subtle">{s.desc}</p>
@@ -266,7 +266,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="app-container py-14 sm:py-20">
-        <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-card p-8 text-center sm:p-12">
+        <div className="mx-auto max-w-2xl rounded-xl border border-border bg-card p-8 text-center sm:p-12">
           <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
             Pick your roadmap.
           </h2>

@@ -46,13 +46,13 @@ export default function HowItWorksSection() {
           return (
             <div
               key={item.step}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-card-hover hover:border-border-strong"
+              className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-card-hover hover:border-border-strong"
             >
               <div className="absolute right-4 top-3 text-[3.5rem] font-black leading-none text-faint/20 select-none">
                 {item.step}
               </div>
 
-              <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                 <Icon className="h-5 w-5" />
               </div>
 

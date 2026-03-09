@@ -94,7 +94,7 @@ export default function Header() {
               <Search className="size-4 lg:size-4.5 shrink-0" />{" "}
               <span className="hidden lg:inline">
                 Search
-                <span className="ml-1 bg-card-hover font-mono text-subtle px-2 py-1 leading-none inline-flex items-center justify-center rounded-full">
+                <span className="ml-1 bg-card-hover font-mono text-subtle px-2 py-1 leading-none inline-flex items-center justify-center rounded-xl">
                   Ctrl + K
                 </span>
               </span>
@@ -112,7 +112,7 @@ export default function Header() {
                     href="/auth/login"
                     className={cn(
                       buttonVariants({ size: "default" }),
-                      "h-10 rounded-full bg-primary px-5 text-sm transition duration-100 font-semibold text-primary-foreground hover:opacity-90",
+                      "h-10 rounded-xl bg-primary px-5 text-sm transition duration-100 font-semibold text-primary-foreground hover:opacity-90",
                     )}
                   >
                     Login
@@ -200,7 +200,7 @@ export default function Header() {
                 <Link
                   href="/auth/login"
                   onClick={() => setMenuOpen(false)}
-                  className="flex h-10 items-center justify-center rounded-full border border-border bg-card text-sm font-medium text-card-foreground hover:bg-card-hover"
+                  className="flex h-10 items-center justify-center rounded-xl border border-border bg-card text-sm font-medium text-card-foreground hover:bg-card-hover"
                 >
                   Log in
                 </Link>
@@ -209,7 +209,7 @@ export default function Header() {
                   onClick={() => setMenuOpen(false)}
                   className={cn(
                     buttonVariants({ size: "default" }),
-                    "h-10 rounded-full bg-primary text-sm font-medium text-primary-foreground",
+                    "h-10 rounded-xl bg-primary text-sm font-medium text-primary-foreground",
                   )}
                 >
                   Sign up

@@ -14,7 +14,7 @@ export default function HomeCta() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.04),transparent_35%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_35%)]" />
 
         <div className="relative mx-auto max-w-2xl">
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
             <Stars className="h-6 w-6" />
           </div>
 
@@ -33,7 +33,7 @@ export default function HomeCta() {
               href="/course"
               className={cn(
                 buttonVariants({ size: "default" }),
-                "h-11 rounded-full bg-primary px-7 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
+                "h-11 rounded-xl bg-primary px-7 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
               )}
             >
               <LayoutDashboard className="h-4 w-4" />
@@ -43,7 +43,7 @@ export default function HomeCta() {
             {featuredCourse && (
               <Link
                 href="/dashboard"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-5 text-sm font-medium text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
               >
                 Open Dashboard
                 <ArrowRight className="h-4 w-4" />

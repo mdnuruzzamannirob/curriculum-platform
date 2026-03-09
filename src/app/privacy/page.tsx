@@ -85,7 +85,7 @@ export default function PrivacyPage() {
         </div>
 
         {/* Notice banner */}
-        <div className="mb-10 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4">
+        <div className="mb-10 rounded-xl border border-primary/20 bg-primary/5 px-5 py-4">
           <p className="text-sm font-medium text-foreground">
             Quick summary:{" "}
             <span className="font-normal text-muted-foreground">

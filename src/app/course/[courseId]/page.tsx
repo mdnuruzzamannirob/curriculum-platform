@@ -33,12 +33,12 @@ export default async function CoursePage({ params }: CoursePageProps) {
       {/* Course header card */}
       <div
         data-accent={course.color}
-        className="flex flex-col gap-6 rounded-2xl border border-border bg-card p-6 sm:p-8"
+        className="flex flex-col gap-6 rounded-xl border border-border bg-card p-6 sm:p-8"
       >
         <div className="flex items-start gap-4">
           <span
             data-accent={course.color}
-            className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-border accent-bg-soft-strong accent-text"
+            className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border accent-bg-soft-strong accent-text"
           >
             <AppIcon name={course.icon} className="h-7 w-7" strokeWidth={2.2} />
           </span>

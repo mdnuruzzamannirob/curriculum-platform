@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import {
-  ArrowRight,
   BookOpen,
+  Info,
   LayoutDashboard,
   Stars,
   Target,
@@ -87,7 +87,7 @@ const Banner = () => {
               href="/course"
               className={cn(
                 buttonVariants({ size: "default" }),
-                "h-11 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
+                "h-11 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90",
               )}
             >
               <LayoutDashboard className="h-4 w-4" />
@@ -96,11 +96,11 @@ const Banner = () => {
 
             {featuredCourse && (
               <Link
-                href={`/course/${featuredCourse.id}`}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-card px-5 text-sm font-medium text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
+                href="/how-it-works"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-5 text-sm font-medium text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
               >
-                Explore Roadmaps
-                <ArrowRight className="h-4 w-4" />
+                <Info className="h-4 w-4" />
+                How It Works
               </Link>
             )}
           </div>
@@ -113,10 +113,10 @@ const Banner = () => {
               return (
                 <div
                   key={item.label}
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-card/90 p-4 text-left backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-border-strong hover:bg-card-hover hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
+                  className="group relative overflow-hidden rounded-xl border border-border bg-card/90 p-4 text-left backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-border-strong hover:bg-card-hover hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
                 >
                   <div className="relative flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-primary text-primary-foreground transition-all duration-300 group-hover:scale-105 group-hover:rotate-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-primary text-primary-foreground transition-all duration-300 group-hover:scale-105 group-hover:rotate-3">
                       <Icon className="size-4.5" />
                     </div>
 

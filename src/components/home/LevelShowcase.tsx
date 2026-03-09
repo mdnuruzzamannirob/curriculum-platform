@@ -61,7 +61,7 @@ export default function LevelShowcase() {
               <Link
                 key={level.id}
                 href={`/course/${featuredCourse.id}/${level.id}`}
-                className={`group relative overflow-hidden rounded-2xl border bg-linear-to-br p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${colorClass}`}
+                className={`group relative overflow-hidden rounded-xl border bg-linear-to-br p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${colorClass}`}
               >
                 {/* Level number badge */}
                 <span className="absolute right-4 top-3 text-[2.8rem] font-black leading-none text-foreground/5 select-none">

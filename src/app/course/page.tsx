@@ -31,13 +31,13 @@ export default function CoursesPage() {
               key={course.id}
               href={`/course/${course.id}`}
               data-accent={course.color}
-              className="group flex flex-col gap-5 rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
+              className="group flex flex-col gap-5 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
             >
               {/* Icon + title */}
               <div className="flex items-start gap-4">
                 <span
                   data-accent={course.color}
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-border accent-bg-soft-strong accent-text"
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border accent-bg-soft-strong accent-text"
                 >
                   <AppIcon
                     name={course.icon}

@@ -72,7 +72,7 @@ export default function Reviews() {
           {reviews.map((r) => (
             <div
               key={r.name}
-              className="flex flex-col justify-between gap-4 rounded-2xl border border-border bg-background p-6"
+              className="flex flex-col justify-between gap-4 rounded-xl border border-border bg-background p-6"
             >
               <div className="space-y-3">
                 <StarRow />

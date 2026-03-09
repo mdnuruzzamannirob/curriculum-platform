@@ -72,7 +72,7 @@ export default function DashboardClient() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col gap-1 rounded-2xl border border-border bg-card p-5"
+              className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5"
             >
               <p className="text-xs text-subtle">{stat.label}</p>
               {isLoaded || stat.value !== null ? (
@@ -103,13 +103,13 @@ export default function DashboardClient() {
             <div
               key={course.id}
               data-accent={course.color}
-              className="rounded-2xl border border-border bg-card overflow-hidden"
+              className="rounded-xl border border-border bg-card overflow-hidden"
             >
               {/* Course header */}
               <div className="flex items-center gap-4 p-5 pb-4">
                 <span
                   data-accent={course.color}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border accent-bg-soft-strong accent-text"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border accent-bg-soft-strong accent-text"
                 >
                   <AppIcon
                     name={course.icon}
@@ -125,7 +125,7 @@ export default function DashboardClient() {
                     </p>
                     <Link
                       href={`/course/${course.id}`}
-                      className="inline-flex items-center gap-1 hover:bg-card-hover border border-border px-4 rounded-full py-2 text-xs text-subtle hover:text-foreground transition-colors"
+                      className="inline-flex items-center gap-1 hover:bg-card-hover border border-border px-4 rounded-xl py-2 text-xs text-subtle hover:text-foreground transition-colors"
                     >
                       Open <ArrowRight className="h-3 w-3" />
                     </Link>
