@@ -1,155 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  ChevronRight,
-  Github,
-  LogOut,
-  Menu,
-  Search,
-  Settings,
-  User,
-  X,
-} from "lucide-react";
+import { LogOut, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Theme from "@/components/layout/Theme";
 import Searchbar from "./Searchbar";
 import BrandLogo from "../BrandLogo";
 import { useAuth } from "@/context/AuthContext";
+import GitHubStars from "./GitHubStars";
+import UserMenu from "./UserMenu";
 
 const navItems = [
   { label: "Roadmaps", href: "/course" },
-  { label: "Dashboard", href: "/dashboard" },
   { label: "How it works", href: "/how-it-works" },
+  { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
 ];
-
-function GitHubStars() {
-  const [stars, setStars] = useState<number | null>(null);
-
-  useEffect(() => {
-    fetch("https://api.github.com/repos/mdnuruzzamannirob/curriculum-platform")
-      .then((r) => r.json())
-      .then((d) => {
-        if (typeof d?.stargazers_count === "number") {
-          setStars(d.stargazers_count);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
-  return (
-    <a
-      href="https://github.com/mdnuruzzamannirob/curriculum-platform"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hidden h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-medium text-card-foreground hover:bg-card-hover sm:inline-flex"
-      aria-label="GitHub repository"
-    >
-      <Github className="h-4 w-4 shrink-0" />
-      {stars !== null && (
-        <span>{stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars}</span>
-      )}
-      <span className="hidden lg:inline">Star</span>
-    </a>
-  );
-}
-
-function UserMenu() {
-  const { user, logout } = useAuth();
-  const router = useRouter();
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  if (!user) return null;
-
-  const initials = user.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
-  function handleLogout() {
-    logout();
-    setOpen(false);
-    router.push("/");
-  }
-
-  return (
-    <div ref={ref} className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex h-10 items-center gap-2 rounded-full border border-border bg-card px-3 text-card-foreground hover:bg-card-hover"
-        aria-expanded={open}
-        aria-label="User menu"
-      >
-        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-black text-primary-foreground">
-          {initials}
-        </span>
-        <span className="hidden max-w-24 truncate text-xs font-medium sm:block">
-          {user.name}
-        </span>
-        <ChevronRight
-          className={cn(
-            "h-3.5 w-3.5 text-muted-foreground",
-            open && "rotate-90",
-          )}
-        />
-      </button>
-
-      {open && (
-        <div className="absolute right-0 top-12 z-50 min-w-48 rounded-2xl border border-border bg-popover p-1 shadow-xl">
-          <div className="border-b border-border px-3 py-2.5">
-            <p className="text-xs font-semibold text-popover-foreground">
-              {user.name}
-            </p>
-            <p className="truncate text-xs text-faint">{user.email}</p>
-          </div>
-          <Link
-            href="/dashboard"
-            onClick={() => setOpen(false)}
-            className="mt-1 flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-medium text-popover-foreground hover:bg-card-hover"
-          >
-            <User className="h-3.5 w-3.5" />
-            Dashboard
-          </Link>
-          <Link
-            href="/account"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-medium text-popover-foreground hover:bg-card-hover"
-          >
-            <Settings className="h-3.5 w-3.5" />
-            Account settings
-          </Link>
-          <div className="my-1 border-t border-border" />
-          <button
-            type="button"
-            onClick={handleLogout}
-            className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-xs font-medium text-destructive hover:bg-destructive/10"
-          >
-            <LogOut className="h-3.5 w-3.5" />
-            Sign out
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function Header() {
   const { user, isLoaded, logout } = useAuth();
@@ -157,22 +26,27 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
+  // ESC to close + Ctrl+K to open + body scroll lock
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMenuOpen(false);
         setSearchOpen(false);
       }
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
     };
 
-    window.addEventListener("keydown", handleEsc);
-    document.body.style.overflow = menuOpen || searchOpen ? "hidden" : "";
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = searchOpen ? "hidden" : "";
 
     return () => {
-      window.removeEventListener("keydown", handleEsc);
+      document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [menuOpen, searchOpen]);
+  }, [searchOpen]);
 
   function handleMobileLogout() {
     logout();
@@ -184,14 +58,14 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl">
         <div className="app-container flex h-18 items-center justify-between gap-3">
-          <div className="flex items-center gap-3 lg:gap-10">
+          <div className="flex items-center gap-2 sm:gap-3 lg:gap-10">
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-card-foreground lg:hidden"
+              className="inline-flex size-9 lg:size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-card-foreground lg:hidden"
               aria-label="Open menu"
             >
-              <Menu className="h-5 w-5" />
+              <Menu className="size-4 lg:size-4.5" />
             </button>
 
             <BrandLogo />
@@ -201,7 +75,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground"
+                  className="text-sm font-medium text-muted-foreground transition duration-100 hover:text-foreground"
                 >
                   {item.label}
                 </Link>
@@ -209,30 +83,24 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1 sm:gap-3">
             {/* Desktop search pill */}
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="hidden h-10 w-52 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm text-muted-foreground hover:bg-card-hover lg:inline-flex"
+              className="lg:h-10 h-9 gap-2 rounded-xl items-center justify-center border border-border bg-card max-lg:w-9 lg:px-3 text-sm hover:text-card-foreground text-muted-foreground transition duration-100 hover:bg-card-hover inline-flex"
               aria-label="Open search"
             >
-              <Search className="h-4 w-4 shrink-0" />
-              Search roadmaps...
-            </button>
-            {/* Mobile search icon */}
-            <button
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-card-foreground hover:bg-card-hover lg:hidden"
-              aria-label="Open search"
-              title="Search"
-            >
-              <Search className="size-4" />
+              <Search className="size-4 lg:size-4.5 shrink-0" />{" "}
+              <span className="hidden lg:inline">
+                Search
+                <span className="ml-1 bg-card-hover font-mono text-subtle px-2 py-1 leading-none inline-flex items-center justify-center rounded-full">
+                  Ctrl + K
+                </span>
+              </span>
             </button>
 
             <GitHubStars />
-
             <Theme />
 
             {isLoaded && (
@@ -240,24 +108,15 @@ export default function Header() {
                 {user ? (
                   <UserMenu />
                 ) : (
-                  <div className="flex items-center gap-2">
-                    <Link
-                      href="/auth/login"
-                      className="hidden h-9 items-center px-3 transition-all duration-300 hover:-translate-y-0.5 text-sm hover:bg-card-hover font-medium rounded-full text-muted-foreground hover:text-foreground sm:inline-flex"
-                    >
-                      Log in
-                    </Link>
-                    <Link
-                      href="/auth/register"
-                      className={cn(
-                        buttonVariants({ size: "default" }),
-                        "h-9 rounded-full bg-primary px-5 text-sm transition-all duration-300 hover:-translate-y-0.5 font-medium text-primary-foreground hover:opacity-90",
-                      )}
-                    >
-                      Sign up
-                      <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </div>
+                  <Link
+                    href="/auth/login"
+                    className={cn(
+                      buttonVariants({ size: "default" }),
+                      "h-10 rounded-full bg-primary px-5 text-sm transition duration-100 font-semibold text-primary-foreground hover:opacity-90",
+                    )}
+                  >
+                    Login
+                  </Link>
                 )}
               </>
             )}
@@ -305,7 +164,7 @@ export default function Header() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="flex h-11 items-center rounded-xl px-3 text-sm font-medium text-muted-foreground hover:bg-card-hover hover:text-foreground"
+                className="flex h-11 items-center rounded-sm px-3 text-sm font-medium text-muted-foreground hover:bg-card-hover hover:text-foreground"
               >
                 {item.label}
               </Link>
@@ -314,30 +173,26 @@ export default function Header() {
 
           <div className="mt-auto border-t border-border pt-4">
             {isLoaded && user ? (
-              <div className="space-y-2">
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-card px-3 py-2.5">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
-                    {user.name
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")
-                      .slice(0, 2)
-                      .toUpperCase()}
-                  </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-foreground">
-                      {user.name}
-                    </p>
-                    <p className="truncate text-xs text-faint">{user.email}</p>
-                  </div>
+              <div className="flex items-center gap-3 rounded-sm border border-border bg-card px-3 py-2.5">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
+                  {user.name
+                    .split(" ")
+                    .map((w) => w[0])
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase()}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-foreground">
+                    {user.name}
+                  </p>
+                  <p className="truncate text-xs text-faint">{user.email}</p>
                 </div>
                 <button
-                  type="button"
                   onClick={handleMobileLogout}
-                  className="flex h-11 w-full items-center gap-2 rounded-xl px-3 text-sm font-medium text-destructive hover:bg-destructive/10"
+                  className="flex size-8 shrink-0 items-center justify-center rounded-full bg-destructive/10 text-sm font-black text-destructive"
                 >
-                  <LogOut className="h-4 w-4" />
-                  Sign out
+                  <LogOut className="size-4 shrink-0" />
                 </button>
               </div>
             ) : (

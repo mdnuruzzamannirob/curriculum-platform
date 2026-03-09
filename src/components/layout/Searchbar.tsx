@@ -26,7 +26,7 @@ const TYPE_CLS: Record<SearchItem["type"], string> = {
   level: "bg-emerald-500/10 text-emerald-600",
   module: "bg-amber-500/10 text-amber-600",
   topic: "bg-violet-500/10 text-violet-500",
-  subtopic: "bg-border text-subtle",
+  subtopic: "bg-gray-500/10 text-subtle",
 };
 
 const searchIndex = buildSearchIndex(courses);
@@ -54,9 +54,9 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-90 bg-black/60 backdrop-blur-md">
-      <div className="mx-auto flex h-full w-full max-w-2xl flex-col px-4 pt-14 sm:px-6">
-        <div className="overflow-hidden rounded-[28px] border border-border bg-popover text-popover-foreground shadow-2xl">
+    <div className="fixed inset-0 z-90 backdrop-blur">
+      <div className="mx-auto flex h-full w-full max-w-2xl flex-col px-4 pt-10 sm:px-6">
+        <div className="overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-2xl">
           {/* Input row */}
           <div className="flex items-center gap-3 border-b border-border px-4">
             <Search className="h-5 w-5 shrink-0 text-faint" />
@@ -88,16 +88,18 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
                       key={`${item.href}-${i}`}
                       href={item.href}
                       onClick={handleClose}
-                      className="flex items-start gap-3 rounded-xl px-3 py-2.5 hover:bg-card-hover"
+                      className="flex items-start gap-3 rounded-sm px-3 py-2.5 hover:bg-card-hover"
                     >
-                      <span
-                        className={cn(
-                          "mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide",
-                          TYPE_CLS[item.type],
-                        )}
-                      >
-                        {TYPE_LABEL[item.type]}
-                      </span>
+                      <div className="min-w-16">
+                        <span
+                          className={cn(
+                            "mt-0.5 shrink-0 rounded-md px-1.5  py-0.5 text-[10px] font-semibold uppercase tracking-wide",
+                            TYPE_CLS[item.type],
+                          )}
+                        >
+                          {TYPE_LABEL[item.type]}
+                        </span>
+                      </div>
                       <div className="min-w-0">
                         <p className="text-sm font-medium text-foreground">
                           {item.title}
@@ -124,7 +126,7 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
                     key={item.label}
                     href={item.href}
                     onClick={handleClose}
-                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-card-hover"
+                    className="flex items-center gap-3 rounded-sm px-3 py-2.5 hover:bg-card-hover"
                   >
                     <span className="text-sm font-medium text-foreground">
                       {item.label}
@@ -136,7 +138,13 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
           </div>
 
           <div className="flex items-center justify-between border-t border-border px-5 py-2.5">
-            <span className="text-xs text-faint">Press ESC to close</span>
+            <span className="text-xs text-faint">
+              Press{" "}
+              <span className="bg-card-hover rounded px-1 py-0.5 font-bold">
+                ESC
+              </span>{" "}
+              to close
+            </span>
             {query.trim() && results.length > 0 && (
               <span className="text-xs text-faint">
                 {results.length} results
