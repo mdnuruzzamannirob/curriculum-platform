@@ -42,7 +42,7 @@ const Banner = () => {
   ];
 
   return (
-    <section className="relative flex min-h-[calc(100vh-72px)] items-center justify-center overflow-hidden bg-background">
+    <section className="relative flex min-h-[calc(100vh-73px)] items-center justify-center overflow-hidden bg-background">
       {/* Base */}
       <div className="absolute inset-0 -z-30 bg-background" />
 
