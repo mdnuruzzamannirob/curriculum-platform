@@ -13,24 +13,28 @@ export function buildSearchIndex(courses: Course[]): SearchItem[] {
     });
 
     for (const level of course.levels) {
+      const levelHref = `/course/${course.id}/${level.id}`;
+
       items.push({
         type: "level",
         title: level.title,
         breadcrumb: `${course.title} › ${level.title}`,
-        href: `/course/${course.id}?level=${level.id}`,
+        href: levelHref,
       });
 
       for (const mod of level.modules) {
+        const moduleAnchor = `module-${mod.id}`;
+
         items.push({
           type: "module",
           title: mod.title,
           breadcrumb: `${course.title} › ${level.title} › ${mod.title}`,
-          href: `/course/${course.id}?level=${level.id}&module=${mod.id}`,
+          href: `${levelHref}#${moduleAnchor}`,
         });
 
         for (const topic of mod.topics) {
-          // Topic → open within course page (level+module+topic)
-          const topicHref = `/course/${course.id}?level=${level.id}&module=${mod.id}&topic=${topic.id}`;
+          const topicAnchor = `topic-${mod.id}-${topic.id}`;
+          const topicHref = `${levelHref}#${topicAnchor}`;
           items.push({
             type: "topic",
             title: topic.title,
@@ -39,12 +43,12 @@ export function buildSearchIndex(courses: Course[]): SearchItem[] {
           });
 
           for (const sub of topic.subtopics) {
-            // Subtopic → open course page at right level/module/topic and highlight subtopic
+            const subtopicAnchor = `subtopic-${mod.id}-${topic.id}-${sub.id}`;
             items.push({
               type: "subtopic",
               title: sub.title,
               breadcrumb: `${course.title} › ${level.title} › ${mod.title} › ${topic.title} › ${sub.title}`,
-              href: `/course/${course.id}?level=${level.id}&module=${mod.id}&topic=${topic.id}&subtopic=${sub.id}`,
+              href: `${levelHref}#${subtopicAnchor}`,
             });
           }
         }

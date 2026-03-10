@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, ChevronDown, Copy } from "lucide-react";
 import { Course, Module, SubtopicStatus } from "@/types";
 import { useProgress } from "@/context/ProgressContext";
@@ -24,6 +24,22 @@ function nextStatus(current: SubtopicStatus): SubtopicStatus {
   if (current === "not-started") return "in-progress";
   if (current === "in-progress") return "completed";
   return "not-started";
+}
+
+function moduleAnchorId(moduleId: string): string {
+  return `module-${moduleId}`;
+}
+
+function topicAnchorId(moduleId: string, topicId: string): string {
+  return `topic-${moduleId}-${topicId}`;
+}
+
+function subtopicAnchorId(
+  moduleId: string,
+  topicId: string,
+  subtopicId: string,
+): string {
+  return `subtopic-${moduleId}-${topicId}-${subtopicId}`;
 }
 
 function StatusIcon({ status }: { status: SubtopicStatus }) {
@@ -132,10 +148,71 @@ export default function ModuleCard({
     });
   };
 
+  useEffect(() => {
+    const applyHashExpansion = () => {
+      let hash = window.location.hash;
+      if (!hash) return;
+
+      try {
+        hash = decodeURIComponent(hash);
+      } catch {
+        // Keep the original hash if decoding fails.
+      }
+
+      const normalizedHash = hash.replace(/^#/, "");
+      if (!normalizedHash) return;
+
+      if (normalizedHash === moduleAnchorId(module.id)) {
+        setIsModuleExpanded(true);
+        return;
+      }
+
+      const matchedTopic = module.topics.find(
+        (topic) => normalizedHash === topicAnchorId(module.id, topic.id),
+      );
+
+      if (matchedTopic) {
+        setIsModuleExpanded(true);
+        setExpandedTopics((prev) => {
+          if (prev.has(matchedTopic.id)) return prev;
+          const next = new Set(prev);
+          next.add(matchedTopic.id);
+          return next;
+        });
+        return;
+      }
+
+      const matchedSubtopicTopic = module.topics.find((topic) =>
+        normalizedHash.startsWith(`subtopic-${module.id}-${topic.id}-`),
+      );
+
+      if (!matchedSubtopicTopic) return;
+
+      setIsModuleExpanded(true);
+      setExpandedTopics((prev) => {
+        if (prev.has(matchedSubtopicTopic.id)) return prev;
+        const next = new Set(prev);
+        next.add(matchedSubtopicTopic.id);
+        return next;
+      });
+
+      window.setTimeout(() => {
+        document
+          .getElementById(normalizedHash)
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
+    };
+
+    applyHashExpansion();
+    window.addEventListener("hashchange", applyHashExpansion);
+    return () => window.removeEventListener("hashchange", applyHashExpansion);
+  }, [module.id, module.topics]);
+
   return (
     <div
+      id={moduleAnchorId(module.id)}
       data-accent={module.color}
-      className="overflow-hidden rounded-xl border border-border bg-card"
+      className="scroll-mt-28 overflow-hidden rounded-xl border border-border bg-card"
     >
       {/* Module header — clickable to collapse/expand */}
       <button
@@ -211,7 +288,8 @@ export default function ModuleCard({
               <div key={topic.id}>
                 {/* Topic row — fully clickable */}
                 <div
-                  className="group/item flex w-full cursor-pointer items-center px-4 py-3"
+                  id={topicAnchorId(module.id, topic.id)}
+                  className="group/item scroll-mt-28 flex w-full cursor-pointer items-center px-4 py-3"
                   onClick={() => toggleTopic(topic.id)}
                 >
                   <div className="flex flex-1 items-center gap-3 text-left">
@@ -269,6 +347,11 @@ export default function ModuleCard({
                       return (
                         <div
                           key={subtopic.id}
+                          id={subtopicAnchorId(
+                            module.id,
+                            topic.id,
+                            subtopic.id,
+                          )}
                           onClick={() =>
                             updateSubtopicStatus(
                               course.id,
@@ -279,7 +362,7 @@ export default function ModuleCard({
                               nextStatus(status),
                             )
                           }
-                          className="group/item flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 hover:bg-card-hover"
+                          className="group/item scroll-mt-28 flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 hover:bg-card-hover"
                         >
                           <CheckboxButton
                             status={status}

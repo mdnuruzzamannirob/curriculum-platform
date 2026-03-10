@@ -178,7 +178,7 @@ export default function HowItWorksPage() {
           </div>
 
           <div className="relative mt-14 space-y-8 sm:mt-16">
-            {steps.map((step, i) => {
+            {steps.map((step) => {
               const Icon = step.icon;
               return (
                 <div

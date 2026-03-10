@@ -12,6 +12,7 @@ import {
 const AUTH_KEY = "lp-auth-user";
 const OTP_KEY = "lp-auth-otp";
 const USERS_KEY = "lp-users";
+const AUTH_CHANGE_EVENT = "lp-auth-change";
 
 export interface AuthUser {
   id: string;
@@ -70,6 +71,10 @@ function readUser(): AuthUser | null {
 function writeUser(u: AuthUser | null) {
   if (u) localStorage.setItem(AUTH_KEY, JSON.stringify(u));
   else localStorage.removeItem(AUTH_KEY);
+
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event(AUTH_CHANGE_EVENT));
+  }
 }
 
 function readUsers(): StoredUser[] {
@@ -94,8 +99,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoaded(true);
 
     const sync = () => setUser(readUser());
-    window.addEventListener("lp-auth-change", sync);
-    return () => window.removeEventListener("lp-auth-change", sync);
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === AUTH_KEY || event.key === null) {
+        sync();
+      }
+    };
+
+    window.addEventListener(AUTH_CHANGE_EVENT, sync);
+    window.addEventListener("storage", handleStorage);
+    return () => {
+      window.removeEventListener(AUTH_CHANGE_EVENT, sync);
+      window.removeEventListener("storage", handleStorage);
+    };
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
