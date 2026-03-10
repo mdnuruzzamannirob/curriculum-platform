@@ -21,7 +21,8 @@ export const l2Level: Level = {
           subtopics: [
             {
               id: "event-loop-phases",
-              title: "Event Loop Phases (timers → pending → idle/prepare → poll → check → close)",
+              title:
+                "Event Loop Phases (timers → pending → idle/prepare → poll → check → close)",
             },
             {
               id: "timers-phase",
@@ -33,14 +34,14 @@ export const l2Level: Level = {
             },
             {
               id: "idle-prepare-phase",
-              title: "Phase 3 & 4 — Idle & Prepare (internal)",
+              title: "Phase 3 — Idle & Prepare (internal)",
             },
             {
               id: "poll-phase",
-              title: "Phase 5 — Poll (blocking for I/O events)",
+              title: "Phase 4 — Poll (blocking for I/O events)",
             },
-            { id: "check-phase", title: "Phase 6 — Check (setImmediate)" },
-            { id: "close-callbacks-phase", title: "Phase 7 — Close Callbacks" },
+            { id: "check-phase", title: "Phase 5 — Check (setImmediate)" },
+            { id: "close-callbacks-phase", title: "Phase 6 — Close Callbacks" },
             {
               id: "microtasks-queue",
               title: "Microtask Queues (nextTick queue + Promise queue)",
@@ -543,7 +544,8 @@ export const l2Level: Level = {
             },
             {
               id: "cluster-benefit-qa",
-              title: "How does cluster improve throughput, and what are limits?",
+              title:
+                "How does cluster improve throughput, and what are limits?",
             },
             {
               id: "sharedarraybuffer-qa",

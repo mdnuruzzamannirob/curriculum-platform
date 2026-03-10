@@ -139,7 +139,7 @@ export const l2Level: Level = {
             { id: "groups-capturing", title: "Groups & Capturing ()" },
             {
               id: "lookahead-behind",
-              title: "Lookahead & Lookbehind (?=, ?<!)",
+              title: "Lookahead & Lookbehind (?=, ?!, ?<=, ?<!)",
             },
             {
               id: "regex-methods",
