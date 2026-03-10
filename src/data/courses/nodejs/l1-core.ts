@@ -389,7 +389,8 @@ export const l1Level: Level = {
             { id: "clearImmediate", title: "clearImmediate()" },
             {
               id: "process-nextTick-timer",
-              title: "process.nextTick() — before I/O",
+              title:
+                "process.nextTick() — runs before Promise callbacks and before I/O phase resumes",
             },
             {
               id: "nextTick-vs-setImmediate",

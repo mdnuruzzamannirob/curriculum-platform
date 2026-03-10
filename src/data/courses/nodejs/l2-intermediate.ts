@@ -146,8 +146,9 @@ export const l2Level: Level = {
         },
         {
           id: "cluster-module",
-          title: "Cluster Module",
-          description: "Multi-process Node.js for multi-core CPUs.",
+          title: "Cluster Module & Multi-Process Scaling",
+          description:
+            "Multi-process Node.js for multi-core CPUs, often paired with horizontal scaling.",
           subtopics: [
             {
               id: "cluster-why",
@@ -177,6 +178,11 @@ export const l2Level: Level = {
             {
               id: "pm2-as-cluster",
               title: "PM2 as cluster manager (cluster mode)",
+            },
+            {
+              id: "cluster-vs-horizontal",
+              title:
+                "Cluster vs worker_threads vs horizontal scaling — decision guide",
             },
           ],
         },
@@ -537,7 +543,7 @@ export const l2Level: Level = {
             },
             {
               id: "cluster-benefit-qa",
-              title: "How does cluster improve throughput?",
+              title: "How does cluster improve throughput, and what are limits?",
             },
             {
               id: "sharedarraybuffer-qa",

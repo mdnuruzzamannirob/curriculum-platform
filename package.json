@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "validate:courses": "npx tsx scripts/validate-courses.mts"
+    "validate:courses": "npx tsx scripts/validate-courses.mts",
+    "audit:courses": "npx tsx scripts/audit-course-content.mts",
+    "report:topics": "npx tsx scripts/generate-topic-parity-report.mts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

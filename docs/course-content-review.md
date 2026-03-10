@@ -16,6 +16,7 @@ This note documents the review approach used for `src/data/courses` and the prim
 
 1. Structural validation
    - Run `npm run validate:courses` to detect duplicate IDs, empty titles, and invalid course shapes.
+   - Run `npm run audit:courses` to scan high-risk wording (`deprecated`, `legacy`, `experimental`, etc.).
 2. High-risk terminology scan
    - Scan for legacy/deprecated API mentions and ensure they are explicitly marked as legacy/deprecated when needed.
 3. Official docs spot-check

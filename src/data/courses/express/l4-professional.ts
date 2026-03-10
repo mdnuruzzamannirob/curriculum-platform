@@ -138,7 +138,8 @@ export const l4Level: Level = {
             },
             {
               id: "cluster-mode",
-              title: "Node.js cluster module — multi-core usage",
+              title:
+                "Node.js cluster module + horizontal scaling (multi-core strategy)",
             },
             {
               id: "pm2-setup",
@@ -440,7 +441,8 @@ export const l4Level: Level = {
             },
             {
               id: "cluster-event-loop-qa",
-              title: "Why does Node.js cluster module help performance?",
+              title:
+                "When to use cluster vs worker_threads vs horizontal scaling?",
             },
             {
               id: "connection-pool-size-qa",

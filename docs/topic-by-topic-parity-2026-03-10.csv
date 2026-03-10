@@ -1,0 +1,680 @@
+course_id,level_id,module_id,topic_id,topic_title,subtopic_count,risk_tags,status,note,source
+javascript,entry,js,variables,Variables & Declarations,7,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,data-types,Data Types — Primitive & Reference,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,operators,"Operators — Arithmetic, Logical & Comparison",9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,control-flow,Control Flow — Conditionals & Loops,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,type-coercion,Type Coercion — Implicit & Explicit Conversion,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,console-debugging,Console & Debugging,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,functions-basics,"Functions — Declaration, Expression & Arrow",6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,strings-arrays-basics,Strings & Arrays — Essential Operations,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,objects-basics,"Objects — Literals, Properties & Methods",8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,comments-syntax,"Comments, Semicolons & Code Structure",6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,dom-preview,"Browser Interaction — alert, prompt & confirm",6,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,js,number-methods,Number Methods & Conversions,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,arrays-basics,Arrays — Complete Operations & Manipulation,10,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,string-dsa,"String Manipulation — Reverse, Palindrome & More",7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,basic-math,Math & Number Problems,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,pattern-problems,Pattern Printing Problems,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,intro-complexity,Big O Notation — Time & Space Complexity,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,basic-searching,Linear Search & Basic Lookup,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,dsa,frequency-count-basic,Frequency Counting — Object as Map,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,iq,js-fundamentals-qa,JS Fundamentals,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,iq,variables-qa,Variables & Types Q&A,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,iq,operators-flow-qa,Operators & Control Flow Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,iq,functions-basics-qa,Functions Basics Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,iq,strings-arrays-qa,Strings & Arrays Basics Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,entry,iq,problem-solving-qa,Problem Solving Approach Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,functions,"Functions — In Depth (HOF, Callbacks, IIFE)",8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,objects,"Objects — In Depth (Destructuring, Spread, Freeze)",9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,array-methods,"Array Methods — map, filter, reduce & More",11,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,scope-closures,"Scope & Closures — Lexical, Block & Chain",8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,this-keyword,The 'this' Keyword,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,error-handling,Error Handling — try/catch & Custom Errors,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,dom-basics,DOM Manipulation — Elements & Events,10,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,dates-time,Date & Time,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,json-methods,"JSON — parse, stringify & Deep Clone",7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,map-set,Map & Set,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,math-number-methods,Math & Number Methods,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,string-methods-advanced,String Methods Advanced,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,event-loop-intro,Event Loop & Asynchronous Preview,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,iteration-protocols,Iterables & for...of Protocol,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,js,storage-basics,Web Storage — localStorage & sessionStorage,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,searching,Searching Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,sorting-basics,Sorting Algorithms,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,recursion,Recursion — Fundamentals & Call Stack,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,two-pointers,Two Pointers & Sliding Window,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,prefix-sum,Prefix Sum Technique,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,matrix-problems,Matrix / 2D Array Problems,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,bit-manipulation-basics,Bit Manipulation Basics,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,frequency-counter,Frequency Counter Pattern,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,dsa,hashing-basics,Hashing Concepts — Hash Functions & Collisions,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,core-concepts-qa,Core Concepts Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,functions-qa,Functions & Closures Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,dom-qa,DOM & Events Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,coding-challenges-basic,Basic Coding Challenges,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,array-methods-qa,Array Methods Interview Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,error-handling-qa,Error Handling Q&A,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,junior,iq,objects-this-qa,Objects & 'this' Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,async-javascript,"Async JavaScript — Callbacks, Promises & async/await",11,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,es6-features,ES6+ Modern Features,10,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,prototypes-classes,Prototypes & Classes — OOP in JavaScript,11,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,modules-system,JavaScript Module System,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,regex,Regular Expressions — Pattern Matching & Flags,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,web-apis,"Web APIs — Fetch, Storage, Timers & Observers",10,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,typed-arrays,Typed Arrays & Binary Data,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,intl-api,Internationalization (Intl API),7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,abort-cancellation,AbortController & Cancellation,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,event-advanced,Advanced Event Handling — CustomEvent & Composition,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,collections-advanced,"WeakMap, WeakSet & WeakRef — Weak References",6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,js,structured-data,Structured Clone & Data Serialization,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,linked-lists,"Linked Lists — Singly, Doubly & Operations",9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,stacks-queues,"Stacks & Queues — LIFO, FIFO & Monotonic",9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,hash-maps,Hash Maps & Sets,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,sliding-window,Sliding Window Patterns,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,binary-search-advanced,Binary Search — Advanced Patterns & Variants,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,recursion-patterns,Recursion Patterns,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,divide-conquer,Divide & Conquer Strategy,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,dsa,interval-problems,Interval & Range Problems,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,runtime-concepts-qa,JS Runtime Concepts Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,async-qa,Async & Promises Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,oop-qa,OOP & Prototypes Q&A,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,coding-challenges-qa,Coding Challenges,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,module-pattern-qa,Modules & Patterns Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,regex-qa,Regular Expressions Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,web-apis-qa,Web APIs & Browser Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,mid,iq,data-structures-qa,Data Structures Interview Q&A,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,design-patterns,"Design Patterns — Singleton, Observer, Factory & More",11,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,memory-management,"Memory Management — GC, Leaks & Profiling",8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,proxy-reflect,Proxy & Reflect API,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,advanced-functions,Advanced Function Concepts,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,symbols-iterators,Symbols & Well-Known Symbols,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,error-handling-advanced,Advanced Error Handling,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,functional-programming,Functional Programming Paradigm,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,object-internals,Object Internals & Descriptors,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,concurrency-patterns,Concurrency & Async Patterns,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,meta-programming,Meta-programming — Beyond Proxy,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,js,engine-optimization-hints,JS Engine Optimization Hints,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,trees,"Trees — Binary Tree, BST & Traversals",11,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,heaps,Heaps & Priority Queues,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,graphs,"Graphs — BFS, DFS & Representations",9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,hash-tables-deep,Hash Tables Internals,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,trie,Trie (Prefix Tree),5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,bit-manipulation,Bit Manipulation Techniques,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,union-find,Union-Find (Disjoint Set Union),6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,shortest-paths,Shortest Path Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,dsa,dp-introduction,Dynamic Programming — Introduction,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,architecture-qa,Architecture & Patterns Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,advanced-coding-qa,Senior Coding Challenges,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,memory-perf-qa,Memory & Performance Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,dsa-coding-qa,DSA Problem Solving Q&A,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,functional-programming-qa,Functional Programming Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,proxy-reflect-qa,"Proxy, Reflect & Symbols Q&A",6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,senior,iq,design-patterns-coding-qa,Design Patterns Coding Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,performance,Performance Optimization,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,web-workers,Web Workers & Concurrency,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,security,Frontend Security,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,advanced-web-apis,Advanced Web APIs,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,testing,Testing Strategies,9,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,browser-rendering,Browser Rendering Pipeline,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,module-bundlers,Module Bundlers & Build Tools Deep Dive,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,js,typescript-integration,TypeScript Essential Integration,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,dynamic-programming,Dynamic Programming — Memoization & Tabulation,10,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,greedy-algorithms,Greedy Algorithms,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,backtracking,Backtracking — Decision Trees & Pruning,8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,advanced-graph,Advanced Graph Algorithms,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,monotonic-patterns,Monotonic Stack & Queue Patterns,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,bitmask-dp,Bitmask DP,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,segment-tree-intro,Segment Tree — Introduction & Range Queries,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,string-matching,String Matching Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,dsa,trie-advanced,Trie — Advanced Applications,5,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,system-design-qa,Frontend System Design Q&A,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,tech-leadership-qa,Technical Leadership Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,security-qa,Security Interview Questions,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,dp-advanced-qa,DP & Advanced DSA Q&A,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,testing-qa,Testing Strategies Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,web-workers-qa,Web Workers & Concurrency Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,staff,iq,performance-coding-qa,Performance Optimization Coding Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,language-internals,"JS Engine Internals — V8, JIT & GC Pipeline",8,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,tc39-process,TC39 & ECMAScript Standards,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,ast-tooling,AST & Code Tooling,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,wasm-integration,WebAssembly & JS Interop,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,build-systems,"Build Systems — Webpack, Vite, Rollup & More",7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,compiler-theory,Compiler & Parsing Theory,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,browser-architecture,Browser Architecture & Internals,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,js,language-design,Language Design & Specification,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,algorithm-design,Algorithm Design Theory,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,advanced-trees,Advanced Tree Structures,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,string-algorithms,Advanced String Algorithms,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,np-problems,Complexity Classes & Theory,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,network-flow,Network Flow & Matching,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,advanced-dp,Advanced DP Techniques,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,computational-geometry,Computational Geometry,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,dsa,advanced-hashing,Advanced Hashing Techniques,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,engineering-strategy-qa,Engineering Strategy Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,scale-qa,Scale & Infrastructure Q&A,7,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,leadership-qa,Engineering Leadership Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,competitive-problems-qa,Hard Competitive Problems Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,system-architecture-qa,System Architecture Deep-Dive Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,open-source-qa,Open Source & Ecosystem Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+javascript,principal,iq,compiler-internals-qa,Compiler & Engine Internals Q&A,6,,verified,Topic is aligned with official reference documentation.,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+typescript,entry,ts,what-is-typescript,What is TypeScript & Setup,9,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,type-annotations,Type Annotations — Primitives & Special Types,10,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,type-inference,Type Inference,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,arrays-tuples,Array & Tuple Types,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,object-types,Object Types,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,type-aliases,Type Aliases,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,interfaces-intro,Interfaces — Introduction,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,union-types-intro,Union Types — Introduction,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,type-assertions,Type Assertions,6,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,enums-intro,Enums — Introduction,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,ts,functions-typed,Functions — Typed Parameters & Return Types,9,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,dsa,typed-arrays-dsa,Typed Arrays & Basic Operations,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,dsa,type-safe-objects,Type-safe Record & Map Operations,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,dsa,big-o-ts,Big O Notation with TypeScript,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,iq,ts-fundamentals-qa,TypeScript Fundamentals Q&A,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,iq,type-system-basics-qa,Type System Basics Q&A,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,iq,type-alias-interface-qa,Type Alias vs Interface Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,entry,iq,entry-coding-challenges-qa,Entry-Level Coding Challenges,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,interfaces-in-depth,Interfaces — In Depth,9,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,type-aliases-in-depth,Type Aliases — In Depth,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,generics-fundamentals,Generics — Fundamentals,10,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,union-intersection-advanced,Union & Intersection Types — Advanced,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,literal-types,Literal Types & const Assertions,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,type-narrowing,Type Narrowing — Guards & Patterns,9,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,classes-ts,Classes with TypeScript,10,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,enums-in-depth,Enums — In Depth,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,functions-advanced-types,Functions — Advanced Types,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,ts,utility-types-basics,Utility Types — Core Set,11,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,dsa,generic-stack-queue,Generic Stack & Queue,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,dsa,generic-linked-list,Generic Linked List,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,dsa,typed-searching-sorting,Typed Searching & Sorting,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,dsa,recursion-ts,Recursion with TypeScript,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,iq,generics-qa,Generics Q&A,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,iq,interface-type-qa,Interface vs Type Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,iq,narrowing-guards-qa,Narrowing & Type Guards Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,iq,classes-oop-qa,Classes & OOP Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,iq,utility-types-qa,Utility Types Q&A,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,junior,iq,junior-coding-challenges,Junior Coding Challenges,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,mapped-types,Mapped Types,11,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,conditional-types,Conditional Types,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,infer-keyword,infer Keyword,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,template-literal-types,Template Literal Types,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,advanced-utility-types,Advanced Utility Types,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,declaration-files,Declaration Files (.d.ts),8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,module-system-ts,Module System in TypeScript,8,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,tsconfig-in-depth,tsconfig.json — In Depth,11,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,decorators-ts,Decorators,10,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,ts,symbols-unique,Symbol & unique symbol,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,dsa,generic-tree,Generic Binary Tree & BST,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,dsa,generic-hash-map,Generic Hash Map Implementation,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,dsa,typed-graph,Generic Graph Implementation,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,dsa,recursive-types-dsa,Recursive Types in DSA,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,iq,mapped-conditional-qa,Mapped & Conditional Types Q&A,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,iq,infer-template-qa,infer & Template Literal Types Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,iq,declaration-files-qa,Declaration Files Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,iq,tsconfig-qa,tsconfig & Build Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mid,iq,mid-coding-challenges,Mid-Level Coding Challenges,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,advanced-generics,"Advanced Generics — Constraints, Variance & Inference",9,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,recursive-types-advanced,Recursive Types — Advanced Patterns,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,variadic-tuple-types,Variadic Tuple Types,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,type-level-programming,Type-Level Programming,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,nominal-branded-types,Nominal Types & Branded Types,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,satisfies-operator,satisfies Operator,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,user-defined-type-guards,User-Defined Type Guards & Assertion Functions,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,performance-optimization-ts,TypeScript Performance & Optimization,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,typescript-compiler-api,TypeScript Compiler API — Basics,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,ts,advanced-patterns,Advanced TypeScript Patterns,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,dsa,typed-trie,Type-Safe Trie,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,dsa,typed-priority-queue,Generic Priority Queue (Heap),6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,dsa,typed-graph-algorithms,Type-Safe Graph Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,dsa,dp-typed,Dynamic Programming with TypeScript,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,iq,advanced-generics-qa,Advanced Generics & Variance Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,iq,recursive-complex-types-qa,Recursive & Complex Types Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,iq,branded-nominal-qa,Branded & Nominal Types Q&A,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,iq,compiler-performance-qa,Compiler & Performance Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,senior,iq,senior-coding-challenges,Senior Coding Challenges,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,ts-with-react,TypeScript with React,15,forwardref,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,ts-with-nodejs,TypeScript with Node.js,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,ts-with-express,TypeScript with Express,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,ts-with-databases,TypeScript with Databases & ORMs,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,runtime-validation,"Runtime Validation — Zod, Valibot & io-ts",8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,ts-with-testing,TypeScript with Testing,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,strict-lint-ts,Strict Mode & TypeScript ESLint,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,build-tools-ts,Build Tools & Bundlers with TypeScript,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,error-handling-patterns,Error Handling Patterns in TypeScript,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,ts,monorepo-ts,Monorepo & Large-Scale TypeScript,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,dsa,typed-api-client,Type-Safe API Client,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,dsa,repository-pattern-typed,Repository Pattern with TypeScript,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,dsa,typed-event-system,Fully Typed Event System,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,iq,react-ts-qa,TypeScript with React Q&A,7,forwardref,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,iq,node-express-ts-qa,TypeScript with Node.js & Express Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,iq,runtime-validation-qa,Runtime Validation Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,iq,build-tooling-ts-qa,Build & Tooling Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,professional,iq,architecture-ts-qa,Architecture & Real-World Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,type-level-mastery,Type-Level Programming Mastery,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,advanced-design-patterns,Advanced Design Patterns with TypeScript,9,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,typescript-ecosystem-mastery,TypeScript Ecosystem Mastery,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,writing-ts-libraries,Writing TypeScript Libraries,8,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,typescript-compiler-plugins,TypeScript Compiler Plugins & Transformers,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,typescript-rfcs-proposals,"TypeScript RFCs, Proposals & Roadmap",6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,type-safe-dsl,Building Type-Safe DSLs,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,micro-frontend-types,TypeScript in Micro-Frontends,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,ci-cd-ts,TypeScript in CI/CD,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,ts,functional-ts,Functional Programming in TypeScript,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,dsa,advanced-typed-algorithms,Complex Algorithms with TypeScript,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,dsa,fp-dsa,Functional Data Structures in TypeScript,4,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,dsa,system-design-ts,System Design with TypeScript,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,iq,principal-ts-qa,Principal / Staff Engineer TS Q&A,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,iq,system-design-ts-qa,System Design with TypeScript Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,iq,oss-library-ts-qa,TypeScript OSS & Library Architecture Q&A,5,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,iq,type-theory-qa,Type System Theory Q&A,6,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+typescript,mastery,iq,expert-coding-challenges,Expert Coding Challenges,7,,verified,Topic is aligned with official reference documentation.,https://www.typescriptlang.org/docs/
+nodejs,entry,nodejs,what-is-nodejs,What is Node.js?,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,installation-setup,Installation & Setup,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,commonjs-modules,CommonJS Modules (CJS),8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,nodejs-globals,Node.js Globals,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,path-module,path Module,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,fs-sync,File System — Synchronous Operations,10,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,os-module,os Module,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,nodejs,npm-basics,npm & package.json Basics,10,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,dsa,node-arrays-strings,Arrays & Strings in Node.js context,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,dsa,basic-file-ops-dsa,File & Path Problem Patterns,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,dsa,big-o-node,Algorithm Complexity in Node.js,4,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,iq,nodejs-fundamentals-qa,Node.js Fundamentals Q&A,7,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,iq,modules-qa,Modules Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,iq,npm-qa,npm & package.json Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,entry,iq,entry-coding-node,Entry-Level Coding Exercises,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,es-modules-nodejs,ES Modules in Node.js,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,process-object,process Object,11,nexttick,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,event-emitter,EventEmitter,10,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,buffer,Buffer,11,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,streams,Streams,11,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,fs-async,File System — Asynchronous Operations,14,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,http-module,http Module,10,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,url-querystring,URL & querystring,7,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,child-process,child_process Module,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,timers-node,Timers in Node.js,9,nexttick,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,junior,nodejs,crypto-basics,crypto Module — Basics,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,dsa,event-driven-patterns,Event-Driven Data Patterns,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,dsa,stream-algorithms,Stream-Based Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,dsa,buffer-manipulation,Buffer Manipulation Patterns,4,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,iq,modules-esm-qa,Modules & ESM Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,iq,streams-buffer-qa,Streams & Buffer Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,iq,http-server-qa,HTTP Server Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,junior,iq,events-async-qa,Events & Async Q&A,5,nexttick,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,junior,iq,junior-coding-node,Junior Coding Exercises,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,event-loop-deep,Event Loop — Deep Dive,11,nexttick,updated_wording,Wording aligned with Node.js event loop phase documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,async-patterns,"Async Patterns — Callbacks, Promises, async/await",11,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,error-handling-node,Error Handling in Node.js,9,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,cluster-module,Cluster Module & Multi-Process Scaling,9,cluster,updated_wording,Topic now includes cluster vs worker_threads vs horizontal scaling guidance.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,worker-threads,Worker Threads,10,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,net-tls-module,net & tls Modules,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,crypto-advanced,crypto Module — Advanced,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,http2-module,HTTP/2,7,server-push,updated_wording,Server Push marked as limited real-world usage for modern deployments.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,compression-zlib,Compression — zlib,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,readline-module,readline Module,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,nodejs,vm-module,vm Module,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,dsa,async-queue,Async Queue & Concurrency Control,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,dsa,concurrent-patterns-dsa,Concurrent Processing Patterns,4,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,dsa,tcp-server-patterns,TCP Server Data Patterns,3,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,iq,event-loop-qa,Event Loop Q&A,6,nexttick,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,mid,iq,async-patterns-qa,Async Patterns Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,iq,cluster-workers-qa,Cluster & Worker Threads Q&A,5,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,mid,iq,error-handling-mid-qa,Error Handling Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mid,iq,mid-coding-node,Mid-Level Coding Exercises,5,nexttick,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,express-deep,Express.js — Deep Dive,11,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,security-node,Security in Node.js,12,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,authentication,Authentication & Authorization,12,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,databases-node,Databases with Node.js,11,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,rest-api-design,REST API Design,10,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,graphql-node,GraphQL with Node.js,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,websockets-node,WebSockets,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,message-queues,Message Queues,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,caching-node,Caching Strategies,7,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,logging-node,Logging,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,scheduling-node,Task Scheduling,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,file-uploads,File Uploads & Processing,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,nodejs,email-node,Email,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,dsa,graph-algorithms-node,Graph Algorithms for Backend,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,dsa,caching-dsa,Caching Data Structures,4,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,dsa,rate-limit-dsa,Rate Limiting Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,iq,express-security-qa,Express & Security Q&A,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,iq,auth-qa,Authentication & Authorization Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,iq,databases-node-qa,Databases Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,iq,realtime-messaging-qa,Real-Time & Messaging Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,senior,iq,senior-coding-node,Senior Coding Exercises,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,nestjs-framework,NestJS Framework,12,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,fastify-framework,Fastify Framework,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,grpc-node,gRPC with Node.js,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,microservices-node,Microservices Architecture,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,docker-node,Docker & Node.js,7,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,kubernetes-node,Kubernetes & Node.js,7,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,cicd-node,CI/CD for Node.js,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,testing-node,Testing Node.js,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,performance-profiling,Performance Profiling,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,memory-management,Memory Management,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,observability-node,APM & Observability,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,serverless-node,Serverless Node.js,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,nodejs,config-management,Environment & Config Management,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,dsa,system-design-dsa,System Design Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,dsa,advanced-ds-production,Advanced Data Structures for Production,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,iq,framework-architecture-qa,Framework & Architecture Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,iq,testing-prod-qa,Testing & Production Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,iq,docker-k8s-qa,Docker & Kubernetes Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,professional,iq,system-design-exercises,System Design Exercises,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,v8-internals,V8 JavaScript Engine Internals,10,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,libuv-internals,libuv Internals,7,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,v8-optimization-tips,V8 Optimization Tips,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,native-addons,Native Addons with N-API,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,custom-streams,Custom Stream Implementation,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,diagnostic-tools,Diagnostic Tools,9,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,module-system-internals,Module System Internals,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,high-performance-patterns,High-Performance Patterns,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,security-at-scale,Security at Scale,8,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,nodejs-governance,Node.js Governance & Ecosystem,6,experimental,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,nodejs,shared-memory-threads,SharedArrayBuffer & Atomics,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,dsa,advanced-trees,Advanced Tree Structures,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,dsa,advanced-algorithms-expert,Expert Algorithms,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,dsa,distributed-algorithms,Distributed Systems Algorithms,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,iq,v8-libuv-qa,V8 & libuv Q&A,6,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,iq,architecture-lead-qa,Architecture at Scale Q&A,5,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,iq,performance-security-lead-qa,Performance & Security Q&A,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+nodejs,mastery,iq,expert-coding-node,Expert Coding Exercises,5,,verified,Topic is aligned with official reference documentation.,https://nodejs.org/docs/latest/api/
+express,entry,express,what-is-express,What is Express.js?,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,first-server,Creating Your First Server,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,routing-basics,Routing Basics,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,request-object,Request Object (req),8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,response-object,Response Object (res),9,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,middleware-basics,Middleware — Concept & Basics,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,static-files,Static File Serving,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,env-config,Environment Configuration,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,basic-error-handling,Error Handling Basics,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,express,project-structure,Project Structure & Setup,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,iq,express-fundamentals-qa,Express.js Fundamentals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,iq,http-routing-qa,HTTP & Routing Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,entry,iq,setup-basics-qa,Setup & Basics Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,express-router,Express Router — Modular Routing,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,body-parsing,"Body Parsing — JSON, URL-Encoded & Raw",8,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://expressjs.com/
+express,junior,express,url-params-query,URL Parameters & Query Strings,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,http-status-headers,HTTP Status Codes & Response Headers,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,error-handling-core,Error Handling — Middleware & Custom Errors,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,template-engines,"Template Engines — EJS, Pug & Handlebars",8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,cookies-sessions,Cookies & Sessions,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,cors-basics,CORS — Cross-Origin Resource Sharing,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,logging-morgan,HTTP Logging with Morgan,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,express,middleware-patterns,Middleware Patterns,7,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,iq,routing-middleware-qa,Routing & Middleware Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,iq,http-fundamentals-qa,HTTP & Request/Response Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,junior,iq,session-auth-basics-qa,"Sessions, Cookies & Auth Basics Q&A",8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,rest-api-design,REST API Design Principles,10,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,mvc-architecture,MVC Architecture Pattern,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,input-validation,Input Validation,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,jwt-authentication,Authentication — JWT (JSON Web Tokens),10,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,password-security,Password Security,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,mongodb-mongoose,MongoDB Integration — Mongoose,10,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,postgresql-integration,PostgreSQL Integration — pg & Sequelize,9,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,file-uploads,File Uploads — Multer,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,logging-winston,Logging — Winston & Morgan,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,express,api-versioning,API Versioning Strategies,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,iq,rest-api-qa,REST & API Design Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,iq,auth-security-qa,Authentication & Security Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mid,iq,database-integration-qa,Database Integration Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,advanced-middleware,Advanced Middleware Patterns,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,security-hardening,Security Hardening,10,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,rate-limiting,Rate Limiting & Throttling,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,caching,Caching Strategies,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,websockets,WebSockets & Real-time Communication,9,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,oauth2-passport,OAuth2 & Passport.js,9,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,testing-express,Testing Express APIs,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,background-jobs,Background Jobs & Queues,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,async-error-patterns,Async Error Handling Patterns,7,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,express,graphql-express,GraphQL with Express,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,iq,security-qa,Security Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,iq,advanced-routing-qa,Advanced Middleware & Architecture Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,senior,iq,testing-qa,Testing Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,production-architecture,Production Architecture Patterns,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,advanced-auth,Advanced Authentication & Authorization,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,database-best-practices,Database Best Practices,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,performance-optimization,Performance Optimization,9,cluster,updated_wording,Production scaling wording broadened beyond only cluster mode.,https://expressjs.com/
+express,professional,express,docker-containerization,Docker & Containerization,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,cicd-deployment,CI/CD & Deployment,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,api-documentation,API Documentation — Swagger / OpenAPI,7,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,health-graceful-shutdown,Health Checks & Graceful Shutdown,7,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,monitoring-observability,Monitoring & Observability,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,express,load-balancing,Load Balancing & Horizontal Scaling,7,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,professional,iq,production-devops-qa,Production & DevOps Q&A,8,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://expressjs.com/
+express,professional,iq,performance-scalability-qa,Performance & Scalability Q&A,8,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://expressjs.com/
+express,professional,iq,architecture-qa,Architecture Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,express-internals,Express.js Internals — Router & Middleware Engine,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,microservices-express,Microservices with Express,10,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,api-gateway-patterns,API Gateway Patterns,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,event-driven-architecture,Event-Driven Architecture,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,grpc-express,gRPC with Express / Node.js,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,advanced-security,Advanced Security,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,custom-plugins-extensions,Custom Plugins & Extending Express,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,system-design-express,System Design with Express,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,express,open-source-ecosystem,Open-Source & Express Ecosystem,6,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,iq,system-design-qa,System Design Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,iq,microservices-qa,Microservices Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+express,mastery,iq,expert-architecture-qa,Expert Architecture & Leadership Q&A,8,,verified,Topic is aligned with official reference documentation.,https://expressjs.com/
+nestjs,entry,nestjs,what-is-nestjs,What is NestJS?,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,installation-cli,Installation & NestJS CLI,10,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,project-structure,Project Structure,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,decorators-intro,TypeScript Decorators — NestJS Foundation,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,first-module,Modules — @Module Decorator,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,first-controller,Controllers — @Controller & Route Decorators,10,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,first-service,Providers & Services — @Injectable,6,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,nestfactory,Application Bootstrap — NestFactory,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,nestjs,response-handling,Request & Response Handling,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,iq,nestjs-fundamentals-qa,NestJS Fundamentals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,iq,cli-structure-qa,CLI & Project Structure Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,entry,iq,routing-basics-qa,Routing & Decorators Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,dependency-injection,Dependency Injection — IoC Container,9,forwardref,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,pipes,Pipes — Validation & Transformation,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,guards,Guards — Authorization,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,interceptors,Interceptors,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,exception-filters,Exception Filters,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,middleware-nest,Middleware in NestJS,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,dtos-validation,"DTOs, Validation & Transformation",9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,config-nestjs,Configuration — @nestjs/config,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,request-lifecycle,NestJS Request Lifecycle,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,nestjs,module-patterns,Module Patterns,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,iq,core-building-blocks-qa,Core Building Blocks Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,iq,di-modules-qa,DI & Modules Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,junior,iq,lifecycle-config-qa,Lifecycle & Config Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,typeorm-integration,Databases — TypeORM with NestJS,12,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,mongoose-integration,Databases — Mongoose with NestJS,10,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,prisma-integration,Databases — Prisma with NestJS,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,authentication-jwt,Authentication — JWT with @nestjs/jwt,10,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,passport-integration,Authentication — @nestjs/passport,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,rbac-nestjs,Roles & Permissions — RBAC,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,serialization,Response Serialization,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,swagger-openapi,Swagger / OpenAPI Documentation,11,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,file-upload-nest,File Uploads with Multer,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,nestjs,pagination-filtering,Pagination & Filtering,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,iq,database-orm-qa,Database & ORM Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,iq,auth-security-nest-qa,Authentication & Security Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mid,iq,api-design-nest-qa,API Design Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,microservices-nestjs,Microservices with @nestjs/microservices,12,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,websockets-nestjs,Real-time — WebSockets & Gateways,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,graphql-nestjs,GraphQL with @nestjs/graphql,13,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,cqrs-nestjs,CQRS Pattern with @nestjs/cqrs,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,scheduling-nestjs,Scheduling — @nestjs/schedule,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,events-nestjs,Event Emitter — @nestjs/event-emitter,6,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,health-checks-nestjs,Health Checks — @nestjs/terminus,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,queues-bullmq-nestjs,Queues — @nestjs/bullmq / @nestjs/bull,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,nestjs,caching-nestjs,Caching — @nestjs/cache-manager,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,iq,microservices-ws-qa,Microservices & WebSockets Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,iq,graphql-cqrs-qa,GraphQL & CQRS Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,senior,iq,async-patterns-nestjs-qa,Async Patterns Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,advanced-di,Advanced Dependency Injection,11,forwardref,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,dynamic-modules,Dynamic Modules,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,custom-decorators,Custom Decorators,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,testing-nestjs,Testing in NestJS,11,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,interceptor-patterns,Advanced Interceptor Patterns,6,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,rate-limiting-nestjs,Rate Limiting — @nestjs/throttler,5,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,docker-production-nestjs,Docker & Production Deployment,8,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://docs.nestjs.com/
+nestjs,professional,nestjs,monitoring-observability,Monitoring & Observability,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,nestjs,monorepo-nx-nestjs,Monorepo with Nx + NestJS,6,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,iq,di-testing-qa,DI & Testing Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,iq,production-architecture-qa,Production Architecture Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,professional,iq,interceptor-decorator-qa,Interceptors & Decorators Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,nestjs-internals,NestJS Internals & IoC Container,9,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,grpc-nestjs,gRPC with NestJS,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,serverless-nestjs,Serverless NestJS,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,library-plugin-authoring,NestJS Library & Plugin Authoring,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,advanced-cqrs-event-sourcing,Advanced CQRS & Event Sourcing,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,custom-transport-strategy,Custom Transport Strategy,5,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,performance-nestjs,Performance Tuning,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,system-design-nestjs,System Design with NestJS,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,nestjs,nestjs-ecosystem,NestJS Ecosystem & Roadmap,7,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,iq,internals-mastery-qa,NestJS Internals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,iq,advanced-architecture-qa,Advanced Architecture Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+nestjs,mastery,iq,leadership-mastery-qa,Performance & Leadership Q&A,8,,verified,Topic is aligned with official reference documentation.,https://docs.nestjs.com/
+mongodb,entry,mongodb,what-is-mongodb,What is MongoDB?,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,installation-setup,Installation & Setup,8,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,bson-data-types,BSON & Data Types,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,mongosh-basics,MongoDB Shell (mongosh),8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,crud-basics,"CRUD — Insert, Find, Update, Delete",9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,query-basics,Query Basics,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,compass-basics,MongoDB Compass,7,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.mongodb.com/docs/
+mongodb,entry,mongodb,databases-collections,Databases & Collections,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,iq,mongodb-fundamentals-qa,MongoDB Fundamentals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,iq,crud-basics-qa,CRUD Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,entry,iq,setup-tools-qa,Setup & Tools Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,comparison-operators,Comparison Query Operators,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,logical-operators,Logical Query Operators,6,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,element-operators,Element & Evaluation Operators,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,array-operators,Array Query Operators,6,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,update-operators,Update Operators,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,array-update-operators,Array Update Operators,12,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,projections,Projections,6,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,cursor-methods,Cursor Methods,9,deprecated,verified_with_deprecation_note,Deprecated API is explicitly labeled and migration path is stated.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,indexes-basics,Indexes — Basics,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,upsert-findandmodify,Upsert & findAndModify Patterns,6,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,mongodb,schema-design-basics,Schema Design Basics,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,iq,query-operators-qa,Query Operators Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,iq,update-operators-qa,Update Operators Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,junior,iq,indexes-schema-qa,Indexes & Schema Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,aggregation-pipeline-intro,Aggregation Pipeline — Core Concepts,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,aggregation-group,Aggregation — $group & Accumulators,10,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,aggregation-lookup,Aggregation — $lookup (Joins),7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,aggregation-unwind,Aggregation — $unwind,5,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,aggregation-reshaping,Aggregation — Reshaping Stages,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,aggregation-expressions,Aggregation Expressions & Operators,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,index-types,Index Types,12,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,compound-index-esr,Compound Index & ESR Rule,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,text-search,Text Search,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,schema-design-patterns,Advanced Schema Design Patterns,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,mongodb,transactions-basics,Transactions,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,iq,aggregation-qa,Aggregation Pipeline Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,iq,indexes-deep-qa,Indexes Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mid,iq,schema-transactions-qa,Schema Design & Transactions Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,replica-sets,Replica Sets,12,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,sharding,Sharding — Horizontal Scaling,12,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,change-streams,Change Streams,10,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,geospatial-queries,Geospatial Queries,9,legacy,verified_with_legacy_note,Legacy topic is explicitly labeled to avoid confusion with modern defaults.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,atlas-search,Atlas Search,11,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,gridfs,GridFS — Large File Storage,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,time-series-collections,Time Series Collections,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,schema-validation,Schema Validation,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,mongodb,window-functions,Aggregation Window Functions,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,iq,replica-sharding-qa,Replication & Sharding Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,iq,change-streams-geo-qa,Change Streams & Geospatial Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,senior,iq,advanced-features-qa,Advanced Features Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,performance-tuning,Query Performance & explain(),11,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,index-strategies-production,Index Strategies for Production,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,connection-management,Connection Pooling & Driver Config,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,nodejs-driver,MongoDB Node.js Driver,11,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,mongoose-odm,Mongoose ODM,14,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,security-mongodb,Security,10,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,backup-recovery,Backup & Recovery,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,monitoring-profiling,Monitoring & Profiling,10,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,mongodb,capped-collections-tailable,Capped Collections & Tailable Cursors,6,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,iq,performance-indexing-qa,Performance & Indexing Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,iq,mongoose-driver-qa,Mongoose & Driver Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,professional,iq,security-backup-qa,Security & Backup Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,wiredtiger-storage-engine,WiredTiger Storage Engine,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,replica-set-internals,Replica Set Internals,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,sharding-internals,Sharding Internals,9,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,csfle,Client-Side Field Level Encryption (CSFLE),9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,atlas-vector-search,Atlas Vector Search,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,atlas-services,Atlas App Services & Data Platform,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,aggregation-optimization,Aggregation Pipeline Optimization,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,multi-region-global,Multi-Region & Global Clusters,7,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,mongodb,system-design-mongodb,System Design with MongoDB,9,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,iq,internals-mastery-qa,Storage Engine & Internals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,iq,security-encryption-qa,Security & Encryption Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+mongodb,mastery,iq,architecture-leadership-qa,Architecture & Leadership Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.mongodb.com/docs/
+postgresql,entry,postgresql,what-is-postgresql,What is PostgreSQL?,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,installation-setup,Installation & Setup,8,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,psql-cli,psql — The PostgreSQL CLI,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,databases-schemas,Databases & Schemas,8,cluster,verified_with_version_note,Version-sensitive topic; wording checked against official docs.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,data-types-basic,Data Types,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,creating-tables,CREATE TABLE & Basic DDL,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,basic-sql-crud,Basic SQL — CRUD,10,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,postgresql,basic-query-operators,Basic Query Operators & Clauses,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,iq,rdbms-fundamentals-qa,RDBMS & PostgreSQL Fundamentals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,iq,psql-ddl-qa,psql & DDL Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,entry,iq,basic-sql-qa,Basic SQL Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,joins,JOINs,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,aggregate-functions,Aggregate Functions & GROUP BY,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,subqueries,Subqueries,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,constraints-detail,Constraints in Depth,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,sequences-identity,Sequences & Identity Columns,7,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,built-in-functions,Built-in Functions,10,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,views,Views,7,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,null-handling,NULL Handling,7,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,indexes-intro,Indexes — Introduction,7,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,postgresql,transactions-basics-pg,Transactions — Basics,6,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,iq,joins-aggregates-qa,JOINs & Aggregates Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,iq,subquery-constraints-qa,Subqueries & Constraints Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,junior,iq,functions-transactions-pg-qa,Functions & Transactions Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,window-functions,Window Functions,12,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,ctes,Common Table Expressions (CTEs),8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,indexing-deep-dive,Indexing Deep-Dive,12,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,explain-analyze,EXPLAIN & Query Plans,13,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,transactions-isolation,Transactions & Isolation Levels,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,plpgsql-basics,PL/pgSQL — Functions & Procedures,10,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,json-jsonb,JSON & JSONB,10,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,triggers,Triggers,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,postgresql,full-text-search,Full-Text Search,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,iq,window-cte-qa,Window Functions & CTEs Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,iq,indexing-explain-qa,Indexing & EXPLAIN Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mid,iq,mvcc-plpgsql-qa,"MVCC, PL/pgSQL & JSONB Q&A",8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,table-partitioning,Table Partitioning,11,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,row-level-security,Row-Level Security (RLS),8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,materialized-views,Materialized Views,7,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,advanced-jsonb,Advanced JSONB,10,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,arrays-pg,Arrays,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,advanced-plpgsql,Advanced PL/pgSQL,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,extensions,Extensions,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,lateral-joins,LATERAL Joins,5,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,postgresql,advanced-ddl,Advanced DDL,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,iq,partitioning-rls-qa,Partitioning & RLS Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,iq,jsonb-arrays-pg-qa,"JSONB, Arrays & Extensions Q&A",8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,senior,iq,plpgsql-types-qa,Advanced PL/pgSQL & DDL Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,connection-pooling,Connection Pooling,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,streaming-replication,Streaming Replication,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,logical-replication,Logical Replication,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,backup-recovery,Backup & Recovery,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,vacuum-autovacuum,Vacuuming & Autovacuum,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,security-roles,Security & Roles,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,configuration-tuning,Configuration & Performance Tuning,11,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,monitoring-observability,Monitoring & Observability,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,postgresql,fdw-upgrades,Foreign Data Wrappers & pg_upgrade,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,iq,pooling-replication-qa,Connection Pooling & Replication Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,iq,vacuum-security-pg-qa,"Vacuum, Security & Config Q&A",8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,professional,iq,monitoring-fdw-qa,Monitoring & FDW Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,storage-internals,Storage Internals,10,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,mvcc-internals,MVCC Internals,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,query-planner-internals,Query Planner Internals,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,parallel-query,Parallel Query,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,advanced-indexing-mastery,Advanced Indexing Strategies,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,logical-decoding-deep,Logical Decoding & CDC,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,system-design-postgresql,System Design with PostgreSQL,9,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,postgresql-version-features,PostgreSQL Version Roadmap,6,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,postgresql,custom-functions-operators,"Custom Functions, Aggregates & Operators",6,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,iq,internals-mvcc-qa,Storage & MVCC Internals Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,iq,planner-parallel-qa,"Planner, Parallel & Indexing Q&A",8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
+postgresql,mastery,iq,system-design-pg-qa,System Design & Architecture Q&A,8,,verified,Topic is aligned with official reference documentation.,https://www.postgresql.org/docs/
