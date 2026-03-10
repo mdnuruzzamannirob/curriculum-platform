@@ -135,6 +135,9 @@ export default function ModuleCard({
 }: ModuleCardProps) {
   const [isModuleExpanded, setIsModuleExpanded] = useState(true);
   const [expandedTopics, setExpandedTopics] = useState<Set<string>>(new Set());
+  const [highlightedTargetId, setHighlightedTargetId] = useState<string | null>(
+    null,
+  );
   const { progress, updateSubtopicStatus } = useProgress();
 
   const moduleStats = calcModuleProgress(progress, course.id, levelId, module);
@@ -151,7 +154,10 @@ export default function ModuleCard({
   useEffect(() => {
     const applyHashExpansion = () => {
       let hash = window.location.hash;
-      if (!hash) return;
+      if (!hash) {
+        setHighlightedTargetId(null);
+        return;
+      }
 
       try {
         hash = decodeURIComponent(hash);
@@ -160,9 +166,13 @@ export default function ModuleCard({
       }
 
       const normalizedHash = hash.replace(/^#/, "");
-      if (!normalizedHash) return;
+      if (!normalizedHash) {
+        setHighlightedTargetId(null);
+        return;
+      }
 
       if (normalizedHash === moduleAnchorId(module.id)) {
+        setHighlightedTargetId(normalizedHash);
         setIsModuleExpanded(true);
         return;
       }
@@ -172,6 +182,7 @@ export default function ModuleCard({
       );
 
       if (matchedTopic) {
+        setHighlightedTargetId(normalizedHash);
         setIsModuleExpanded(true);
         setExpandedTopics((prev) => {
           if (prev.has(matchedTopic.id)) return prev;
@@ -186,8 +197,12 @@ export default function ModuleCard({
         normalizedHash.startsWith(`subtopic-${module.id}-${topic.id}-`),
       );
 
-      if (!matchedSubtopicTopic) return;
+      if (!matchedSubtopicTopic) {
+        setHighlightedTargetId(null);
+        return;
+      }
 
+      setHighlightedTargetId(normalizedHash);
       setIsModuleExpanded(true);
       setExpandedTopics((prev) => {
         if (prev.has(matchedSubtopicTopic.id)) return prev;
@@ -208,11 +223,34 @@ export default function ModuleCard({
     return () => window.removeEventListener("hashchange", applyHashExpansion);
   }, [module.id, module.topics]);
 
+  // useEffect(() => {
+  //   if (!highlightedTargetId) return;
+  //   const timeout = window.setTimeout(() => {
+  //     setHighlightedTargetId(null);
+  //   }, 6000);
+  //   return () => window.clearTimeout(timeout);
+  // }, [highlightedTargetId]);
+
+  function clearHighlightAndHash() {
+    setHighlightedTargetId(null);
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      );
+    }
+  }
+
   return (
     <div
       id={moduleAnchorId(module.id)}
       data-accent={module.color}
-      className="scroll-mt-28 overflow-hidden rounded-xl border border-border bg-card"
+      className={cn(
+        "scroll-mt-28 overflow-hidden rounded-xl border border-border bg-card transition-colors",
+        highlightedTargetId === moduleAnchorId(module.id) &&
+          "border-primary/40 bg-primary/5 ring-2 ring-primary/25",
+      )}
     >
       {/* Module header — clickable to collapse/expand */}
       <button
@@ -263,6 +301,18 @@ export default function ModuleCard({
         />
       </button>
 
+      {highlightedTargetId && (
+        <div className="border-t border-border px-4 py-2">
+          <button
+            type="button"
+            onClick={clearHighlightAndHash}
+            className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] bg-destructive/90 duration-100 text-foreground font-medium  hover:bg-destructive/80 "
+          >
+            Clear search highlight
+          </button>
+        </div>
+      )}
+
       {/* Topics list — collapsible */}
       {isModuleExpanded && (
         <div className="divide-y divide-border border-t border-border">
@@ -283,13 +333,19 @@ export default function ModuleCard({
             const topicCopyText =
               `${topic.title}\n` +
               topic.subtopics.map((s) => `- ${s.title}`).join("\n");
+            const topicTargetId = topicAnchorId(module.id, topic.id);
+            const isTopicHighlighted = highlightedTargetId === topicTargetId;
 
             return (
               <div key={topic.id}>
                 {/* Topic row — fully clickable */}
                 <div
-                  id={topicAnchorId(module.id, topic.id)}
-                  className="group/item scroll-mt-28 flex w-full cursor-pointer items-center px-4 py-3"
+                  id={topicTargetId}
+                  className={cn(
+                    "group/item scroll-mt-28 flex w-full cursor-pointer items-center px-4 py-3 transition-colors",
+                    isTopicHighlighted &&
+                      "bg-primary/10 ring-1 ring-primary/25",
+                  )}
                   onClick={() => toggleTopic(topic.id)}
                 >
                   <div className="flex flex-1 items-center gap-3 text-left">
@@ -335,6 +391,13 @@ export default function ModuleCard({
                 {isExpanded && (
                   <div className="space-y-0.5 px-4 pb-3 pt-1">
                     {topic.subtopics.map((subtopic) => {
+                      const subtopicTargetId = subtopicAnchorId(
+                        module.id,
+                        topic.id,
+                        subtopic.id,
+                      );
+                      const isSubtopicHighlighted =
+                        highlightedTargetId === subtopicTargetId;
                       const status = getSubtopicStatus(
                         progress,
                         course.id,
@@ -347,11 +410,7 @@ export default function ModuleCard({
                       return (
                         <div
                           key={subtopic.id}
-                          id={subtopicAnchorId(
-                            module.id,
-                            topic.id,
-                            subtopic.id,
-                          )}
+                          id={subtopicTargetId}
                           onClick={() =>
                             updateSubtopicStatus(
                               course.id,
@@ -362,7 +421,11 @@ export default function ModuleCard({
                               nextStatus(status),
                             )
                           }
-                          className="group/item scroll-mt-28 flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 hover:bg-card-hover"
+                          className={cn(
+                            "group/item scroll-mt-28 flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 transition-colors hover:bg-card-hover",
+                            isSubtopicHighlighted &&
+                              "bg-primary/10 ring-1 ring-primary/25",
+                          )}
                         >
                           <CheckboxButton
                             status={status}
@@ -392,6 +455,11 @@ export default function ModuleCard({
                           {status === "in-progress" && (
                             <span className="shrink-0 rounded-full bg-amber-400/10 px-2 py-0.5 text-[10px] font-medium text-amber-500">
                               In Progress
+                            </span>
+                          )}
+                          {status === "completed" && (
+                            <span className="shrink-0 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
+                              Completed
                             </span>
                           )}
 

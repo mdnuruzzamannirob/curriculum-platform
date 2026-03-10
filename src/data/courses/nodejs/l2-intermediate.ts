@@ -21,7 +21,7 @@ export const l2Level: Level = {
           subtopics: [
             {
               id: "event-loop-phases",
-              title: "6 Event Loop Phases (timers → close callbacks)",
+              title: "Event Loop Phases (timers → pending → idle/prepare → poll → check → close)",
             },
             {
               id: "timers-phase",

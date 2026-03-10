@@ -76,7 +76,7 @@ export const l1Level: Level = {
             },
             {
               id: "process-nextTick",
-              title: "process.nextTick() — microtask queue",
+              title: "process.nextTick() — nextTick queue (runs before Promise microtasks)",
             },
           ],
         },
