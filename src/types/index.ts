@@ -72,3 +72,29 @@ export interface SearchItem {
   breadcrumb: string;
   href: string;
 }
+
+export interface PathStep {
+  /** ID of a roadmap (= course id) */
+  roadmapId: string;
+  levelId?: string;
+  isOptional?: boolean;
+  note?: string;
+}
+
+export interface PathPhase {
+  id: string;
+  title: string;
+  description?: string;
+  steps: PathStep[];
+  isAlternative?: boolean;
+}
+
+export interface Path {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  color: string;
+  icon: AppIconName;
+  phases: PathPhase[];
+}

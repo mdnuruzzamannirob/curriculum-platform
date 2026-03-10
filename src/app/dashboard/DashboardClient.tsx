@@ -94,7 +94,7 @@ export default function DashboardClient() {
       </div>
 
       {/* Per-course progress */}
-      <h2 className="mb-4 text-lg font-bold text-foreground">Your Courses</h2>
+      <h2 className="mb-4 text-lg font-bold text-foreground">Your Roadmaps</h2>
       <div className="space-y-5">
         {courses.map((course) => {
           const courseStats = calcCourseProgress(progress, course);
@@ -124,7 +124,7 @@ export default function DashboardClient() {
                       {course.title}
                     </p>
                     <Link
-                      href={`/course/${course.id}`}
+                      href={`/roadmap/${course.id}`}
                       className="inline-flex items-center gap-1 hover:bg-card-hover border border-border px-4 rounded-xl py-2 text-xs text-subtle hover:text-foreground transition-colors"
                     >
                       Open <ArrowRight className="h-3 w-3" />
@@ -170,7 +170,7 @@ export default function DashboardClient() {
                   return (
                     <Link
                       key={level.id}
-                      href={`/course/${course.id}/${level.id}`}
+                      href={`/roadmap/${course.id}/${level.id}`}
                       data-accent={level.color}
                       className="group flex items-center gap-3 px-5 py-3 hover:bg-card-hover transition-colors"
                     >

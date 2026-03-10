@@ -1,5 +1,6 @@
 import Banner from "@/components/home/Banner";
 import HighlightedCourses from "@/components/home/HighlightedCourses";
+import BackendPath from "@/components/home/BackendPath";
 import HowItWorks from "@/components/home/HowItWorks";
 import Features from "@/components/home/Features";
 import About from "@/components/home/About";
@@ -11,6 +12,7 @@ export default function HomePage() {
     <>
       <Banner />
       <HighlightedCourses />
+      <BackendPath />
       <HowItWorks />
       <Features />
       <Reviews />

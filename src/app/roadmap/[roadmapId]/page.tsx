@@ -3,16 +3,18 @@ import { getCourseById } from "@/data/courses";
 import { AppIcon } from "@/lib/icons";
 import { countSubtopics, countTopics, countModules } from "@/utils/course";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CourseProgressSummary from "@/components/course/CourseProgressSummary";
-import LevelCard from "@/components/course/LevelCard";
+import CourseProgressSummary from "@/components/roadmap/CourseProgressSummary";
+import LevelCard from "@/components/roadmap/LevelCard";
 
-interface CoursePageProps {
-  params: Promise<{ courseId: string }>;
+interface RoadmapDetailPageProps {
+  params: Promise<{ roadmapId: string }>;
 }
 
-export default async function CoursePage({ params }: CoursePageProps) {
-  const { courseId } = await params;
-  const course = getCourseById(courseId);
+export default async function RoadmapDetailPage({
+  params,
+}: RoadmapDetailPageProps) {
+  const { roadmapId } = await params;
+  const course = getCourseById(roadmapId);
   if (!course) notFound();
 
   const totalModules = countModules(course);
@@ -21,16 +23,15 @@ export default async function CoursePage({ params }: CoursePageProps) {
 
   return (
     <div className="app-container space-y-6 py-4 sm:py-6 lg:py-8">
-      {/* Back + breadcrumbs */}
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
-          { label: "Courses", href: "/course" },
+          { label: "Roadmaps", href: "/roadmap" },
           { label: course.title },
         ]}
       />
 
-      {/* Course header card */}
+      {/* Roadmap header card */}
       <div
         data-accent={course.color}
         className="flex flex-col gap-6 rounded-xl border border-border bg-card p-6 sm:p-8"
@@ -81,18 +82,15 @@ export default async function CoursePage({ params }: CoursePageProps) {
         <CourseProgressSummary course={course} />
       </div>
 
-      {/* Level cards */}
-
-      <h2 className="mb-4 text-lg font-bold text-foreground">
-        Learning Levels
-      </h2>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {course.levels.map((level, index) => (
+      {/* Level list */}
+      <h2 className="text-lg font-bold text-foreground">Levels</h2>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {course.levels.map((level, idx) => (
           <LevelCard
             key={level.id}
             course={course}
             level={level}
-            levelIndex={index}
+            levelIndex={idx}
           />
         ))}
       </div>

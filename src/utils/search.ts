@@ -9,11 +9,11 @@ export function buildSearchIndex(courses: Course[]): SearchItem[] {
       type: "course",
       title: course.title,
       breadcrumb: course.title,
-      href: `/course/${course.id}`,
+      href: `/roadmap/${course.id}`,
     });
 
     for (const level of course.levels) {
-      const levelHref = `/course/${course.id}/${level.id}`;
+      const levelHref = `/roadmap/${course.id}/${level.id}`;
 
       items.push({
         type: "level",

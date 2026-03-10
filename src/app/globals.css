@@ -236,6 +236,12 @@ button {
   --accent-rgb: 51 103 145;
 }
 
+/* ── Roadmap / Indigo accent colours ───────────────────── */
+[data-accent="#6366f1"] {
+  --accent: #6366f1;
+  --accent-rgb: 99 102 241;
+}
+
 /* ── TypeScript accent colours ─────────────────────────── */
 [data-accent="#60a5fa"] {
   --accent: #60a5fa;

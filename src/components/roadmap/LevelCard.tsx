@@ -34,7 +34,7 @@ export default function LevelCard({
 
   return (
     <Link
-      href={`/course/${course.id}/${level.id}`}
+      href={`/roadmap/${course.id}/${level.id}`}
       className="group flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
     >
       {/* Header */}

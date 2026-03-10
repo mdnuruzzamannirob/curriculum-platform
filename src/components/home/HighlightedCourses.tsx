@@ -17,7 +17,7 @@ export default function HighlightedCourses() {
         />
 
         <Link
-          href="/course"
+          href="/roadmap"
           className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-card px-5 text-sm font-medium text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-card-hover"
         >
           All Roadmaps

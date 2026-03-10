@@ -47,7 +47,7 @@ export default function CourseCard({ course }: CourseCardProps) {
   }
 
   return (
-    <Link href={`/course/${course.id}`} className="group block">
+    <Link href={`/roadmap/${course.id}`} className="group block">
       <Card className="h-full border-border bg-card transition-all duration-300 group-hover:-translate-y-1 group-hover:border-border-strong group-hover:bg-card-hover">
         <CardHeader className="pb-4">
           <div className="flex items-start gap-3">

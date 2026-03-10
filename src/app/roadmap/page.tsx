@@ -3,21 +3,21 @@ import { courses } from "@/data/courses";
 import { countModules, countSubtopics, countTopics } from "@/utils/course";
 import { AppIcon } from "@/lib/icons";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CourseProgressSummary from "@/components/course/CourseProgressSummary";
+import CourseProgressSummary from "@/components/roadmap/CourseProgressSummary";
 import SectionTop from "@/components/SectionTop";
 import { ArrowRight } from "lucide-react";
 
-export default function CoursesPage() {
+export default function RoadmapsPage() {
   return (
     <div className="app-container space-y-6 py-4 sm:py-6 lg:py-8">
       <Breadcrumbs
-        items={[{ label: "Home", href: "/" }, { label: "Courses" }]}
+        items={[{ label: "Home", href: "/" }, { label: "Roadmaps" }]}
       />
 
       <SectionTop
-        titleTop="All Learning"
+        titleTop="All Technology"
         titleBottom="Roadmaps"
-        description="Pick a track and follow the structured path from beginner to mastery. Every course is split into levels so you always know where you stand."
+        description="Pick a roadmap and follow the structured path from beginner to mastery. Every roadmap is split into levels so you always know where you stand."
       />
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,9 +29,9 @@ export default function CoursesPage() {
           return (
             <Link
               key={course.id}
-              href={`/course/${course.id}`}
+              href={`/roadmap/${course.id}`}
               data-accent={course.color}
-              className="group flex flex-col gap-5 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
+              className="group flex flex-col gap-5 rounded-xl border border-border bg-card p-6 hover:-translate-y-0.5 hover:border-border-strong hover:bg-card-hover"
             >
               {/* Icon + title */}
               <div className="flex items-start gap-4">
@@ -55,7 +55,7 @@ export default function CoursesPage() {
                   </p>
                 </div>
 
-                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-disabled transition-transform group-hover:translate-x-0.5 group-hover:text-subtle" />
+                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-disabled group-hover:translate-x-0.5 group-hover:text-subtle" />
               </div>
 
               {/* Stats */}
@@ -89,3 +89,4 @@ export default function CoursesPage() {
     </div>
   );
 }
+

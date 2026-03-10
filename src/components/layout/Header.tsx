@@ -14,7 +14,8 @@ import GitHubStars from "./GitHubStars";
 import UserMenu from "./UserMenu";
 
 const navItems = [
-  { label: "Roadmaps", href: "/course" },
+  { label: "Paths", href: "/path" },
+  { label: "Roadmaps", href: "/roadmap" },
   { label: "How it works", href: "/how-it-works" },
   { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
