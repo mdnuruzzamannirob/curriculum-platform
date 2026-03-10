@@ -298,7 +298,10 @@ export const l2Level: Level = {
               id: "http2-streams",
               title: "HTTP/2 Streams vs HTTP/1.1 requests",
             },
-            { id: "server-push", title: "Server Push in HTTP/2" },
+            {
+              id: "server-push",
+              title: "Server Push in HTTP/2 (limited real-world usage)",
+            },
             {
               id: "http2-client",
               title: "http2.connect() — HTTP/2 client session",

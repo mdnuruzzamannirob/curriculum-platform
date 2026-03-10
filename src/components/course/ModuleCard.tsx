@@ -81,7 +81,7 @@ function CheckboxButton({
       className={cn(
         "flex h-4 w-4 shrink-0 items-center justify-center rounded border transition-colors",
         status === "completed"
-          ? "border-foreground bg-foreground text-background"
+          ? "border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
           : status === "in-progress"
             ? "border-amber-400 bg-amber-400/10 text-amber-400"
             : "border-subtle hover:border-foreground",
@@ -223,13 +223,13 @@ export default function ModuleCard({
     return () => window.removeEventListener("hashchange", applyHashExpansion);
   }, [module.id, module.topics]);
 
-  // useEffect(() => {
-  //   if (!highlightedTargetId) return;
-  //   const timeout = window.setTimeout(() => {
-  //     setHighlightedTargetId(null);
-  //   }, 6000);
-  //   return () => window.clearTimeout(timeout);
-  // }, [highlightedTargetId]);
+  useEffect(() => {
+    if (!highlightedTargetId) return;
+    const timeout = window.setTimeout(() => {
+      setHighlightedTargetId(null);
+    }, 6000);
+    return () => window.clearTimeout(timeout);
+  }, [highlightedTargetId]);
 
   function clearHighlightAndHash() {
     setHighlightedTargetId(null);
