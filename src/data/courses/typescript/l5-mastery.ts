@@ -3,7 +3,7 @@ import { Level } from "@/types";
 export const l5Level: Level = {
   id: "mastery",
   title: "TypeScript Mastery",
-  description: "Expert / Principal",
+  description: "Principal / Lead",
   color: "#34d399",
   modules: [
     // ── TS ───────────────────────────────────────────────
