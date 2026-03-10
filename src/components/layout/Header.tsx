@@ -88,7 +88,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="lg:h-10 h-9 gap-2 rounded-xl items-center justify-center border border-border bg-card max-lg:w-9 lg:px-3 text-sm hover:text-card-foreground text-muted-foreground transition duration-100 hover:bg-card-hover inline-flex"
+              className="h-9 gap-2 rounded-xl items-center justify-center border border-border bg-card max-lg:w-9 lg:px-2 text-sm hover:text-card-foreground text-muted-foreground transition duration-100 hover:bg-card-hover inline-flex"
               aria-label="Open search"
             >
               <Search className="size-4 lg:size-4.5 shrink-0" />{" "}

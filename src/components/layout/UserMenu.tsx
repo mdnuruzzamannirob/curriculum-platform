@@ -42,7 +42,7 @@ function UserMenu() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex size-9 lg:size-10 items-center gap-2 rounded-full border border-border bg-card text-muted-foreground hover:text-card-foreground hover:bg-card-hover"
+        className="flex size-9 items-center gap-2 rounded-full border border-border bg-card text-muted-foreground hover:text-card-foreground hover:bg-card-hover"
         aria-expanded={open}
         aria-label="User menu"
       >

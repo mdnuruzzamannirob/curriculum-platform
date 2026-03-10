@@ -54,9 +54,12 @@ export default function Searchbar({ open, onClose }: SearchOverlayProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-90 backdrop-blur">
+    <div className="fixed inset-0 z-90 backdrop-blur" onMouseDown={handleClose}>
       <div className="mx-auto flex h-full w-full max-w-2xl flex-col px-4 pt-10 sm:px-6">
-        <div className="overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-2xl">
+        <div
+          className="overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-2xl"
+          onMouseDown={(e) => e.stopPropagation()}
+        >
           {/* Input row */}
           <div className="flex items-center gap-3 border-b border-border px-4">
             <Search className="h-5 w-5 shrink-0 text-faint" />

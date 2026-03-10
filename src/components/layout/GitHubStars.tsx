@@ -23,7 +23,7 @@ function GitHubStars() {
       href="https://github.com/mdnuruzzamannirob/curriculum-platform"
       target="_blank"
       rel="noopener noreferrer"
-      className="h-9 lg:h-10 items-center transition duration-100 gap-2 rounded-xl border border-border bg-card px-2 lg:px-3 text-xs font-medium hover:text-card-foreground text-muted-foreground hover:bg-card-hover inline-flex"
+      className="h-9 items-center transition duration-100 gap-2 rounded-xl border border-border bg-card px-2 text-xs font-medium hover:text-card-foreground text-muted-foreground hover:bg-card-hover inline-flex"
       aria-label="GitHub repository"
     >
       <FaGithub className="size-4 lg:size-4.5 shrink-0" />

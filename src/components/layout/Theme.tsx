@@ -23,7 +23,7 @@ export default function Theme() {
     <button
       type="button"
       onClick={onToggle}
-      className="inline-flex size-9 lg:size-10 items-center transition duration-100 justify-center rounded-xl border border-border bg-card text-muted-foreground  hover:text-card-foreground hover:bg-card-hover"
+      className="inline-flex size-9 items-center transition duration-100 justify-center rounded-xl border border-border bg-card text-muted-foreground  hover:text-card-foreground hover:bg-card-hover"
       title="Toggle color mode"
       aria-label="Toggle color mode"
     >
