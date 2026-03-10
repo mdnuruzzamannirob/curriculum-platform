@@ -3,7 +3,8 @@ import type { Path } from "@/types";
 export const backendPath: Path = {
   id: "backend",
   title: "Backend Developer",
-  tagline: "From JavaScript fundamentals to production-ready APIs and databases",
+  tagline:
+    "From JavaScript fundamentals to production-ready APIs and databases",
   description:
     "A curated, step-by-step learning path for becoming a professional backend developer. Follow the phases in order — each one builds on the previous so you always know what to learn next.",
   color: "#6366f1",

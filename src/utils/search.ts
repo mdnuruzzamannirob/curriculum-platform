@@ -71,4 +71,3 @@ export function searchItems(items: SearchItem[], query: string): SearchItem[] {
     )
     .slice(0, 20);
 }
-

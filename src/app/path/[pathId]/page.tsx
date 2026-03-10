@@ -19,10 +19,7 @@ export default async function PathDetailPage({ params }: PathDetailPageProps) {
   const path = getPathById(pathId);
   if (!path) notFound();
 
-  const totalRoadmaps = path.phases.reduce(
-    (sum, p) => sum + p.steps.length,
-    0,
-  );
+  const totalRoadmaps = path.phases.reduce((sum, p) => sum + p.steps.length, 0);
 
   const firstStep = path.phases[0]?.steps[0];
   const firstHref = firstStep

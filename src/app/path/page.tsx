@@ -8,9 +8,7 @@ import SectionTop from "@/components/SectionTop";
 export default function PathsPage() {
   return (
     <div className="app-container space-y-6 py-4 sm:py-6 lg:py-8">
-      <Breadcrumbs
-        items={[{ label: "Home", href: "/" }, { label: "Paths" }]}
-      />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Paths" }]} />
 
       <SectionTop
         titleTop="Learning Paths"
@@ -70,7 +68,9 @@ export default function PathsPage() {
                     <span className="text-sm font-bold text-foreground">
                       {stat.value}
                     </span>
-                    <span className="text-[10px] text-subtle">{stat.label}</span>
+                    <span className="text-[10px] text-subtle">
+                      {stat.label}
+                    </span>
                   </div>
                 ))}
               </div>

@@ -8,4 +8,3 @@ export const paths: Path[] = [backendPath, expressTrackPath, nestjsTrackPath];
 export function getPathById(id: string): Path | undefined {
   return paths.find((p) => p.id === id);
 }
-
